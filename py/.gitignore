@@ -1,0 +1,12 @@
+build
+.coverage
+*.csv
+dist
+*.egg
+*.egg-info
+eggs
+parts
+*.py[co]
+sdist
+.tox
+var

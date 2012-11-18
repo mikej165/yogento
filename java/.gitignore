@@ -1,0 +1,6 @@
+*.class
+*.csv
+*.ear
+*.jar
+target
+*.war

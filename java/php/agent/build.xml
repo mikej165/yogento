@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE project>
+<project name="yogento-php-agent" default="deploy" basedir=".">
+	<target name="deploy">
+		<delete dir="C:/Users/minor/projects/xampplite/htdocs/magento17/app/code/community/Yogento">
+		</delete>
+		<copy todir="C:/Users/minor/projects/xampplite/htdocs/magento17/app/code/community/Yogento">
+			<fileset dir="app/code/community/Yogento">
+			</fileset>
+		</copy>
+
+		<delete file="C:/Users/minor/projects/xampplite/htdocs/magento17/app/etc/modules/Yogento_Agent.xml">
+		</delete>
+		<copy tofile="C:/Users/minor/projects/xampplite/htdocs/magento17/app/etc/modules/Yogento_Agent.xml">
+			<fileset file="app/etc/modules/Yogento_Agent.xml">
+			</fileset>
+		</copy>
+	</target>
+</project>

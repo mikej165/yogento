@@ -1,0 +1,88 @@
+namespace java com.yogento.api.models.sales.order.magento
+namespace py yogento.api.models.sales.order.magento
+
+include "thryft/util/date_time.thrift"
+include "thryft/util/decimal.thrift"
+include "yogento/api/models/catalog/product/magento/magento_product_type.thrift"
+
+struct MagentoOrderItem {
+	optional string additional_data;
+	optional decimal.Decimal amount_refunded;
+	optional decimal.Decimal base_amount_refunded;
+	optional decimal.Decimal base_cost;
+	optional decimal.Decimal base_discount_amount;
+	optional decimal.Decimal base_discount_invoiced;
+	optional decimal.Decimal base_discount_refunded;
+	optional decimal.Decimal base_hidden_tax_amount;
+	optional decimal.Decimal base_hidden_tax_invoiced;
+	optional decimal.Decimal base_hidden_tax_refunded;
+	optional decimal.Decimal base_original_price;
+	optional decimal.Decimal base_price;
+	optional decimal.Decimal base_price_incl_tax;
+	optional decimal.Decimal base_row_invoiced;
+	optional decimal.Decimal base_row_total;
+	optional decimal.Decimal base_row_total_incl_tax;
+	optional decimal.Decimal base_tax_amount;
+	optional decimal.Decimal base_tax_before_discount;
+	optional decimal.Decimal base_tax_invoiced;
+	optional decimal.Decimal base_tax_refunded;
+	optional decimal.Decimal base_weee_tax_applied_amount;
+	optional decimal.Decimal base_weee_tax_applied_row_amnt;
+	optional decimal.Decimal base_weee_tax_applied_row_amount;
+	optional decimal.Decimal base_weee_tax_disposition;
+	optional decimal.Decimal base_weee_tax_row_disposition;
+	required date_time.DateTime created_at;
+	optional string description;
+	optional decimal.Decimal discount_amount;
+	optional decimal.Decimal discount_invoiced;
+	optional decimal.Decimal discount_percent;
+	optional decimal.Decimal discount_refunded;
+	optional bool free_shipping;
+	optional string gift_message_available;
+	optional i32 gift_message_id;
+	optional bool has_children;
+	optional decimal.Decimal hidden_tax_amount;
+	optional decimal.Decimal hidden_tax_canceled;
+	optional decimal.Decimal hidden_tax_invoiced;
+	optional decimal.Decimal hidden_tax_refunded;
+	optional bool is_nominal;
+	optional bool is_qty_decimal;
+	optional bool is_virtual;
+	optional i32 item_id;
+	optional bool locked_do_invoice;
+	optional bool locked_do_ship;
+	required string name;
+	optional bool no_discount;
+	optional i32 order_id;
+	optional decimal.Decimal original_price;
+	optional i32 parent_item_id;
+	optional decimal.Decimal price;
+	optional decimal.Decimal price_incl_tax;
+	optional i32 product_id;
+	required magento_product_type.MagentoProductType product_type;
+	optional decimal.Decimal qty_backordered;
+	optional decimal.Decimal qty_canceled;
+	optional decimal.Decimal qty_invoiced;
+	optional decimal.Decimal qty_ordered;
+	optional decimal.Decimal qty_refunded;
+	optional decimal.Decimal qty_shipped;
+	optional i32 quote_item_id;
+	optional decimal.Decimal row_invoiced;
+	optional decimal.Decimal row_total;
+	optional decimal.Decimal row_total_incl_tax;
+	optional decimal.Decimal row_weight;
+	required string sku;
+	optional i32 store_id;
+	optional decimal.Decimal tax_amount;
+	optional decimal.Decimal tax_before_discount;
+	optional decimal.Decimal tax_canceled;
+	optional decimal.Decimal tax_invoiced;
+	optional decimal.Decimal tax_percent;
+	optional decimal.Decimal tax_refunded;
+	required date_time.DateTime updated_at;
+	optional decimal.Decimal weee_tax_applied_amount;
+	optional decimal.Decimal weee_tax_applied_row_amount;
+	optional decimal.Decimal weee_tax_disposition;
+	optional decimal.Decimal weee_tax_row_disposition;
+	optional decimal.Decimal weight;
+}
