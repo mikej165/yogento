@@ -92,3 +92,5 @@ class Decimal(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

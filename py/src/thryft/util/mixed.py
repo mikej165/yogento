@@ -30,3 +30,5 @@ class Mixed(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

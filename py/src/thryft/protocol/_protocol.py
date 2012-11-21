@@ -7,12 +7,20 @@ class _Protocol(object):
 
     def writeByte(self, byte):
         self.writeI16(byte)
+        return self
 
     def writeI16(self, i16):
         self.writeI32(i16)
+        return self
 
     def writeMixed(self, object_):
-        if isinstance(object_, float):
+        if isinstance(object_, dict):
+            self.writeMapBegin(len(object_))
+            for key, value in object_.iteritems():
+                self.writeMixed(key)
+                self.writeMixed(value)
+            self.writeMapEnd()
+        elif isinstance(object_, float):
             self.writeDouble(object_)
         elif isinstance(object_, frozenset):
             self.writeSetBegin(len(object_))
@@ -34,3 +42,4 @@ class _Protocol(object):
             object_.write(self)
         else:
             raise TypeError(type(object_))
+        return self

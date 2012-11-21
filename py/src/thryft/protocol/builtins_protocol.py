@@ -14,7 +14,7 @@ class BuiltinsProtocol(_Protocol):
 
         def readFieldBegin(self):
             if len(self._name_stack) == 0:
-                return None, 0, None # STOP
+                return None, 0, None  # STOP
             assert isinstance(self._name_stack[-1], basestring), self._name_stack
             return self._name_stack[-1], None, None
 
@@ -32,9 +32,11 @@ class BuiltinsProtocol(_Protocol):
 
         def writeFieldBegin(self, name, *args, **kwds):
             self._name_stack.append(name)
+            return self
 
         def writeFieldEnd(self):
             self._name_stack.pop(-1)
+            return self
 
         def writeValue(self, value):
             self._writeValue(value)
@@ -145,57 +147,71 @@ class BuiltinsProtocol(_Protocol):
 
     def writeBool(self, value):
         self._scope_stack[-1].writeValue(value)
+        return self
 
     def writeFieldBegin(self, name, *args, **kwds):
         self._scope_stack[-1].writeFieldBegin(name, *args, **kwds)
+        return self
 
     def writeFieldEnd(self):
         self._scope_stack[-1].writeFieldEnd()
+        return self
 
     def writeFieldStop(self):
-        pass
+        return self
 
     def writeI32(self, value):
         self._scope_stack[-1].writeValue(value)
+        return self
 
     def writeI64(self, value):
         self._scope_stack[-1].writeValue(value)
+        return self
 
     def writeListBegin(self, *args, **kwds):
         list_ = []
         if len(self._scope_stack) > 0:
             self._scope_stack[-1].writeValue(list_)
         self._scope_stack.append(self._ListScope(list_))
+        return self
 
     def writeListEnd(self):
         if len(self._scope_stack) > 1:
             self._scope_stack.pop(-1)
+        return self
 
     def writeMapBegin(self, *args, **kwds):
         struct = {}
         if len(self._scope_stack) > 0:
             self._scope_stack[-1].writeValue(struct)
         self._scope_stack.append(self._MapScope(struct))
+        return self
 
     def writeMapEnd(self):
         if len(self._scope_stack) > 1:
             self._scope_stack.pop(-1)
+        return self
 
     def writeSetBegin(self, *args, **kwds):
         self.writeListBegin()
+        return self
 
     def writeSetEnd(self):
         self.writeListEnd()
+        return self
 
     def writeString(self, value):
         self._scope_stack[-1].writeValue(value)
+        return self
 
     def writeStructBegin(self, *args, **kwds):
         struct = {}
         if len(self._scope_stack) > 0:
             self._scope_stack[-1].writeValue(struct)
         self._scope_stack.append(self._StructScope(struct))
+        return self
 
     def writeStructEnd(self):
         if len(self._scope_stack) > 1:
             self._scope_stack.pop(-1)
+        return self

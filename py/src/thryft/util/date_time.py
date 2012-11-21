@@ -92,3 +92,5 @@ class DateTime(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self
