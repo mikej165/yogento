@@ -96,3 +96,5 @@ class Order(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

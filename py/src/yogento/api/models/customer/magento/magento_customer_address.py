@@ -512,3 +512,5 @@ class MagentoCustomerAddress(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

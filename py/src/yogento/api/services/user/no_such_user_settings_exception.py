@@ -95,3 +95,5 @@ class NoSuchUserSettingsException(Exception):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

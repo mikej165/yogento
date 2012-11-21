@@ -1375,3 +1375,5 @@ class MagentoProduct(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

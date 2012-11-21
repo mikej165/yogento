@@ -591,3 +591,5 @@ class MagentoOrderAddress(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

@@ -95,3 +95,5 @@ class NoSuchProductException(Exception):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

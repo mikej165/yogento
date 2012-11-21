@@ -96,3 +96,5 @@ class Category(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

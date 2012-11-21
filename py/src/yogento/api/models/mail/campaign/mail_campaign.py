@@ -169,3 +169,5 @@ class MailCampaign(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

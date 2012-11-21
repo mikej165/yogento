@@ -96,3 +96,5 @@ class Product(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

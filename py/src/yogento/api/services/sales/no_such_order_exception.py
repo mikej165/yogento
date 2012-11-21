@@ -95,3 +95,5 @@ class NoSuchOrderException(Exception):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

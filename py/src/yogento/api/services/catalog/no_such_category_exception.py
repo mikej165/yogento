@@ -30,3 +30,5 @@ class NoSuchCategoryException(Exception):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

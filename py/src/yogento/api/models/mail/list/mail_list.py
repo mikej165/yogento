@@ -96,3 +96,5 @@ class MailList(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

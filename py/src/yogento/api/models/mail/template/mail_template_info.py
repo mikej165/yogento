@@ -96,3 +96,5 @@ class MailTemplateInfo(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

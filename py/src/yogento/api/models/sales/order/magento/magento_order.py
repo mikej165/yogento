@@ -4969,6 +4969,8 @@ class MagentoOrder(object):
 
         oprot.writeStructEnd()
 
+        return self
+
     @property
     def x_forwarded_for(self):
         return self.__x_forwarded_for

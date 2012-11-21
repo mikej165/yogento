@@ -95,3 +95,5 @@ class NoSuchCustomerException(Exception):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

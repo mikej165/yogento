@@ -261,3 +261,5 @@ class User(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

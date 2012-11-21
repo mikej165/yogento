@@ -235,3 +235,5 @@ class MailServiceHack(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

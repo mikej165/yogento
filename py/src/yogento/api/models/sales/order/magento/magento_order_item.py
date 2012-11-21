@@ -2809,3 +2809,5 @@ class MagentoOrderItem(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

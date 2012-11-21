@@ -125,3 +125,5 @@ class MailException(Exception):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

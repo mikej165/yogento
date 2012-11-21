@@ -127,3 +127,5 @@ class MailTemplate(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

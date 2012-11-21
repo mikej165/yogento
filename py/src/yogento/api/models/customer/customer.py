@@ -96,3 +96,5 @@ class Customer(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

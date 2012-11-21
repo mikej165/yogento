@@ -338,3 +338,5 @@ class MagentoOrderStatusHistory(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self
