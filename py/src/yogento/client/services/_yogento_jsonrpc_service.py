@@ -16,6 +16,8 @@ class _YogentoJsonrpcService(_YogentoWebService):
         params = {}
         params_oprot = BuiltinsProtocol(params)
         for key, value in kwds.iteritems():
+            if value is None:
+                continue
             params_oprot.writeFieldBegin(key)
             params_oprot.writeMixed(value)
             params_oprot.writeFieldEnd()
