@@ -7,4 +7,4 @@ from yogento_test.client.services.test._yogento_rest_service_test import \
 
 class YogentoRestCustomerServiceTest(_customer_service_test._CustomerServiceTest):
     def setUp(self):
-        self._setUp(YogentoRestCustomerService(_YogentoRestServiceTest.API_URL))
+        self._setUp(YogentoRestCustomerService(api_url=_YogentoRestServiceTest.API_URL, headers=_YogentoRestServiceTest.HEADERS))

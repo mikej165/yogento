@@ -8,4 +8,4 @@ from yogento_test.client.services.test._yogento_rest_service_test import \
 # pylint: disable=C0111
 class YogentoRestSalesServiceTest(_sales_service_test._SalesServiceTest):
     def setUp(self):
-        self._setUp(YogentoRestSalesService(_YogentoRestServiceTest.API_URL))
+        self._setUp(YogentoRestSalesService(api_url=_YogentoRestServiceTest.API_URL, headers=_YogentoRestServiceTest.HEADERS))

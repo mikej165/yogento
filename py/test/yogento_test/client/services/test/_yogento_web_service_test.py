@@ -24,3 +24,5 @@ class _YogentoWebServiceTest(object):
         API_PATH = api_path
         API_URL = api_url
         break
+
+    HEADERS = {'User-Agent': 'Test'}
