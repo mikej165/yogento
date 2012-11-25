@@ -14,7 +14,9 @@ class _Protocol(object):
         return self
 
     def writeMixed(self, object_):
-        if isinstance(object_, dict):
+        if object_ is None:
+            self.writeNull()
+        elif isinstance(object_, dict):
             self.writeMapBegin(len(object_))
             for key, value in object_.iteritems():
                 self.writeMixed(key)
@@ -29,7 +31,7 @@ class _Protocol(object):
             self.writeSetEnd()
         elif isinstance(object_, int):
             self.writeI32(object_)
-        elif isinstance(object_, list):
+        elif isinstance(object_, (list, tuple)):
             self.writeListBegin(len(object_))
             for item in object_:
                 self.writeMixed(item)

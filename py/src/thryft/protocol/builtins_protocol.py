@@ -192,6 +192,10 @@ class BuiltinsProtocol(_Protocol):
             self._scope_stack.pop(-1)
         return self
 
+    def writeNull(self):
+        self._scope_stack[-1].writeValue(None)
+        return self
+
     def writeSetBegin(self, *args, **kwds):
         self.writeListBegin()
         return self
