@@ -169,7 +169,8 @@ class _YogentoRestService(_YogentoWebService):
                     exception_class = self._import_exception_class(exception_class_qname)
                 except ImportError:
                     raise RuntimeError(exception_class_qname)
-                if e.hdrs.get('content-type') == 'application/json':
+                content_type = e.hdrs.get('content-type')
+                if content_type is not None and 'application/json' in content_type.split(';'):
                     response_data = self._read_response(e.fp)
                     if len(response_data) > 0:
                         exception = exception_class.read(JsonProtocol(response_data))
