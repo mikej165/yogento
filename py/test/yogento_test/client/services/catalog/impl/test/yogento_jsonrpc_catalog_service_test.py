@@ -7,4 +7,4 @@ from yogento_test.client.services.test._yogento_jsonrpc_service_test import \
 
 class YogentoJsonrpcCatalogServiceTest(_catalog_service_test._CatalogServiceTest):
     def setUp(self):
-        self._setUp(YogentoJsonrpcCatalogService(api_url=_YogentoJsonrpcServiceTest.API_URL, headers=_YogentoJsonrpcServiceTest.HEADERS), read_only=False)
+        self._setUp(YogentoJsonrpcCatalogService(**_YogentoJsonrpcServiceTest.KWDS), read_only=False)

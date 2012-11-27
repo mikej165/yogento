@@ -26,3 +26,5 @@ class _YogentoWebServiceTest(object):
         break
 
     HEADERS = {'User-Agent': 'Test'}
+
+    KWDS = {'api_url': API_URL, 'headers': HEADERS}
