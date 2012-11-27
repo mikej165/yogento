@@ -1,99 +1,84 @@
-from thryft.protocol.json_protocol import JsonProtocol
-from yochimp.models.template.template_type import TemplateType
-from yogento.api.models.mail.campaign.mail_campaign import MailCampaign
-from yogento.api.models.mail.campaign.mail_campaign_content import \
-    MailCampaignContent
-from yogento.api.models.mail.campaign.mail_campaign_stats import \
-    MailCampaignStats
-from yogento.api.models.mail.list.mail_list import MailList
-from yogento.api.models.mail.template.mail_template import MailTemplate
-from yogento.api.models.mail.template.mail_template_info import MailTemplateInfo
-from yogento.api.models.mail.template.mail_template_type import MailTemplateType
-from yogento.api.services.mail.mail_service import MailService
-from yogento.api.services.mail.mail_service_hack import MailServiceHack
-from yogento.client.services._yogento_rest_service import _YogentoRestService
+from datetime import datetime
+from itertools import ifilterfalse
+from time import mktime
+import __builtin__
+import thryft.protocol.json_protocol
+import thryft.protocol.string_map_protocol
+import urllib
+import urllib2
+import yogento.api.models.mail.campaign.mail_campaign
+import yogento.api.models.mail.campaign.mail_campaign_content
+import yogento.api.models.mail.campaign.mail_campaign_stats
+import yogento.api.models.mail.list.mail_list
+import yogento.api.models.mail.template.mail_template
+import yogento.api.models.mail.template.mail_template_info
+import yogento.api.models.mail.template.mail_template_type
+import yogento.api.services.mail.mail_service
+import yogento.client.services._yogento_rest_service
 
 
-class YogentoRestMailService(_YogentoRestService, MailService):
-    def _delete_mail_campaign(self, cid, write_through):
-        if write_through is not None:
-            query = {'write_through': str(write_through).lower()}
-        else:
-            query = None
-        return self._delete_model('/mail/campaigns/' + self.__quote_cid(cid), query=query)
+class YogentoRestMailService(yogento.client.services._yogento_rest_service._YogentoRestService, yogento.api.services.mail.mail_service.MailService):
+    def __init__(self, api_url, headers=None):
+        api_url = api_url.rstrip('/')
+        if not api_url.endswith('/rest/'):
+            api_url += '/rest/'
+        yogento.client.services._yogento_rest_service._YogentoRestService.__init__(self, api_url=api_url, headers=headers)
 
-    def _get_mail_campaign(self, cid):
-        return self._get_model(
-                   MailCampaign,
-                   '/mail/campaigns/' + self.__quote_cid(cid)
-               )
+    def _delete_mail_campaign(self, **kwds):
+        try:
+            self._request('DELETE', '/mail/campaign', data=None, query=thryft.protocol.string_map_protocol.StringMapProtocol().writeMixed(dict((key, value) for key, value in kwds.iteritems() if value is not None)).to_string_map())
+            return True
+        except urllib2.HTTPError, e:
+            if e.code == 404:
+                return False
+            else:
+                raise
 
     def _get_mail_campaign_content(self, cid):
-        return self._get_model(
-                   MailCampaignContent,
-                   '/mail/campaigns/' + self.__quote_cid(cid) + '/content'
-               )
+        __return_value = self._request('GET', '/mail/campaign/content' + urllib.quote(cid, safe=''), data=None, query=None)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(__return_value)
+        return yogento.api.models.mail.campaign.mail_campaign_content.MailCampaignContent.read(iprot)
 
-    def _get_mail_campaigns(self, filters=None, start=None, limit=None):
-        return self._get_model_set(MailCampaign, '/mail/campaigns')
+    def _get_mail_campaign(self, cid):
+        __return_value = self._request('GET', '/mail/campaign' + urllib.quote(cid, safe=''), data=None, query=None)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(__return_value)
+        return yogento.api.models.mail.campaign.mail_campaign.MailCampaign.read(iprot)
+
+    def _get_mail_campaigns(self):
+        __return_value = self._request('GET', '/mail/campaigns', data=None, query=None)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(__return_value)
+        return frozenset([yogento.api.models.mail.campaign.mail_campaign.MailCampaign.read(iprot) for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
 
     def _get_mail_campaign_stats(self, cid):
-        return self._get_model(
-                   MailCampaignStats,
-                   '/mail/campaigns/' + self.__quote_cid(cid) + '/stats'
-               )
+        __return_value = self._request('GET', '/mail/campaign/stats' + urllib.quote(cid, safe=''), data=None, query=None)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(__return_value)
+        return yogento.api.models.mail.campaign.mail_campaign_stats.MailCampaignStats.read(iprot)
 
     def _get_mail_lists(self):
-        return self._get_model_set(MailList, '/mail/lists')
+        __return_value = self._request('GET', '/mail/lists', data=None, query=None)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(__return_value)
+        return frozenset([yogento.api.models.mail.list.mail_list.MailList.read(iprot) for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
 
-    def _get_mail_templates(self, types):
-        if types is not None:
-            query = {'type': [str(type_.mail_chimp_template_type) for type_ in types]}
-        else:
-            query = None
-        return self._get_model_set(MailTemplate, '/mail/templates', query=query)
+    def _get_mail_templates(self, **kwds):
+        __return_value = self._request('GET', '/mail/templates', data=None, query=thryft.protocol.string_map_protocol.StringMapProtocol().writeMixed(dict((key, value) for key, value in kwds.iteritems() if value is not None)).to_string_map())
+        iprot = thryft.protocol.json_protocol.JsonProtocol(__return_value)
+        return frozenset([yogento.api.models.mail.template.mail_template.MailTemplate.read(iprot) for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
 
-    def _get_mail_template_info(self, tid, type=None):  # @ReservedAssignment
-        return self._get_model(
-                   MailTemplateInfo,
-                   '/mail/templates/' + str(tid)
-               )
+    def _get_mail_template_info(self, **kwds):
+        __return_value = self._request('GET', '/mail/template/info', data=None, query=thryft.protocol.string_map_protocol.StringMapProtocol().writeMixed(dict((key, value) for key, value in kwds.iteritems() if value is not None)).to_string_map())
+        iprot = thryft.protocol.json_protocol.JsonProtocol(__return_value)
+        return yogento.api.models.mail.template.mail_template_info.MailTemplateInfo.read(iprot)
 
-    def _post_mail_campaign(self, campaign, content, schedule_time=None, schedule_time_b=None, test_emails=None):
-        return \
-            self._post_model(
-                MailServiceHack(campaign=campaign, content=content, schedule_time=schedule_time, schedule_time_b=schedule_time_b, test_emails=test_emails),
-                '/mail/campaigns/' + self.__quote_cid(campaign.id),
-                out_model_class=MailCampaign
-            )
+    def _post_mail_campaign(self, **kwds):
+        __return_value = self._request('POST', '/mail/campaign', data=str(thryft.protocol.json_protocol.JsonProtocol().writeMixed(dict((key, value) for key, value in kwds.iteritems() if value is not None))), query=None)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(__return_value)
+        return yogento.api.models.mail.campaign.mail_campaign.MailCampaign.read(iprot)
 
-    def _put_mail_campaign(self, campaign, write_through):
-        if write_through is not None:
-            query = {'write_through': str(write_through).lower()}
-        else:
-            query = None
-        return \
-            self._put_model(
-                campaign,
-                '/mail/campaigns/' + self.__quote_cid(campaign.id),
-                out_model_class=MailCampaign,
-                query=query
-            )
+    def _put_mail_campaign(self, **kwds):
+        __return_value = self._request('PUT', '/mail/campaign', data=str(thryft.protocol.json_protocol.JsonProtocol().writeMixed(dict((key, value) for key, value in kwds.iteritems() if value is not None))), query=None)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(__return_value)
+        return yogento.api.models.mail.campaign.mail_campaign.MailCampaign.read(iprot)
 
-    def _put_mail_campaign_content(self, cid, content, write_through):
-        if write_through is not None:
-            query = {'write_through': str(write_through).lower()}
-        else:
-            query = None
-        return \
-            self._put_model(
-                content,
-                '/mail/campaigns/' + self.__quote_cid(cid) + '/content',
-                query=query
-            )
+    def _put_mail_campaign_content(self, **kwds):
+        self._request('PUT', '/mail/campaign/content', data=str(thryft.protocol.json_protocol.JsonProtocol().writeMixed(dict((key, value) for key, value in kwds.iteritems() if value is not None))), query=None)
 
-    @staticmethod
-    def __quote_cid(cid):
-        if cid is None:
-            return 'new'
-        return cid
