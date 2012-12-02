@@ -14,7 +14,7 @@ struct MagentoProduct {
     optional decimal.Decimal cost;
     optional date_time.DateTime created_at;
     required string description;
-    optional set<magento_product_image.MagentoProductImage> images;    
+    optional set<magento_product_image.MagentoProductImage> images;
     optional bool is_in_stock;
     optional bool is_qty_decimal;
     optional bool is_recurring;
