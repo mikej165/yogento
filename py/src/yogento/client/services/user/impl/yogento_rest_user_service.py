@@ -27,12 +27,12 @@ class YogentoRestUserService(yogento.client.services._yogento_rest_service._Yoge
                 raise
 
     def _get_current_user(self):
-        __return_value = self._request('GET', '/user/current/user', data=None, query=None)
+        __return_value = self._request('GET', '/user/current_user', data=None, query=None)
         iprot = thryft.protocol.json_protocol.JsonProtocol(__return_value)
         return yogento.api.models.user.user.User.read(iprot)
 
     def _get_current_user_settings(self):
-        __return_value = self._request('GET', '/user/current/user/settings', data=None, query=None)
+        __return_value = self._request('GET', '/user/current_user_settings', data=None, query=None)
         iprot = thryft.protocol.json_protocol.JsonProtocol(__return_value)
         return yogento.api.models.user.user_settings.UserSettings.read(iprot)
 
@@ -57,7 +57,7 @@ class YogentoRestUserService(yogento.client.services._yogento_rest_service._Yoge
                 raise
 
     def _put_current_user_settings(self, **kwds):
-        self._request('PUT', '/user/current/user/settings', data=str(thryft.protocol.json_protocol.JsonProtocol().writeMixed(dict((key, value) for key, value in kwds.iteritems() if value is not None))), query=None)
+        self._request('PUT', '/user/current_user_settings', data=str(thryft.protocol.json_protocol.JsonProtocol().writeMixed(dict((key, value) for key, value in kwds.iteritems() if value is not None))), query=None)
 
     def _put_user(self, **kwds):
         self._request('PUT', '/user', data=str(thryft.protocol.json_protocol.JsonProtocol().writeMixed(dict((key, value) for key, value in kwds.iteritems() if value is not None))), query=None)

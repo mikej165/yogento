@@ -35,7 +35,7 @@ class YogentoRestMailService(yogento.client.services._yogento_rest_service._Yoge
                 raise
 
     def _get_mail_campaign_content(self, cid):
-        __return_value = self._request('GET', '/mail/campaign/content' + urllib.quote(cid, safe=''), data=None, query=None)
+        __return_value = self._request('GET', '/mail/campaign_content' + urllib.quote(cid, safe=''), data=None, query=None)
         iprot = thryft.protocol.json_protocol.JsonProtocol(__return_value)
         return yogento.api.models.mail.campaign.mail_campaign_content.MailCampaignContent.read(iprot)
 
@@ -50,7 +50,7 @@ class YogentoRestMailService(yogento.client.services._yogento_rest_service._Yoge
         return frozenset([yogento.api.models.mail.campaign.mail_campaign.MailCampaign.read(iprot) for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
 
     def _get_mail_campaign_stats(self, cid):
-        __return_value = self._request('GET', '/mail/campaign/stats' + urllib.quote(cid, safe=''), data=None, query=None)
+        __return_value = self._request('GET', '/mail/campaign_stats' + urllib.quote(cid, safe=''), data=None, query=None)
         iprot = thryft.protocol.json_protocol.JsonProtocol(__return_value)
         return yogento.api.models.mail.campaign.mail_campaign_stats.MailCampaignStats.read(iprot)
 
@@ -65,7 +65,7 @@ class YogentoRestMailService(yogento.client.services._yogento_rest_service._Yoge
         return frozenset([yogento.api.models.mail.template.mail_template.MailTemplate.read(iprot) for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
 
     def _get_mail_template_info(self, **kwds):
-        __return_value = self._request('GET', '/mail/template/info', data=None, query=thryft.protocol.string_map_protocol.StringMapProtocol().writeMixed(dict((key, value) for key, value in kwds.iteritems() if value is not None)).to_string_map())
+        __return_value = self._request('GET', '/mail/template_info', data=None, query=thryft.protocol.string_map_protocol.StringMapProtocol().writeMixed(dict((key, value) for key, value in kwds.iteritems() if value is not None)).to_string_map())
         iprot = thryft.protocol.json_protocol.JsonProtocol(__return_value)
         return yogento.api.models.mail.template.mail_template_info.MailTemplateInfo.read(iprot)
 
@@ -80,5 +80,5 @@ class YogentoRestMailService(yogento.client.services._yogento_rest_service._Yoge
         return yogento.api.models.mail.campaign.mail_campaign.MailCampaign.read(iprot)
 
     def _put_mail_campaign_content(self, **kwds):
-        self._request('PUT', '/mail/campaign/content', data=str(thryft.protocol.json_protocol.JsonProtocol().writeMixed(dict((key, value) for key, value in kwds.iteritems() if value is not None))), query=None)
+        self._request('PUT', '/mail/campaign_content', data=str(thryft.protocol.json_protocol.JsonProtocol().writeMixed(dict((key, value) for key, value in kwds.iteritems() if value is not None))), query=None)
 

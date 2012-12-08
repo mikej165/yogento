@@ -19,7 +19,7 @@ class YogentoRestCatalogService(yogento.client.services._yogento_rest_service._Y
 
     def _delete_category_tree(self):
         try:
-            self._request('DELETE', '/catalog/category/tree', data=None, query=None)
+            self._request('DELETE', '/catalog/category_tree', data=None, query=None)
             return True
         except urllib2.HTTPError, e:
             if e.code == 404:
@@ -41,7 +41,7 @@ class YogentoRestCatalogService(yogento.client.services._yogento_rest_service._Y
         self._request('DELETE', '/catalog/products', data=None, query=None)
 
     def _get_category_tree(self):
-        __return_value = self._request('GET', '/catalog/category/tree', data=None, query=None)
+        __return_value = self._request('GET', '/catalog/category_tree', data=None, query=None)
         iprot = thryft.protocol.json_protocol.JsonProtocol(__return_value)
         return yogento.api.models.catalog.category.category.Category.read(iprot)
 
@@ -51,7 +51,7 @@ class YogentoRestCatalogService(yogento.client.services._yogento_rest_service._Y
         return frozenset([yogento.api.models.catalog.product.product.Product.read(iprot) for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
 
     def _get_product_count(self):
-        __return_value = self._request('GET', '/catalog/product/count', data=None, query=None)
+        __return_value = self._request('GET', '/catalog/product_count', data=None, query=None)
         iprot = thryft.protocol.json_protocol.JsonProtocol(__return_value)
         iprot.readListBegin()
         __return_value = iprot.readI32()
@@ -59,7 +59,7 @@ class YogentoRestCatalogService(yogento.client.services._yogento_rest_service._Y
         return __return_value
 
     def _get_product_skus(self):
-        __return_value = self._request('GET', '/catalog/product/skus', data=None, query=None)
+        __return_value = self._request('GET', '/catalog/product_skus', data=None, query=None)
         iprot = thryft.protocol.json_protocol.JsonProtocol(__return_value)
         return frozenset([iprot.readString() for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
 
@@ -84,7 +84,7 @@ class YogentoRestCatalogService(yogento.client.services._yogento_rest_service._Y
                 raise
 
     def _put_category_tree(self, **kwds):
-        self._request('PUT', '/catalog/category/tree', data=str(thryft.protocol.json_protocol.JsonProtocol().writeMixed(dict((key, value) for key, value in kwds.iteritems() if value is not None))), query=None)
+        self._request('PUT', '/catalog/category_tree', data=str(thryft.protocol.json_protocol.JsonProtocol().writeMixed(dict((key, value) for key, value in kwds.iteritems() if value is not None))), query=None)
 
     def _put_product(self, **kwds):
         self._request('PUT', '/catalog/product', data=str(thryft.protocol.json_protocol.JsonProtocol().writeMixed(dict((key, value) for key, value in kwds.iteritems() if value is not None))), query=None)
