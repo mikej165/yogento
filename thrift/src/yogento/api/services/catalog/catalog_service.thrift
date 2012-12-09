@@ -5,6 +5,7 @@ include "yogento/api/models/catalog/category/category.thrift"
 include "yogento/api/models/catalog/product/product.thrift"
 include "yogento/api/services/catalog/no_such_category_exception.thrift"
 include "yogento/api/services/catalog/no_such_product_exception.thrift"
+include "yogento/api/services/catalog/no_such_product_image_exception.thrift"
 
 service CatalogService {
     bool delete_category_tree();
@@ -13,11 +14,12 @@ service CatalogService {
     
     category.Category get_category_tree() throws (no_such_category_exception.NoSuchCategoryException e);
     	
-    set<product.Product> get_products(optional bool include_disabled, optional string query);
     i32 get_product_count();
-    set<string> get_product_skus();
     product.Product get_product_by_sku(string sku) throws (no_such_product_exception.NoSuchProductException e);
+    set<string> get_product_skus();
+    set<product.Product> get_products(optional bool include_disabled, optional string query);
     set<product.Product> get_products_by_skus(set<string> skus) throws (no_such_product_exception.NoSuchProductException e);
+    string get_product_thumbnail_url(string sku, i32 thumbnail_height_px, i32 thumbnail_width_px) throws (no_such_product_exception.NoSuchProductException e1, no_such_product_image_exception.NoSuchProductImageException e1);
         
     bool head_product_by_sku(string sku);
     
