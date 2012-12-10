@@ -2,6 +2,7 @@ from itertools import ifilterfalse
 import __builtin__
 import yogento.api.models.catalog.category.category
 import yogento.api.models.catalog.product.product
+import yogento.api.models.image.image_resolution
 
 
 class CatalogService(object):
@@ -121,28 +122,24 @@ class CatalogService(object):
     def _get_products_by_skus(self, skus):
         raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._get_products_by_skus')
 
-    def get_product_thumbnail_url(self, sku, thumbnail_height_px, thumbnail_width_px):
+    def get_product_thumbnail_url(self, sku, thumbnail_resolution):
         if sku is None:
             raise ValueError('sku is required')
         if not isinstance(sku, basestring):
             raise TypeError(getattr(__builtin__, 'type')(sku))
-        if thumbnail_height_px is None:
-            raise ValueError('thumbnail_height_px is required')
-        if not isinstance(thumbnail_height_px, int):
-            raise TypeError(getattr(__builtin__, 'type')(thumbnail_height_px))
-        if thumbnail_width_px is None:
-            raise ValueError('thumbnail_width_px is required')
-        if not isinstance(thumbnail_width_px, int):
-            raise TypeError(getattr(__builtin__, 'type')(thumbnail_width_px))
+        if thumbnail_resolution is None:
+            raise ValueError('thumbnail_resolution is required')
+        if not isinstance(thumbnail_resolution, yogento.api.models.image.image_resolution.ImageResolution):
+            raise TypeError(getattr(__builtin__, 'type')(thumbnail_resolution))
 
-        get_product_thumbnail_url_return_value = self._get_product_thumbnail_url(sku=sku, thumbnail_height_px=thumbnail_height_px, thumbnail_width_px=thumbnail_width_px)
+        get_product_thumbnail_url_return_value = self._get_product_thumbnail_url(sku=sku, thumbnail_resolution=thumbnail_resolution)
 
         if not isinstance(get_product_thumbnail_url_return_value, basestring):
             raise TypeError(getattr(__builtin__, 'type')(get_product_thumbnail_url_return_value))
 
         return get_product_thumbnail_url_return_value
 
-    def _get_product_thumbnail_url(self, sku, thumbnail_height_px, thumbnail_width_px):
+    def _get_product_thumbnail_url(self, sku, thumbnail_resolution):
         raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._get_product_thumbnail_url')
 
     def head_product_by_sku(self, sku):

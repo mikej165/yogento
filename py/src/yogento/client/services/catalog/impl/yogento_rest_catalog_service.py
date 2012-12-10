@@ -6,6 +6,7 @@ import urllib
 import urllib2
 import yogento.api.models.catalog.category.category
 import yogento.api.models.catalog.product.product
+import yogento.api.models.image.image_resolution
 import yogento.api.services.catalog.catalog_service
 import yogento.client.services._yogento_rest_service
 
