@@ -42,3 +42,23 @@ class ImageService(object):
 
     def _get_image_thumbnail_url(self, image_url, thumbnail_resolution):
         raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._get_image_thumbnail_url')
+
+    def put_image(self, image, image_mime_subtype):
+        if image is None:
+            raise ValueError('image is required')
+        if not isinstance(image, basestring):
+            raise TypeError(getattr(__builtin__, 'type')(image))
+        if image_mime_subtype is None:
+            raise ValueError('image_mime_subtype is required')
+        if not isinstance(image_mime_subtype, basestring):
+            raise TypeError(getattr(__builtin__, 'type')(image_mime_subtype))
+
+        put_image_return_value = self._put_image(image=image, image_mime_subtype=image_mime_subtype)
+
+        if not isinstance(put_image_return_value, basestring):
+            raise TypeError(getattr(__builtin__, 'type')(put_image_return_value))
+
+        return put_image_return_value
+
+    def _put_image(self, image, image_mime_subtype):
+        raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._put_image')

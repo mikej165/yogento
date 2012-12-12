@@ -33,3 +33,11 @@ class YogentoRestImageService(yogento.client.services._yogento_rest_service._Yog
         iprot.readListEnd()
         return __return_value
 
+    def _put_image(self, **kwds):
+        __return_value = self._request('PUT', '/image', data=str(thryft.protocol.json_protocol.JsonProtocol().writeMixed(dict((key, value) for key, value in kwds.iteritems() if value is not None))), query=None)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(__return_value)
+        iprot.readListBegin()
+        __return_value = iprot.readString()
+        iprot.readListEnd()
+        return __return_value
+

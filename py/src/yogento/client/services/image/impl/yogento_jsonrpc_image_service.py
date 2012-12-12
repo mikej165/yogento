@@ -18,3 +18,6 @@ class YogentoJsonrpcImageService(yogento.client.services._yogento_jsonrpc_servic
     def _get_image_thumbnail_url(self, **kwds):
         return self._request('get_image_thumbnail_url', **kwds)
 
+    def _put_image(self, **kwds):
+        return self._request('put_image', **kwds)
+

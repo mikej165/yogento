@@ -1,7 +1,7 @@
 namespace java com.yogento.api.services.image
 namespace py yogento.api.services.image
 
-exception NoSuchImageException {
+exception ImageIoException {
     required string cause_message;
-    required string image_url;
+    optional string image_url;
 }

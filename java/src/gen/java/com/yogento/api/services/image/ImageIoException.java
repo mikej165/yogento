@@ -1,21 +1,21 @@
 package com.yogento.api.services.image;
 
 @SuppressWarnings({"serial"})
-public class NoSuchImageException extends java.lang.Exception implements org.apache.thrift.TBase<NoSuchImageException, org.apache.thrift.TFieldIdEnum> {
+public class ImageIoException extends java.lang.Exception implements org.apache.thrift.TBase<ImageIoException, org.apache.thrift.TFieldIdEnum> {
     public static class Builder {
         public Builder() {
         }
 
-        public Builder(final NoSuchImageException other) {
+        public Builder(final ImageIoException other) {
             this.causeMessage = other.getCauseMessage();
             this.imageUrl = other.getImageUrl();
         }
 
-        protected NoSuchImageException _build(final String causeMessage, final String imageUrl) {
-            return new NoSuchImageException(causeMessage, imageUrl);
+        protected ImageIoException _build(final String causeMessage, final String imageUrl) {
+            return new ImageIoException(causeMessage, imageUrl);
         }
 
-        public NoSuchImageException build() {
+        public ImageIoException build() {
             return _build(causeMessage, imageUrl);
         }
 
@@ -33,15 +33,15 @@ public class NoSuchImageException extends java.lang.Exception implements org.apa
         private String imageUrl;
     }
 
-    public NoSuchImageException(final NoSuchImageException other) {
+    public ImageIoException(final ImageIoException other) {
         this(other.getCauseMessage(), other.getImageUrl());
     }
 
-    public NoSuchImageException(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+    public ImageIoException(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
         this(iprot, org.apache.thrift.protocol.TType.STRUCT);
     }
 
-    public NoSuchImageException(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+    public ImageIoException(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
         String causeMessage = null;
         String imageUrl = null;
 
@@ -72,12 +72,17 @@ public class NoSuchImageException extends java.lang.Exception implements org.apa
         }
 
         this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage);
-        this.imageUrl = com.google.common.base.Preconditions.checkNotNull(imageUrl);
+        this.imageUrl = imageUrl;
     }
 
-    public NoSuchImageException(final String causeMessage, final String imageUrl) {
+    public ImageIoException(final String causeMessage) {
         this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage);
-        this.imageUrl = com.google.common.base.Preconditions.checkNotNull(imageUrl);
+        this.imageUrl = null;
+    }
+
+    public ImageIoException(final String causeMessage, final String imageUrl) {
+        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage);
+        this.imageUrl = imageUrl;
     }
 
     @Override
@@ -86,12 +91,12 @@ public class NoSuchImageException extends java.lang.Exception implements org.apa
     }
 
     @Override
-    public int compareTo(final NoSuchImageException other) {
+    public int compareTo(final ImageIoException other) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public org.apache.thrift.TBase<NoSuchImageException, org.apache.thrift.TFieldIdEnum> deepCopy() {
+    public org.apache.thrift.TBase<ImageIoException, org.apache.thrift.TFieldIdEnum> deepCopy() {
         throw new UnsupportedOperationException();
     }
 
@@ -99,14 +104,16 @@ public class NoSuchImageException extends java.lang.Exception implements org.apa
     public boolean equals(final Object otherObject) {
         if (otherObject == this) {
             return true;
-        } else if (!(otherObject instanceof NoSuchImageException)) {
+        } else if (!(otherObject instanceof ImageIoException)) {
             return false;
         }
 
-        final NoSuchImageException other = (NoSuchImageException)otherObject;
+        final ImageIoException other = (ImageIoException)otherObject;
         return
             getCauseMessage().equals(other.getCauseMessage()) &&
-            getImageUrl().equals(other.getImageUrl());
+            ((getImageUrl() == null && other.getImageUrl() == null) ||
+            (getImageUrl() != null && other.getImageUrl() != null &&
+            getImageUrl().equals(other.getImageUrl())));
     }
 
     @Override
@@ -145,7 +152,9 @@ public class NoSuchImageException extends java.lang.Exception implements org.apa
     public int hashCode() {
         int hashCode = 17;
         hashCode = 31 * hashCode + getCauseMessage().hashCode();
-        hashCode = 31 * hashCode + getImageUrl().hashCode();
+        if (getImageUrl() != null) {
+            hashCode = 31 * hashCode + getImageUrl().hashCode();
+        }
         return hashCode;
     }
 
@@ -168,7 +177,9 @@ public class NoSuchImageException extends java.lang.Exception implements org.apa
     public String toString() {
         final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
         helper.add("cause_message", getCauseMessage());
-        helper.add("image_url", getImageUrl());
+        if (getImageUrl() != null) {
+            helper.add("image_url", getImageUrl());
+        }
         return helper.toString();
     }
 
@@ -185,22 +196,28 @@ public class NoSuchImageException extends java.lang.Exception implements org.apa
 
                 oprot.writeString(getCauseMessage());
 
-                oprot.writeString(getImageUrl());
+                if (getImageUrl() != null) {
+                    oprot.writeString(getImageUrl());
+                } else {
+                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                }
 
                 oprot.writeListEnd();
                 break;
 
             case org.apache.thrift.protocol.TType.STRUCT:
             default:
-                oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("NoSuchImageException"));
+                oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("ImageIoException"));
 
                 oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("cause_message", org.apache.thrift.protocol.TType.STRING, (short)-1));
                 oprot.writeString(getCauseMessage());
                 oprot.writeFieldEnd();
 
-                oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("image_url", org.apache.thrift.protocol.TType.STRING, (short)-1));
-                oprot.writeString(getImageUrl());
-                oprot.writeFieldEnd();
+                if (getImageUrl() != null) {
+                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("image_url", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                    oprot.writeString(getImageUrl());
+                    oprot.writeFieldEnd();
+                }
 
                 oprot.writeFieldStop();
 
