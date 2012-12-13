@@ -8,23 +8,23 @@ class UserSettings(object):
     class Builder:
         def __init__(
             self,
-            logo_image_file_path=None,
+            logo_image_url=None,
             magento_store_url=None,
             product_csv_file_path=None,
             product_csv_mtime=None,
             product_search_queries=None
         ):
-            self.__logo_image_file_path = logo_image_file_path
+            self.__logo_image_url = logo_image_url
             self.__magento_store_url = magento_store_url
             self.__product_csv_file_path = product_csv_file_path
             self.__product_csv_mtime = product_csv_mtime
             self.__product_search_queries = product_search_queries
 
         def build(self):
-            return UserSettings(logo_image_file_path=self.__logo_image_file_path, magento_store_url=self.__magento_store_url, product_csv_file_path=self.__product_csv_file_path, product_csv_mtime=self.__product_csv_mtime, product_search_queries=self.__product_search_queries)
+            return UserSettings(logo_image_url=self.__logo_image_url, magento_store_url=self.__magento_store_url, product_csv_file_path=self.__product_csv_file_path, product_csv_mtime=self.__product_csv_mtime, product_search_queries=self.__product_search_queries)
 
-        def set_logo_image_file_path(self, logo_image_file_path):
-            self.__logo_image_file_path = logo_image_file_path
+        def set_logo_image_url(self, logo_image_url):
+            self.__logo_image_url = logo_image_url
             return self
 
         def set_magento_store_url(self, magento_store_url):
@@ -45,7 +45,7 @@ class UserSettings(object):
 
         def update(self, user_settings):
             if isinstance(user_settings, UserSettings):
-                self.set_logo_image_file_path(user_settings.logo_image_file_path)
+                self.set_logo_image_url(user_settings.logo_image_url)
                 self.set_magento_store_url(user_settings.magento_store_url)
                 self.set_product_csv_file_path(user_settings.product_csv_file_path)
                 self.set_product_csv_mtime(user_settings.product_csv_mtime)
@@ -59,16 +59,16 @@ class UserSettings(object):
 
     def __init__(
         self,
-        logo_image_file_path=None,
+        logo_image_url=None,
         magento_store_url=None,
         product_csv_file_path=None,
         product_csv_mtime=None,
         product_search_queries=None
     ):
-        if logo_image_file_path is not None:
-            if not isinstance(logo_image_file_path, basestring):
-                raise TypeError(getattr(__builtin__, 'type')(logo_image_file_path))
-        self.__logo_image_file_path = logo_image_file_path
+        if logo_image_url is not None:
+            if not isinstance(logo_image_url, basestring):
+                raise TypeError(getattr(__builtin__, 'type')(logo_image_url))
+        self.__logo_image_url = logo_image_url
 
         if magento_store_url is not None:
             if not isinstance(magento_store_url, basestring):
@@ -91,7 +91,7 @@ class UserSettings(object):
         self.__product_search_queries = product_search_queries
 
     def __eq__(self, other):
-        if self.logo_image_file_path != other.logo_image_file_path:
+        if self.logo_image_url != other.logo_image_url:
             return False
         if self.magento_store_url != other.magento_store_url:
             return False
@@ -104,15 +104,15 @@ class UserSettings(object):
         return True
 
     def __hash__(self):
-        return hash((self.logo_image_file_path,self.magento_store_url,self.product_csv_file_path,self.product_csv_mtime,self.product_search_queries,))
+        return hash((self.logo_image_url,self.magento_store_url,self.product_csv_file_path,self.product_csv_mtime,self.product_search_queries,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
 
     def __repr__(self):
         field_reprs = []
-        if self.logo_image_file_path is not None:
-            field_reprs.append('logo_image_file_path=' + "'" + self.logo_image_file_path.encode('ascii', 'replace') + "'")
+        if self.logo_image_url is not None:
+            field_reprs.append('logo_image_url=' + "'" + self.logo_image_url.encode('ascii', 'replace') + "'")
         if self.magento_store_url is not None:
             field_reprs.append('magento_store_url=' + "'" + self.magento_store_url.encode('ascii', 'replace') + "'")
         if self.product_csv_file_path is not None:
@@ -125,8 +125,8 @@ class UserSettings(object):
 
     def __str__(self):
         field_reprs = []
-        if self.logo_image_file_path is not None:
-            field_reprs.append('logo_image_file_path=' + "'" + self.logo_image_file_path.encode('ascii', 'replace') + "'")
+        if self.logo_image_url is not None:
+            field_reprs.append('logo_image_url=' + "'" + self.logo_image_url.encode('ascii', 'replace') + "'")
         if self.magento_store_url is not None:
             field_reprs.append('magento_store_url=' + "'" + self.magento_store_url.encode('ascii', 'replace') + "'")
         if self.product_csv_file_path is not None:
@@ -138,11 +138,11 @@ class UserSettings(object):
         return 'UserSettings(' + ', '.join(field_reprs) + ')'
 
     def as_dict(self):
-        return {'logo_image_file_path': self.logo_image_file_path, 'magento_store_url': self.magento_store_url, 'product_csv_file_path': self.product_csv_file_path, 'product_csv_mtime': self.product_csv_mtime, 'product_search_queries': self.product_search_queries}
+        return {'logo_image_url': self.logo_image_url, 'magento_store_url': self.magento_store_url, 'product_csv_file_path': self.product_csv_file_path, 'product_csv_mtime': self.product_csv_mtime, 'product_search_queries': self.product_search_queries}
 
     @property
-    def logo_image_file_path(self):
-        return self.__logo_image_file_path
+    def logo_image_url(self):
+        return self.__logo_image_url
 
     @property
     def magento_store_url(self):
@@ -169,9 +169,9 @@ class UserSettings(object):
             ifield_name, ifield_type, _ifield_id = iprot.readFieldBegin()
             if ifield_type == 0: # STOP
                 break
-            elif ifield_name == 'logo_image_file_path':
+            elif ifield_name == 'logo_image_url':
                 try:
-                    init_kwds['logo_image_file_path'] = iprot.readString()
+                    init_kwds['logo_image_url'] = iprot.readString()
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'magento_store_url':
@@ -196,9 +196,9 @@ class UserSettings(object):
 
         return cls(**init_kwds)
 
-    def replace(self, logo_image_file_path=None, magento_store_url=None, product_csv_file_path=None, product_csv_mtime=None, product_search_queries=None):
-        if logo_image_file_path is None:
-            logo_image_file_path = self.logo_image_file_path
+    def replace(self, logo_image_url=None, magento_store_url=None, product_csv_file_path=None, product_csv_mtime=None, product_search_queries=None):
+        if logo_image_url is None:
+            logo_image_url = self.logo_image_url
         if magento_store_url is None:
             magento_store_url = self.magento_store_url
         if product_csv_file_path is None:
@@ -207,14 +207,14 @@ class UserSettings(object):
             product_csv_mtime = self.product_csv_mtime
         if product_search_queries is None:
             product_search_queries = self.product_search_queries
-        return self.__class__(logo_image_file_path=logo_image_file_path, magento_store_url=magento_store_url, product_csv_file_path=product_csv_file_path, product_csv_mtime=product_csv_mtime, product_search_queries=product_search_queries)
+        return self.__class__(logo_image_url=logo_image_url, magento_store_url=magento_store_url, product_csv_file_path=product_csv_file_path, product_csv_mtime=product_csv_mtime, product_search_queries=product_search_queries)
 
     def write(self, oprot):
         oprot.writeStructBegin('UserSettings')
 
-        if self.logo_image_file_path is not None:
-            oprot.writeFieldBegin('logo_image_file_path', 11, -1)
-            oprot.writeString(self.logo_image_file_path)
+        if self.logo_image_url is not None:
+            oprot.writeFieldBegin('logo_image_url', 11, -1)
+            oprot.writeString(self.logo_image_url)
             oprot.writeFieldEnd()
 
         if self.magento_store_url is not None:
