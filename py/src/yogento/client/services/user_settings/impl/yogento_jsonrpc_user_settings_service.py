@@ -19,3 +19,4 @@ class YogentoJsonrpcUserSettingsService(yogento.client.services._yogento_jsonrpc
 
     def _put_current_user_settings(self, **kwds):
         self._request('put_current_user_settings', **kwds)
+

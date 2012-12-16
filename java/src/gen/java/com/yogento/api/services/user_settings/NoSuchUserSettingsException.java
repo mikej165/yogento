@@ -7,27 +7,23 @@ public class NoSuchUserSettingsException extends java.lang.Exception implements 
         }
 
         public Builder(final NoSuchUserSettingsException other) {
-            this.username = other.getUsername();
         }
 
-        protected NoSuchUserSettingsException _build(final String username) {
-            return new NoSuchUserSettingsException(username);
+        protected NoSuchUserSettingsException _build() {
+            return new NoSuchUserSettingsException();
         }
 
         public NoSuchUserSettingsException build() {
-            return _build(username);
+            return _build();
         }
 
-        public Builder setUsername(final String username) {
-            this.username = username;
-            return this;
-        }
 
-        private String username;
+    }
+
+    public NoSuchUserSettingsException() {
     }
 
     public NoSuchUserSettingsException(final NoSuchUserSettingsException other) {
-        this(other.getUsername());
     }
 
     public NoSuchUserSettingsException(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
@@ -35,12 +31,9 @@ public class NoSuchUserSettingsException extends java.lang.Exception implements 
     }
 
     public NoSuchUserSettingsException(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
-        String username = null;
-
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
                 iprot.readListBegin();
-                username = iprot.readString();
                 iprot.readListEnd();
                 break;
 
@@ -51,20 +44,12 @@ public class NoSuchUserSettingsException extends java.lang.Exception implements 
                     org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
                     if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
                         break;
-                    } else                 if (ifield.name.equals("username")) {
-                        username = iprot.readString();
                     }
                     iprot.readFieldEnd();
                 }
                 iprot.readStructEnd();
                 break;
         }
-
-        this.username = com.google.common.base.Preconditions.checkNotNull(username);
-    }
-
-    public NoSuchUserSettingsException(final String username) {
-        this.username = com.google.common.base.Preconditions.checkNotNull(username);
     }
 
     @Override
@@ -90,9 +75,7 @@ public class NoSuchUserSettingsException extends java.lang.Exception implements 
             return false;
         }
 
-        final NoSuchUserSettingsException other = (NoSuchUserSettingsException)otherObject;
-        return
-            getUsername().equals(other.getUsername());
+        return true;
     }
 
     @Override
@@ -101,9 +84,6 @@ public class NoSuchUserSettingsException extends java.lang.Exception implements 
     }
 
     public Object get(final String fieldName) {
-        if (fieldName.equals("username")) {
-            return getUsername();
-        }
         return null;
     }
 
@@ -117,14 +97,9 @@ public class NoSuchUserSettingsException extends java.lang.Exception implements 
         return toString();
     }
 
-    public final String getUsername() {
-        return username;
-    }
-
     @Override
     public int hashCode() {
         int hashCode = 17;
-        hashCode = 31 * hashCode + getUsername().hashCode();
         return hashCode;
     }
 
@@ -146,7 +121,6 @@ public class NoSuchUserSettingsException extends java.lang.Exception implements 
     @Override
     public String toString() {
         final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
-        helper.add("username", getUsername());
         return helper.toString();
     }
 
@@ -159,20 +133,13 @@ public class NoSuchUserSettingsException extends java.lang.Exception implements 
         switch (writeAsTType) {
             case org.apache.thrift.protocol.TType.VOID:
             case org.apache.thrift.protocol.TType.LIST:
-                oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
-
-                oprot.writeString(getUsername());
-
+                oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 0));
                 oprot.writeListEnd();
                 break;
 
             case org.apache.thrift.protocol.TType.STRUCT:
             default:
                 oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("NoSuchUserSettingsException"));
-
-                oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("username", org.apache.thrift.protocol.TType.STRING, (short)-1));
-                oprot.writeString(getUsername());
-                oprot.writeFieldEnd();
 
                 oprot.writeFieldStop();
 
@@ -181,5 +148,5 @@ public class NoSuchUserSettingsException extends java.lang.Exception implements 
         }
     }
 
-    private final String username;
+
 }
