@@ -3,7 +3,7 @@ class YogentoClient(object):
         object.__init__(self)
 
         services = []
-        for service_prefix in ('catalog', 'customer', 'mail', 'sales', 'user'):
+        for service_prefix in ('agent', 'catalog', 'image', 'mail', 'user_settings'):
             if jsonrpc:
                 service_infix = 'jsonrpc_' + service_prefix
             else:
