@@ -8,12 +8,16 @@ class UserSettings(object):
     class Builder:
         def __init__(
             self,
+            display_name=None,
+            email=None,
             logo_image_url=None,
             magento_store_url=None,
             product_csv_file_path=None,
             product_csv_mtime=None,
             product_search_queries=None
         ):
+            self.__display_name = display_name
+            self.__email = email
             self.__logo_image_url = logo_image_url
             self.__magento_store_url = magento_store_url
             self.__product_csv_file_path = product_csv_file_path
@@ -21,7 +25,15 @@ class UserSettings(object):
             self.__product_search_queries = product_search_queries
 
         def build(self):
-            return UserSettings(logo_image_url=self.__logo_image_url, magento_store_url=self.__magento_store_url, product_csv_file_path=self.__product_csv_file_path, product_csv_mtime=self.__product_csv_mtime, product_search_queries=self.__product_search_queries)
+            return UserSettings(display_name=self.__display_name, email=self.__email, logo_image_url=self.__logo_image_url, magento_store_url=self.__magento_store_url, product_csv_file_path=self.__product_csv_file_path, product_csv_mtime=self.__product_csv_mtime, product_search_queries=self.__product_search_queries)
+
+        def set_display_name(self, display_name):
+            self.__display_name = display_name
+            return self
+
+        def set_email(self, email):
+            self.__email = email
+            return self
 
         def set_logo_image_url(self, logo_image_url):
             self.__logo_image_url = logo_image_url
@@ -45,6 +57,8 @@ class UserSettings(object):
 
         def update(self, user_settings):
             if isinstance(user_settings, UserSettings):
+                self.set_display_name(user_settings.display_name)
+                self.set_email(user_settings.email)
                 self.set_logo_image_url(user_settings.logo_image_url)
                 self.set_magento_store_url(user_settings.magento_store_url)
                 self.set_product_csv_file_path(user_settings.product_csv_file_path)
@@ -59,12 +73,24 @@ class UserSettings(object):
 
     def __init__(
         self,
+        display_name=None,
+        email=None,
         logo_image_url=None,
         magento_store_url=None,
         product_csv_file_path=None,
         product_csv_mtime=None,
         product_search_queries=None
     ):
+        if display_name is not None:
+            if not isinstance(display_name, basestring):
+                raise TypeError(getattr(__builtin__, 'type')(display_name))
+        self.__display_name = display_name
+
+        if email is not None:
+            if not isinstance(email, basestring):
+                raise TypeError(getattr(__builtin__, 'type')(email))
+        self.__email = email
+
         if logo_image_url is not None:
             if not isinstance(logo_image_url, basestring):
                 raise TypeError(getattr(__builtin__, 'type')(logo_image_url))
@@ -91,6 +117,10 @@ class UserSettings(object):
         self.__product_search_queries = product_search_queries
 
     def __eq__(self, other):
+        if self.display_name != other.display_name:
+            return False
+        if self.email != other.email:
+            return False
         if self.logo_image_url != other.logo_image_url:
             return False
         if self.magento_store_url != other.magento_store_url:
@@ -104,13 +134,17 @@ class UserSettings(object):
         return True
 
     def __hash__(self):
-        return hash((self.logo_image_url,self.magento_store_url,self.product_csv_file_path,self.product_csv_mtime,self.product_search_queries,))
+        return hash((self.display_name,self.email,self.logo_image_url,self.magento_store_url,self.product_csv_file_path,self.product_csv_mtime,self.product_search_queries,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
 
     def __repr__(self):
         field_reprs = []
+        if self.display_name is not None:
+            field_reprs.append('display_name=' + "'" + self.display_name.encode('ascii', 'replace') + "'")
+        if self.email is not None:
+            field_reprs.append('email=' + "'" + self.email.encode('ascii', 'replace') + "'")
         if self.logo_image_url is not None:
             field_reprs.append('logo_image_url=' + "'" + self.logo_image_url.encode('ascii', 'replace') + "'")
         if self.magento_store_url is not None:
@@ -125,6 +159,10 @@ class UserSettings(object):
 
     def __str__(self):
         field_reprs = []
+        if self.display_name is not None:
+            field_reprs.append('display_name=' + "'" + self.display_name.encode('ascii', 'replace') + "'")
+        if self.email is not None:
+            field_reprs.append('email=' + "'" + self.email.encode('ascii', 'replace') + "'")
         if self.logo_image_url is not None:
             field_reprs.append('logo_image_url=' + "'" + self.logo_image_url.encode('ascii', 'replace') + "'")
         if self.magento_store_url is not None:
@@ -138,7 +176,15 @@ class UserSettings(object):
         return 'UserSettings(' + ', '.join(field_reprs) + ')'
 
     def as_dict(self):
-        return {'logo_image_url': self.logo_image_url, 'magento_store_url': self.magento_store_url, 'product_csv_file_path': self.product_csv_file_path, 'product_csv_mtime': self.product_csv_mtime, 'product_search_queries': self.product_search_queries}
+        return {'display_name': self.display_name, 'email': self.email, 'logo_image_url': self.logo_image_url, 'magento_store_url': self.magento_store_url, 'product_csv_file_path': self.product_csv_file_path, 'product_csv_mtime': self.product_csv_mtime, 'product_search_queries': self.product_search_queries}
+
+    @property
+    def display_name(self):
+        return self.__display_name
+
+    @property
+    def email(self):
+        return self.__email
 
     @property
     def logo_image_url(self):
@@ -169,6 +215,16 @@ class UserSettings(object):
             ifield_name, ifield_type, _ifield_id = iprot.readFieldBegin()
             if ifield_type == 0: # STOP
                 break
+            elif ifield_name == 'display_name':
+                try:
+                    init_kwds['display_name'] = iprot.readString()
+                except (TypeError, ValueError,):
+                    pass
+            elif ifield_name == 'email':
+                try:
+                    init_kwds['email'] = iprot.readString()
+                except (TypeError, ValueError,):
+                    pass
             elif ifield_name == 'logo_image_url':
                 try:
                     init_kwds['logo_image_url'] = iprot.readString()
@@ -196,7 +252,11 @@ class UserSettings(object):
 
         return cls(**init_kwds)
 
-    def replace(self, logo_image_url=None, magento_store_url=None, product_csv_file_path=None, product_csv_mtime=None, product_search_queries=None):
+    def replace(self, display_name=None, email=None, logo_image_url=None, magento_store_url=None, product_csv_file_path=None, product_csv_mtime=None, product_search_queries=None):
+        if display_name is None:
+            display_name = self.display_name
+        if email is None:
+            email = self.email
         if logo_image_url is None:
             logo_image_url = self.logo_image_url
         if magento_store_url is None:
@@ -207,10 +267,20 @@ class UserSettings(object):
             product_csv_mtime = self.product_csv_mtime
         if product_search_queries is None:
             product_search_queries = self.product_search_queries
-        return self.__class__(logo_image_url=logo_image_url, magento_store_url=magento_store_url, product_csv_file_path=product_csv_file_path, product_csv_mtime=product_csv_mtime, product_search_queries=product_search_queries)
+        return self.__class__(display_name=display_name, email=email, logo_image_url=logo_image_url, magento_store_url=magento_store_url, product_csv_file_path=product_csv_file_path, product_csv_mtime=product_csv_mtime, product_search_queries=product_search_queries)
 
     def write(self, oprot):
         oprot.writeStructBegin('UserSettings')
+
+        if self.display_name is not None:
+            oprot.writeFieldBegin('display_name', 11, -1)
+            oprot.writeString(self.display_name)
+            oprot.writeFieldEnd()
+
+        if self.email is not None:
+            oprot.writeFieldBegin('email', 11, -1)
+            oprot.writeString(self.email)
+            oprot.writeFieldEnd()
 
         if self.logo_image_url is not None:
             oprot.writeFieldBegin('logo_image_url', 11, -1)

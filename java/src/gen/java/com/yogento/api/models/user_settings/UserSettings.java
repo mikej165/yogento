@@ -1,4 +1,4 @@
-package com.yogento.api.models.user;
+package com.yogento.api.models.user_settings;
 
 @SuppressWarnings({"serial"})
 public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.apache.thrift.TFieldIdEnum> {
@@ -7,6 +7,8 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         }
 
         public Builder(final UserSettings other) {
+            this.displayName = other.getDisplayName();
+            this.email = other.getEmail();
             this.logoImageUrl = other.getLogoImageUrl();
             this.magentoStoreUrl = other.getMagentoStoreUrl();
             this.productCsvFilePath = other.getProductCsvFilePath();
@@ -14,12 +16,22 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
             this.productSearchQueries = other.getProductSearchQueries();
         }
 
-        protected UserSettings _build(final String logoImageUrl, final String magentoStoreUrl, final String productCsvFilePath, final org.joda.time.DateTime productCsvMtime, final com.google.common.collect.ImmutableList<String> productSearchQueries) {
-            return new UserSettings(logoImageUrl, magentoStoreUrl, productCsvFilePath, productCsvMtime, productSearchQueries);
+        protected UserSettings _build(final String displayName, final String email, final String logoImageUrl, final String magentoStoreUrl, final String productCsvFilePath, final org.joda.time.DateTime productCsvMtime, final com.google.common.collect.ImmutableList<String> productSearchQueries) {
+            return new UserSettings(displayName, email, logoImageUrl, magentoStoreUrl, productCsvFilePath, productCsvMtime, productSearchQueries);
         }
 
         public UserSettings build() {
-            return _build(logoImageUrl, magentoStoreUrl, productCsvFilePath, productCsvMtime, productSearchQueries);
+            return _build(displayName, email, logoImageUrl, magentoStoreUrl, productCsvFilePath, productCsvMtime, productSearchQueries);
+        }
+
+        public Builder setDisplayName(final String displayName) {
+            this.displayName = displayName;
+            return this;
+        }
+
+        public Builder setEmail(final String email) {
+            this.email = email;
+            return this;
         }
 
         public Builder setLogoImageUrl(final String logoImageUrl) {
@@ -47,6 +59,8 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
             return this;
         }
 
+        private String displayName;
+        private String email;
         private String logoImageUrl;
         private String magentoStoreUrl;
         private String productCsvFilePath;
@@ -55,6 +69,8 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
     }
 
     public UserSettings() {
+        displayName = null;
+        email = null;
         logoImageUrl = null;
         magentoStoreUrl = null;
         productCsvFilePath = null;
@@ -63,7 +79,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
     }
 
     public UserSettings(final UserSettings other) {
-        this(other.getLogoImageUrl(), other.getMagentoStoreUrl(), other.getProductCsvFilePath(), other.getProductCsvMtime(), other.getProductSearchQueries());
+        this(other.getDisplayName(), other.getEmail(), other.getLogoImageUrl(), other.getMagentoStoreUrl(), other.getProductCsvFilePath(), other.getProductCsvMtime(), other.getProductSearchQueries());
     }
 
     public UserSettings(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
@@ -71,6 +87,8 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
     }
 
     public UserSettings(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+        String displayName = null;
+        String email = null;
         String logoImageUrl = null;
         String magentoStoreUrl = null;
         String productCsvFilePath = null;
@@ -80,6 +98,8 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
                 iprot.readListBegin();
+                displayName = iprot.readString();
+                email = iprot.readString();
                 logoImageUrl = iprot.readString();
                 magentoStoreUrl = iprot.readString();
                 productCsvFilePath = iprot.readString();
@@ -113,7 +133,11 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                     org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
                     if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
                         break;
-                    } else                 if (ifield.name.equals("logo_image_url")) {
+                    } else                 if (ifield.name.equals("display_name")) {
+                        displayName = iprot.readString();
+                    } else if (ifield.name.equals("email")) {
+                        email = iprot.readString();
+                    } else if (ifield.name.equals("logo_image_url")) {
                         logoImageUrl = iprot.readString();
                     } else if (ifield.name.equals("magento_store_url")) {
                         magentoStoreUrl = iprot.readString();
@@ -148,6 +172,8 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                 break;
         }
 
+        this.displayName = displayName;
+        this.email = email;
         this.logoImageUrl = logoImageUrl;
         this.magentoStoreUrl = magentoStoreUrl;
         this.productCsvFilePath = productCsvFilePath;
@@ -155,7 +181,9 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         this.productSearchQueries = productSearchQueries;
     }
 
-    public UserSettings(final String logoImageUrl, final String magentoStoreUrl, final String productCsvFilePath, final org.joda.time.DateTime productCsvMtime, final com.google.common.collect.ImmutableList<String> productSearchQueries) {
+    public UserSettings(final String displayName, final String email, final String logoImageUrl, final String magentoStoreUrl, final String productCsvFilePath, final org.joda.time.DateTime productCsvMtime, final com.google.common.collect.ImmutableList<String> productSearchQueries) {
+        this.displayName = displayName;
+        this.email = email;
         this.logoImageUrl = logoImageUrl;
         this.magentoStoreUrl = magentoStoreUrl;
         this.productCsvFilePath = productCsvFilePath;
@@ -188,6 +216,12 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
 
         final UserSettings other = (UserSettings)otherObject;
         return
+            ((getDisplayName() == null && other.getDisplayName() == null) ||
+            (getDisplayName() != null && other.getDisplayName() != null &&
+            getDisplayName().equals(other.getDisplayName()))) &&
+            ((getEmail() == null && other.getEmail() == null) ||
+            (getEmail() != null && other.getEmail() != null &&
+            getEmail().equals(other.getEmail()))) &&
             ((getLogoImageUrl() == null && other.getLogoImageUrl() == null) ||
             (getLogoImageUrl() != null && other.getLogoImageUrl() != null &&
             getLogoImageUrl().equals(other.getLogoImageUrl()))) &&
@@ -211,7 +245,11 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
     }
 
     public Object get(final String fieldName) {
-        if (fieldName.equals("logo_image_url")) {
+        if (fieldName.equals("display_name")) {
+            return getDisplayName();
+        } else if (fieldName.equals("email")) {
+            return getEmail();
+        } else if (fieldName.equals("logo_image_url")) {
             return getLogoImageUrl();
         } else if (fieldName.equals("magento_store_url")) {
             return getMagentoStoreUrl();
@@ -223,6 +261,14 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
             return getProductSearchQueries();
         }
         return null;
+    }
+
+    public final String getDisplayName() {
+        return displayName;
+    }
+
+    public final String getEmail() {
+        return email;
     }
 
     @Override
@@ -253,6 +299,12 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
     @Override
     public int hashCode() {
         int hashCode = 17;
+        if (getDisplayName() != null) {
+            hashCode = 31 * hashCode + getDisplayName().hashCode();
+        }
+        if (getEmail() != null) {
+            hashCode = 31 * hashCode + getEmail().hashCode();
+        }
         if (getLogoImageUrl() != null) {
             hashCode = 31 * hashCode + getLogoImageUrl().hashCode();
         }
@@ -289,6 +341,12 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
     @Override
     public String toString() {
         final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
+        if (getDisplayName() != null) {
+            helper.add("display_name", getDisplayName());
+        }
+        if (getEmail() != null) {
+            helper.add("email", getEmail());
+        }
         if (getLogoImageUrl() != null) {
             helper.add("logo_image_url", getLogoImageUrl());
         }
@@ -316,7 +374,19 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         switch (writeAsTType) {
             case org.apache.thrift.protocol.TType.VOID:
             case org.apache.thrift.protocol.TType.LIST:
-                oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 5));
+                oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 7));
+
+                if (getDisplayName() != null) {
+                    oprot.writeString(getDisplayName());
+                } else {
+                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                }
+
+                if (getEmail() != null) {
+                    oprot.writeString(getEmail());
+                } else {
+                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                }
 
                 if (getLogoImageUrl() != null) {
                     oprot.writeString(getLogoImageUrl());
@@ -359,6 +429,18 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
             default:
                 oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("UserSettings"));
 
+                if (getDisplayName() != null) {
+                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("display_name", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                    oprot.writeString(getDisplayName());
+                    oprot.writeFieldEnd();
+                }
+
+                if (getEmail() != null) {
+                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("email", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                    oprot.writeString(getEmail());
+                    oprot.writeFieldEnd();
+                }
+
                 if (getLogoImageUrl() != null) {
                     oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("logo_image_url", org.apache.thrift.protocol.TType.STRING, (short)-1));
                     oprot.writeString(getLogoImageUrl());
@@ -400,6 +482,8 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         }
     }
 
+    private final String displayName;
+    private final String email;
     private final String logoImageUrl;
     private final String magentoStoreUrl;
     private final String productCsvFilePath;

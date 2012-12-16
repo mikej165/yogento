@@ -1,4 +1,4 @@
-package com.yogento.api.services.user;
+package com.yogento.api.services.user_settings;
 
 @SuppressWarnings({"serial"})
 public class NoSuchUserSettingsException extends java.lang.Exception implements org.apache.thrift.TBase<NoSuchUserSettingsException, org.apache.thrift.TFieldIdEnum> {
