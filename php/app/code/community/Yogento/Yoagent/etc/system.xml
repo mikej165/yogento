@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+		<yogento module="yoagent" translate="label">
+			<label>Yogento</label>
+			<sort_order>99999</sort_order>
+		</yogento>
+	</tabs>
+	<sections>
+		<yoagent module="yoagent" translate="label">
+			<label>Agent</label>
+			<tab>yogento</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>1000</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<request>
+					<label>Request</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>30</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<url translate="label">
+							<label>URL</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</url>
+					</fields>
+				</request>
+			</groups>
+		</yoagent>
+	</sections>
+</config>

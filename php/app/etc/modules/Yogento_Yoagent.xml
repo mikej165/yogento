@@ -1,0 +1,8 @@
+<config>
+	<modules>
+		<Yogento_Yoagent>
+			<active>true</active>
+			<codePool>community</codePool>
+		</Yogento_Yoagent>
+	</modules>
+</config>
