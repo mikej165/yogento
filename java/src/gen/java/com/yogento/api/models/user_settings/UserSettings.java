@@ -11,16 +11,16 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
             this.email = other.getEmail();
             this.logoImageUrl = other.getLogoImageUrl();
             this.magentoStoreUrl = other.getMagentoStoreUrl();
-            this.productCsvMtime = other.getProductCsvMtime();
+            this.productsMtime = other.getProductsMtime();
             this.productSearchQueries = other.getProductSearchQueries();
         }
 
-        protected UserSettings _build(final String displayName, final String email, final String logoImageUrl, final String magentoStoreUrl, final org.joda.time.DateTime productCsvMtime, final com.google.common.collect.ImmutableList<String> productSearchQueries) {
-            return new UserSettings(displayName, email, logoImageUrl, magentoStoreUrl, productCsvMtime, productSearchQueries);
+        protected UserSettings _build(final String displayName, final String email, final String logoImageUrl, final String magentoStoreUrl, final org.joda.time.DateTime productsMtime, final com.google.common.collect.ImmutableList<String> productSearchQueries) {
+            return new UserSettings(displayName, email, logoImageUrl, magentoStoreUrl, productsMtime, productSearchQueries);
         }
 
         public UserSettings build() {
-            return _build(displayName, email, logoImageUrl, magentoStoreUrl, productCsvMtime, productSearchQueries);
+            return _build(displayName, email, logoImageUrl, magentoStoreUrl, productsMtime, productSearchQueries);
         }
 
         public Builder setDisplayName(final String displayName) {
@@ -43,13 +43,13 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
             return this;
         }
 
-        public Builder setProductCsvMtime(final org.joda.time.DateTime productCsvMtime) {
-            this.productCsvMtime = productCsvMtime;
+        public Builder setProductSearchQueries(final com.google.common.collect.ImmutableList<String> productSearchQueries) {
+            this.productSearchQueries = productSearchQueries;
             return this;
         }
 
-        public Builder setProductSearchQueries(final com.google.common.collect.ImmutableList<String> productSearchQueries) {
-            this.productSearchQueries = productSearchQueries;
+        public Builder setProductsMtime(final org.joda.time.DateTime productsMtime) {
+            this.productsMtime = productsMtime;
             return this;
         }
 
@@ -57,7 +57,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         private String email;
         private String logoImageUrl;
         private String magentoStoreUrl;
-        private org.joda.time.DateTime productCsvMtime;
+        private org.joda.time.DateTime productsMtime;
         private com.google.common.collect.ImmutableList<String> productSearchQueries;
     }
 
@@ -66,12 +66,12 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         email = null;
         logoImageUrl = null;
         magentoStoreUrl = null;
-        productCsvMtime = null;
+        productsMtime = null;
         productSearchQueries = null;
     }
 
     public UserSettings(final UserSettings other) {
-        this(other.getDisplayName(), other.getEmail(), other.getLogoImageUrl(), other.getMagentoStoreUrl(), other.getProductCsvMtime(), other.getProductSearchQueries());
+        this(other.getDisplayName(), other.getEmail(), other.getLogoImageUrl(), other.getMagentoStoreUrl(), other.getProductsMtime(), other.getProductSearchQueries());
     }
 
     public UserSettings(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
@@ -83,7 +83,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         String email = null;
         String logoImageUrl = null;
         String magentoStoreUrl = null;
-        org.joda.time.DateTime productCsvMtime = null;
+        org.joda.time.DateTime productsMtime = null;
         com.google.common.collect.ImmutableList<String> productSearchQueries = null;
 
         switch (readAsTType) {
@@ -94,7 +94,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                 logoImageUrl = iprot.readString();
                 magentoStoreUrl = iprot.readString();
                 try {
-                    productCsvMtime = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                    productsMtime = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
                 } catch (IllegalArgumentException e) {
                 }
                 productSearchQueries = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableList<String>>() {
@@ -131,9 +131,9 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                         logoImageUrl = iprot.readString();
                     } else if (ifield.name.equals("magento_store_url")) {
                         magentoStoreUrl = iprot.readString();
-                    } else if (ifield.name.equals("product_csv_mtime")) {
+                    } else if (ifield.name.equals("products_mtime")) {
                         try {
-                            productCsvMtime = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                            productsMtime = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
                         } catch (IllegalArgumentException e) {
                         }
                     } else if (ifield.name.equals("product_search_queries")) {
@@ -164,16 +164,16 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         this.email = email;
         this.logoImageUrl = logoImageUrl;
         this.magentoStoreUrl = magentoStoreUrl;
-        this.productCsvMtime = productCsvMtime;
+        this.productsMtime = productsMtime;
         this.productSearchQueries = productSearchQueries;
     }
 
-    public UserSettings(final String displayName, final String email, final String logoImageUrl, final String magentoStoreUrl, final org.joda.time.DateTime productCsvMtime, final com.google.common.collect.ImmutableList<String> productSearchQueries) {
+    public UserSettings(final String displayName, final String email, final String logoImageUrl, final String magentoStoreUrl, final org.joda.time.DateTime productsMtime, final com.google.common.collect.ImmutableList<String> productSearchQueries) {
         this.displayName = displayName;
         this.email = email;
         this.logoImageUrl = logoImageUrl;
         this.magentoStoreUrl = magentoStoreUrl;
-        this.productCsvMtime = productCsvMtime;
+        this.productsMtime = productsMtime;
         this.productSearchQueries = productSearchQueries;
     }
 
@@ -214,9 +214,9 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
             ((getMagentoStoreUrl() == null && other.getMagentoStoreUrl() == null) ||
             (getMagentoStoreUrl() != null && other.getMagentoStoreUrl() != null &&
             getMagentoStoreUrl().equals(other.getMagentoStoreUrl()))) &&
-            ((getProductCsvMtime() == null && other.getProductCsvMtime() == null) ||
-            (getProductCsvMtime() != null && other.getProductCsvMtime() != null &&
-            getProductCsvMtime().equals(other.getProductCsvMtime()))) &&
+            ((getProductsMtime() == null && other.getProductsMtime() == null) ||
+            (getProductsMtime() != null && other.getProductsMtime() != null &&
+            getProductsMtime().equals(other.getProductsMtime()))) &&
             ((getProductSearchQueries() == null && other.getProductSearchQueries() == null) ||
             (getProductSearchQueries() != null && other.getProductSearchQueries() != null &&
             getProductSearchQueries().equals(other.getProductSearchQueries())));
@@ -236,8 +236,8 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
             return getLogoImageUrl();
         } else if (fieldName.equals("magento_store_url")) {
             return getMagentoStoreUrl();
-        } else if (fieldName.equals("product_csv_mtime")) {
-            return getProductCsvMtime();
+        } else if (fieldName.equals("products_mtime")) {
+            return getProductsMtime();
         } else if (fieldName.equals("product_search_queries")) {
             return getProductSearchQueries();
         }
@@ -265,12 +265,12 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         return magentoStoreUrl;
     }
 
-    public final org.joda.time.DateTime getProductCsvMtime() {
-        return productCsvMtime;
-    }
-
     public final com.google.common.collect.ImmutableList<String> getProductSearchQueries() {
         return productSearchQueries;
+    }
+
+    public final org.joda.time.DateTime getProductsMtime() {
+        return productsMtime;
     }
 
     @Override
@@ -288,8 +288,8 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         if (getMagentoStoreUrl() != null) {
             hashCode = 31 * hashCode + getMagentoStoreUrl().hashCode();
         }
-        if (getProductCsvMtime() != null) {
-            hashCode = 31 * hashCode + getProductCsvMtime().hashCode();
+        if (getProductsMtime() != null) {
+            hashCode = 31 * hashCode + getProductsMtime().hashCode();
         }
         if (getProductSearchQueries() != null) {
             hashCode = 31 * hashCode + getProductSearchQueries().hashCode();
@@ -327,8 +327,8 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         if (getMagentoStoreUrl() != null) {
             helper.add("magento_store_url", getMagentoStoreUrl());
         }
-        if (getProductCsvMtime() != null) {
-            helper.add("product_csv_mtime", getProductCsvMtime());
+        if (getProductsMtime() != null) {
+            helper.add("products_mtime", getProductsMtime());
         }
         if (getProductSearchQueries() != null) {
             helper.add("product_search_queries", getProductSearchQueries());
@@ -371,8 +371,8 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                     ((org.thryft.protocol.Protocol)oprot).writeNull();
                 }
 
-                if (getProductCsvMtime() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getProductCsvMtime()); } else { oprot.writeI64(getProductCsvMtime().getMillis()); }
+                if (getProductsMtime() != null) {
+                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getProductsMtime()); } else { oprot.writeI64(getProductsMtime().getMillis()); }
                 } else {
                     ((org.thryft.protocol.Protocol)oprot).writeNull();
                 }
@@ -418,9 +418,9 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                     oprot.writeFieldEnd();
                 }
 
-                if (getProductCsvMtime() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("product_csv_mtime", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getProductCsvMtime()); } else { oprot.writeI64(getProductCsvMtime().getMillis()); }
+                if (getProductsMtime() != null) {
+                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("products_mtime", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
+                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getProductsMtime()); } else { oprot.writeI64(getProductsMtime().getMillis()); }
                     oprot.writeFieldEnd();
                 }
 
@@ -445,6 +445,6 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
     private final String email;
     private final String logoImageUrl;
     private final String magentoStoreUrl;
-    private final org.joda.time.DateTime productCsvMtime;
+    private final org.joda.time.DateTime productsMtime;
     private final com.google.common.collect.ImmutableList<String> productSearchQueries;
 }

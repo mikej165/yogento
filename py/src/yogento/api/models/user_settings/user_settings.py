@@ -12,18 +12,18 @@ class UserSettings(object):
             email=None,
             logo_image_url=None,
             magento_store_url=None,
-            product_csv_mtime=None,
+            products_mtime=None,
             product_search_queries=None
         ):
             self.__display_name = display_name
             self.__email = email
             self.__logo_image_url = logo_image_url
             self.__magento_store_url = magento_store_url
-            self.__product_csv_mtime = product_csv_mtime
+            self.__products_mtime = products_mtime
             self.__product_search_queries = product_search_queries
 
         def build(self):
-            return UserSettings(display_name=self.__display_name, email=self.__email, logo_image_url=self.__logo_image_url, magento_store_url=self.__magento_store_url, product_csv_mtime=self.__product_csv_mtime, product_search_queries=self.__product_search_queries)
+            return UserSettings(display_name=self.__display_name, email=self.__email, logo_image_url=self.__logo_image_url, magento_store_url=self.__magento_store_url, products_mtime=self.__products_mtime, product_search_queries=self.__product_search_queries)
 
         def set_display_name(self, display_name):
             self.__display_name = display_name
@@ -41,12 +41,12 @@ class UserSettings(object):
             self.__magento_store_url = magento_store_url
             return self
 
-        def set_product_csv_mtime(self, product_csv_mtime):
-            self.__product_csv_mtime = product_csv_mtime
-            return self
-
         def set_product_search_queries(self, product_search_queries):
             self.__product_search_queries = product_search_queries
+            return self
+
+        def set_products_mtime(self, products_mtime):
+            self.__products_mtime = products_mtime
             return self
 
         def update(self, user_settings):
@@ -55,7 +55,7 @@ class UserSettings(object):
                 self.set_email(user_settings.email)
                 self.set_logo_image_url(user_settings.logo_image_url)
                 self.set_magento_store_url(user_settings.magento_store_url)
-                self.set_product_csv_mtime(user_settings.product_csv_mtime)
+                self.set_products_mtime(user_settings.products_mtime)
                 self.set_product_search_queries(user_settings.product_search_queries)
             elif isinstance(user_settings, dict):
                 for key, value in user_settings.iteritems():
@@ -70,7 +70,7 @@ class UserSettings(object):
         email=None,
         logo_image_url=None,
         magento_store_url=None,
-        product_csv_mtime=None,
+        products_mtime=None,
         product_search_queries=None
     ):
         if display_name is not None:
@@ -93,10 +93,10 @@ class UserSettings(object):
                 raise TypeError(getattr(__builtin__, 'type')(magento_store_url))
         self.__magento_store_url = magento_store_url
 
-        if product_csv_mtime is not None:
-            if not isinstance(product_csv_mtime, datetime):
-                raise TypeError(getattr(__builtin__, 'type')(product_csv_mtime))
-        self.__product_csv_mtime = product_csv_mtime
+        if products_mtime is not None:
+            if not isinstance(products_mtime, datetime):
+                raise TypeError(getattr(__builtin__, 'type')(products_mtime))
+        self.__products_mtime = products_mtime
 
         if product_search_queries is not None:
             if not (isinstance(product_search_queries, tuple) and len(list(ifilterfalse(lambda _: isinstance(_, basestring), product_search_queries))) == 0):
@@ -112,14 +112,14 @@ class UserSettings(object):
             return False
         if self.magento_store_url != other.magento_store_url:
             return False
-        if self.product_csv_mtime != other.product_csv_mtime:
+        if self.products_mtime != other.products_mtime:
             return False
         if self.product_search_queries != other.product_search_queries:
             return False
         return True
 
     def __hash__(self):
-        return hash((self.display_name,self.email,self.logo_image_url,self.magento_store_url,self.product_csv_mtime,self.product_search_queries,))
+        return hash((self.display_name,self.email,self.logo_image_url,self.magento_store_url,self.products_mtime,self.product_search_queries,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
@@ -134,8 +134,8 @@ class UserSettings(object):
             field_reprs.append('logo_image_url=' + "'" + self.logo_image_url.encode('ascii', 'replace') + "'")
         if self.magento_store_url is not None:
             field_reprs.append('magento_store_url=' + "'" + self.magento_store_url.encode('ascii', 'replace') + "'")
-        if self.product_csv_mtime is not None:
-            field_reprs.append('product_csv_mtime=' + repr(self.product_csv_mtime))
+        if self.products_mtime is not None:
+            field_reprs.append('products_mtime=' + repr(self.products_mtime))
         if self.product_search_queries is not None:
             field_reprs.append('product_search_queries=' + repr(self.product_search_queries))
         return 'UserSettings(' + ', '.join(field_reprs) + ')'
@@ -150,14 +150,14 @@ class UserSettings(object):
             field_reprs.append('logo_image_url=' + "'" + self.logo_image_url.encode('ascii', 'replace') + "'")
         if self.magento_store_url is not None:
             field_reprs.append('magento_store_url=' + "'" + self.magento_store_url.encode('ascii', 'replace') + "'")
-        if self.product_csv_mtime is not None:
-            field_reprs.append('product_csv_mtime=' + repr(self.product_csv_mtime))
+        if self.products_mtime is not None:
+            field_reprs.append('products_mtime=' + repr(self.products_mtime))
         if self.product_search_queries is not None:
             field_reprs.append('product_search_queries=' + repr(self.product_search_queries))
         return 'UserSettings(' + ', '.join(field_reprs) + ')'
 
     def as_dict(self):
-        return {'display_name': self.display_name, 'email': self.email, 'logo_image_url': self.logo_image_url, 'magento_store_url': self.magento_store_url, 'product_csv_mtime': self.product_csv_mtime, 'product_search_queries': self.product_search_queries}
+        return {'display_name': self.display_name, 'email': self.email, 'logo_image_url': self.logo_image_url, 'magento_store_url': self.magento_store_url, 'products_mtime': self.products_mtime, 'product_search_queries': self.product_search_queries}
 
     @property
     def display_name(self):
@@ -176,12 +176,12 @@ class UserSettings(object):
         return self.__magento_store_url
 
     @property
-    def product_csv_mtime(self):
-        return self.__product_csv_mtime
-
-    @property
     def product_search_queries(self):
         return self.__product_search_queries
+
+    @property
+    def products_mtime(self):
+        return self.__products_mtime
 
     @classmethod
     def read(cls, iprot):
@@ -212,9 +212,9 @@ class UserSettings(object):
                     init_kwds['magento_store_url'] = iprot.readString()
                 except (TypeError, ValueError,):
                     pass
-            elif ifield_name == 'product_csv_mtime':
+            elif ifield_name == 'products_mtime':
                 try:
-                    init_kwds['product_csv_mtime'] = iprot.readDateTime() if hasattr(iprot, 'readDateTime') else datetime.fromtimestamp(iprot.readI64() / 1000.0)
+                    init_kwds['products_mtime'] = iprot.readDateTime() if hasattr(iprot, 'readDateTime') else datetime.fromtimestamp(iprot.readI64() / 1000.0)
                 except (TypeError,):
                     pass
             elif ifield_name == 'product_search_queries':
@@ -224,7 +224,7 @@ class UserSettings(object):
 
         return cls(**init_kwds)
 
-    def replace(self, display_name=None, email=None, logo_image_url=None, magento_store_url=None, product_csv_mtime=None, product_search_queries=None):
+    def replace(self, display_name=None, email=None, logo_image_url=None, magento_store_url=None, products_mtime=None, product_search_queries=None):
         if display_name is None:
             display_name = self.display_name
         if email is None:
@@ -233,11 +233,11 @@ class UserSettings(object):
             logo_image_url = self.logo_image_url
         if magento_store_url is None:
             magento_store_url = self.magento_store_url
-        if product_csv_mtime is None:
-            product_csv_mtime = self.product_csv_mtime
+        if products_mtime is None:
+            products_mtime = self.products_mtime
         if product_search_queries is None:
             product_search_queries = self.product_search_queries
-        return self.__class__(display_name=display_name, email=email, logo_image_url=logo_image_url, magento_store_url=magento_store_url, product_csv_mtime=product_csv_mtime, product_search_queries=product_search_queries)
+        return self.__class__(display_name=display_name, email=email, logo_image_url=logo_image_url, magento_store_url=magento_store_url, products_mtime=products_mtime, product_search_queries=product_search_queries)
 
     def write(self, oprot):
         oprot.writeStructBegin('UserSettings')
@@ -262,9 +262,9 @@ class UserSettings(object):
             oprot.writeString(self.magento_store_url)
             oprot.writeFieldEnd()
 
-        if self.product_csv_mtime is not None:
-            oprot.writeFieldBegin('product_csv_mtime', 12, -1)
-            oprot.writeDateTime(self.product_csv_mtime) if hasattr(oprot, 'writeDateTime') else oprot.writeI64(long(mktime(self.product_csv_mtime.timetuple())) * 1000l)
+        if self.products_mtime is not None:
+            oprot.writeFieldBegin('products_mtime', 12, -1)
+            oprot.writeDateTime(self.products_mtime) if hasattr(oprot, 'writeDateTime') else oprot.writeI64(long(mktime(self.products_mtime.timetuple())) * 1000l)
             oprot.writeFieldEnd()
 
         if self.product_search_queries is not None:

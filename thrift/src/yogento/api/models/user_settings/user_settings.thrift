@@ -8,6 +8,6 @@ struct UserSettings {
     optional string email;
     optional string logo_image_url;
     optional string magento_store_url;
-    optional date_time.DateTime product_csv_mtime;
+    optional date_time.DateTime products_mtime;
     optional list<string> product_search_queries;
 }
