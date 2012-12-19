@@ -6,5 +6,6 @@ include "yogento/api/models/catalog/product/magento/magento_product.thrift"
 
 service AgentService {
     set<magento_product.MagentoProduct> get_agent_magento_products(optional bool sync) throws (agent_exception.AgentException e);
-    void put_agent_magento_products(required string magento_products_json, required string ticket, required string username);
+    bool head_magento_store(string magento_store_url);
+    void put_agent_magento_products(string magento_products_json, string ticket, string username);
 }

@@ -19,6 +19,22 @@ class AgentService(object):
     def _get_agent_magento_products(self, sync=None):
         raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._get_agent_magento_products')
 
+    def head_magento_store(self, magento_store_url):
+        if magento_store_url is None:
+            raise ValueError('magento_store_url is required')
+        if not isinstance(magento_store_url, basestring):
+            raise TypeError(getattr(__builtin__, 'type')(magento_store_url))
+
+        head_magento_store_return_value = self._head_magento_store(magento_store_url=magento_store_url)
+
+        if not isinstance(head_magento_store_return_value, bool):
+            raise TypeError(getattr(__builtin__, 'type')(head_magento_store_return_value))
+
+        return head_magento_store_return_value
+
+    def _head_magento_store(self, magento_store_url):
+        raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._head_magento_store')
+
     def put_agent_magento_products(self, magento_products_json, ticket, username):
         if magento_products_json is None:
             raise ValueError('magento_products_json is required')
