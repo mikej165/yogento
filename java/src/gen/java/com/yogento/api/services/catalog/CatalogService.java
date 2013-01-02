@@ -15,4 +15,5 @@ public interface CatalogService {
     public void putCategoryTree(com.yogento.api.models.catalog.category.Category categoryTree);
     public void putProduct(com.yogento.api.models.catalog.product.Product product);
     public void putProducts(com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> products);
+    public void putSampleProducts();
 }

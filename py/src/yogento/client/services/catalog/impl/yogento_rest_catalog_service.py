@@ -101,3 +101,6 @@ class YogentoRestCatalogService(yogento.client.services._yogento_rest_service._Y
     def _put_products(self, **kwds):
         self._request('PUT', '/catalog/products', data=str(thryft.protocol.json_protocol.JsonProtocol().writeMixed(dict((key, value) for key, value in kwds.iteritems() if value is not None))), query=None)
 
+    def _put_sample_products(self):
+        self._request('PUT', '/catalog/sample_products', data=None, query=None)
+

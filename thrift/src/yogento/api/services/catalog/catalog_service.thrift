@@ -27,4 +27,5 @@ service CatalogService {
     void put_category_tree(category.Category category_tree);
     void put_product(product.Product product);
     void put_products(set<product.Product> products);
+    void put_sample_products();
 }

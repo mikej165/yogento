@@ -67,3 +67,6 @@ class YogentoJsonrpcCatalogService(yogento.client.services._yogento_jsonrpc_serv
     def _put_products(self, **kwds):
         self._request('put_products', **kwds)
 
+    def _put_sample_products(self, **kwds):
+        self._request('put_sample_products', **kwds)
+

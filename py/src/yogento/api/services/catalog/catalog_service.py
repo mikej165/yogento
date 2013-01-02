@@ -190,3 +190,9 @@ class CatalogService(object):
 
     def _put_products(self, products):
         raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._put_products')
+
+    def put_sample_products(self):
+        self._put_sample_products()
+
+    def _put_sample_products(self):
+        raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._put_sample_products')
