@@ -23,29 +23,22 @@ service MailService {
     ) throws (mail_exception.MailException e);
 
     /**
-        Get the locally-stored campaign content.
+        Get a locally-stored campaign.
         Used as an intermediate "restore" before sending a campaign to the mail
             service provider.        
         Never calls the mail service provider.
-     */
-    mail_campaign_content.MailCampaignContent
-    get_mail_campaign_content(
-        required string cid
-    ) throws (mail_exception.MailException e);
-
-    /**
-        Get a locally-stored campaign.
      **/
     mail_campaign.MailCampaign
     get_mail_campaign(
-        required string cid
+        required string cid,
+        optional bool include_content
     ) throws (mail_exception.MailException e);
     
     /**
-        Get all locally-stored campaigns.
+        Get all locally-stored campaigns, sans content.
      */
     set<mail_campaign.MailCampaign>
-    get_mail_campaigns()
+    get_mail_campaigns(optional bool include_content)
     throws (mail_exception.MailException e);
     
     /**
@@ -93,7 +86,6 @@ service MailService {
     mail_campaign.MailCampaign
     post_mail_campaign(
         required mail_campaign.MailCampaign campaign,
-        required mail_campaign_content.MailCampaignContent content,
         optional date_time.DateTime schedule_time,
         optional date_time.DateTime schedule_time_b,
         optional list<string> test_emails
@@ -109,17 +101,5 @@ service MailService {
     put_mail_campaign(
         required mail_campaign.MailCampaign campaign,
         optional bool write_through
-    ) throws (mail_exception.MailException e);
-    
-    /**
-        Overwrite a campaign's content.
-        Used as an intermediate "save" before sending a campaign.
-        Copies to the mail service provider if write_through is true.
-     */
-    void
-    put_mail_campaign_content(
-        required string cid,
-        required mail_campaign_content.MailCampaignContent content,
-        optional bool write_through        
     ) throws (mail_exception.MailException e);
 }

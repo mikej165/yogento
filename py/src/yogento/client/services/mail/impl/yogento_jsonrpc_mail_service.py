@@ -4,7 +4,6 @@ from time import mktime
 import __builtin__
 import thryft.protocol.json_protocol
 import yogento.api.models.mail.campaign.mail_campaign
-import yogento.api.models.mail.campaign.mail_campaign_content
 import yogento.api.models.mail.campaign.mail_campaign_stats
 import yogento.api.models.mail.list.mail_list
 import yogento.api.models.mail.template.mail_template
@@ -23,11 +22,6 @@ class YogentoJsonrpcMailService(yogento.client.services._yogento_jsonrpc_service
 
     def _delete_mail_campaign(self, **kwds):
         return self._request('delete_mail_campaign', **kwds)
-
-    def _get_mail_campaign_content(self, **kwds):
-        return_value = self._request('get_mail_campaign_content', **kwds)
-        iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
-        return yogento.api.models.mail.campaign.mail_campaign_content.MailCampaignContent.read(iprot)
 
     def _get_mail_campaign(self, **kwds):
         return_value = self._request('get_mail_campaign', **kwds)
@@ -68,7 +62,4 @@ class YogentoJsonrpcMailService(yogento.client.services._yogento_jsonrpc_service
         return_value = self._request('put_mail_campaign', **kwds)
         iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
         return yogento.api.models.mail.campaign.mail_campaign.MailCampaign.read(iprot)
-
-    def _put_mail_campaign_content(self, **kwds):
-        self._request('put_mail_campaign_content', **kwds)
 
