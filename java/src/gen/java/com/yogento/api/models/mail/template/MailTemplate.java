@@ -47,7 +47,7 @@ public class MailTemplate implements org.apache.thrift.TBase<MailTemplate, org.a
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                iprot.readListBegin();
+                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
                 mailChimpTemplate = new com.yochimp.models.template.Template(iprot);
                 type = new com.yogento.api.models.mail.template.MailTemplateType(iprot);
                 iprot.readListEnd();

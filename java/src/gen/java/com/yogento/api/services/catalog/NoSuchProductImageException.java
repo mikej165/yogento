@@ -47,7 +47,7 @@ public class NoSuchProductImageException extends java.lang.Exception implements 
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                iprot.readListBegin();
+                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
                 causeMessage = iprot.readString();
                 sku = iprot.readString();
                 iprot.readListEnd();

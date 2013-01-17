@@ -79,31 +79,39 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                iprot.readListBegin();
+                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
                 exclude = iprot.readBool();
                 file = iprot.readString();
-                label = iprot.readString();
-                try {
-                    position = iprot.readI32();
-                } catch (NumberFormatException e) {
+                if (__list.size > 2) {
+                    label = iprot.readString();
                 }
-                types = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>>() {
-                    @Override
-                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> apply(org.apache.thrift.protocol.TProtocol iprot) {
-                        try {
-                            org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                            java.util.Set<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>();
-                            for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
-                                sequence.add((iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductImageType.class) : com.yogento.api.models.catalog.product.magento.MagentoProductImageType.valueOf(iprot.readString().trim().toUpperCase()));
-                            }
-                            iprot.readSetEnd();
-                            return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                        } catch (org.apache.thrift.TException e) {
-                            return com.google.common.collect.ImmutableSet.of();
-                        }
+                if (__list.size > 3) {
+                    try {
+                        position = iprot.readI32();
+                    } catch (NumberFormatException e) {
                     }
-                }).apply(iprot);
-                url = iprot.readString();
+                }
+                if (__list.size > 4) {
+                    types = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>>() {
+                        @Override
+                        public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> apply(org.apache.thrift.protocol.TProtocol iprot) {
+                            try {
+                                org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                                java.util.Set<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>();
+                                for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
+                                    sequence.add((iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductImageType.class) : com.yogento.api.models.catalog.product.magento.MagentoProductImageType.valueOf(iprot.readString().trim().toUpperCase()));
+                                }
+                                iprot.readSetEnd();
+                                return com.google.common.collect.ImmutableSet.copyOf(sequence);
+                            } catch (org.apache.thrift.TException e) {
+                                return com.google.common.collect.ImmutableSet.of();
+                            }
+                        }
+                    }).apply(iprot);
+                }
+                if (__list.size > 5) {
+                    url = iprot.readString();
+                }
                 iprot.readListEnd();
                 break;
 

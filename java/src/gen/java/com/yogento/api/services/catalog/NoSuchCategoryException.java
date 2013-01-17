@@ -33,7 +33,7 @@ public class NoSuchCategoryException extends java.lang.Exception implements org.
     public NoSuchCategoryException(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                iprot.readListBegin();
+                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
                 iprot.readListEnd();
                 break;
 

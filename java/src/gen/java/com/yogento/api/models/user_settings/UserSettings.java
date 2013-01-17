@@ -88,31 +88,43 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                iprot.readListBegin();
-                displayName = iprot.readString();
-                email = iprot.readString();
-                logoImageUrl = iprot.readString();
-                magentoStoreUrl = iprot.readString();
-                try {
-                    productsMtime = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
-                } catch (IllegalArgumentException e) {
+                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+                if (__list.size > 0) {
+                    displayName = iprot.readString();
                 }
-                productSearchQueries = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableList<String>>() {
-                    @Override
-                    public com.google.common.collect.ImmutableList<String> apply(org.apache.thrift.protocol.TProtocol iprot) {
-                        try {
-                            org.apache.thrift.protocol.TList sequenceBegin = iprot.readListBegin();
-                            java.util.List<String> sequence = new java.util.ArrayList<String>();
-                            for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
-                                sequence.add(iprot.readString());
-                            }
-                            iprot.readListEnd();
-                            return com.google.common.collect.ImmutableList.copyOf(sequence);
-                        } catch (org.apache.thrift.TException e) {
-                            return com.google.common.collect.ImmutableList.of();
-                        }
+                if (__list.size > 1) {
+                    email = iprot.readString();
+                }
+                if (__list.size > 2) {
+                    logoImageUrl = iprot.readString();
+                }
+                if (__list.size > 3) {
+                    magentoStoreUrl = iprot.readString();
+                }
+                if (__list.size > 4) {
+                    try {
+                        productsMtime = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                    } catch (IllegalArgumentException e) {
                     }
-                }).apply(iprot);
+                }
+                if (__list.size > 5) {
+                    productSearchQueries = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableList<String>>() {
+                        @Override
+                        public com.google.common.collect.ImmutableList<String> apply(org.apache.thrift.protocol.TProtocol iprot) {
+                            try {
+                                org.apache.thrift.protocol.TList sequenceBegin = iprot.readListBegin();
+                                java.util.List<String> sequence = new java.util.ArrayList<String>();
+                                for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
+                                    sequence.add(iprot.readString());
+                                }
+                                iprot.readListEnd();
+                                return com.google.common.collect.ImmutableList.copyOf(sequence);
+                            } catch (org.apache.thrift.TException e) {
+                                return com.google.common.collect.ImmutableList.of();
+                            }
+                        }
+                    }).apply(iprot);
+                }
                 iprot.readListEnd();
                 break;
 

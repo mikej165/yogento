@@ -39,7 +39,7 @@ public class MailTemplateType implements org.apache.thrift.TBase<MailTemplateTyp
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                iprot.readListBegin();
+                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
                 mailChimpTemplateType = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readEnum(com.yochimp.models.template.TemplateType.class) : com.yochimp.models.template.TemplateType.valueOf(iprot.readString().trim().toUpperCase());
                 iprot.readListEnd();
                 break;

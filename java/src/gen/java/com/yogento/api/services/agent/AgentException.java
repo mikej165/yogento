@@ -47,9 +47,11 @@ public class AgentException extends java.lang.Exception implements org.apache.th
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                iprot.readListBegin();
+                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
                 causeMessage = iprot.readString();
-                url = iprot.readString();
+                if (__list.size > 1) {
+                    url = iprot.readString();
+                }
                 iprot.readListEnd();
                 break;
 

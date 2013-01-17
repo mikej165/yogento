@@ -47,9 +47,11 @@ public class ImageIoException extends java.lang.Exception implements org.apache.
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                iprot.readListBegin();
+                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
                 causeMessage = iprot.readString();
-                imageUrl = iprot.readString();
+                if (__list.size > 1) {
+                    imageUrl = iprot.readString();
+                }
                 iprot.readListEnd();
                 break;
 

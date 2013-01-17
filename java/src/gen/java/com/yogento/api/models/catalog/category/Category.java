@@ -39,7 +39,7 @@ public class Category implements org.apache.thrift.TBase<Category, org.apache.th
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                iprot.readListBegin();
+                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
                 magentoCategory = new com.yogento.api.models.catalog.category.magento.MagentoCategory(iprot);
                 iprot.readListEnd();
                 break;

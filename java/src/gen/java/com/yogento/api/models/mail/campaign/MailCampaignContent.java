@@ -39,7 +39,7 @@ public class MailCampaignContent implements org.apache.thrift.TBase<MailCampaign
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                iprot.readListBegin();
+                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
                 mailChimpCampaignContent = new com.yochimp.models.campaign.CampaignContent(iprot);
                 iprot.readListEnd();
                 break;

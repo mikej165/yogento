@@ -70,13 +70,21 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                iprot.readListBegin();
-                content = new com.yogento.api.models.mail.campaign.MailCampaignContent(iprot);
-                id = iprot.readString();
-                mailChimpCampaign = new com.yochimp.models.campaign.Campaign(iprot);
-                try {
-                    status = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readEnum(com.yogento.api.models.mail.campaign.MailCampaignStatus.class) : com.yogento.api.models.mail.campaign.MailCampaignStatus.valueOf(iprot.readString().trim().toUpperCase());
-                } catch (IllegalArgumentException e) {
+                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+                if (__list.size > 0) {
+                    content = new com.yogento.api.models.mail.campaign.MailCampaignContent(iprot);
+                }
+                if (__list.size > 1) {
+                    id = iprot.readString();
+                }
+                if (__list.size > 2) {
+                    mailChimpCampaign = new com.yochimp.models.campaign.Campaign(iprot);
+                }
+                if (__list.size > 3) {
+                    try {
+                        status = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readEnum(com.yogento.api.models.mail.campaign.MailCampaignStatus.class) : com.yogento.api.models.mail.campaign.MailCampaignStatus.valueOf(iprot.readString().trim().toUpperCase());
+                    } catch (IllegalArgumentException e) {
+                    }
                 }
                 iprot.readListEnd();
                 break;

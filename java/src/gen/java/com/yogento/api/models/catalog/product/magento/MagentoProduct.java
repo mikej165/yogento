@@ -335,7 +335,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                iprot.readListBegin();
+                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
                 activationInformation = iprot.readString();
                 try {
                     backorders = iprot.readI32();
@@ -475,9 +475,11 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                         }
                     }
                 }).apply(iprot);
-                try {
-                    weight = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDecimal() : new java.math.BigDecimal(iprot.readString());
-                } catch (NumberFormatException e) {
+                if (__list.size > 37) {
+                    try {
+                        weight = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDecimal() : new java.math.BigDecimal(iprot.readString());
+                    } catch (NumberFormatException e) {
+                    }
                 }
                 iprot.readListEnd();
                 break;

@@ -239,7 +239,7 @@ public class MagentoCategory implements org.apache.thrift.TBase<MagentoCategory,
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                iprot.readListBegin();
+                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
                 categoryId = iprot.readI32();
                 children = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableList<com.yogento.api.models.catalog.category.magento.MagentoCategory>>() {
                     @Override
@@ -282,8 +282,12 @@ public class MagentoCategory implements org.apache.thrift.TBase<MagentoCategory,
                 position = iprot.readI32();
                 thumbnail = iprot.readString();
                 updatedAt = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
-                urlKey = iprot.readString();
-                urlPath = iprot.readString();
+                if (__list.size > 24) {
+                    urlKey = iprot.readString();
+                }
+                if (__list.size > 25) {
+                    urlPath = iprot.readString();
+                }
                 iprot.readListEnd();
                 break;
 

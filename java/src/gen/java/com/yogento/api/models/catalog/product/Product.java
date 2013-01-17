@@ -39,7 +39,7 @@ public class Product implements org.apache.thrift.TBase<Product, org.apache.thri
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                iprot.readListBegin();
+                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
                 magentoProduct = new com.yogento.api.models.catalog.product.magento.MagentoProduct(iprot);
                 iprot.readListEnd();
                 break;
