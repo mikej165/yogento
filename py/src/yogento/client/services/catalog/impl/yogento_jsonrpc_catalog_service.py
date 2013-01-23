@@ -55,6 +55,11 @@ class YogentoJsonrpcCatalogService(yogento.client.services._yogento_jsonrpc_serv
     def _get_product_thumbnail_url(self, **kwds):
         return self._request('get_product_thumbnail_url', **kwds)
 
+    def _get_sample_products(self, **kwds):
+        return_value = self._request('get_sample_products', **kwds)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
+        return frozenset([yogento.api.models.catalog.product.product.Product.read(iprot) for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
+
     def _head_product_by_sku(self, **kwds):
         return self._request('head_product_by_sku', **kwds)
 
@@ -66,7 +71,4 @@ class YogentoJsonrpcCatalogService(yogento.client.services._yogento_jsonrpc_serv
 
     def _put_products(self, **kwds):
         self._request('put_products', **kwds)
-
-    def _put_sample_products(self, **kwds):
-        self._request('put_sample_products', **kwds)
 

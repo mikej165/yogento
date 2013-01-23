@@ -142,6 +142,17 @@ class CatalogService(object):
     def _get_product_thumbnail_url(self, sku, thumbnail_resolution):
         raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._get_product_thumbnail_url')
 
+    def get_sample_products(self):
+        get_sample_products_return_value = self._get_sample_products()
+
+        if not (isinstance(get_sample_products_return_value, frozenset) and len(list(ifilterfalse(lambda _: isinstance(_, yogento.api.models.catalog.product.product.Product), get_sample_products_return_value))) == 0):
+            raise TypeError(getattr(__builtin__, 'type')(get_sample_products_return_value))
+
+        return get_sample_products_return_value
+
+    def _get_sample_products(self):
+        raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._get_sample_products')
+
     def head_product_by_sku(self, sku):
         if sku is None:
             raise ValueError('sku is required')
@@ -190,9 +201,3 @@ class CatalogService(object):
 
     def _put_products(self, products):
         raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._put_products')
-
-    def put_sample_products(self):
-        self._put_sample_products()
-
-    def _put_sample_products(self):
-        raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._put_sample_products')

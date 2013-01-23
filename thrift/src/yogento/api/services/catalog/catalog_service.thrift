@@ -21,11 +21,11 @@ service CatalogService {
     set<product.Product> get_products(optional bool include_disabled, optional string query);
     set<product.Product> get_products_by_skus(set<string> skus) throws (no_such_product_exception.NoSuchProductException e);
     string get_product_thumbnail_url(string sku, image_resolution.ImageResolution thumbnail_resolution) throws (no_such_product_exception.NoSuchProductException e1, no_such_product_image_exception.NoSuchProductImageException e1);
+    set<product.Product> get_sample_products();
         
     bool head_product_by_sku(string sku);
     
     void put_category_tree(category.Category category_tree);
     void put_product(product.Product product);
     void put_products(set<product.Product> products);
-    void put_sample_products();
 }

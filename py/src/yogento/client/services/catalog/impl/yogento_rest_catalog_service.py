@@ -82,6 +82,11 @@ class YogentoRestCatalogService(yogento.client.services._yogento_rest_service._Y
         iprot.readListEnd()
         return __return_value
 
+    def _get_sample_products(self):
+        __return_value = self._request('GET', '/catalog/sample_products', data=None, query=None)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(__return_value)
+        return frozenset([yogento.api.models.catalog.product.product.Product.read(iprot) for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
+
     def _head_product_by_sku(self, sku):
         try:
             self._request('HEAD', '/catalog/product/' + urllib.quote(sku, safe=''), data=None, query=None)
@@ -100,7 +105,4 @@ class YogentoRestCatalogService(yogento.client.services._yogento_rest_service._Y
 
     def _put_products(self, **kwds):
         self._request('PUT', '/catalog/products', data=str(thryft.protocol.json_protocol.JsonProtocol().writeMixed(dict((key, value) for key, value in kwds.iteritems() if value is not None))), query=None)
-
-    def _put_sample_products(self):
-        self._request('PUT', '/catalog/sample_products', data=None, query=None)
 
