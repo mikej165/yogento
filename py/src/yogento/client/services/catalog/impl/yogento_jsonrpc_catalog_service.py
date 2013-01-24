@@ -37,15 +37,15 @@ class YogentoJsonrpcCatalogService(yogento.client.services._yogento_jsonrpc_serv
         iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
         return yogento.api.models.catalog.product.product.Product.read(iprot)
 
-    def _get_product_skus(self, **kwds):
-        return_value = self._request('get_product_skus', **kwds)
-        iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
-        return frozenset([iprot.readString() for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
-
     def _get_products(self, **kwds):
         return_value = self._request('get_products', **kwds)
         iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
         return frozenset([yogento.api.models.catalog.product.product.Product.read(iprot) for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
+
+    def _get_product_skus(self, **kwds):
+        return_value = self._request('get_product_skus', **kwds)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
+        return frozenset([iprot.readString() for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
 
     def _get_products_by_skus(self, **kwds):
         return_value = self._request('get_products_by_skus', **kwds)
@@ -54,6 +54,14 @@ class YogentoJsonrpcCatalogService(yogento.client.services._yogento_jsonrpc_serv
 
     def _get_product_thumbnail_url(self, **kwds):
         return self._request('get_product_thumbnail_url', **kwds)
+
+    def _get_sample_product_thumbnail_url(self, **kwds):
+        return self._request('get_sample_product_thumbnail_url', **kwds)
+
+    def _get_sample_product_by_sku(self, **kwds):
+        return_value = self._request('get_sample_product_by_sku', **kwds)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
+        return yogento.api.models.catalog.product.product.Product.read(iprot)
 
     def _get_sample_products(self, **kwds):
         return_value = self._request('get_sample_products', **kwds)

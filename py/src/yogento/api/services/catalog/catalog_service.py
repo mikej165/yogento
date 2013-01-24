@@ -77,17 +77,6 @@ class CatalogService(object):
     def _get_product_by_sku(self, sku):
         raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._get_product_by_sku')
 
-    def get_product_skus(self):
-        get_product_skus_return_value = self._get_product_skus()
-
-        if not (isinstance(get_product_skus_return_value, frozenset) and len(list(ifilterfalse(lambda _: isinstance(_, basestring), get_product_skus_return_value))) == 0):
-            raise TypeError(getattr(__builtin__, 'type')(get_product_skus_return_value))
-
-        return get_product_skus_return_value
-
-    def _get_product_skus(self):
-        raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._get_product_skus')
-
     def get_products(self, include_disabled=None, query=None):
         if include_disabled is not None:
             if not isinstance(include_disabled, bool):
@@ -105,6 +94,17 @@ class CatalogService(object):
 
     def _get_products(self, include_disabled=None, query=None):
         raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._get_products')
+
+    def get_product_skus(self):
+        get_product_skus_return_value = self._get_product_skus()
+
+        if not (isinstance(get_product_skus_return_value, frozenset) and len(list(ifilterfalse(lambda _: isinstance(_, basestring), get_product_skus_return_value))) == 0):
+            raise TypeError(getattr(__builtin__, 'type')(get_product_skus_return_value))
+
+        return get_product_skus_return_value
+
+    def _get_product_skus(self):
+        raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._get_product_skus')
 
     def get_products_by_skus(self, skus):
         if skus is None:
@@ -141,6 +141,42 @@ class CatalogService(object):
 
     def _get_product_thumbnail_url(self, sku, thumbnail_resolution):
         raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._get_product_thumbnail_url')
+
+    def get_sample_product_thumbnail_url(self, sku, thumbnail_resolution):
+        if sku is None:
+            raise ValueError('sku is required')
+        if not isinstance(sku, basestring):
+            raise TypeError(getattr(__builtin__, 'type')(sku))
+        if thumbnail_resolution is None:
+            raise ValueError('thumbnail_resolution is required')
+        if not isinstance(thumbnail_resolution, yogento.api.models.image.image_resolution.ImageResolution):
+            raise TypeError(getattr(__builtin__, 'type')(thumbnail_resolution))
+
+        get_sample_product_thumbnail_url_return_value = self._get_sample_product_thumbnail_url(sku=sku, thumbnail_resolution=thumbnail_resolution)
+
+        if not isinstance(get_sample_product_thumbnail_url_return_value, basestring):
+            raise TypeError(getattr(__builtin__, 'type')(get_sample_product_thumbnail_url_return_value))
+
+        return get_sample_product_thumbnail_url_return_value
+
+    def _get_sample_product_thumbnail_url(self, sku, thumbnail_resolution):
+        raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._get_sample_product_thumbnail_url')
+
+    def get_sample_product_by_sku(self, sku):
+        if sku is None:
+            raise ValueError('sku is required')
+        if not isinstance(sku, basestring):
+            raise TypeError(getattr(__builtin__, 'type')(sku))
+
+        get_sample_product_by_sku_return_value = self._get_sample_product_by_sku(sku=sku)
+
+        if not isinstance(get_sample_product_by_sku_return_value, yogento.api.models.catalog.product.product.Product):
+            raise TypeError(getattr(__builtin__, 'type')(get_sample_product_by_sku_return_value))
+
+        return get_sample_product_by_sku_return_value
+
+    def _get_sample_product_by_sku(self, sku):
+        raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._get_sample_product_by_sku')
 
     def get_sample_products(self):
         get_sample_products_return_value = self._get_sample_products()
