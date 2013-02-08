@@ -4,7 +4,7 @@ from time import mktime
 import __builtin__
 import thryft.core.protocol.json_protocol
 import thryft.core.protocol.string_map_protocol
-import thryft.web.service._rest_web_service
+import thryft.web.client.service._rest_client_service
 import urllib
 import urllib2
 import yogento.api.models.mail.campaign.mail_campaign
@@ -16,12 +16,12 @@ import yogento.api.models.mail.template.mail_template_type
 import yogento.api.services.mail.mail_service
 
 
-class RestMailService(thryft.web.service._rest_web_service._RestWebService, yogento.api.services.mail.mail_service.MailService):
+class RestClientMailService(thryft.web.client.service._rest_client_service._RestClientService, yogento.api.services.mail.mail_service.MailService):
     def __init__(self, api_url, headers=None):
         api_url = api_url.rstrip('/')
         if not api_url.endswith('/rest/'):
             api_url += '/rest/'
-        thryft.web.service._rest_web_service._RestWebService.__init__(self, api_url=api_url, headers=headers)
+        thryft.web.client.service._rest_client_service._RestClientService.__init__(self, api_url=api_url, headers=headers)
 
     def _delete_mail_campaign(self, **kwds):
         try:

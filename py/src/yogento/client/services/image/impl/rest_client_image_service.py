@@ -1,19 +1,19 @@
 import __builtin__
 import thryft.core.protocol.json_protocol
 import thryft.core.protocol.string_map_protocol
-import thryft.web.service._rest_web_service
+import thryft.web.client.service._rest_client_service
 import urllib
 import urllib2
 import yogento.api.models.image.image_resolution
 import yogento.api.services.image.image_service
 
 
-class RestImageService(thryft.web.service._rest_web_service._RestWebService, yogento.api.services.image.image_service.ImageService):
+class RestClientImageService(thryft.web.client.service._rest_client_service._RestClientService, yogento.api.services.image.image_service.ImageService):
     def __init__(self, api_url, headers=None):
         api_url = api_url.rstrip('/')
         if not api_url.endswith('/rest/'):
             api_url += '/rest/'
-        thryft.web.service._rest_web_service._RestWebService.__init__(self, api_url=api_url, headers=headers)
+        thryft.web.client.service._rest_client_service._RestClientService.__init__(self, api_url=api_url, headers=headers)
 
     def _delete_image_thumbnail(self, image_url, **kwds):
         try:

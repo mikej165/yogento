@@ -55,7 +55,7 @@ def get_logger(cls_or_self):
     return logging.getLogger(class_qname(cls_or_self))
 
 
-class _WebService(object):
+class _WebClientService(object):
     def __init__(self, api_url, headers=None):
         object.__init__(self)
 

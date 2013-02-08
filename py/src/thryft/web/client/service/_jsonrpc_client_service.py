@@ -30,16 +30,16 @@
 # OF SUCH DAMAGE.
 #-------------------------------------------------------------------------------
 
-from thryft.web.service._web_service import _WebService
+from thryft.web.client.service._web_client_service import _WebClientService
 from thryft.core.protocol.builtins_protocol import BuiltinsProtocol
 try:
     import json
 except ImportError:
     import simplejson as json
 
-class _JsonrpcWebService(_WebService):
+class _JsonrpcClientService(_WebClientService):
     def __init__(self, *args, **kwds):
-        _WebService.__init__(self, args, **kwds)
+        _WebClientService.__init__(self, *args, **kwds)
         self.__next_id = 1
 
     def _request(self, method, **kwds):
@@ -56,7 +56,7 @@ class _JsonrpcWebService(_WebService):
         request['params'] = params
         request_json = json.dumps(request)
 
-        response = _WebService._request(self, 'POST', '', request_json)
+        response = _WebClientService._request(self, 'POST', '', request_json)
 
         response_json = self._read_response(response)
         response = json.loads(response_json)

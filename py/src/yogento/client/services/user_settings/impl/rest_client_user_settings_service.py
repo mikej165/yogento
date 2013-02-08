@@ -1,17 +1,17 @@
 import __builtin__
 import thryft.core.protocol.json_protocol
 import thryft.core.protocol.string_map_protocol
-import thryft.web.service._rest_web_service
+import thryft.web.client.service._rest_client_service
 import yogento.api.models.user_settings.user_settings
 import yogento.api.services.user_settings.user_settings_service
 
 
-class RestUserSettingsService(thryft.web.service._rest_web_service._RestWebService, yogento.api.services.user_settings.user_settings_service.UserSettingsService):
+class RestClientUserSettingsService(thryft.web.client.service._rest_client_service._RestClientService, yogento.api.services.user_settings.user_settings_service.UserSettingsService):
     def __init__(self, api_url, headers=None):
         api_url = api_url.rstrip('/')
         if not api_url.endswith('/rest/'):
             api_url += '/rest/'
-        thryft.web.service._rest_web_service._RestWebService.__init__(self, api_url=api_url, headers=headers)
+        thryft.web.client.service._rest_client_service._RestClientService.__init__(self, api_url=api_url, headers=headers)
 
     def _get_current_user_settings(self):
         __return_value = self._request('GET', '/user_settings/current_user_settings', data=None, query=None)

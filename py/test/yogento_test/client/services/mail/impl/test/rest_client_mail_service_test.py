@@ -30,36 +30,18 @@
 # OF SUCH DAMAGE.
 #-------------------------------------------------------------------------------
 
-from yogento.api.services.user_settings.no_such_user_settings_exception import \
-    NoSuchUserSettingsException
-from yogento.client.services.user_settings.impl.jsonrpc_user_settings_service import \
-    JsonrpcUserSettingsService
-import logging
+from yogento.client.services.mail.impl.rest_client_mail_service import \
+    RestClientMailService
+from yogento_test.client.services.mail.test import _mail_service_test
+from yogento_test.client.services.test._rest_client_service_test import _RestClientServiceTest
 
 
-class _WebServiceTest(object):
-    API_PASSWORD = '_web_service_test'
-    API_NETINFO = None
-    API_PATH = None
-    API_USERNAME = '_web_service_test'
-    API_URL = None
-    for api_netinfo, api_path in (
-        ('localhost:8080', '/yogento/api/'),
-        ('yogento.com', '/api/'),
-    ):
-        api_url = "http://%(API_USERNAME)s:%(API_PASSWORD)s@%(api_netinfo)s%(api_path)s" % locals()
-        try:
-            JsonrpcUserSettingsService(api_url).get_current_user_settings()
-        except NoSuchUserSettingsException:
-            pass
-        except:
-            logging.error("unable to contact %s", api_netinfo, exc_info=True)
-            continue
-        API_NETINFO = api_netinfo
-        API_PATH = api_path
-        API_URL = api_url
-        break
+class RestClientMailServiceTest(_mail_service_test._MailServiceTest):
+    def setUp(self):
+        self._setUp(
+            RestClientMailService(
+                api_url="http://%s%s" % (_RestClientServiceTest.API_NETINFO, _RestClientServiceTest.API_PATH),
+                headers={'Cookie': 'JSESSIONID=580D4C2BC4AF3452D84EF698C39331E7; rememberMe=uWAQCw/giZ0B9bSmvb5gfw/fbr/Oa0BMxw9K98CGM1FKbguF6BFkip1bU1ctwqNtxjD/S2K6N6lJNMLRyddlMAI+2viQa4DEV0ndCkILR0U2lTPEtcWQBW+ZcMZbuyDGNVinXDXcIurkCy88uKU0VDydRmnkKAWZm/OF0zdkbT0qJNjnp3JJ6us9s+SvvFGtiHwnNXDBBufjbjszVzy+duZg2CHnztZre8Ka6OES9AXwRI1JdqjOWU7mZdBAC8rtA+0izEf8yKdtNJAA/itwToY3HPz6XBjye0w6yfZaj972rjhsdYYt+6lR8X4dFUxNvH/mEdJZrvExWPiMfOi35LXifxASVaqHc/sXv9B1EFaj10B2d2mTTKtuMMy2WrtOgiKUQboaheWaWB6dBHsfFlzoZS/CSYzwWUEGahFIjRyOGfN7csBbvlUIAvMAOwHEOOozXHgMxt/QOjRVQkUAzjBheojKzK7J9n+KLuD3uHKW+XfKRrKYa7eNxTQoesx/ArTig0tVCZwTui4naE7urQ=='}
+            )
+        )
 
-    HEADERS = {'User-Agent': 'Test'}
-
-    KWDS = {'api_url': API_URL, 'headers': HEADERS}

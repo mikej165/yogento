@@ -31,11 +31,11 @@
 #-------------------------------------------------------------------------------
 
 from thryft.core.protocol.json_protocol import JsonProtocol
-from thryft.web.service._web_service import _WebService
+from thryft.web.client.service._web_client_service import _WebClientService
 from urllib2 import HTTPError
 
 
-class _RestWebService(_WebService):
+class _RestClientService(_WebClientService):
     # Helper classes
     class __IntSet(object):
         @classmethod
@@ -80,7 +80,7 @@ class _RestWebService(_WebService):
         api_url = api_url.rstrip('/')
         if not api_url.endswith('/rest'):
             api_url += '/rest'
-        _WebService.__init__(self, api_url=api_url, headers=headers)
+        _WebClientService.__init__(self, api_url=api_url, headers=headers)
 
     def _delete_model(self, url, query=None):
         try:
@@ -182,7 +182,7 @@ class _RestWebService(_WebService):
     def _request(self, method, url, api_exceptions=True, data=None, headers=None, query=None):
         try:
             response = \
-                _WebService._request(
+                _WebClientService._request(
                     self,
                     method,
                     url,

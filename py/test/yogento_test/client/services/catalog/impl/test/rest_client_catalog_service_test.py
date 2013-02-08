@@ -1,19 +1,19 @@
 #-------------------------------------------------------------------------------
 # Copyright (c) 2013, Minor Gordon
 # All rights reserved.
-# 
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
 # are met:
-# 
+#
 #     * Redistributions of source code must retain the above copyright
 #       notice, this list of conditions and the following disclaimer.
-# 
+#
 #     * Redistributions in binary form must reproduce the above copyright
 #       notice, this list of conditions and the following disclaimer in
 #       the documentation and/or other materials provided with the
 #       distribution.
-# 
+#
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
 # CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
 # INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
@@ -30,14 +30,13 @@
 # OF SUCH DAMAGE.
 #-------------------------------------------------------------------------------
 
-from yogento.client.services.user_settings.impl.jsonrpc_user_settings_service import \
-    JsonrpcUserSettingsService
-from yogento_test.client.services.test._jsonrpc_service_test import \
-    _JsonrpcServiceTest
-from yogento_test.client.services.user_settings.test import \
-    _user_settings_service_test
+from yogento.client.services.catalog.impl.rest_client_catalog_service import \
+    RestClientCatalogService
+from yogento_test.client.services.catalog.test import _catalog_service_test
+from yogento_test.client.services.test._rest_client_service_test import \
+    _RestClientServiceTest
 
 
-class JsonrpcUserSettingsServiceTest(_user_settings_service_test._UserSettingsServiceTest):
+class RestCatalogServiceTest(_catalog_service_test._CatalogServiceTest):
     def setUp(self):
-        self._setUp(JsonrpcUserSettingsService(**_JsonrpcServiceTest.KWDS))
+        self._setUp(RestClientCatalogService(**_RestClientServiceTest.KWDS), read_only=False)

@@ -2,7 +2,7 @@ from itertools import ifilterfalse
 import __builtin__
 import thryft.core.protocol.json_protocol
 import thryft.core.protocol.string_map_protocol
-import thryft.web.service._rest_web_service
+import thryft.web.client.service._rest_client_service
 import urllib
 import urllib2
 import yogento.api.models.catalog.category.category
@@ -11,12 +11,12 @@ import yogento.api.models.image.image_resolution
 import yogento.api.services.catalog.catalog_service
 
 
-class RestCatalogService(thryft.web.service._rest_web_service._RestWebService, yogento.api.services.catalog.catalog_service.CatalogService):
+class RestClientCatalogService(thryft.web.client.service._rest_client_service._RestClientService, yogento.api.services.catalog.catalog_service.CatalogService):
     def __init__(self, api_url, headers=None):
         api_url = api_url.rstrip('/')
         if not api_url.endswith('/rest/'):
             api_url += '/rest/'
-        thryft.web.service._rest_web_service._RestWebService.__init__(self, api_url=api_url, headers=headers)
+        thryft.web.client.service._rest_client_service._RestClientService.__init__(self, api_url=api_url, headers=headers)
 
     def _delete_category_tree(self):
         try:

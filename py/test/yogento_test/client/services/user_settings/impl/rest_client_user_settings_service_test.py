@@ -1,19 +1,19 @@
 #-------------------------------------------------------------------------------
 # Copyright (c) 2013, Minor Gordon
 # All rights reserved.
-# 
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
 # are met:
-# 
+#
 #     * Redistributions of source code must retain the above copyright
 #       notice, this list of conditions and the following disclaimer.
-# 
+#
 #     * Redistributions in binary form must reproduce the above copyright
 #       notice, this list of conditions and the following disclaimer in
 #       the documentation and/or other materials provided with the
 #       distribution.
-# 
+#
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
 # CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
 # INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
@@ -30,9 +30,13 @@
 # OF SUCH DAMAGE.
 #-------------------------------------------------------------------------------
 
-from yogento_test.client.services.test._web_service_test import \
-    _WebServiceTest
+from yogento.client.services.user_settings.impl.rest_client_user_settings_service import \
+    RestClientUserSettingsService
+from yogento_test.client.services.test._rest_client_service_test import \
+    _RestClientServiceTest
+from yogento_test.client.services.user_settings.test import _user_settings_service_test
 
 
-class _RestServiceTest(_WebServiceTest):
-    pass
+class RestClientUserSettingsServiceTest(_user_settings_service_test._UserSettingsServiceTest):
+    def setUp(self):
+        self._setUp(RestClientUserSettingsService(**_RestClientServiceTest.KWDS))

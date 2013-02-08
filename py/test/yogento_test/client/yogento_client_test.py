@@ -31,14 +31,14 @@
 #-------------------------------------------------------------------------------
 
 from yogento.client import YogentoClient
-from yogento_test.client.services.test._rest_service_test import \
-    _RestServiceTest
+from yogento_test.client.services.test._rest_client_service_test import \
+    _RestClientServiceTest
 import unittest
 
 
 class YogentoClientTest(unittest.TestCase):
     def setUp(self):
-        self.__client = YogentoClient(_RestServiceTest.API_URL)
+        self.__client = YogentoClient(_RestClientServiceTest.API_URL)
 
     def test_get_current_user(self):
         self.__client.get_current_user()

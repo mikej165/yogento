@@ -1,17 +1,17 @@
 from itertools import ifilterfalse
 import __builtin__
 import thryft.core.protocol.json_protocol
-import thryft.web.service._jsonrpc_web_service
+import thryft.web.client.service._jsonrpc_client_service
 import yogento.api.models.catalog.product.magento.magento_product
 import yogento.api.services.agent.agent_service
 
 
-class JsonrpcAgentService(thryft.web.service._jsonrpc_web_service._JsonrpcWebService, yogento.api.services.agent.agent_service.AgentService):
+class JsonrpcClientAgentService(thryft.web.client.service._jsonrpc_client_service._JsonrpcClientService, yogento.api.services.agent.agent_service.AgentService):
     def __init__(self, api_url, headers=None):
         api_url = api_url.rstrip('/')
         if not api_url.endswith('/jsonrpc/agent'):
             api_url += '/jsonrpc/agent'
-        thryft.web.service._jsonrpc_web_service._JsonrpcWebService.__init__(self, api_url=api_url, headers=headers)
+        thryft.web.client.service._jsonrpc_client_service._JsonrpcClientService.__init__(self, api_url=api_url, headers=headers)
 
     def _get_agent_magento_products(self, **kwds):
         return_value = self._request('get_agent_magento_products', **kwds)
