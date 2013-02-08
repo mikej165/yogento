@@ -155,3 +155,5 @@ class OAuth2Metadata(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

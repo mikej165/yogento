@@ -617,3 +617,5 @@ class CampaignStats(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

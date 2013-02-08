@@ -560,3 +560,5 @@ class CampaignFilter(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

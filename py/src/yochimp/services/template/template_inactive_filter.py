@@ -135,3 +135,5 @@ class TemplateInactiveFilter(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

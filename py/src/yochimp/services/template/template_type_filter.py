@@ -170,3 +170,5 @@ class TemplateTypeFilter(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

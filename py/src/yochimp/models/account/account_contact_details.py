@@ -517,6 +517,8 @@ class AccountContactDetails(object):
 
         oprot.writeStructEnd()
 
+        return self
+
     @property
     def zip(self):
         return self.__zip

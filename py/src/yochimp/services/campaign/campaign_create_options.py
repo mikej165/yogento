@@ -739,3 +739,5 @@ class CampaignCreateOptions(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

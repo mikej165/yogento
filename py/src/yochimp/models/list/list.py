@@ -592,3 +592,5 @@ class List(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

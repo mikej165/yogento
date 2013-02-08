@@ -348,3 +348,5 @@ class ListFilter(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

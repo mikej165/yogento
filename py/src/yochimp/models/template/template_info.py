@@ -193,3 +193,5 @@ class TemplateInfo(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

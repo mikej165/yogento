@@ -240,3 +240,5 @@ class CampaignContent(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self

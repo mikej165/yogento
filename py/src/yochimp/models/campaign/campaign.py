@@ -1064,3 +1064,5 @@ class Campaign(object):
         oprot.writeFieldStop()
 
         oprot.writeStructEnd()
+
+        return self
