@@ -40,7 +40,7 @@ public class MailTemplateType implements org.apache.thrift.TBase<MailTemplateTyp
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
                 org.apache.thrift.protocol.TList __list = iprot.readListBegin();
-                mailChimpTemplateType = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readEnum(com.yochimp.models.template.TemplateType.class) : com.yochimp.models.template.TemplateType.valueOf(iprot.readString().trim().toUpperCase());
+                mailChimpTemplateType = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readEnum(com.yochimp.models.template.TemplateType.class) : com.yochimp.models.template.TemplateType.valueOf(iprot.readString().trim().toUpperCase());
                 iprot.readListEnd();
                 break;
 
@@ -52,7 +52,7 @@ public class MailTemplateType implements org.apache.thrift.TBase<MailTemplateTyp
                     if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
                         break;
                     } else                 if (ifield.name.equals("mail_chimp_template_type")) {
-                        mailChimpTemplateType = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readEnum(com.yochimp.models.template.TemplateType.class) : com.yochimp.models.template.TemplateType.valueOf(iprot.readString().trim().toUpperCase());
+                        mailChimpTemplateType = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readEnum(com.yochimp.models.template.TemplateType.class) : com.yochimp.models.template.TemplateType.valueOf(iprot.readString().trim().toUpperCase());
                     }
                     iprot.readFieldEnd();
                 }
@@ -156,7 +156,7 @@ public class MailTemplateType implements org.apache.thrift.TBase<MailTemplateTyp
             case org.apache.thrift.protocol.TType.LIST:
                 oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
 
-                if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeEnum(getMailChimpTemplateType()); } else { oprot.writeString(getMailChimpTemplateType().toString()); }
+                if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeEnum(getMailChimpTemplateType()); } else { oprot.writeString(getMailChimpTemplateType().toString()); }
 
                 oprot.writeListEnd();
                 break;
@@ -166,7 +166,7 @@ public class MailTemplateType implements org.apache.thrift.TBase<MailTemplateTyp
                 oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("MailTemplateType"));
 
                 oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("mail_chimp_template_type", org.apache.thrift.protocol.TType.STRING, (short)-1));
-                if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeEnum(getMailChimpTemplateType()); } else { oprot.writeString(getMailChimpTemplateType().toString()); }
+                if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeEnum(getMailChimpTemplateType()); } else { oprot.writeString(getMailChimpTemplateType().toString()); }
                 oprot.writeFieldEnd();
 
                 oprot.writeFieldStop();

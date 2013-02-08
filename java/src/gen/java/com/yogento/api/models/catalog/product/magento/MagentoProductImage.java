@@ -99,7 +99,7 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
                                 org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
                                 java.util.Set<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>();
                                 for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
-                                    sequence.add((iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductImageType.class) : com.yogento.api.models.catalog.product.magento.MagentoProductImageType.valueOf(iprot.readString().trim().toUpperCase()));
+                                    sequence.add((iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductImageType.class) : com.yogento.api.models.catalog.product.magento.MagentoProductImageType.valueOf(iprot.readString().trim().toUpperCase()));
                                 }
                                 iprot.readSetEnd();
                                 return com.google.common.collect.ImmutableSet.copyOf(sequence);
@@ -141,7 +141,7 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
                                     org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
                                     java.util.Set<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>();
                                     for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
-                                        sequence.add((iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductImageType.class) : com.yogento.api.models.catalog.product.magento.MagentoProductImageType.valueOf(iprot.readString().trim().toUpperCase()));
+                                        sequence.add((iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductImageType.class) : com.yogento.api.models.catalog.product.magento.MagentoProductImageType.valueOf(iprot.readString().trim().toUpperCase()));
                                     }
                                     iprot.readSetEnd();
                                     return com.google.common.collect.ImmutableSet.copyOf(sequence);
@@ -352,7 +352,7 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
                 if (isExclude() != null) {
                     oprot.writeBool(isExclude());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
                 }
 
                 oprot.writeString(getFile());
@@ -360,29 +360,29 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
                 if (getLabel() != null) {
                     oprot.writeString(getLabel());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
                 }
 
                 if (getPosition() != null) {
                     oprot.writeI32(getPosition());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
                 }
 
                 if (getTypes() != null) {
                     oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, getTypes().size()));
                     for (com.yogento.api.models.catalog.product.magento.MagentoProductImageType _iter0 : getTypes()) {
-                        if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeEnum(_iter0); } else { oprot.writeString(_iter0.toString()); }
+                        if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeEnum(_iter0); } else { oprot.writeString(_iter0.toString()); }
                     }
                     oprot.writeSetEnd();
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
                 }
 
                 if (getUrl() != null) {
                     oprot.writeString(getUrl());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
                 }
 
                 oprot.writeListEnd();
@@ -418,7 +418,7 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
                     oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("types", org.apache.thrift.protocol.TType.SET, (short)-1));
                     oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, getTypes().size()));
                     for (com.yogento.api.models.catalog.product.magento.MagentoProductImageType _iter0 : getTypes()) {
-                        if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeEnum(_iter0); } else { oprot.writeString(_iter0.toString()); }
+                        if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeEnum(_iter0); } else { oprot.writeString(_iter0.toString()); }
                     }
                     oprot.writeSetEnd();
                     oprot.writeFieldEnd();

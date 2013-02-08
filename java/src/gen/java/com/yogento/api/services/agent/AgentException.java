@@ -201,7 +201,7 @@ public class AgentException extends java.lang.Exception implements org.apache.th
                 if (getUrl() != null) {
                     oprot.writeString(getUrl());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
                 }
 
                 oprot.writeListEnd();

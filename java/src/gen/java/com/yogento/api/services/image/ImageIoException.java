@@ -201,7 +201,7 @@ public class ImageIoException extends java.lang.Exception implements org.apache.
                 if (getImageUrl() != null) {
                     oprot.writeString(getImageUrl());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
                 }
 
                 oprot.writeListEnd();

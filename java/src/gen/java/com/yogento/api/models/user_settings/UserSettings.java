@@ -103,7 +103,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                 }
                 if (__list.size > 4) {
                     try {
-                        productsMtime = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                        productsMtime = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
                     } catch (IllegalArgumentException e) {
                     }
                 }
@@ -145,7 +145,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                         magentoStoreUrl = iprot.readString();
                     } else if (ifield.name.equals("products_mtime")) {
                         try {
-                            productsMtime = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                            productsMtime = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
                         } catch (IllegalArgumentException e) {
                         }
                     } else if (ifield.name.equals("product_search_queries")) {
@@ -362,31 +362,31 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                 if (getDisplayName() != null) {
                     oprot.writeString(getDisplayName());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
                 }
 
                 if (getEmail() != null) {
                     oprot.writeString(getEmail());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
                 }
 
                 if (getLogoImageUrl() != null) {
                     oprot.writeString(getLogoImageUrl());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
                 }
 
                 if (getMagentoStoreUrl() != null) {
                     oprot.writeString(getMagentoStoreUrl());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
                 }
 
                 if (getProductsMtime() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getProductsMtime()); } else { oprot.writeI64(getProductsMtime().getMillis()); }
+                    if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeDateTime(getProductsMtime()); } else { oprot.writeI64(getProductsMtime().getMillis()); }
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
                 }
 
                 if (getProductSearchQueries() != null) {
@@ -396,7 +396,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                     }
                     oprot.writeListEnd();
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
                 }
 
                 oprot.writeListEnd();
@@ -432,7 +432,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
 
                 if (getProductsMtime() != null) {
                     oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("products_mtime", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getProductsMtime()); } else { oprot.writeI64(getProductsMtime().getMillis()); }
+                    if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeDateTime(getProductsMtime()); } else { oprot.writeI64(getProductsMtime().getMillis()); }
                     oprot.writeFieldEnd();
                 }
 
