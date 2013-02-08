@@ -30,13 +30,13 @@
 # OF SUCH DAMAGE.
 #-------------------------------------------------------------------------------
 
-from yogento.client.services.catalog.impl.yogento_jsonrpc_catalog_service import \
-    YogentoJsonrpcCatalogService
+from yogento.client.services.catalog.impl.rest_catalog_service import \
+    RestCatalogService
 from yogento_test.client.services.catalog.test import _catalog_service_test
-from yogento_test.client.services.test._yogento_jsonrpc_service_test import \
-    _YogentoJsonrpcServiceTest
+from yogento_test.client.services.test._rest_service_test import \
+    _RestServiceTest
 
 
-class YogentoJsonrpcCatalogServiceTest(_catalog_service_test._CatalogServiceTest):
+class RestCatalogServiceTest(_catalog_service_test._CatalogServiceTest):
     def setUp(self):
-        self._setUp(YogentoJsonrpcCatalogService(**_YogentoJsonrpcServiceTest.KWDS), read_only=False)
+        self._setUp(RestCatalogService(**_RestServiceTest.KWDS), read_only=False)

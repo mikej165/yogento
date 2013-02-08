@@ -1,19 +1,19 @@
 #-------------------------------------------------------------------------------
 # Copyright (c) 2013, Minor Gordon
 # All rights reserved.
-# 
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
 # are met:
-# 
+#
 #     * Redistributions of source code must retain the above copyright
 #       notice, this list of conditions and the following disclaimer.
-# 
+#
 #     * Redistributions in binary form must reproduce the above copyright
 #       notice, this list of conditions and the following disclaimer in
 #       the documentation and/or other materials provided with the
 #       distribution.
-# 
+#
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
 # CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
 # INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
@@ -32,16 +32,16 @@
 
 from yogento.client.services.catalog.impl.magento_xmlrpc_catalog_service import \
     MagentoXmlrpcCatalogService
-from yogento.client.services.catalog.impl.yogento_rest_catalog_service import \
-    YogentoRestCatalogService
+from yogento.client.services.catalog.impl.rest_catalog_service import \
+    RestCatalogService
 from yogento.client.services.customer.impl.magento_xmlrpc_customer_service import \
     MagentoXmlrpcCustomerService
-from yogento.client.services.customer.impl.yogento_rest_customer_service import \
-    YogentoRestCustomerService
+from yogento.client.services.customer.impl.rest_customer_service import \
+    RestCustomerService
 from yogento.client.services.sales.impl.magento_xmlrpc_sales_service import \
     MagentoXmlrpcSalesService
-from yogento.client.services.sales.impl.yogento_rest_sales_service import \
-    YogentoRestSalesService
+from yogento.client.services.sales.impl.rest_sales_service import \
+    RestSalesService
 import yogento.client._command
 
 
@@ -113,14 +113,14 @@ class _Command(yogento.client._command._Command):
     def _create_yogento_catalog_service(self, yogento_api_url, **kwds):
         if isinstance(yogento_api_url, list):
             yogento_api_url = yogento_api_url[0]
-        return YogentoRestCatalogService(yogento_api_url)
+        return RestCatalogService(yogento_api_url)
 
     def _create_yogento_customer_service(self, yogento_api_url, **kwds):
         if isinstance(yogento_api_url, list):
             yogento_api_url = yogento_api_url[0]
-        return YogentoRestCustomerService(yogento_api_url)
+        return RestCustomerService(yogento_api_url)
 
     def _create_yogento_sales_service(self, yogento_api_url, **kwds):
         if isinstance(yogento_api_url, list):
             yogento_api_url = yogento_api_url[0]
-        return YogentoRestSalesService(yogento_api_url)
+        return RestSalesService(yogento_api_url)

@@ -30,33 +30,14 @@
 # OF SUCH DAMAGE.
 #-------------------------------------------------------------------------------
 
-from thryft.protocol.builtins_protocol import BuiltinsProtocol
-from urllib import urlencode
+from yogento.client.services.user_settings.impl.jsonrpc_user_settings_service import \
+    JsonrpcUserSettingsService
+from yogento_test.client.services.test._jsonrpc_service_test import \
+    _JsonrpcServiceTest
+from yogento_test.client.services.user_settings.test import \
+    _user_settings_service_test
 
 
-class StringMapProtocol(BuiltinsProtocol):
-    def to_string_map(self):
-        if len(self._scope_stack) > 0:
-            return self.__to_string_map(self._scope_stack[0].builtin_object)
-        else:
-            return {}
-
-    def __to_string_map(self, in_value, in_key=None, out_string_map=None):
-        if in_key is not None:
-            child_key_prefix = in_key + '.'
-        else:
-            child_key_prefix = ''
-        if out_string_map is None:
-            out_string_map = {}
-        if isinstance(in_value, dict):
-            for child_key, child_value in in_value.iteritems():
-                self.__to_string_map(child_value, child_key_prefix + child_key, out_string_map)
-        elif isinstance(in_value, (list, tuple)):
-            for child_key, child_value in enumerate(in_value):
-                self.__to_string_map(child_value, child_key_prefix + str(child_key), out_string_map)
-        else:
-            out_string_map[in_key] = str(in_value)
-        return out_string_map
-
-    def __str__(self):
-        return urlencode(self.to_string_map(), True)
+class JsonrpcUserSettingsServiceTest(_user_settings_service_test._UserSettingsServiceTest):
+    def setUp(self):
+        self._setUp(JsonrpcUserSettingsService(**_JsonrpcServiceTest.KWDS))
