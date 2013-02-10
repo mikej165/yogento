@@ -1,5 +1,5 @@
 namespace java com.yogento.api.services.catalog
-namespace py yogento.api.services.catalog
+namespace * yogento.api.services.catalog
 
 include "yogento/api/models/catalog/category/category.thrift"
 include "yogento/api/models/catalog/product/product.thrift"

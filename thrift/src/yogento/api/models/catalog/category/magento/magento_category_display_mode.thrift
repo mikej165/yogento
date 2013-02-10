@@ -1,5 +1,5 @@
 namespace java com.yogento.api.models.catalog.category.magento
-namespace py yogento.api.models.catalog.category.magento
+namespace * yogento.api.models.catalog.category.magento
 
 enum MagentoCategoryDisplayMode {
     PAGE,

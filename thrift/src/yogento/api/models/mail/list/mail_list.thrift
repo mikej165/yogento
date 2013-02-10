@@ -1,5 +1,5 @@
 namespace java com.yogento.api.models.mail.list
-namespace py yogento.api.models.mail.list
+namespace * yogento.api.models.mail.list
 
 include "yochimp/models/list/list.thrift"
 

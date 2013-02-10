@@ -1,5 +1,5 @@
 namespace java com.yogento.api.models.user_settings
-namespace py yogento.api.models.user_settings
+namespace * yogento.api.models.user_settings
 
 include "thryft/util/date_time.thrift"
 

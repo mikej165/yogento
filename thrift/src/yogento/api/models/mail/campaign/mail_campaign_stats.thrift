@@ -1,5 +1,5 @@
 namespace java com.yogento.api.models.mail.campaign
-namespace py yogento.api.models.mail.campaign
+namespace * yogento.api.models.mail.campaign
 
 include "yochimp/models/campaign/campaign_stats.thrift"
 

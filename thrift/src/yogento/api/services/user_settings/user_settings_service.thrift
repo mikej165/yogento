@@ -1,5 +1,5 @@
 namespace java com.yogento.api.services.user_settings
-namespace py yogento.api.services.user_settings
+namespace * yogento.api.services.user_settings
 
 include "yogento/api/models/user_settings/user_settings.thrift"
 include "yogento/api/services/user_settings/no_such_user_settings_exception.thrift"

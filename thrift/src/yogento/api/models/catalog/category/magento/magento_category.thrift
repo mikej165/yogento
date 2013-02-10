@@ -1,5 +1,5 @@
 namespace java com.yogento.api.models.catalog.category.magento
-namespace py yogento.api.models.catalog.category.magento
+namespace * yogento.api.models.catalog.category.magento
 
 include "thryft/util/date_time.thrift"
 include "yogento/api/models/catalog/category/magento/magento_category_display_mode.thrift"

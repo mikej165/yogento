@@ -1,5 +1,5 @@
 namespace java com.yogento.api.services.image
-namespace py yogento.api.services.image
+namespace * yogento.api.services.image
 
 include "yogento/api/models/image/image_resolution.thrift"
 include "yogento/api/services/image/image_io_exception.thrift"

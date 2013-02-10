@@ -1,5 +1,5 @@
 namespace java com.yogento.api.services.agent
-namespace py yogento.api.services.agent
+namespace * yogento.api.services.agent
 
 include "yogento/api/services/agent/agent_exception.thrift"
 include "yogento/api/models/catalog/product/magento/magento_product.thrift"
