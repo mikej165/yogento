@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE project>
-<project name="yogento-php" default="deploy" basedir=".">
+<project name="yogento-php" default="build" basedir=".">
     <!-- Magento version 13 -->
     <property name="magento13_dir_path" value="C:/Users/minor/projects/xampplite-1.7.0/htdocs/magento13" />
     <target name="magento13_dir.check">
@@ -23,7 +23,12 @@
         <echo>${magento17_dir_path} missing"</echo>
     </target>    
 
-    <target name="deploy" depends="magento13_dir.check,magento17_dir.check">
+    <target name="build" depends="magento13_dir.check,magento17_dir.check">
+        <copy tofile="app/code/community/Yogento/Yoagent/sql/yoagent_setup/mysql4-install-1.0.1.0.php">
+            <fileset file="app/code/community/Yogento/Yoagent/sql/yoagent_setup/install-1.0.1.0.php">
+            </fileset>
+        </copy>
+    	
         <!-- Magento version 13 -->
         <delete dir="${magento13_dir_path}/app/code/community/Yogento">
         </delete>
@@ -31,14 +36,7 @@
             <fileset dir="app/code/community/Yogento">
             </fileset>
         </copy>
-        
-        <delete file="${magento13_dir_path}/app/code/community/Yogento/Yoagent/sql/yoagent_setup/mysql4-install-1.0.1.0.php">
-        </delete>
-        <copy tofile="${magento13_dir_path}/app/code/community/Yogento/Yoagent/sql/yoagent_setup/mysql4-install-1.0.1.0.php">
-            <fileset file="app/code/community/Yogento/Yoagent/sql/yoagent_setup/install-1.0.1.0.php">
-            </fileset>
-        </copy>
-        
+                
         <delete file="${magento13_dir_path}/app/etc/modules/Yogento_Yoagent.xml">
         </delete>
         <copy tofile="${magento13_dir_path}/app/etc/modules/Yogento_Yoagent.xml">
@@ -52,14 +50,7 @@
             <fileset dir="app/code/community/Yogento">
             </fileset>
         </copy>
-        
-        <delete file="${magento17_dir_path}/app/code/community/Yogento/Yoagent/sql/yoagent_setup/mysql4-install-1.0.1.0.php">
-        </delete>
-        <copy tofile="${magento17_dir_path}/app/code/community/Yogento/Yoagent/sql/yoagent_setup/mysql4-install-1.0.1.0.php">
-            <fileset file="app/code/community/Yogento/Yoagent/sql/yoagent_setup/install-1.0.1.0.php">
-            </fileset>
-        </copy>
-        
+                
         <delete file="${magento17_dir_path}/app/etc/modules/Yogento_Yoagent.xml">
         </delete>
         <copy tofile="${magento17_dir_path}/app/etc/modules/Yogento_Yoagent.xml">
