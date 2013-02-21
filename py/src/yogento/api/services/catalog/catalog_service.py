@@ -1,22 +1,10 @@
 from itertools import ifilterfalse
 import __builtin__
-import yogento.api.models.catalog.category.category
 import yogento.api.models.catalog.product.product
 import yogento.api.models.image.image_resolution
 
 
 class CatalogService(object):
-    def delete_category_tree(self):
-        delete_category_tree_return_value = self._delete_category_tree()
-
-        if not isinstance(delete_category_tree_return_value, bool):
-            raise TypeError(getattr(__builtin__, 'type')(delete_category_tree_return_value))
-
-        return delete_category_tree_return_value
-
-    def _delete_category_tree(self):
-        raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._delete_category_tree')
-
     def delete_product_by_sku(self, sku):
         if sku is None:
             raise ValueError('sku is required')
@@ -38,17 +26,6 @@ class CatalogService(object):
 
     def _delete_products(self):
         raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._delete_products')
-
-    def get_category_tree(self):
-        get_category_tree_return_value = self._get_category_tree()
-
-        if not isinstance(get_category_tree_return_value, yogento.api.models.catalog.category.category.Category):
-            raise TypeError(getattr(__builtin__, 'type')(get_category_tree_return_value))
-
-        return get_category_tree_return_value
-
-    def _get_category_tree(self):
-        raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._get_category_tree')
 
     def get_product_count(self):
         get_product_count_return_value = self._get_product_count()
@@ -204,17 +181,6 @@ class CatalogService(object):
 
     def _head_product_by_sku(self, sku):
         raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._head_product_by_sku')
-
-    def put_category_tree(self, category_tree):
-        if category_tree is None:
-            raise ValueError('category_tree is required')
-        if not isinstance(category_tree, yogento.api.models.catalog.category.category.Category):
-            raise TypeError(getattr(__builtin__, 'type')(category_tree))
-
-        self._put_category_tree(category_tree=category_tree)
-
-    def _put_category_tree(self, category_tree):
-        raise NotImplementedError(self.__class__.__module__ + '.' + self.__class__.__name__ + '._put_category_tree')
 
     def put_product(self, product):
         if product is None:

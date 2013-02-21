@@ -5,7 +5,6 @@ import thryft.core.protocol.string_map_protocol
 import thryft.web.client.service._rest_client_service
 import urllib
 import urllib2
-import yogento.api.models.catalog.category.category
 import yogento.api.models.catalog.product.product
 import yogento.api.models.image.image_resolution
 import yogento.api.services.catalog.catalog_service
@@ -17,16 +16,6 @@ class RestClientCatalogService(thryft.web.client.service._rest_client_service._R
         if not api_url.endswith('/rest/'):
             api_url += '/rest/'
         thryft.web.client.service._rest_client_service._RestClientService.__init__(self, api_url=api_url, headers=headers)
-
-    def _delete_category_tree(self):
-        try:
-            self._request('DELETE', '/catalog/category_tree', data=None, query=None)
-            return True
-        except urllib2.HTTPError, e:
-            if e.code == 404:
-                return False
-            else:
-                raise
 
     def _delete_product_by_sku(self, sku):
         try:
@@ -40,11 +29,6 @@ class RestClientCatalogService(thryft.web.client.service._rest_client_service._R
 
     def _delete_products(self):
         self._request('DELETE', '/catalog/products', data=None, query=None)
-
-    def _get_category_tree(self):
-        __return_value = self._request('GET', '/catalog/category_tree', data=None, query=None)
-        iprot = thryft.core.protocol.json_protocol.JsonProtocol(__return_value)
-        return yogento.api.models.catalog.category.category.Category.read(iprot)
 
     def _get_product_count(self):
         __return_value = self._request('GET', '/catalog/product_count', data=None, query=None)
@@ -109,9 +93,6 @@ class RestClientCatalogService(thryft.web.client.service._rest_client_service._R
                 return False
             else:
                 raise
-
-    def _put_category_tree(self, **kwds):
-        self._request('PUT', '/catalog/category_tree', data=str(thryft.core.protocol.json_protocol.JsonProtocol().writeMixed(dict((key, value) for key, value in kwds.iteritems() if value is not None))), query=None)
 
     def _put_product(self, **kwds):
         self._request('PUT', '/catalog/product', data=str(thryft.core.protocol.json_protocol.JsonProtocol().writeMixed(dict((key, value) for key, value in kwds.iteritems() if value is not None))), query=None)

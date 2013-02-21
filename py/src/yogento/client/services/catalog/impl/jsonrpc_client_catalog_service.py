@@ -2,7 +2,6 @@ from itertools import ifilterfalse
 import __builtin__
 import thryft.core.protocol.json_protocol
 import thryft.web.client.service._jsonrpc_client_service
-import yogento.api.models.catalog.category.category
 import yogento.api.models.catalog.product.product
 import yogento.api.models.image.image_resolution
 import yogento.api.services.catalog.catalog_service
@@ -15,19 +14,11 @@ class JsonrpcClientCatalogService(thryft.web.client.service._jsonrpc_client_serv
             api_url += '/jsonrpc/catalog'
         thryft.web.client.service._jsonrpc_client_service._JsonrpcClientService.__init__(self, api_url=api_url, headers=headers)
 
-    def _delete_category_tree(self, **kwds):
-        return self._request('delete_category_tree', **kwds)
-
     def _delete_product_by_sku(self, **kwds):
         return self._request('delete_product_by_sku', **kwds)
 
     def _delete_products(self, **kwds):
         self._request('delete_products', **kwds)
-
-    def _get_category_tree(self, **kwds):
-        return_value = self._request('get_category_tree', **kwds)
-        iprot = thryft.core.protocol.json_protocol.JsonProtocol(return_value)
-        return yogento.api.models.catalog.category.category.Category.read(iprot)
 
     def _get_product_count(self, **kwds):
         return self._request('get_product_count', **kwds)
@@ -70,9 +61,6 @@ class JsonrpcClientCatalogService(thryft.web.client.service._jsonrpc_client_serv
 
     def _head_product_by_sku(self, **kwds):
         return self._request('head_product_by_sku', **kwds)
-
-    def _put_category_tree(self, **kwds):
-        self._request('put_category_tree', **kwds)
 
     def _put_product(self, **kwds):
         self._request('put_product', **kwds)

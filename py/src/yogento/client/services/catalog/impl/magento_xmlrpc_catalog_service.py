@@ -1,19 +1,19 @@
 #-------------------------------------------------------------------------------
 # Copyright (c) 2013, Minor Gordon
 # All rights reserved.
-# 
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
 # are met:
-# 
+#
 #     * Redistributions of source code must retain the above copyright
 #       notice, this list of conditions and the following disclaimer.
-# 
+#
 #     * Redistributions in binary form must reproduce the above copyright
 #       notice, this list of conditions and the following disclaimer in
 #       the documentation and/or other materials provided with the
 #       distribution.
-# 
+#
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
 # CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
 # INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
@@ -31,9 +31,6 @@
 #-------------------------------------------------------------------------------
 
 from xmlrpclib import Fault
-from yogento.api.models.catalog.category.category import Category
-from yogento.api.models.catalog.category.magento.magento_category import \
-    MagentoCategory
 from yogento.api.models.catalog.product.magento.magento_product import \
     MagentoProduct
 from yogento.api.models.catalog.product.product import Product
@@ -49,35 +46,6 @@ from yogento.client.services._magento_xmlrpc_service import \
 
 
 class MagentoXmlrpcCatalogService(_MagentoXmlrpcService, CatalogService):
-    def _get_category_tree(self):
-        with self._magento_xmlrpc_api_client.login() as magento_api:
-            def expand_category_tree(subtree_category_dict):
-                child_category_dicts = subtree_category_dict.get('children', [])
-                for child_category_dict in child_category_dicts:
-                    try:
-                        expand_category_tree(child_category_dict)
-                    except NoSuchCategoryException:
-                        pass
-                try:
-                    subtree_category_dict_expanded = \
-                        magento_api.catalog_category.info(
-                            subtree_category_dict['category_id']
-                        )
-                    subtree_category_dict.update(subtree_category_dict_expanded)
-                    subtree_category_dict['children'] = child_category_dicts
-                except Fault, fault:
-                    if fault.faultCode == 101:
-                        raise NoSuchCategoryException
-                    else:
-                        raise
-                try:
-                    del subtree_category_dict['all_children']
-                except KeyError:
-                    pass
-            root_category_dict = magento_api.catalog_category.tree()
-            expand_category_tree(root_category_dict)
-            return Category(MagentoCategory.read(MagentoXmlrpcProtocol(root_category_dict)))
-
     def _get_product_by_sku(self, sku):
         with self._magento_xmlrpc_api_client.login() as magento_api:
             return self.__get_product(magento_api, sku)
