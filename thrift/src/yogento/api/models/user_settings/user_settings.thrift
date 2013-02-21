@@ -10,4 +10,5 @@ struct UserSettings {
     optional string magento_store_url;
     optional date_time.DateTime products_mtime;
     optional list<string> product_search_queries;
+    optional bool use_sample_data;
 }

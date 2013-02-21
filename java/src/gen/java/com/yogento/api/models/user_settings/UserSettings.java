@@ -13,14 +13,15 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
             this.magentoStoreUrl = other.getMagentoStoreUrl();
             this.productsMtime = other.getProductsMtime();
             this.productSearchQueries = other.getProductSearchQueries();
+            this.useSampleData = other.isUseSampleData();
         }
 
-        protected UserSettings _build(final String displayName, final String email, final String logoImageUrl, final String magentoStoreUrl, final org.joda.time.DateTime productsMtime, final com.google.common.collect.ImmutableList<String> productSearchQueries) {
-            return new UserSettings(displayName, email, logoImageUrl, magentoStoreUrl, productsMtime, productSearchQueries);
+        protected UserSettings _build(final String displayName, final String email, final String logoImageUrl, final String magentoStoreUrl, final org.joda.time.DateTime productsMtime, final com.google.common.collect.ImmutableList<String> productSearchQueries, final Boolean useSampleData) {
+            return new UserSettings(displayName, email, logoImageUrl, magentoStoreUrl, productsMtime, productSearchQueries, useSampleData);
         }
 
         public UserSettings build() {
-            return _build(displayName, email, logoImageUrl, magentoStoreUrl, productsMtime, productSearchQueries);
+            return _build(displayName, email, logoImageUrl, magentoStoreUrl, productsMtime, productSearchQueries, useSampleData);
         }
 
         public Builder setDisplayName(final String displayName) {
@@ -53,12 +54,18 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
             return this;
         }
 
+        public Builder setUseSampleData(final Boolean useSampleData) {
+            this.useSampleData = useSampleData;
+            return this;
+        }
+
         private String displayName;
         private String email;
         private String logoImageUrl;
         private String magentoStoreUrl;
         private org.joda.time.DateTime productsMtime;
         private com.google.common.collect.ImmutableList<String> productSearchQueries;
+        private Boolean useSampleData;
     }
 
     public UserSettings() {
@@ -68,10 +75,11 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         magentoStoreUrl = null;
         productsMtime = null;
         productSearchQueries = null;
+        useSampleData = null;
     }
 
     public UserSettings(final UserSettings other) {
-        this(other.getDisplayName(), other.getEmail(), other.getLogoImageUrl(), other.getMagentoStoreUrl(), other.getProductsMtime(), other.getProductSearchQueries());
+        this(other.getDisplayName(), other.getEmail(), other.getLogoImageUrl(), other.getMagentoStoreUrl(), other.getProductsMtime(), other.getProductSearchQueries(), other.isUseSampleData());
     }
 
     public UserSettings(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
@@ -85,6 +93,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         String magentoStoreUrl = null;
         org.joda.time.DateTime productsMtime = null;
         com.google.common.collect.ImmutableList<String> productSearchQueries = null;
+        Boolean useSampleData = null;
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
@@ -124,6 +133,9 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                             }
                         }
                     }).apply(iprot);
+                }
+                if (__list.size > 6) {
+                    useSampleData = iprot.readBool();
                 }
                 iprot.readListEnd();
                 break;
@@ -165,6 +177,8 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                                 }
                             }
                         }).apply(iprot);
+                    } else if (ifield.name.equals("use_sample_data")) {
+                        useSampleData = iprot.readBool();
                     }
                     iprot.readFieldEnd();
                 }
@@ -178,15 +192,17 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         this.magentoStoreUrl = magentoStoreUrl;
         this.productsMtime = productsMtime;
         this.productSearchQueries = productSearchQueries;
+        this.useSampleData = useSampleData;
     }
 
-    public UserSettings(final String displayName, final String email, final String logoImageUrl, final String magentoStoreUrl, final org.joda.time.DateTime productsMtime, final com.google.common.collect.ImmutableList<String> productSearchQueries) {
+    public UserSettings(final String displayName, final String email, final String logoImageUrl, final String magentoStoreUrl, final org.joda.time.DateTime productsMtime, final com.google.common.collect.ImmutableList<String> productSearchQueries, final Boolean useSampleData) {
         this.displayName = displayName;
         this.email = email;
         this.logoImageUrl = logoImageUrl;
         this.magentoStoreUrl = magentoStoreUrl;
         this.productsMtime = productsMtime;
         this.productSearchQueries = productSearchQueries;
+        this.useSampleData = useSampleData;
     }
 
     @Override
@@ -231,7 +247,10 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
             getProductsMtime().equals(other.getProductsMtime()))) &&
             ((getProductSearchQueries() == null && other.getProductSearchQueries() == null) ||
             (getProductSearchQueries() != null && other.getProductSearchQueries() != null &&
-            getProductSearchQueries().equals(other.getProductSearchQueries())));
+            getProductSearchQueries().equals(other.getProductSearchQueries()))) &&
+            ((isUseSampleData() == null && other.isUseSampleData() == null) ||
+            (isUseSampleData() != null && other.isUseSampleData() != null &&
+            isUseSampleData().equals(other.isUseSampleData())));
     }
 
     @Override
@@ -252,6 +271,8 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
             return getProductsMtime();
         } else if (fieldName.equals("product_search_queries")) {
             return getProductSearchQueries();
+        } else if (fieldName.equals("use_sample_data")) {
+            return isUseSampleData();
         }
         return null;
     }
@@ -306,12 +327,19 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         if (getProductSearchQueries() != null) {
             hashCode = 31 * hashCode + getProductSearchQueries().hashCode();
         }
+        if (isUseSampleData() != null) {
+            hashCode = 31 * hashCode + (isUseSampleData() ? 1 : 0);
+        }
         return hashCode;
     }
 
     @Override
     public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
         throw new UnsupportedOperationException();
+    }
+
+    public final Boolean isUseSampleData() {
+        return useSampleData;
     }
 
     @Override
@@ -345,6 +373,9 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         if (getProductSearchQueries() != null) {
             helper.add("product_search_queries", getProductSearchQueries());
         }
+        if (isUseSampleData() != null) {
+            helper.add("use_sample_data", isUseSampleData());
+        }
         return helper.toString();
     }
 
@@ -357,7 +388,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         switch (writeAsTType) {
             case org.apache.thrift.protocol.TType.VOID:
             case org.apache.thrift.protocol.TType.LIST:
-                oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 6));
+                oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 7));
 
                 if (getDisplayName() != null) {
                     oprot.writeString(getDisplayName());
@@ -395,6 +426,12 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                         oprot.writeString(_iter0);
                     }
                     oprot.writeListEnd();
+                } else {
+                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                }
+
+                if (isUseSampleData() != null) {
+                    oprot.writeBool(isUseSampleData());
                 } else {
                     ((org.thryft.core.protocol.Protocol)oprot).writeNull();
                 }
@@ -446,6 +483,12 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                     oprot.writeFieldEnd();
                 }
 
+                if (isUseSampleData() != null) {
+                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("use_sample_data", org.apache.thrift.protocol.TType.BOOL, (short)-1));
+                    oprot.writeBool(isUseSampleData());
+                    oprot.writeFieldEnd();
+                }
+
                 oprot.writeFieldStop();
 
                 oprot.writeStructEnd();
@@ -459,4 +502,5 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
     private final String magentoStoreUrl;
     private final org.joda.time.DateTime productsMtime;
     private final com.google.common.collect.ImmutableList<String> productSearchQueries;
+    private final Boolean useSampleData;
 }

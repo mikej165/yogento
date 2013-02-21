@@ -13,7 +13,8 @@ class UserSettings(object):
             logo_image_url=None,
             magento_store_url=None,
             products_mtime=None,
-            product_search_queries=None
+            product_search_queries=None,
+            use_sample_data=None
         ):
             self.__display_name = display_name
             self.__email = email
@@ -21,9 +22,10 @@ class UserSettings(object):
             self.__magento_store_url = magento_store_url
             self.__products_mtime = products_mtime
             self.__product_search_queries = product_search_queries
+            self.__use_sample_data = use_sample_data
 
         def build(self):
-            return UserSettings(display_name=self.__display_name, email=self.__email, logo_image_url=self.__logo_image_url, magento_store_url=self.__magento_store_url, products_mtime=self.__products_mtime, product_search_queries=self.__product_search_queries)
+            return UserSettings(display_name=self.__display_name, email=self.__email, logo_image_url=self.__logo_image_url, magento_store_url=self.__magento_store_url, products_mtime=self.__products_mtime, product_search_queries=self.__product_search_queries, use_sample_data=self.__use_sample_data)
 
         def set_display_name(self, display_name):
             self.__display_name = display_name
@@ -49,6 +51,10 @@ class UserSettings(object):
             self.__products_mtime = products_mtime
             return self
 
+        def set_use_sample_data(self, use_sample_data):
+            self.__use_sample_data = use_sample_data
+            return self
+
         def update(self, user_settings):
             if isinstance(user_settings, UserSettings):
                 self.set_display_name(user_settings.display_name)
@@ -57,6 +63,7 @@ class UserSettings(object):
                 self.set_magento_store_url(user_settings.magento_store_url)
                 self.set_products_mtime(user_settings.products_mtime)
                 self.set_product_search_queries(user_settings.product_search_queries)
+                self.set_use_sample_data(user_settings.use_sample_data)
             elif isinstance(user_settings, dict):
                 for key, value in user_settings.iteritems():
                     getattr(self, 'set_' + key)(value)
@@ -71,7 +78,8 @@ class UserSettings(object):
         logo_image_url=None,
         magento_store_url=None,
         products_mtime=None,
-        product_search_queries=None
+        product_search_queries=None,
+        use_sample_data=None
     ):
         if display_name is not None:
             if not isinstance(display_name, basestring):
@@ -103,6 +111,11 @@ class UserSettings(object):
                 raise TypeError(getattr(__builtin__, 'type')(product_search_queries))
         self.__product_search_queries = product_search_queries
 
+        if use_sample_data is not None:
+            if not isinstance(use_sample_data, bool):
+                raise TypeError(getattr(__builtin__, 'type')(use_sample_data))
+        self.__use_sample_data = use_sample_data
+
     def __eq__(self, other):
         if self.display_name != other.display_name:
             return False
@@ -116,10 +129,12 @@ class UserSettings(object):
             return False
         if self.product_search_queries != other.product_search_queries:
             return False
+        if self.use_sample_data != other.use_sample_data:
+            return False
         return True
 
     def __hash__(self):
-        return hash((self.display_name,self.email,self.logo_image_url,self.magento_store_url,self.products_mtime,self.product_search_queries,))
+        return hash((self.display_name,self.email,self.logo_image_url,self.magento_store_url,self.products_mtime,self.product_search_queries,self.use_sample_data,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
@@ -138,6 +153,8 @@ class UserSettings(object):
             field_reprs.append('products_mtime=' + repr(self.products_mtime))
         if self.product_search_queries is not None:
             field_reprs.append('product_search_queries=' + repr(self.product_search_queries))
+        if self.use_sample_data is not None:
+            field_reprs.append('use_sample_data=' + repr(self.use_sample_data))
         return 'UserSettings(' + ', '.join(field_reprs) + ')'
 
     def __str__(self):
@@ -154,10 +171,12 @@ class UserSettings(object):
             field_reprs.append('products_mtime=' + repr(self.products_mtime))
         if self.product_search_queries is not None:
             field_reprs.append('product_search_queries=' + repr(self.product_search_queries))
+        if self.use_sample_data is not None:
+            field_reprs.append('use_sample_data=' + repr(self.use_sample_data))
         return 'UserSettings(' + ', '.join(field_reprs) + ')'
 
     def as_dict(self):
-        return {'display_name': self.display_name, 'email': self.email, 'logo_image_url': self.logo_image_url, 'magento_store_url': self.magento_store_url, 'products_mtime': self.products_mtime, 'product_search_queries': self.product_search_queries}
+        return {'display_name': self.display_name, 'email': self.email, 'logo_image_url': self.logo_image_url, 'magento_store_url': self.magento_store_url, 'products_mtime': self.products_mtime, 'product_search_queries': self.product_search_queries, 'use_sample_data': self.use_sample_data}
 
     @property
     def display_name(self):
@@ -219,12 +238,17 @@ class UserSettings(object):
                     pass
             elif ifield_name == 'product_search_queries':
                 init_kwds['product_search_queries'] = tuple([iprot.readString() for _ in xrange(iprot.readListBegin()[1])] + (iprot.readListEnd() is None and []))
+            elif ifield_name == 'use_sample_data':
+                try:
+                    init_kwds['use_sample_data'] = iprot.readBool()
+                except (TypeError, ValueError,):
+                    pass
             iprot.readFieldEnd()
         iprot.readStructEnd()
 
         return cls(**init_kwds)
 
-    def replace(self, display_name=None, email=None, logo_image_url=None, magento_store_url=None, products_mtime=None, product_search_queries=None):
+    def replace(self, display_name=None, email=None, logo_image_url=None, magento_store_url=None, products_mtime=None, product_search_queries=None, use_sample_data=None):
         if display_name is None:
             display_name = self.display_name
         if email is None:
@@ -237,7 +261,13 @@ class UserSettings(object):
             products_mtime = self.products_mtime
         if product_search_queries is None:
             product_search_queries = self.product_search_queries
-        return self.__class__(display_name=display_name, email=email, logo_image_url=logo_image_url, magento_store_url=magento_store_url, products_mtime=products_mtime, product_search_queries=product_search_queries)
+        if use_sample_data is None:
+            use_sample_data = self.use_sample_data
+        return self.__class__(display_name=display_name, email=email, logo_image_url=logo_image_url, magento_store_url=magento_store_url, products_mtime=products_mtime, product_search_queries=product_search_queries, use_sample_data=use_sample_data)
+
+    @property
+    def use_sample_data(self):
+        return self.__use_sample_data
 
     def write(self, oprot):
         oprot.writeStructBegin('UserSettings')
@@ -273,6 +303,11 @@ class UserSettings(object):
             for _0 in self.product_search_queries:
                 oprot.writeString(_0)
             oprot.writeListEnd()
+            oprot.writeFieldEnd()
+
+        if self.use_sample_data is not None:
+            oprot.writeFieldBegin('use_sample_data', 2, -1)
+            oprot.writeBool(self.use_sample_data)
             oprot.writeFieldEnd()
 
         oprot.writeFieldStop()
