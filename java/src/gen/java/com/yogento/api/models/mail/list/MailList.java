@@ -39,7 +39,7 @@ public class MailList implements org.apache.thrift.TBase<MailList, org.apache.th
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+                iprot.readListBegin();
                 mailChimpList = new com.yochimp.models.list.List(iprot);
                 iprot.readListEnd();
                 break;

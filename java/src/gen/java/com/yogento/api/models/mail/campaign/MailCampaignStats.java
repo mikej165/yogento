@@ -39,7 +39,7 @@ public class MailCampaignStats implements org.apache.thrift.TBase<MailCampaignSt
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+                iprot.readListBegin();
                 mailChimpCampaignStats = new com.yochimp.models.campaign.CampaignStats(iprot);
                 iprot.readListEnd();
                 break;

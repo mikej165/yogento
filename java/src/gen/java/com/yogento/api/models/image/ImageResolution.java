@@ -47,7 +47,7 @@ public class ImageResolution implements org.apache.thrift.TBase<ImageResolution,
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+                iprot.readListBegin();
                 heightPx = iprot.readI32();
                 widthPx = iprot.readI32();
                 iprot.readListEnd();

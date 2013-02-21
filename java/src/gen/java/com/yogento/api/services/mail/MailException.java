@@ -47,7 +47,7 @@ public class MailException extends java.lang.Exception implements org.apache.thr
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+                iprot.readListBegin();
                 code = iprot.readI32();
                 error = iprot.readString();
                 iprot.readListEnd();

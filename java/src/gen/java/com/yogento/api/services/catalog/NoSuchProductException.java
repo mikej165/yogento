@@ -39,7 +39,7 @@ public class NoSuchProductException extends java.lang.Exception implements org.a
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+                iprot.readListBegin();
                 sku = iprot.readString();
                 iprot.readListEnd();
                 break;

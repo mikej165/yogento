@@ -33,7 +33,7 @@ public class NoSuchUserSettingsException extends java.lang.Exception implements 
     public NoSuchUserSettingsException(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+                iprot.readListBegin();
                 iprot.readListEnd();
                 break;
 

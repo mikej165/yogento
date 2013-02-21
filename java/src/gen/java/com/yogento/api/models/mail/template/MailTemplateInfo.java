@@ -39,7 +39,7 @@ public class MailTemplateInfo implements org.apache.thrift.TBase<MailTemplateInf
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+                iprot.readListBegin();
                 mailChimpTemplateInfo = new com.yochimp.models.template.TemplateInfo(iprot);
                 iprot.readListEnd();
                 break;
