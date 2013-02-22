@@ -59,10 +59,10 @@ public interface ImageService {
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
+                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
                             if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
                                 break;
-                            } else                 if (ifield.name.equals("image_url")) {
+                            } else if (ifield.name.equals("image_url")) {
                                 imageUrl = iprot.readString();
                             } else if (ifield.name.equals("thumbnail_resolution")) {
                                 thumbnailResolution = new com.yogento.api.models.image.ImageResolution(iprot);
@@ -157,7 +157,7 @@ public interface ImageService {
             }
 
             @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
                 throw new UnsupportedOperationException();
             }
 
@@ -319,7 +319,7 @@ public interface ImageService {
             }
 
             @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
                 throw new UnsupportedOperationException();
             }
 
@@ -421,10 +421,10 @@ public interface ImageService {
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
+                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
                             if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
                                 break;
-                            } else                 if (ifield.name.equals("image_url")) {
+                            } else if (ifield.name.equals("image_url")) {
                                 imageUrl = iprot.readString();
                             } else if (ifield.name.equals("thumbnail_resolution")) {
                                 thumbnailResolution = new com.yogento.api.models.image.ImageResolution(iprot);
@@ -519,7 +519,7 @@ public interface ImageService {
             }
 
             @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
                 throw new UnsupportedOperationException();
             }
 
@@ -677,7 +677,7 @@ public interface ImageService {
             }
 
             @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
                 throw new UnsupportedOperationException();
             }
 
@@ -779,10 +779,10 @@ public interface ImageService {
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
+                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
                             if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
                                 break;
-                            } else                 if (ifield.name.equals("image")) {
+                            } else if (ifield.name.equals("image")) {
                                 image = iprot.readBinary();
                             } else if (ifield.name.equals("image_mime_subtype")) {
                                 imageMimeSubtype = iprot.readString();
@@ -877,7 +877,7 @@ public interface ImageService {
             }
 
             @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
                 throw new UnsupportedOperationException();
             }
 
@@ -1035,7 +1035,7 @@ public interface ImageService {
             }
 
             @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
                 throw new UnsupportedOperationException();
             }
 

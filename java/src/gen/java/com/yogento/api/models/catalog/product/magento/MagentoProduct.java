@@ -335,7 +335,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+                final org.apache.thrift.protocol.TList __list = iprot.readListBegin();
                 activationInformation = iprot.readString();
                 try {
                     backorders = iprot.readI32();
@@ -352,16 +352,16 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                 description = iprot.readString();
                 images = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>>() {
                     @Override
-                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> apply(org.apache.thrift.protocol.TProtocol iprot) {
+                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> apply(final org.apache.thrift.protocol.TProtocol iprot) {
                         try {
-                            org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                            java.util.Set<com.yogento.api.models.catalog.product.magento.MagentoProductImage> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>();
+                            final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                            final java.util.Set<com.yogento.api.models.catalog.product.magento.MagentoProductImage> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>();
                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                 sequence.add(new com.yogento.api.models.catalog.product.magento.MagentoProductImage(iprot));
                             }
                             iprot.readSetEnd();
                             return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                        } catch (org.apache.thrift.TException e) {
+                        } catch (final org.apache.thrift.TException e) {
                             return com.google.common.collect.ImmutableSet.of();
                         }
                     }
@@ -435,16 +435,16 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                 }
                 tags = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
                     @Override
-                    public com.google.common.collect.ImmutableSet<String> apply(org.apache.thrift.protocol.TProtocol iprot) {
+                    public com.google.common.collect.ImmutableSet<String> apply(final org.apache.thrift.protocol.TProtocol iprot) {
                         try {
-                            org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                            java.util.Set<String> sequence = new java.util.LinkedHashSet<String>();
+                            final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                            final java.util.Set<String> sequence = new java.util.LinkedHashSet<String>();
                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                 sequence.add(iprot.readString());
                             }
                             iprot.readSetEnd();
                             return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                        } catch (org.apache.thrift.TException e) {
+                        } catch (final org.apache.thrift.TException e) {
                             return com.google.common.collect.ImmutableSet.of();
                         }
                     }
@@ -461,16 +461,16 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                 urlPath = iprot.readString();
                 visibility = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
                     @Override
-                    public com.google.common.collect.ImmutableSet<String> apply(org.apache.thrift.protocol.TProtocol iprot) {
+                    public com.google.common.collect.ImmutableSet<String> apply(final org.apache.thrift.protocol.TProtocol iprot) {
                         try {
-                            org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                            java.util.Set<String> sequence = new java.util.LinkedHashSet<String>();
+                            final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                            final java.util.Set<String> sequence = new java.util.LinkedHashSet<String>();
                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                 sequence.add(iprot.readString());
                             }
                             iprot.readSetEnd();
                             return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                        } catch (org.apache.thrift.TException e) {
+                        } catch (final org.apache.thrift.TException e) {
                             return com.google.common.collect.ImmutableSet.of();
                         }
                     }
@@ -488,10 +488,10 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
             default:
                 iprot.readStructBegin();
                 while (true) {
-                    org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
+                    final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
                     if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
                         break;
-                    } else                 if (ifield.name.equals("activation_information")) {
+                    } else if (ifield.name.equals("activation_information")) {
                         activationInformation = iprot.readString();
                     } else if (ifield.name.equals("backorders")) {
                         try {
@@ -513,16 +513,16 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                     } else if (ifield.name.equals("images")) {
                         images = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>>() {
                             @Override
-                            public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> apply(org.apache.thrift.protocol.TProtocol iprot) {
+                            public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> apply(final org.apache.thrift.protocol.TProtocol iprot) {
                                 try {
-                                    org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                                    java.util.Set<com.yogento.api.models.catalog.product.magento.MagentoProductImage> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>();
+                                    final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                                    final java.util.Set<com.yogento.api.models.catalog.product.magento.MagentoProductImage> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>();
                                     for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                         sequence.add(new com.yogento.api.models.catalog.product.magento.MagentoProductImage(iprot));
                                     }
                                     iprot.readSetEnd();
                                     return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                                } catch (org.apache.thrift.TException e) {
+                                } catch (final org.apache.thrift.TException e) {
                                     return com.google.common.collect.ImmutableSet.of();
                                 }
                             }
@@ -622,16 +622,16 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                     } else if (ifield.name.equals("tags")) {
                         tags = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
                             @Override
-                            public com.google.common.collect.ImmutableSet<String> apply(org.apache.thrift.protocol.TProtocol iprot) {
+                            public com.google.common.collect.ImmutableSet<String> apply(final org.apache.thrift.protocol.TProtocol iprot) {
                                 try {
-                                    org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                                    java.util.Set<String> sequence = new java.util.LinkedHashSet<String>();
+                                    final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                                    final java.util.Set<String> sequence = new java.util.LinkedHashSet<String>();
                                     for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                         sequence.add(iprot.readString());
                                     }
                                     iprot.readSetEnd();
                                     return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                                } catch (org.apache.thrift.TException e) {
+                                } catch (final org.apache.thrift.TException e) {
                                     return com.google.common.collect.ImmutableSet.of();
                                 }
                             }
@@ -653,16 +653,16 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                     } else if (ifield.name.equals("visibility")) {
                         visibility = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
                             @Override
-                            public com.google.common.collect.ImmutableSet<String> apply(org.apache.thrift.protocol.TProtocol iprot) {
+                            public com.google.common.collect.ImmutableSet<String> apply(final org.apache.thrift.protocol.TProtocol iprot) {
                                 try {
-                                    org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                                    java.util.Set<String> sequence = new java.util.LinkedHashSet<String>();
+                                    final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                                    final java.util.Set<String> sequence = new java.util.LinkedHashSet<String>();
                                     for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                         sequence.add(iprot.readString());
                                     }
                                     iprot.readSetEnd();
                                     return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                                } catch (org.apache.thrift.TException e) {
+                                } catch (final org.apache.thrift.TException e) {
                                     return com.google.common.collect.ImmutableSet.of();
                                 }
                             }
@@ -1292,7 +1292,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
     }
 
     @Override
-    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
         throw new UnsupportedOperationException();
     }
 
@@ -1443,7 +1443,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
 
                 if (getImages() != null) {
                     oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getImages().size()));
-                    for (com.yogento.api.models.catalog.product.magento.MagentoProductImage _iter0 : getImages()) {
+                    for (final com.yogento.api.models.catalog.product.magento.MagentoProductImage _iter0 : getImages()) {
                         _iter0.write(oprot);
                     }
                     oprot.writeSetEnd();
@@ -1591,7 +1591,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
 
                 if (getTags() != null) {
                     oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, getTags().size()));
-                    for (String _iter0 : getTags()) {
+                    for (final String _iter0 : getTags()) {
                         oprot.writeString(_iter0);
                     }
                     oprot.writeSetEnd();
@@ -1620,7 +1620,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                 }
 
                 oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, getVisibility().size()));
-                for (String _iter0 : getVisibility()) {
+                for (final String _iter0 : getVisibility()) {
                     oprot.writeString(_iter0);
                 }
                 oprot.writeSetEnd();
@@ -1669,7 +1669,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                 if (getImages() != null) {
                     oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("images", org.apache.thrift.protocol.TType.SET, (short)-1));
                     oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getImages().size()));
-                    for (com.yogento.api.models.catalog.product.magento.MagentoProductImage _iter0 : getImages()) {
+                    for (final com.yogento.api.models.catalog.product.magento.MagentoProductImage _iter0 : getImages()) {
                         _iter0.write(oprot);
                     }
                     oprot.writeSetEnd();
@@ -1823,7 +1823,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                 if (getTags() != null) {
                     oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("tags", org.apache.thrift.protocol.TType.SET, (short)-1));
                     oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, getTags().size()));
-                    for (String _iter0 : getTags()) {
+                    for (final String _iter0 : getTags()) {
                         oprot.writeString(_iter0);
                     }
                     oprot.writeSetEnd();
@@ -1854,7 +1854,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
 
                 oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("visibility", org.apache.thrift.protocol.TType.SET, (short)-1));
                 oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, getVisibility().size()));
-                for (String _iter0 : getVisibility()) {
+                for (final String _iter0 : getVisibility()) {
                     oprot.writeString(_iter0);
                 }
                 oprot.writeSetEnd();

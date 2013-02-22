@@ -97,7 +97,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+                final org.apache.thrift.protocol.TList __list = iprot.readListBegin();
                 if (__list.size > 0) {
                     displayName = iprot.readString();
                 }
@@ -119,16 +119,16 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                 if (__list.size > 5) {
                     productSearchQueries = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableList<String>>() {
                         @Override
-                        public com.google.common.collect.ImmutableList<String> apply(org.apache.thrift.protocol.TProtocol iprot) {
+                        public com.google.common.collect.ImmutableList<String> apply(final org.apache.thrift.protocol.TProtocol iprot) {
                             try {
-                                org.apache.thrift.protocol.TList sequenceBegin = iprot.readListBegin();
-                                java.util.List<String> sequence = new java.util.ArrayList<String>();
+                                final org.apache.thrift.protocol.TList sequenceBegin = iprot.readListBegin();
+                                final java.util.List<String> sequence = new java.util.ArrayList<String>();
                                 for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                     sequence.add(iprot.readString());
                                 }
                                 iprot.readListEnd();
                                 return com.google.common.collect.ImmutableList.copyOf(sequence);
-                            } catch (org.apache.thrift.TException e) {
+                            } catch (final org.apache.thrift.TException e) {
                                 return com.google.common.collect.ImmutableList.of();
                             }
                         }
@@ -144,10 +144,10 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
             default:
                 iprot.readStructBegin();
                 while (true) {
-                    org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
+                    final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
                     if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
                         break;
-                    } else                 if (ifield.name.equals("display_name")) {
+                    } else if (ifield.name.equals("display_name")) {
                         displayName = iprot.readString();
                     } else if (ifield.name.equals("email")) {
                         email = iprot.readString();
@@ -163,16 +163,16 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                     } else if (ifield.name.equals("product_search_queries")) {
                         productSearchQueries = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableList<String>>() {
                             @Override
-                            public com.google.common.collect.ImmutableList<String> apply(org.apache.thrift.protocol.TProtocol iprot) {
+                            public com.google.common.collect.ImmutableList<String> apply(final org.apache.thrift.protocol.TProtocol iprot) {
                                 try {
-                                    org.apache.thrift.protocol.TList sequenceBegin = iprot.readListBegin();
-                                    java.util.List<String> sequence = new java.util.ArrayList<String>();
+                                    final org.apache.thrift.protocol.TList sequenceBegin = iprot.readListBegin();
+                                    final java.util.List<String> sequence = new java.util.ArrayList<String>();
                                     for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                         sequence.add(iprot.readString());
                                     }
                                     iprot.readListEnd();
                                     return com.google.common.collect.ImmutableList.copyOf(sequence);
-                                } catch (org.apache.thrift.TException e) {
+                                } catch (final org.apache.thrift.TException e) {
                                     return com.google.common.collect.ImmutableList.of();
                                 }
                             }
@@ -348,7 +348,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
     }
 
     @Override
-    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
         throw new UnsupportedOperationException();
     }
 
@@ -422,7 +422,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
 
                 if (getProductSearchQueries() != null) {
                     oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING, getProductSearchQueries().size()));
-                    for (String _iter0 : getProductSearchQueries()) {
+                    for (final String _iter0 : getProductSearchQueries()) {
                         oprot.writeString(_iter0);
                     }
                     oprot.writeListEnd();
@@ -476,7 +476,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                 if (getProductSearchQueries() != null) {
                     oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("product_search_queries", org.apache.thrift.protocol.TType.LIST, (short)-1));
                     oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING, getProductSearchQueries().size()));
-                    for (String _iter0 : getProductSearchQueries()) {
+                    for (final String _iter0 : getProductSearchQueries()) {
                         oprot.writeString(_iter0);
                     }
                     oprot.writeListEnd();

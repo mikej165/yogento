@@ -57,10 +57,10 @@ public class ImageResolution implements org.apache.thrift.TBase<ImageResolution,
             default:
                 iprot.readStructBegin();
                 while (true) {
-                    org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
+                    final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
                     if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
                         break;
-                    } else                 if (ifield.name.equals("height_px")) {
+                    } else if (ifield.name.equals("height_px")) {
                         heightPx = iprot.readI32();
                     } else if (ifield.name.equals("width_px")) {
                         widthPx = iprot.readI32();
@@ -160,7 +160,7 @@ public class ImageResolution implements org.apache.thrift.TBase<ImageResolution,
     }
 
     @Override
-    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
         throw new UnsupportedOperationException();
     }
 

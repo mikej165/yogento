@@ -48,10 +48,10 @@ public class MailTemplateType implements org.apache.thrift.TBase<MailTemplateTyp
             default:
                 iprot.readStructBegin();
                 while (true) {
-                    org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
+                    final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
                     if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
                         break;
-                    } else                 if (ifield.name.equals("mail_chimp_template_type")) {
+                    } else if (ifield.name.equals("mail_chimp_template_type")) {
                         mailChimpTemplateType = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readEnum(com.yochimp.models.template.TemplateType.class) : com.yochimp.models.template.TemplateType.valueOf(iprot.readString().trim().toUpperCase());
                     }
                     iprot.readFieldEnd();
@@ -134,7 +134,7 @@ public class MailTemplateType implements org.apache.thrift.TBase<MailTemplateTyp
     }
 
     @Override
-    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
         throw new UnsupportedOperationException();
     }
 

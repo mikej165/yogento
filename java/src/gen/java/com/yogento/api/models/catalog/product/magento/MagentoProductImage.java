@@ -79,7 +79,7 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+                final org.apache.thrift.protocol.TList __list = iprot.readListBegin();
                 exclude = iprot.readBool();
                 file = iprot.readString();
                 if (__list.size > 2) {
@@ -94,16 +94,16 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
                 if (__list.size > 4) {
                     types = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>>() {
                         @Override
-                        public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> apply(org.apache.thrift.protocol.TProtocol iprot) {
+                        public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> apply(final org.apache.thrift.protocol.TProtocol iprot) {
                             try {
-                                org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                                java.util.Set<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>();
+                                final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                                final java.util.Set<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>();
                                 for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                     sequence.add((iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductImageType.class) : com.yogento.api.models.catalog.product.magento.MagentoProductImageType.valueOf(iprot.readString().trim().toUpperCase()));
                                 }
                                 iprot.readSetEnd();
                                 return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                            } catch (org.apache.thrift.TException e) {
+                            } catch (final org.apache.thrift.TException e) {
                                 return com.google.common.collect.ImmutableSet.of();
                             }
                         }
@@ -119,10 +119,10 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
             default:
                 iprot.readStructBegin();
                 while (true) {
-                    org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
+                    final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
                     if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
                         break;
-                    } else                 if (ifield.name.equals("exclude")) {
+                    } else if (ifield.name.equals("exclude")) {
                         exclude = iprot.readBool();
                     } else if (ifield.name.equals("file")) {
                         file = iprot.readString();
@@ -136,16 +136,16 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
                     } else if (ifield.name.equals("types")) {
                         types = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>>() {
                             @Override
-                            public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> apply(org.apache.thrift.protocol.TProtocol iprot) {
+                            public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> apply(final org.apache.thrift.protocol.TProtocol iprot) {
                                 try {
-                                    org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                                    java.util.Set<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>();
+                                    final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                                    final java.util.Set<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>();
                                     for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                         sequence.add((iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductImageType.class) : com.yogento.api.models.catalog.product.magento.MagentoProductImageType.valueOf(iprot.readString().trim().toUpperCase()));
                                     }
                                     iprot.readSetEnd();
                                     return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                                } catch (org.apache.thrift.TException e) {
+                                } catch (final org.apache.thrift.TException e) {
                                     return com.google.common.collect.ImmutableSet.of();
                                 }
                             }
@@ -312,7 +312,7 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
     }
 
     @Override
-    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
         throw new UnsupportedOperationException();
     }
 
@@ -371,7 +371,7 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
 
                 if (getTypes() != null) {
                     oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, getTypes().size()));
-                    for (com.yogento.api.models.catalog.product.magento.MagentoProductImageType _iter0 : getTypes()) {
+                    for (final com.yogento.api.models.catalog.product.magento.MagentoProductImageType _iter0 : getTypes()) {
                         if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeEnum(_iter0); } else { oprot.writeString(_iter0.toString()); }
                     }
                     oprot.writeSetEnd();
@@ -417,7 +417,7 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
                 if (getTypes() != null) {
                     oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("types", org.apache.thrift.protocol.TType.SET, (short)-1));
                     oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, getTypes().size()));
-                    for (com.yogento.api.models.catalog.product.magento.MagentoProductImageType _iter0 : getTypes()) {
+                    for (final com.yogento.api.models.catalog.product.magento.MagentoProductImageType _iter0 : getTypes()) {
                         if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeEnum(_iter0); } else { oprot.writeString(_iter0.toString()); }
                     }
                     oprot.writeSetEnd();

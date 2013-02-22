@@ -45,7 +45,7 @@ public interface AgentService {
 
                 switch (readAsTType) {
                     case org.apache.thrift.protocol.TType.LIST:
-                        org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+                        final org.apache.thrift.protocol.TList __list = iprot.readListBegin();
                         if (__list.size > 0) {
                             sync = iprot.readBool();
                         }
@@ -56,10 +56,10 @@ public interface AgentService {
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
+                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
                             if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
                                 break;
-                            } else                 if (ifield.name.equals("sync")) {
+                            } else if (ifield.name.equals("sync")) {
                                 sync = iprot.readBool();
                             }
                             iprot.readFieldEnd();
@@ -146,7 +146,7 @@ public interface AgentService {
             }
 
             @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
                 throw new UnsupportedOperationException();
             }
 
@@ -232,16 +232,16 @@ public interface AgentService {
             public getAgentMagentoProductsResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
                 returnValue = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct>>() {
                     @Override
-                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> apply(org.apache.thrift.protocol.TProtocol iprot) {
+                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> apply(final org.apache.thrift.protocol.TProtocol iprot) {
                         try {
-                            org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                            java.util.Set<com.yogento.api.models.catalog.product.magento.MagentoProduct> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.magento.MagentoProduct>();
+                            final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                            final java.util.Set<com.yogento.api.models.catalog.product.magento.MagentoProduct> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.magento.MagentoProduct>();
                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                 sequence.add(new com.yogento.api.models.catalog.product.magento.MagentoProduct(iprot));
                             }
                             iprot.readSetEnd();
                             return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                        } catch (org.apache.thrift.TException e) {
+                        } catch (final org.apache.thrift.TException e) {
                             return com.google.common.collect.ImmutableSet.of();
                         }
                     }
@@ -319,7 +319,7 @@ public interface AgentService {
             }
 
             @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
                 throw new UnsupportedOperationException();
             }
 
@@ -339,7 +339,7 @@ public interface AgentService {
                 switch (writeAsTType) {
                     case org.apache.thrift.protocol.TType.VOID: {
                         oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getReturnValue().size()));
-                        for (com.yogento.api.models.catalog.product.magento.MagentoProduct _iter0 : getReturnValue()) {
+                        for (final com.yogento.api.models.catalog.product.magento.MagentoProduct _iter0 : getReturnValue()) {
                             _iter0.write(oprot);
                         }
                         oprot.writeSetEnd();
@@ -350,7 +350,7 @@ public interface AgentService {
                         oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
 
                         oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getReturnValue().size()));
-                        for (com.yogento.api.models.catalog.product.magento.MagentoProduct _iter0 : getReturnValue()) {
+                        for (final com.yogento.api.models.catalog.product.magento.MagentoProduct _iter0 : getReturnValue()) {
                             _iter0.write(oprot);
                         }
                         oprot.writeSetEnd();
@@ -364,7 +364,7 @@ public interface AgentService {
 
                         oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.SET, (short)-1));
                         oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getReturnValue().size()));
-                        for (com.yogento.api.models.catalog.product.magento.MagentoProduct _iter0 : getReturnValue()) {
+                        for (final com.yogento.api.models.catalog.product.magento.MagentoProduct _iter0 : getReturnValue()) {
                             _iter0.write(oprot);
                         }
                         oprot.writeSetEnd();
@@ -428,10 +428,10 @@ public interface AgentService {
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
+                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
                             if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
                                 break;
-                            } else                 if (ifield.name.equals("magento_store_url")) {
+                            } else if (ifield.name.equals("magento_store_url")) {
                                 magentoStoreUrl = iprot.readString();
                             }
                             iprot.readFieldEnd();
@@ -514,7 +514,7 @@ public interface AgentService {
             }
 
             @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
                 throw new UnsupportedOperationException();
             }
 
@@ -668,7 +668,7 @@ public interface AgentService {
             }
 
             @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
                 throw new UnsupportedOperationException();
             }
 
@@ -779,10 +779,10 @@ public interface AgentService {
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
+                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
                             if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
                                 break;
-                            } else                 if (ifield.name.equals("magento_products_json")) {
+                            } else if (ifield.name.equals("magento_products_json")) {
                                 magentoProductsJson = iprot.readString();
                             } else if (ifield.name.equals("ticket")) {
                                 ticket = iprot.readString();
@@ -889,7 +889,7 @@ public interface AgentService {
             }
 
             @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
                 throw new UnsupportedOperationException();
             }
 
@@ -1036,7 +1036,7 @@ public interface AgentService {
             }
 
             @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
                 throw new UnsupportedOperationException();
             }
 

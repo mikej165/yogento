@@ -48,10 +48,10 @@ public class MailCampaignStats implements org.apache.thrift.TBase<MailCampaignSt
             default:
                 iprot.readStructBegin();
                 while (true) {
-                    org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
+                    final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
                     if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
                         break;
-                    } else                 if (ifield.name.equals("mail_chimp_campaign_stats")) {
+                    } else if (ifield.name.equals("mail_chimp_campaign_stats")) {
                         mailChimpCampaignStats = new com.yochimp.models.campaign.CampaignStats(iprot);
                     }
                     iprot.readFieldEnd();
@@ -134,7 +134,7 @@ public class MailCampaignStats implements org.apache.thrift.TBase<MailCampaignSt
     }
 
     @Override
-    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
         throw new UnsupportedOperationException();
     }
 

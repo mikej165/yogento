@@ -70,7 +70,7 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
 
         switch (readAsTType) {
             case org.apache.thrift.protocol.TType.LIST:
-                org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+                final org.apache.thrift.protocol.TList __list = iprot.readListBegin();
                 if (__list.size > 0) {
                     content = new com.yogento.api.models.mail.campaign.MailCampaignContent(iprot);
                 }
@@ -93,10 +93,10 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
             default:
                 iprot.readStructBegin();
                 while (true) {
-                    org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
+                    final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
                     if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
                         break;
-                    } else                 if (ifield.name.equals("content")) {
+                    } else if (ifield.name.equals("content")) {
                         content = new com.yogento.api.models.mail.campaign.MailCampaignContent(iprot);
                     } else if (ifield.name.equals("id")) {
                         id = iprot.readString();
@@ -234,7 +234,7 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
     }
 
     @Override
-    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
         throw new UnsupportedOperationException();
     }
 

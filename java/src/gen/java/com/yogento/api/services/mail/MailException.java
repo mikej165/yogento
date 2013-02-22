@@ -57,10 +57,10 @@ public class MailException extends java.lang.Exception implements org.apache.thr
             default:
                 iprot.readStructBegin();
                 while (true) {
-                    org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
+                    final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
                     if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
                         break;
-                    } else                 if (ifield.name.equals("code")) {
+                    } else if (ifield.name.equals("code")) {
                         code = iprot.readI32();
                     } else if (ifield.name.equals("error")) {
                         error = iprot.readString();
@@ -165,7 +165,7 @@ public class MailException extends java.lang.Exception implements org.apache.thr
     }
 
     @Override
-    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
         throw new UnsupportedOperationException();
     }
 

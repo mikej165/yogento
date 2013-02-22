@@ -48,10 +48,10 @@ public class MailList implements org.apache.thrift.TBase<MailList, org.apache.th
             default:
                 iprot.readStructBegin();
                 while (true) {
-                    org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
+                    final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
                     if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
                         break;
-                    } else                 if (ifield.name.equals("mail_chimp_list")) {
+                    } else if (ifield.name.equals("mail_chimp_list")) {
                         mailChimpList = new com.yochimp.models.list.List(iprot);
                     }
                     iprot.readFieldEnd();
@@ -134,7 +134,7 @@ public class MailList implements org.apache.thrift.TBase<MailList, org.apache.th
     }
 
     @Override
-    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
         throw new UnsupportedOperationException();
     }
 

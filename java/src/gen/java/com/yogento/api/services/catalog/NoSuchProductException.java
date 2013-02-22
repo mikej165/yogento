@@ -48,10 +48,10 @@ public class NoSuchProductException extends java.lang.Exception implements org.a
             default:
                 iprot.readStructBegin();
                 while (true) {
-                    org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
+                    final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
                     if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
                         break;
-                    } else                 if (ifield.name.equals("sku")) {
+                    } else if (ifield.name.equals("sku")) {
                         sku = iprot.readString();
                     }
                     iprot.readFieldEnd();
@@ -139,7 +139,7 @@ public class NoSuchProductException extends java.lang.Exception implements org.a
     }
 
     @Override
-    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
         throw new UnsupportedOperationException();
     }
 

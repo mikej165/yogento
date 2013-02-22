@@ -43,7 +43,7 @@ public interface UserSettingsService {
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
+                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
                             if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
                                 break;
                             }
@@ -111,7 +111,7 @@ public interface UserSettingsService {
             }
 
             @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
                 throw new UnsupportedOperationException();
             }
 
@@ -253,7 +253,7 @@ public interface UserSettingsService {
             }
 
             @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
                 throw new UnsupportedOperationException();
             }
 
@@ -350,10 +350,10 @@ public interface UserSettingsService {
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
+                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
                             if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
                                 break;
-                            } else                 if (ifield.name.equals("user_settings")) {
+                            } else if (ifield.name.equals("user_settings")) {
                                 userSettings = new com.yogento.api.models.user_settings.UserSettings(iprot);
                             }
                             iprot.readFieldEnd();
@@ -436,7 +436,7 @@ public interface UserSettingsService {
             }
 
             @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
                 throw new UnsupportedOperationException();
             }
 
@@ -571,7 +571,7 @@ public interface UserSettingsService {
             }
 
             @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
                 throw new UnsupportedOperationException();
             }
 

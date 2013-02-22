@@ -57,10 +57,10 @@ public class NoSuchProductImageException extends java.lang.Exception implements 
             default:
                 iprot.readStructBegin();
                 while (true) {
-                    org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
+                    final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
                     if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
                         break;
-                    } else                 if (ifield.name.equals("cause_message")) {
+                    } else if (ifield.name.equals("cause_message")) {
                         causeMessage = iprot.readString();
                     } else if (ifield.name.equals("sku")) {
                         sku = iprot.readString();
@@ -160,7 +160,7 @@ public class NoSuchProductImageException extends java.lang.Exception implements 
     }
 
     @Override
-    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
         throw new UnsupportedOperationException();
     }
 

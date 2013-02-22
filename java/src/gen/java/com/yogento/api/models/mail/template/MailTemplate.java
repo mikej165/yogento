@@ -57,10 +57,10 @@ public class MailTemplate implements org.apache.thrift.TBase<MailTemplate, org.a
             default:
                 iprot.readStructBegin();
                 while (true) {
-                    org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
+                    final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
                     if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
                         break;
-                    } else                 if (ifield.name.equals("mail_chimp_template")) {
+                    } else if (ifield.name.equals("mail_chimp_template")) {
                         mailChimpTemplate = new com.yochimp.models.template.Template(iprot);
                     } else if (ifield.name.equals("type")) {
                         type = new com.yogento.api.models.mail.template.MailTemplateType(iprot);
@@ -155,7 +155,7 @@ public class MailTemplate implements org.apache.thrift.TBase<MailTemplate, org.a
     }
 
     @Override
-    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, Object value) {
+    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
         throw new UnsupportedOperationException();
     }
 
