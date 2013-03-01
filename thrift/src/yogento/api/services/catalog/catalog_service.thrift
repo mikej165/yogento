@@ -5,6 +5,7 @@ include "yogento/api/models/catalog/product/product.thrift"
 include "yogento/api/models/image/image_resolution.thrift"
 include "yogento/api/services/catalog/no_such_product_exception.thrift"
 include "yogento/api/services/catalog/no_such_product_image_exception.thrift"
+include "yogento/api/services/catalog/product_io_exception.thrift"
 
 service CatalogService {
     bool delete_product_by_sku(string sku);
@@ -23,6 +24,6 @@ service CatalogService {
         
     bool head_product_by_sku(string sku);
     
-    void put_product(product.Product product);
-    void put_products(set<product.Product> products);
+    void put_product(product.Product product) throws (product_io_exception.ProductIoException e);
+    void put_products(set<product.Product> products) throws (product_io_exception.ProductIoException e);
 }

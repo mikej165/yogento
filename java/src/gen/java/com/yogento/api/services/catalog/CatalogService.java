@@ -4768,6 +4768,6 @@ public interface CatalogService {
     public com.yogento.api.models.catalog.product.Product getSampleProductBySku(String sku) throws com.yogento.api.services.catalog.NoSuchProductException;
     public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> getSampleProducts();
     public boolean headProductBySku(String sku);
-    public void putProduct(com.yogento.api.models.catalog.product.Product product);
-    public void putProducts(com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> products);
+    public void putProduct(com.yogento.api.models.catalog.product.Product product) throws com.yogento.api.services.catalog.ProductIoException;
+    public void putProducts(com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> products) throws com.yogento.api.services.catalog.ProductIoException;
 }
