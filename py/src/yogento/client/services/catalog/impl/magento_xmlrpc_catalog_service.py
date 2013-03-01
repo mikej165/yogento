@@ -35,8 +35,6 @@ from yogento.api.models.catalog.product.magento.magento_product import \
     MagentoProduct
 from yogento.api.models.catalog.product.product import Product
 from yogento.api.services.catalog.catalog_service import CatalogService
-from yogento.api.services.catalog.no_such_category_exception import \
-    NoSuchCategoryException
 from yogento.api.services.catalog.no_such_product_exception import \
     NoSuchProductException
 from yogento.client.protocols.magento_xmlrpc_protocol import \
