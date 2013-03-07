@@ -60,11 +60,11 @@ public class NoSuchProductException extends java.lang.Exception implements org.a
                 break;
         }
 
-        this.sku = com.google.common.base.Preconditions.checkNotNull(sku);
+        this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.NoSuchProductException: missing sku");
     }
 
     public NoSuchProductException(final String sku) {
-        this.sku = com.google.common.base.Preconditions.checkNotNull(sku);
+        this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.NoSuchProductException: missing sku");
     }
 
     @Override

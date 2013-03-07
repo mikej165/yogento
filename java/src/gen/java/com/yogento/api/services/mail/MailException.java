@@ -72,17 +72,17 @@ public class MailException extends java.lang.Exception implements org.apache.thr
         }
 
         this.code = code;
-        this.error = com.google.common.base.Preconditions.checkNotNull(error);
+        this.error = com.google.common.base.Preconditions.checkNotNull(error, "com.yogento.api.services.mail.MailException: missing error");
     }
 
     public MailException(final int code, final String error) {
         this.code = code;
-        this.error = com.google.common.base.Preconditions.checkNotNull(error);
+        this.error = com.google.common.base.Preconditions.checkNotNull(error, "com.yogento.api.services.mail.MailException: missing error");
     }
 
     public MailException(final Integer code, final String error) {
         this.code = code;
-        this.error = com.google.common.base.Preconditions.checkNotNull(error);
+        this.error = com.google.common.base.Preconditions.checkNotNull(error, "com.yogento.api.services.mail.MailException: missing error");
     }
 
     @Override

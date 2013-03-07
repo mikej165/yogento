@@ -60,11 +60,11 @@ public class MailCampaignContent implements org.apache.thrift.TBase<MailCampaign
                 break;
         }
 
-        this.mailChimpCampaignContent = com.google.common.base.Preconditions.checkNotNull(mailChimpCampaignContent);
+        this.mailChimpCampaignContent = com.google.common.base.Preconditions.checkNotNull(mailChimpCampaignContent, "com.yogento.api.models.mail.campaign.MailCampaignContent: missing mailChimpCampaignContent");
     }
 
     public MailCampaignContent(final com.yochimp.models.campaign.CampaignContent mailChimpCampaignContent) {
-        this.mailChimpCampaignContent = com.google.common.base.Preconditions.checkNotNull(mailChimpCampaignContent);
+        this.mailChimpCampaignContent = com.google.common.base.Preconditions.checkNotNull(mailChimpCampaignContent, "com.yogento.api.models.mail.campaign.MailCampaignContent: missing mailChimpCampaignContent");
     }
 
     @Override

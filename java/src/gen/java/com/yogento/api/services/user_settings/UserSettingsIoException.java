@@ -60,11 +60,11 @@ public class UserSettingsIoException extends java.lang.Exception implements org.
                 break;
         }
 
-        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage);
+        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage, "com.yogento.api.services.user_settings.UserSettingsIoException: missing causeMessage");
     }
 
     public UserSettingsIoException(final String causeMessage) {
-        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage);
+        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage, "com.yogento.api.services.user_settings.UserSettingsIoException: missing causeMessage");
     }
 
     @Override

@@ -683,7 +683,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         this.backorders = backorders;
         this.cost = cost;
         this.createdAt = createdAt;
-        this.description = com.google.common.base.Preconditions.checkNotNull(description);
+        this.description = com.google.common.base.Preconditions.checkNotNull(description, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing description");
         this.images = images;
         this.isInStock = isInStock;
         this.isQtyDecimal = isQtyDecimal;
@@ -697,15 +697,15 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         this.minQty = minQty;
         this.minSaleQty = minSaleQty;
         this.model = model;
-        this.name = com.google.common.base.Preconditions.checkNotNull(name);
+        this.name = com.google.common.base.Preconditions.checkNotNull(name, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing name");
         this.newsFromDate = newsFromDate;
         this.newsToDate = newsToDate;
         this.notifyStockQty = notifyStockQty;
         this.price = price;
         this.qty = qty;
         this.shippingPolicy = shippingPolicy;
-        this.shortDescription = com.google.common.base.Preconditions.checkNotNull(shortDescription);
-        this.sku = com.google.common.base.Preconditions.checkNotNull(sku);
+        this.shortDescription = com.google.common.base.Preconditions.checkNotNull(shortDescription, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing shortDescription");
+        this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing sku");
         this.specialFromDate = specialFromDate;
         this.specialPrice = specialPrice;
         this.specialToDate = specialToDate;
@@ -713,9 +713,9 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         this.tags = tags;
         this.type = type;
         this.updatedAt = updatedAt;
-        this.urlKey = com.google.common.base.Preconditions.checkNotNull(urlKey);
+        this.urlKey = com.google.common.base.Preconditions.checkNotNull(urlKey, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing urlKey");
         this.urlPath = urlPath;
-        this.visibility = com.google.common.base.Preconditions.checkNotNull(visibility);
+        this.visibility = com.google.common.base.Preconditions.checkNotNull(visibility, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing visibility");
         this.weight = weight;
     }
 
@@ -724,7 +724,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         this.backorders = null;
         this.cost = null;
         this.createdAt = null;
-        this.description = com.google.common.base.Preconditions.checkNotNull(description);
+        this.description = com.google.common.base.Preconditions.checkNotNull(description, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing description");
         this.images = null;
         this.isInStock = null;
         this.isQtyDecimal = null;
@@ -738,15 +738,15 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         this.minQty = null;
         this.minSaleQty = null;
         this.model = null;
-        this.name = com.google.common.base.Preconditions.checkNotNull(name);
+        this.name = com.google.common.base.Preconditions.checkNotNull(name, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing name");
         this.newsFromDate = null;
         this.newsToDate = null;
         this.notifyStockQty = null;
         this.price = null;
         this.qty = null;
         this.shippingPolicy = null;
-        this.shortDescription = com.google.common.base.Preconditions.checkNotNull(shortDescription);
-        this.sku = com.google.common.base.Preconditions.checkNotNull(sku);
+        this.shortDescription = com.google.common.base.Preconditions.checkNotNull(shortDescription, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing shortDescription");
+        this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing sku");
         this.specialFromDate = null;
         this.specialPrice = null;
         this.specialToDate = null;
@@ -754,9 +754,9 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         this.tags = null;
         this.type = null;
         this.updatedAt = null;
-        this.urlKey = com.google.common.base.Preconditions.checkNotNull(urlKey);
+        this.urlKey = com.google.common.base.Preconditions.checkNotNull(urlKey, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing urlKey");
         this.urlPath = null;
-        this.visibility = com.google.common.base.Preconditions.checkNotNull(visibility);
+        this.visibility = com.google.common.base.Preconditions.checkNotNull(visibility, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing visibility");
         this.weight = null;
     }
 
@@ -765,7 +765,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         this.backorders = backorders;
         this.cost = cost;
         this.createdAt = createdAt;
-        this.description = com.google.common.base.Preconditions.checkNotNull(description);
+        this.description = com.google.common.base.Preconditions.checkNotNull(description, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing description");
         this.images = images;
         this.isInStock = isInStock;
         this.isQtyDecimal = isQtyDecimal;
@@ -779,15 +779,15 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         this.minQty = minQty;
         this.minSaleQty = minSaleQty;
         this.model = model;
-        this.name = com.google.common.base.Preconditions.checkNotNull(name);
+        this.name = com.google.common.base.Preconditions.checkNotNull(name, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing name");
         this.newsFromDate = newsFromDate;
         this.newsToDate = newsToDate;
         this.notifyStockQty = notifyStockQty;
         this.price = price;
         this.qty = qty;
         this.shippingPolicy = shippingPolicy;
-        this.shortDescription = com.google.common.base.Preconditions.checkNotNull(shortDescription);
-        this.sku = com.google.common.base.Preconditions.checkNotNull(sku);
+        this.shortDescription = com.google.common.base.Preconditions.checkNotNull(shortDescription, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing shortDescription");
+        this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing sku");
         this.specialFromDate = specialFromDate;
         this.specialPrice = specialPrice;
         this.specialToDate = specialToDate;
@@ -795,9 +795,9 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         this.tags = tags;
         this.type = type;
         this.updatedAt = updatedAt;
-        this.urlKey = com.google.common.base.Preconditions.checkNotNull(urlKey);
+        this.urlKey = com.google.common.base.Preconditions.checkNotNull(urlKey, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing urlKey");
         this.urlPath = urlPath;
-        this.visibility = com.google.common.base.Preconditions.checkNotNull(visibility);
+        this.visibility = com.google.common.base.Preconditions.checkNotNull(visibility, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing visibility");
         this.weight = weight;
     }
 

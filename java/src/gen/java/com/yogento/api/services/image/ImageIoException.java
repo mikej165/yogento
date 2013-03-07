@@ -73,17 +73,17 @@ public class ImageIoException extends java.lang.Exception implements org.apache.
                 break;
         }
 
-        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage);
+        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage, "com.yogento.api.services.image.ImageIoException: missing causeMessage");
         this.imageUrl = imageUrl;
     }
 
     public ImageIoException(final String causeMessage) {
-        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage);
+        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage, "com.yogento.api.services.image.ImageIoException: missing causeMessage");
         this.imageUrl = null;
     }
 
     public ImageIoException(final String causeMessage, final String imageUrl) {
-        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage);
+        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage, "com.yogento.api.services.image.ImageIoException: missing causeMessage");
         this.imageUrl = imageUrl;
     }
 

@@ -71,13 +71,13 @@ public class NoSuchProductImageException extends java.lang.Exception implements 
                 break;
         }
 
-        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage);
-        this.sku = com.google.common.base.Preconditions.checkNotNull(sku);
+        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage, "com.yogento.api.services.catalog.NoSuchProductImageException: missing causeMessage");
+        this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.NoSuchProductImageException: missing sku");
     }
 
     public NoSuchProductImageException(final String causeMessage, final String sku) {
-        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage);
-        this.sku = com.google.common.base.Preconditions.checkNotNull(sku);
+        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage, "com.yogento.api.services.catalog.NoSuchProductImageException: missing causeMessage");
+        this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.NoSuchProductImageException: missing sku");
     }
 
     @Override

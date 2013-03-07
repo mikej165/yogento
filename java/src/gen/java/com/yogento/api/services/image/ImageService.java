@@ -73,13 +73,13 @@ public interface ImageService {
                         break;
                 }
 
-                this.imageUrl = com.google.common.base.Preconditions.checkNotNull(imageUrl);
-                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution);
+                this.imageUrl = com.google.common.base.Preconditions.checkNotNull(imageUrl, "com.yogento.api.services.image.deleteImageThumbnailRequest: missing imageUrl");
+                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.image.deleteImageThumbnailRequest: missing thumbnailResolution");
             }
 
             public deleteImageThumbnailRequest(final String imageUrl, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
-                this.imageUrl = com.google.common.base.Preconditions.checkNotNull(imageUrl);
-                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution);
+                this.imageUrl = com.google.common.base.Preconditions.checkNotNull(imageUrl, "com.yogento.api.services.image.deleteImageThumbnailRequest: missing imageUrl");
+                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.image.deleteImageThumbnailRequest: missing thumbnailResolution");
             }
 
             @Override
@@ -435,13 +435,13 @@ public interface ImageService {
                         break;
                 }
 
-                this.imageUrl = com.google.common.base.Preconditions.checkNotNull(imageUrl);
-                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution);
+                this.imageUrl = com.google.common.base.Preconditions.checkNotNull(imageUrl, "com.yogento.api.services.image.getImageThumbnailUrlRequest: missing imageUrl");
+                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.image.getImageThumbnailUrlRequest: missing thumbnailResolution");
             }
 
             public getImageThumbnailUrlRequest(final String imageUrl, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
-                this.imageUrl = com.google.common.base.Preconditions.checkNotNull(imageUrl);
-                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution);
+                this.imageUrl = com.google.common.base.Preconditions.checkNotNull(imageUrl, "com.yogento.api.services.image.getImageThumbnailUrlRequest: missing imageUrl");
+                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.image.getImageThumbnailUrlRequest: missing thumbnailResolution");
             }
 
             @Override
@@ -607,7 +607,7 @@ public interface ImageService {
             }
 
             public getImageThumbnailUrlResponse(final String returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue);
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.image.getImageThumbnailUrlResponse: missing returnValue");
             }
 
             @Override
@@ -793,13 +793,13 @@ public interface ImageService {
                         break;
                 }
 
-                this.image = com.google.common.base.Preconditions.checkNotNull(image);
-                this.imageMimeSubtype = com.google.common.base.Preconditions.checkNotNull(imageMimeSubtype);
+                this.image = com.google.common.base.Preconditions.checkNotNull(image, "com.yogento.api.services.image.putImageRequest: missing image");
+                this.imageMimeSubtype = com.google.common.base.Preconditions.checkNotNull(imageMimeSubtype, "com.yogento.api.services.image.putImageRequest: missing imageMimeSubtype");
             }
 
             public putImageRequest(final java.nio.ByteBuffer image, final String imageMimeSubtype) {
-                this.image = com.google.common.base.Preconditions.checkNotNull(image);
-                this.imageMimeSubtype = com.google.common.base.Preconditions.checkNotNull(imageMimeSubtype);
+                this.image = com.google.common.base.Preconditions.checkNotNull(image, "com.yogento.api.services.image.putImageRequest: missing image");
+                this.imageMimeSubtype = com.google.common.base.Preconditions.checkNotNull(imageMimeSubtype, "com.yogento.api.services.image.putImageRequest: missing imageMimeSubtype");
             }
 
             @Override
@@ -965,7 +965,7 @@ public interface ImageService {
             }
 
             public putImageResponse(final String returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue);
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.image.putImageResponse: missing returnValue");
             }
 
             @Override

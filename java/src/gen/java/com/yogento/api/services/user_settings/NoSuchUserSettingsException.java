@@ -16,8 +16,6 @@ public class NoSuchUserSettingsException extends java.lang.Exception implements 
         public NoSuchUserSettingsException build() {
             return _build();
         }
-
-
     }
 
     public NoSuchUserSettingsException() {
@@ -147,6 +145,4 @@ public class NoSuchUserSettingsException extends java.lang.Exception implements 
                 break;
         }
     }
-
-
 }

@@ -60,11 +60,11 @@ public class MailTemplateInfo implements org.apache.thrift.TBase<MailTemplateInf
                 break;
         }
 
-        this.mailChimpTemplateInfo = com.google.common.base.Preconditions.checkNotNull(mailChimpTemplateInfo);
+        this.mailChimpTemplateInfo = com.google.common.base.Preconditions.checkNotNull(mailChimpTemplateInfo, "com.yogento.api.models.mail.template.MailTemplateInfo: missing mailChimpTemplateInfo");
     }
 
     public MailTemplateInfo(final com.yochimp.models.template.TemplateInfo mailChimpTemplateInfo) {
-        this.mailChimpTemplateInfo = com.google.common.base.Preconditions.checkNotNull(mailChimpTemplateInfo);
+        this.mailChimpTemplateInfo = com.google.common.base.Preconditions.checkNotNull(mailChimpTemplateInfo, "com.yogento.api.models.mail.template.MailTemplateInfo: missing mailChimpTemplateInfo");
     }
 
     @Override

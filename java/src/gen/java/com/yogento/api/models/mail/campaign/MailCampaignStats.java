@@ -60,11 +60,11 @@ public class MailCampaignStats implements org.apache.thrift.TBase<MailCampaignSt
                 break;
         }
 
-        this.mailChimpCampaignStats = com.google.common.base.Preconditions.checkNotNull(mailChimpCampaignStats);
+        this.mailChimpCampaignStats = com.google.common.base.Preconditions.checkNotNull(mailChimpCampaignStats, "com.yogento.api.models.mail.campaign.MailCampaignStats: missing mailChimpCampaignStats");
     }
 
     public MailCampaignStats(final com.yochimp.models.campaign.CampaignStats mailChimpCampaignStats) {
-        this.mailChimpCampaignStats = com.google.common.base.Preconditions.checkNotNull(mailChimpCampaignStats);
+        this.mailChimpCampaignStats = com.google.common.base.Preconditions.checkNotNull(mailChimpCampaignStats, "com.yogento.api.models.mail.campaign.MailCampaignStats: missing mailChimpCampaignStats");
     }
 
     @Override

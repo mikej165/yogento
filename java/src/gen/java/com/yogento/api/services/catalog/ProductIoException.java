@@ -71,13 +71,13 @@ public class ProductIoException extends java.lang.Exception implements org.apach
                 break;
         }
 
-        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage);
-        this.sku = com.google.common.base.Preconditions.checkNotNull(sku);
+        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage, "com.yogento.api.services.catalog.ProductIoException: missing causeMessage");
+        this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.ProductIoException: missing sku");
     }
 
     public ProductIoException(final String causeMessage, final String sku) {
-        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage);
-        this.sku = com.google.common.base.Preconditions.checkNotNull(sku);
+        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage, "com.yogento.api.services.catalog.ProductIoException: missing causeMessage");
+        this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.ProductIoException: missing sku");
     }
 
     @Override

@@ -62,11 +62,11 @@ public interface CatalogService {
                         break;
                 }
 
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku);
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.deleteProductBySkuRequest: missing sku");
             }
 
             public deleteProductBySkuRequest(final String sku) {
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku);
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.deleteProductBySkuRequest: missing sku");
             }
 
             @Override
@@ -351,8 +351,6 @@ public interface CatalogService {
                 public deleteProductsRequest build() {
                     return _build();
                 }
-
-
             }
 
             public deleteProductsRequest() {
@@ -477,8 +475,6 @@ public interface CatalogService {
                         break;
                 }
             }
-
-
         }
 
         @SuppressWarnings({"serial"})
@@ -497,8 +493,6 @@ public interface CatalogService {
                 public deleteProductsResponse build() {
                     return _build();
                 }
-
-
             }
 
             public deleteProductsResponse() {
@@ -600,8 +594,6 @@ public interface CatalogService {
                         break;
                 }
             }
-
-
         }
 
         @SuppressWarnings({"serial"})
@@ -620,8 +612,6 @@ public interface CatalogService {
                 public getProductCountRequest build() {
                     return _build();
                 }
-
-
             }
 
             public getProductCountRequest() {
@@ -746,8 +736,6 @@ public interface CatalogService {
                         break;
                 }
             }
-
-
         }
 
         @SuppressWarnings({"serial"})
@@ -964,11 +952,11 @@ public interface CatalogService {
                         break;
                 }
 
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku);
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.getProductBySkuRequest: missing sku");
             }
 
             public getProductBySkuRequest(final String sku) {
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku);
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.getProductBySkuRequest: missing sku");
             }
 
             @Override
@@ -1118,7 +1106,7 @@ public interface CatalogService {
             }
 
             public getProductBySkuResponse(final com.yogento.api.models.catalog.product.Product returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue);
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.getProductBySkuResponse: missing returnValue");
             }
 
             @Override
@@ -1528,7 +1516,7 @@ public interface CatalogService {
             }
 
             public getProductsResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue);
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.getProductsResponse: missing returnValue");
             }
 
             @Override
@@ -1675,8 +1663,6 @@ public interface CatalogService {
                 public getProductSkusRequest build() {
                     return _build();
                 }
-
-
             }
 
             public getProductSkusRequest() {
@@ -1801,8 +1787,6 @@ public interface CatalogService {
                         break;
                 }
             }
-
-
         }
 
         @SuppressWarnings({"serial"})
@@ -1855,7 +1839,7 @@ public interface CatalogService {
             }
 
             public getProductSkusResponse(final com.google.common.collect.ImmutableSet<String> returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue);
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.getProductSkusResponse: missing returnValue");
             }
 
             @Override
@@ -2076,11 +2060,11 @@ public interface CatalogService {
                         break;
                 }
 
-                this.skus = com.google.common.base.Preconditions.checkNotNull(skus);
+                this.skus = com.google.common.base.Preconditions.checkNotNull(skus, "com.yogento.api.services.catalog.getProductsBySkusRequest: missing skus");
             }
 
             public getProductsBySkusRequest(final com.google.common.collect.ImmutableSet<String> skus) {
-                this.skus = com.google.common.base.Preconditions.checkNotNull(skus);
+                this.skus = com.google.common.base.Preconditions.checkNotNull(skus, "com.yogento.api.services.catalog.getProductsBySkusRequest: missing skus");
             }
 
             @Override
@@ -2261,7 +2245,7 @@ public interface CatalogService {
             }
 
             public getProductsBySkusResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue);
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.getProductsBySkusResponse: missing returnValue");
             }
 
             @Override
@@ -2463,13 +2447,13 @@ public interface CatalogService {
                         break;
                 }
 
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku);
-                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution);
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.getProductThumbnailUrlRequest: missing sku");
+                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.catalog.getProductThumbnailUrlRequest: missing thumbnailResolution");
             }
 
             public getProductThumbnailUrlRequest(final String sku, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku);
-                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution);
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.getProductThumbnailUrlRequest: missing sku");
+                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.catalog.getProductThumbnailUrlRequest: missing thumbnailResolution");
             }
 
             @Override
@@ -2635,7 +2619,7 @@ public interface CatalogService {
             }
 
             public getProductThumbnailUrlResponse(final String returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue);
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.getProductThumbnailUrlResponse: missing returnValue");
             }
 
             @Override
@@ -2821,13 +2805,13 @@ public interface CatalogService {
                         break;
                 }
 
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku);
-                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution);
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.getSampleProductThumbnailUrlRequest: missing sku");
+                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.catalog.getSampleProductThumbnailUrlRequest: missing thumbnailResolution");
             }
 
             public getSampleProductThumbnailUrlRequest(final String sku, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku);
-                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution);
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.getSampleProductThumbnailUrlRequest: missing sku");
+                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.catalog.getSampleProductThumbnailUrlRequest: missing thumbnailResolution");
             }
 
             @Override
@@ -2993,7 +2977,7 @@ public interface CatalogService {
             }
 
             public getSampleProductThumbnailUrlResponse(final String returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue);
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.getSampleProductThumbnailUrlResponse: missing returnValue");
             }
 
             @Override
@@ -3168,11 +3152,11 @@ public interface CatalogService {
                         break;
                 }
 
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku);
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.getSampleProductBySkuRequest: missing sku");
             }
 
             public getSampleProductBySkuRequest(final String sku) {
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku);
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.getSampleProductBySkuRequest: missing sku");
             }
 
             @Override
@@ -3322,7 +3306,7 @@ public interface CatalogService {
             }
 
             public getSampleProductBySkuResponse(final com.yogento.api.models.catalog.product.Product returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue);
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.getSampleProductBySkuResponse: missing returnValue");
             }
 
             @Override
@@ -3457,8 +3441,6 @@ public interface CatalogService {
                 public getSampleProductsRequest build() {
                     return _build();
                 }
-
-
             }
 
             public getSampleProductsRequest() {
@@ -3583,8 +3565,6 @@ public interface CatalogService {
                         break;
                 }
             }
-
-
         }
 
         @SuppressWarnings({"serial"})
@@ -3637,7 +3617,7 @@ public interface CatalogService {
             }
 
             public getSampleProductsResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue);
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.getSampleProductsResponse: missing returnValue");
             }
 
             @Override
@@ -3828,11 +3808,11 @@ public interface CatalogService {
                         break;
                 }
 
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku);
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.headProductBySkuRequest: missing sku");
             }
 
             public headProductBySkuRequest(final String sku) {
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku);
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.headProductBySkuRequest: missing sku");
             }
 
             @Override
@@ -4161,11 +4141,11 @@ public interface CatalogService {
                         break;
                 }
 
-                this.product = com.google.common.base.Preconditions.checkNotNull(product);
+                this.product = com.google.common.base.Preconditions.checkNotNull(product, "com.yogento.api.services.catalog.putProductRequest: missing product");
             }
 
             public putProductRequest(final com.yogento.api.models.catalog.product.Product product) {
-                this.product = com.google.common.base.Preconditions.checkNotNull(product);
+                this.product = com.google.common.base.Preconditions.checkNotNull(product, "com.yogento.api.services.catalog.putProductRequest: missing product");
             }
 
             @Override
@@ -4300,8 +4280,6 @@ public interface CatalogService {
                 public putProductResponse build() {
                     return _build();
                 }
-
-
             }
 
             public putProductResponse() {
@@ -4403,8 +4381,6 @@ public interface CatalogService {
                         break;
                 }
             }
-
-
         }
 
         @SuppressWarnings({"serial"})
@@ -4497,11 +4473,11 @@ public interface CatalogService {
                         break;
                 }
 
-                this.products = com.google.common.base.Preconditions.checkNotNull(products);
+                this.products = com.google.common.base.Preconditions.checkNotNull(products, "com.yogento.api.services.catalog.putProductsRequest: missing products");
             }
 
             public putProductsRequest(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> products) {
-                this.products = com.google.common.base.Preconditions.checkNotNull(products);
+                this.products = com.google.common.base.Preconditions.checkNotNull(products, "com.yogento.api.services.catalog.putProductsRequest: missing products");
             }
 
             @Override
@@ -4648,8 +4624,6 @@ public interface CatalogService {
                 public putProductsResponse build() {
                     return _build();
                 }
-
-
             }
 
             public putProductsResponse() {
@@ -4751,8 +4725,6 @@ public interface CatalogService {
                         break;
                 }
             }
-
-
         }
     }
 

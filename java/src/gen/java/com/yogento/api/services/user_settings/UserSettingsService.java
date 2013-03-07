@@ -18,8 +18,6 @@ public interface UserSettingsService {
                 public getCurrentUserSettingsRequest build() {
                     return _build();
                 }
-
-
             }
 
             public getCurrentUserSettingsRequest() {
@@ -144,8 +142,6 @@ public interface UserSettingsService {
                         break;
                 }
             }
-
-
         }
 
         @SuppressWarnings({"serial"})
@@ -183,7 +179,7 @@ public interface UserSettingsService {
             }
 
             public getCurrentUserSettingsResponse(final com.yogento.api.models.user_settings.UserSettings returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue);
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.user_settings.getCurrentUserSettingsResponse: missing returnValue");
             }
 
             @Override
@@ -362,11 +358,11 @@ public interface UserSettingsService {
                         break;
                 }
 
-                this.userSettings = com.google.common.base.Preconditions.checkNotNull(userSettings);
+                this.userSettings = com.google.common.base.Preconditions.checkNotNull(userSettings, "com.yogento.api.services.user_settings.putCurrentUserSettingsRequest: missing userSettings");
             }
 
             public putCurrentUserSettingsRequest(final com.yogento.api.models.user_settings.UserSettings userSettings) {
-                this.userSettings = com.google.common.base.Preconditions.checkNotNull(userSettings);
+                this.userSettings = com.google.common.base.Preconditions.checkNotNull(userSettings, "com.yogento.api.services.user_settings.putCurrentUserSettingsRequest: missing userSettings");
             }
 
             @Override
@@ -501,8 +497,6 @@ public interface UserSettingsService {
                 public putCurrentUserSettingsResponse build() {
                     return _build();
                 }
-
-
             }
 
             public putCurrentUserSettingsResponse() {
@@ -604,8 +598,6 @@ public interface UserSettingsService {
                         break;
                 }
             }
-
-
         }
     }
 

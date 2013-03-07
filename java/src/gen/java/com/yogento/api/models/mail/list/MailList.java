@@ -60,11 +60,11 @@ public class MailList implements org.apache.thrift.TBase<MailList, org.apache.th
                 break;
         }
 
-        this.mailChimpList = com.google.common.base.Preconditions.checkNotNull(mailChimpList);
+        this.mailChimpList = com.google.common.base.Preconditions.checkNotNull(mailChimpList, "com.yogento.api.models.mail.list.MailList: missing mailChimpList");
     }
 
     public MailList(final com.yochimp.models.list.List mailChimpList) {
-        this.mailChimpList = com.google.common.base.Preconditions.checkNotNull(mailChimpList);
+        this.mailChimpList = com.google.common.base.Preconditions.checkNotNull(mailChimpList, "com.yogento.api.models.mail.list.MailList: missing mailChimpList");
     }
 
     @Override

@@ -60,11 +60,11 @@ public class Product implements org.apache.thrift.TBase<Product, org.apache.thri
                 break;
         }
 
-        this.magentoProduct = com.google.common.base.Preconditions.checkNotNull(magentoProduct);
+        this.magentoProduct = com.google.common.base.Preconditions.checkNotNull(magentoProduct, "com.yogento.api.models.catalog.product.Product: missing magentoProduct");
     }
 
     public Product(final com.yogento.api.models.catalog.product.magento.MagentoProduct magentoProduct) {
-        this.magentoProduct = com.google.common.base.Preconditions.checkNotNull(magentoProduct);
+        this.magentoProduct = com.google.common.base.Preconditions.checkNotNull(magentoProduct, "com.yogento.api.models.catalog.product.Product: missing magentoProduct");
     }
 
     @Override

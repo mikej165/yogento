@@ -160,7 +160,7 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
         }
 
         this.exclude = exclude;
-        this.file = com.google.common.base.Preconditions.checkNotNull(file);
+        this.file = com.google.common.base.Preconditions.checkNotNull(file, "com.yogento.api.models.catalog.product.magento.MagentoProductImage: missing file");
         this.label = label;
         this.position = position;
         this.types = types;
@@ -169,7 +169,7 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
 
     public MagentoProductImage(final String file) {
         this.exclude = null;
-        this.file = com.google.common.base.Preconditions.checkNotNull(file);
+        this.file = com.google.common.base.Preconditions.checkNotNull(file, "com.yogento.api.models.catalog.product.magento.MagentoProductImage: missing file");
         this.label = null;
         this.position = null;
         this.types = null;
@@ -178,7 +178,7 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
 
     public MagentoProductImage(final Boolean exclude, final String file, final String label, final Integer position, final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> types, final String url) {
         this.exclude = exclude;
-        this.file = com.google.common.base.Preconditions.checkNotNull(file);
+        this.file = com.google.common.base.Preconditions.checkNotNull(file, "com.yogento.api.models.catalog.product.magento.MagentoProductImage: missing file");
         this.label = label;
         this.position = position;
         this.types = types;

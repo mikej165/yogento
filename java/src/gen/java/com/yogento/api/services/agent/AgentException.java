@@ -73,17 +73,17 @@ public class AgentException extends java.lang.Exception implements org.apache.th
                 break;
         }
 
-        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage);
+        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage, "com.yogento.api.services.agent.AgentException: missing causeMessage");
         this.url = url;
     }
 
     public AgentException(final String causeMessage) {
-        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage);
+        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage, "com.yogento.api.services.agent.AgentException: missing causeMessage");
         this.url = null;
     }
 
     public AgentException(final String causeMessage, final String url) {
-        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage);
+        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage, "com.yogento.api.services.agent.AgentException: missing causeMessage");
         this.url = url;
     }
 

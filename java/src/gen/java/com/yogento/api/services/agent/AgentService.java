@@ -249,7 +249,7 @@ public interface AgentService {
             }
 
             public getAgentMagentoProductsResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue);
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.agent.getAgentMagentoProductsResponse: missing returnValue");
             }
 
             @Override
@@ -440,11 +440,11 @@ public interface AgentService {
                         break;
                 }
 
-                this.magentoStoreUrl = com.google.common.base.Preconditions.checkNotNull(magentoStoreUrl);
+                this.magentoStoreUrl = com.google.common.base.Preconditions.checkNotNull(magentoStoreUrl, "com.yogento.api.services.agent.headMagentoStoreRequest: missing magentoStoreUrl");
             }
 
             public headMagentoStoreRequest(final String magentoStoreUrl) {
-                this.magentoStoreUrl = com.google.common.base.Preconditions.checkNotNull(magentoStoreUrl);
+                this.magentoStoreUrl = com.google.common.base.Preconditions.checkNotNull(magentoStoreUrl, "com.yogento.api.services.agent.headMagentoStoreRequest: missing magentoStoreUrl");
             }
 
             @Override
@@ -795,15 +795,15 @@ public interface AgentService {
                         break;
                 }
 
-                this.magentoProductsJson = com.google.common.base.Preconditions.checkNotNull(magentoProductsJson);
-                this.ticket = com.google.common.base.Preconditions.checkNotNull(ticket);
-                this.username = com.google.common.base.Preconditions.checkNotNull(username);
+                this.magentoProductsJson = com.google.common.base.Preconditions.checkNotNull(magentoProductsJson, "com.yogento.api.services.agent.putAgentMagentoProductsRequest: missing magentoProductsJson");
+                this.ticket = com.google.common.base.Preconditions.checkNotNull(ticket, "com.yogento.api.services.agent.putAgentMagentoProductsRequest: missing ticket");
+                this.username = com.google.common.base.Preconditions.checkNotNull(username, "com.yogento.api.services.agent.putAgentMagentoProductsRequest: missing username");
             }
 
             public putAgentMagentoProductsRequest(final String magentoProductsJson, final String ticket, final String username) {
-                this.magentoProductsJson = com.google.common.base.Preconditions.checkNotNull(magentoProductsJson);
-                this.ticket = com.google.common.base.Preconditions.checkNotNull(ticket);
-                this.username = com.google.common.base.Preconditions.checkNotNull(username);
+                this.magentoProductsJson = com.google.common.base.Preconditions.checkNotNull(magentoProductsJson, "com.yogento.api.services.agent.putAgentMagentoProductsRequest: missing magentoProductsJson");
+                this.ticket = com.google.common.base.Preconditions.checkNotNull(ticket, "com.yogento.api.services.agent.putAgentMagentoProductsRequest: missing ticket");
+                this.username = com.google.common.base.Preconditions.checkNotNull(username, "com.yogento.api.services.agent.putAgentMagentoProductsRequest: missing username");
             }
 
             @Override
@@ -966,8 +966,6 @@ public interface AgentService {
                 public putAgentMagentoProductsResponse build() {
                     return _build();
                 }
-
-
             }
 
             public putAgentMagentoProductsResponse() {
@@ -1069,8 +1067,6 @@ public interface AgentService {
                         break;
                 }
             }
-
-
         }
     }
 
