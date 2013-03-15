@@ -3,6 +3,7 @@ from datetime import datetime
 from itertools import ifilterfalse
 from time import mktime
 import __builtin__
+import yogento.api.models.catalog.product.magento.magento_product
 import yogento.api.models.catalog.product.magento.magento_product_image
 import yogento.api.models.catalog.product.magento.magento_product_status
 
@@ -19,6 +20,7 @@ class MagentoProduct(object):
             visibility,
             activation_information=None,
             backorders=None,
+            children=None,
             cost=None,
             created_at=None,
             description=None,
@@ -53,6 +55,7 @@ class MagentoProduct(object):
         ):
             self.__activation_information = activation_information
             self.__backorders = backorders
+            self.__children = children
             self.__cost = cost
             self.__created_at = created_at
             self.__description = description
@@ -92,7 +95,7 @@ class MagentoProduct(object):
             self.__weight = weight
 
         def build(self):
-            return MagentoProduct(activation_information=self.__activation_information, backorders=self.__backorders, cost=self.__cost, created_at=self.__created_at, description=self.__description, images=self.__images, is_in_stock=self.__is_in_stock, is_qty_decimal=self.__is_qty_decimal, is_recurring=self.__is_recurring, low_stock_date=self.__low_stock_date, max_sale_qty=self.__max_sale_qty, meta_description=self.__meta_description, meta_keyword=self.__meta_keyword, meta_title=self.__meta_title, minimal_price=self.__minimal_price, min_qty=self.__min_qty, min_sale_qty=self.__min_sale_qty, model=self.__model, name=self.__name, news_from_date=self.__news_from_date, news_to_date=self.__news_to_date, notify_stock_qty=self.__notify_stock_qty, price=self.__price, qty=self.__qty, shipping_policy=self.__shipping_policy, short_description=self.__short_description, sku=self.__sku, special_from_date=self.__special_from_date, special_price=self.__special_price, special_to_date=self.__special_to_date, store=self.__store, status=self.__status, tags=self.__tags, type=self.__type, updated_at=self.__updated_at, url_key=self.__url_key, url_path=self.__url_path, visibility=self.__visibility, weight=self.__weight)
+            return MagentoProduct(activation_information=self.__activation_information, backorders=self.__backorders, children=self.__children, cost=self.__cost, created_at=self.__created_at, description=self.__description, images=self.__images, is_in_stock=self.__is_in_stock, is_qty_decimal=self.__is_qty_decimal, is_recurring=self.__is_recurring, low_stock_date=self.__low_stock_date, max_sale_qty=self.__max_sale_qty, meta_description=self.__meta_description, meta_keyword=self.__meta_keyword, meta_title=self.__meta_title, minimal_price=self.__minimal_price, min_qty=self.__min_qty, min_sale_qty=self.__min_sale_qty, model=self.__model, name=self.__name, news_from_date=self.__news_from_date, news_to_date=self.__news_to_date, notify_stock_qty=self.__notify_stock_qty, price=self.__price, qty=self.__qty, shipping_policy=self.__shipping_policy, short_description=self.__short_description, sku=self.__sku, special_from_date=self.__special_from_date, special_price=self.__special_price, special_to_date=self.__special_to_date, store=self.__store, status=self.__status, tags=self.__tags, type=self.__type, updated_at=self.__updated_at, url_key=self.__url_key, url_path=self.__url_path, visibility=self.__visibility, weight=self.__weight)
 
         def set_activation_information(self, activation_information):
             self.__activation_information = activation_information
@@ -100,6 +103,10 @@ class MagentoProduct(object):
 
         def set_backorders(self, backorders):
             self.__backorders = backorders
+            return self
+
+        def set_children(self, children):
+            self.__children = children
             return self
 
         def set_cost(self, cost):
@@ -254,6 +261,7 @@ class MagentoProduct(object):
             if isinstance(magento_product, MagentoProduct):
                 self.set_activation_information(magento_product.activation_information)
                 self.set_backorders(magento_product.backorders)
+                self.set_children(magento_product.children)
                 self.set_cost(magento_product.cost)
                 self.set_created_at(magento_product.created_at)
                 self.set_description(magento_product.description)
@@ -308,6 +316,7 @@ class MagentoProduct(object):
         visibility,
         activation_information=None,
         backorders=None,
+        children=None,
         cost=None,
         created_at=None,
         description=None,
@@ -349,6 +358,11 @@ class MagentoProduct(object):
             if not isinstance(backorders, int):
                 raise TypeError(getattr(__builtin__, 'type')(backorders))
         self.__backorders = backorders
+
+        if children is not None:
+            if not (isinstance(children, frozenset) and len(list(ifilterfalse(lambda _: isinstance(_, yogento.api.models.catalog.product.magento.magento_product.MagentoProduct), children))) == 0):
+                raise TypeError(getattr(__builtin__, 'type')(children))
+        self.__children = children
 
         if cost is not None:
             if not isinstance(cost, decimal.Decimal):
@@ -546,6 +560,8 @@ class MagentoProduct(object):
             return False
         if self.backorders != other.backorders:
             return False
+        if self.children != other.children:
+            return False
         if self.cost != other.cost:
             return False
         if self.created_at != other.created_at:
@@ -623,7 +639,7 @@ class MagentoProduct(object):
         return True
 
     def __hash__(self):
-        return hash((self.activation_information,self.backorders,self.cost,self.created_at,self.description,self.images,self.is_in_stock,self.is_qty_decimal,self.is_recurring,self.low_stock_date,self.max_sale_qty,self.meta_description,self.meta_keyword,self.meta_title,self.minimal_price,self.min_qty,self.min_sale_qty,self.model,self.name,self.news_from_date,self.news_to_date,self.notify_stock_qty,self.price,self.qty,self.shipping_policy,self.short_description,self.sku,self.special_from_date,self.special_price,self.special_to_date,self.store,self.status,self.tags,self.type,self.updated_at,self.url_key,self.url_path,self.visibility,self.weight,))
+        return hash((self.activation_information,self.backorders,self.children,self.cost,self.created_at,self.description,self.images,self.is_in_stock,self.is_qty_decimal,self.is_recurring,self.low_stock_date,self.max_sale_qty,self.meta_description,self.meta_keyword,self.meta_title,self.minimal_price,self.min_qty,self.min_sale_qty,self.model,self.name,self.news_from_date,self.news_to_date,self.notify_stock_qty,self.price,self.qty,self.shipping_policy,self.short_description,self.sku,self.special_from_date,self.special_price,self.special_to_date,self.store,self.status,self.tags,self.type,self.updated_at,self.url_key,self.url_path,self.visibility,self.weight,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
@@ -634,6 +650,8 @@ class MagentoProduct(object):
             field_reprs.append('activation_information=' + "'" + self.activation_information.encode('ascii', 'replace') + "'")
         if self.backorders is not None:
             field_reprs.append('backorders=' + repr(self.backorders))
+        if self.children is not None:
+            field_reprs.append('children=' + repr(self.children))
         if self.cost is not None:
             field_reprs.append('cost=' + repr(self.cost))
         if self.created_at is not None:
@@ -710,6 +728,8 @@ class MagentoProduct(object):
             field_reprs.append('activation_information=' + "'" + self.activation_information.encode('ascii', 'replace') + "'")
         if self.backorders is not None:
             field_reprs.append('backorders=' + repr(self.backorders))
+        if self.children is not None:
+            field_reprs.append('children=' + repr(self.children))
         if self.cost is not None:
             field_reprs.append('cost=' + repr(self.cost))
         if self.created_at is not None:
@@ -785,11 +805,15 @@ class MagentoProduct(object):
         return self.__activation_information
 
     def as_dict(self):
-        return {'activation_information': self.activation_information, 'backorders': self.backorders, 'cost': self.cost, 'created_at': self.created_at, 'description': self.description, 'images': self.images, 'is_in_stock': self.is_in_stock, 'is_qty_decimal': self.is_qty_decimal, 'is_recurring': self.is_recurring, 'low_stock_date': self.low_stock_date, 'max_sale_qty': self.max_sale_qty, 'meta_description': self.meta_description, 'meta_keyword': self.meta_keyword, 'meta_title': self.meta_title, 'minimal_price': self.minimal_price, 'min_qty': self.min_qty, 'min_sale_qty': self.min_sale_qty, 'model': self.model, 'name': self.name, 'news_from_date': self.news_from_date, 'news_to_date': self.news_to_date, 'notify_stock_qty': self.notify_stock_qty, 'price': self.price, 'qty': self.qty, 'shipping_policy': self.shipping_policy, 'short_description': self.short_description, 'sku': self.sku, 'special_from_date': self.special_from_date, 'special_price': self.special_price, 'special_to_date': self.special_to_date, 'store': self.store, 'status': self.status, 'tags': self.tags, 'type': self.type, 'updated_at': self.updated_at, 'url_key': self.url_key, 'url_path': self.url_path, 'visibility': self.visibility, 'weight': self.weight}
+        return {'activation_information': self.activation_information, 'backorders': self.backorders, 'children': self.children, 'cost': self.cost, 'created_at': self.created_at, 'description': self.description, 'images': self.images, 'is_in_stock': self.is_in_stock, 'is_qty_decimal': self.is_qty_decimal, 'is_recurring': self.is_recurring, 'low_stock_date': self.low_stock_date, 'max_sale_qty': self.max_sale_qty, 'meta_description': self.meta_description, 'meta_keyword': self.meta_keyword, 'meta_title': self.meta_title, 'minimal_price': self.minimal_price, 'min_qty': self.min_qty, 'min_sale_qty': self.min_sale_qty, 'model': self.model, 'name': self.name, 'news_from_date': self.news_from_date, 'news_to_date': self.news_to_date, 'notify_stock_qty': self.notify_stock_qty, 'price': self.price, 'qty': self.qty, 'shipping_policy': self.shipping_policy, 'short_description': self.short_description, 'sku': self.sku, 'special_from_date': self.special_from_date, 'special_price': self.special_price, 'special_to_date': self.special_to_date, 'store': self.store, 'status': self.status, 'tags': self.tags, 'type': self.type, 'updated_at': self.updated_at, 'url_key': self.url_key, 'url_path': self.url_path, 'visibility': self.visibility, 'weight': self.weight}
 
     @property
     def backorders(self):
         return self.__backorders
+
+    @property
+    def children(self):
+        return self.__children
 
     @property
     def cost(self):
@@ -898,6 +922,8 @@ class MagentoProduct(object):
                     init_kwds['backorders'] = iprot.readI32()
                 except (TypeError, ValueError,):
                     pass
+            elif ifield_name == 'children':
+                init_kwds['children'] = frozenset([yogento.api.models.catalog.product.magento.magento_product.MagentoProduct.read(iprot) for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
             elif ifield_name == 'cost':
                 try:
                     init_kwds['cost'] = iprot.readDecimal() if hasattr(iprot, 'readDecimal') else decimal.Decimal(iprot.readString())
@@ -1064,11 +1090,13 @@ class MagentoProduct(object):
 
         return cls(**init_kwds)
 
-    def replace(self, activation_information=None, backorders=None, cost=None, created_at=None, description=None, images=None, is_in_stock=None, is_qty_decimal=None, is_recurring=None, low_stock_date=None, max_sale_qty=None, meta_description=None, meta_keyword=None, meta_title=None, minimal_price=None, min_qty=None, min_sale_qty=None, model=None, name=None, news_from_date=None, news_to_date=None, notify_stock_qty=None, price=None, qty=None, shipping_policy=None, short_description=None, sku=None, special_from_date=None, special_price=None, special_to_date=None, store=None, status=None, tags=None, type=None, updated_at=None, url_key=None, url_path=None, visibility=None, weight=None):
+    def replace(self, activation_information=None, backorders=None, children=None, cost=None, created_at=None, description=None, images=None, is_in_stock=None, is_qty_decimal=None, is_recurring=None, low_stock_date=None, max_sale_qty=None, meta_description=None, meta_keyword=None, meta_title=None, minimal_price=None, min_qty=None, min_sale_qty=None, model=None, name=None, news_from_date=None, news_to_date=None, notify_stock_qty=None, price=None, qty=None, shipping_policy=None, short_description=None, sku=None, special_from_date=None, special_price=None, special_to_date=None, store=None, status=None, tags=None, type=None, updated_at=None, url_key=None, url_path=None, visibility=None, weight=None):
         if activation_information is None:
             activation_information = self.activation_information
         if backorders is None:
             backorders = self.backorders
+        if children is None:
+            children = self.children
         if cost is None:
             cost = self.cost
         if created_at is None:
@@ -1143,7 +1171,7 @@ class MagentoProduct(object):
             visibility = self.visibility
         if weight is None:
             weight = self.weight
-        return self.__class__(activation_information=activation_information, backorders=backorders, cost=cost, created_at=created_at, description=description, images=images, is_in_stock=is_in_stock, is_qty_decimal=is_qty_decimal, is_recurring=is_recurring, low_stock_date=low_stock_date, max_sale_qty=max_sale_qty, meta_description=meta_description, meta_keyword=meta_keyword, meta_title=meta_title, minimal_price=minimal_price, min_qty=min_qty, min_sale_qty=min_sale_qty, model=model, name=name, news_from_date=news_from_date, news_to_date=news_to_date, notify_stock_qty=notify_stock_qty, price=price, qty=qty, shipping_policy=shipping_policy, short_description=short_description, sku=sku, special_from_date=special_from_date, special_price=special_price, special_to_date=special_to_date, store=store, status=status, tags=tags, type=type, updated_at=updated_at, url_key=url_key, url_path=url_path, visibility=visibility, weight=weight)
+        return self.__class__(activation_information=activation_information, backorders=backorders, children=children, cost=cost, created_at=created_at, description=description, images=images, is_in_stock=is_in_stock, is_qty_decimal=is_qty_decimal, is_recurring=is_recurring, low_stock_date=low_stock_date, max_sale_qty=max_sale_qty, meta_description=meta_description, meta_keyword=meta_keyword, meta_title=meta_title, minimal_price=minimal_price, min_qty=min_qty, min_sale_qty=min_sale_qty, model=model, name=name, news_from_date=news_from_date, news_to_date=news_to_date, notify_stock_qty=notify_stock_qty, price=price, qty=qty, shipping_policy=shipping_policy, short_description=short_description, sku=sku, special_from_date=special_from_date, special_price=special_price, special_to_date=special_to_date, store=store, status=status, tags=tags, type=type, updated_at=updated_at, url_key=url_key, url_path=url_path, visibility=visibility, weight=weight)
 
     @property
     def shipping_policy(self):
@@ -1216,6 +1244,14 @@ class MagentoProduct(object):
         if self.backorders is not None:
             oprot.writeFieldBegin('backorders', 8, -1)
             oprot.writeI32(self.backorders)
+            oprot.writeFieldEnd()
+
+        if self.children is not None:
+            oprot.writeFieldBegin('children', 14, -1)
+            oprot.writeSetBegin(12, len(self.children))
+            for _0 in self.children:
+                _0.write(oprot)
+            oprot.writeSetEnd()
             oprot.writeFieldEnd()
 
         if self.cost is not None:

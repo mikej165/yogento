@@ -10,6 +10,7 @@ include "yogento/api/models/catalog/product/magento/magento_product_status.thrif
 struct MagentoProduct {
     optional string activation_information;
     optional i32 backorders;
+    optional set<magento_product.MagentoProduct> children;
     optional decimal.Decimal cost;
     optional date_time.DateTime created_at;
     optional string description;
