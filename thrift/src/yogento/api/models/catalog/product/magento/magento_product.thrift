@@ -6,7 +6,6 @@ include "thryft/util/date.thrift"
 include "thryft/util/date_time.thrift"
 include "yogento/api/models/catalog/product/magento/magento_product_image.thrift"
 include "yogento/api/models/catalog/product/magento/magento_product_status.thrift"
-include "yogento/api/models/catalog/product/magento/magento_product_type.thrift"
 
 struct MagentoProduct {
     optional string activation_information;
@@ -45,7 +44,7 @@ struct MagentoProduct {
     optional magento_product_status.MagentoProductStatus status;
     optional set<string> tags;
     // Optional in 1.3
-    optional magento_product_type.MagentoProductType type;
+    optional string type;
     optional date_time.DateTime updated_at;
     required string url_key;
     // Optional in 1.3

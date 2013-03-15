@@ -5,7 +5,6 @@ from time import mktime
 import __builtin__
 import yogento.api.models.catalog.product.magento.magento_product_image
 import yogento.api.models.catalog.product.magento.magento_product_status
-import yogento.api.models.catalog.product.magento.magento_product_type
 
 
 class MagentoProduct(object):
@@ -511,7 +510,7 @@ class MagentoProduct(object):
         self.__tags = tags
 
         if type is not None:
-            if not isinstance(type, yogento.api.models.catalog.product.magento.magento_product_type.MagentoProductType):
+            if not isinstance(type, basestring):
                 raise TypeError(getattr(__builtin__, 'type')(type))
         self.__type = type
 
@@ -694,7 +693,7 @@ class MagentoProduct(object):
         if self.tags is not None:
             field_reprs.append('tags=' + repr(self.tags))
         if self.type is not None:
-            field_reprs.append('type=' + repr(self.type))
+            field_reprs.append('type=' + "'" + self.type.encode('ascii', 'replace') + "'")
         if self.updated_at is not None:
             field_reprs.append('updated_at=' + repr(self.updated_at))
         field_reprs.append('url_key=' + "'" + self.url_key.encode('ascii', 'replace') + "'")
@@ -770,7 +769,7 @@ class MagentoProduct(object):
         if self.tags is not None:
             field_reprs.append('tags=' + repr(self.tags))
         if self.type is not None:
-            field_reprs.append('type=' + repr(self.type))
+            field_reprs.append('type=' + "'" + self.type.encode('ascii', 'replace') + "'")
         if self.updated_at is not None:
             field_reprs.append('updated_at=' + repr(self.updated_at))
         field_reprs.append('url_key=' + "'" + self.url_key.encode('ascii', 'replace') + "'")
@@ -1038,8 +1037,8 @@ class MagentoProduct(object):
                 init_kwds['tags'] = frozenset([iprot.readString() for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
             elif ifield_name == 'type':
                 try:
-                    init_kwds['type'] = yogento.api.models.catalog.product.magento.magento_product_type.MagentoProductType.value_of(iprot.readString().strip().upper())
-                except (TypeError,):
+                    init_kwds['type'] = iprot.readString()
+                except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'updated_at':
                 try:
@@ -1378,7 +1377,7 @@ class MagentoProduct(object):
 
         if self.type is not None:
             oprot.writeFieldBegin('type', 11, -1)
-            oprot.writeString([attr for attr in dir(yogento.api.models.catalog.product.magento.magento_product_type.MagentoProductType) if getattr(yogento.api.models.catalog.product.magento.magento_product_type.MagentoProductType, attr) == self.type][0])
+            oprot.writeString(self.type)
             oprot.writeFieldEnd()
 
         if self.updated_at is not None:
