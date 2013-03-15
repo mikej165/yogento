@@ -37,6 +37,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
             this.specialFromDate = other.getSpecialFromDate();
             this.specialPrice = other.getSpecialPrice();
             this.specialToDate = other.getSpecialToDate();
+            this.store = other.getStore();
             this.status = other.getStatus();
             this.tags = other.getTags();
             this.type = other.getType();
@@ -47,12 +48,12 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
             this.weight = other.getWeight();
         }
 
-        protected MagentoProduct _build(final String activationInformation, final Integer backorders, final java.math.BigDecimal cost, final org.joda.time.DateTime createdAt, final String description, final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> images, final Boolean isInStock, final Boolean isQtyDecimal, final Boolean isRecurring, final org.joda.time.DateTime lowStockDate, final java.math.BigDecimal maxSaleQty, final String metaDescription, final String metaKeyword, final String metaTitle, final java.math.BigDecimal minimalPrice, final java.math.BigDecimal minQty, final java.math.BigDecimal minSaleQty, final String model, final String name, final org.joda.time.DateTime newsFromDate, final org.joda.time.DateTime newsToDate, final java.math.BigDecimal notifyStockQty, final java.math.BigDecimal price, final java.math.BigDecimal qty, final String shippingPolicy, final String shortDescription, final String sku, final org.joda.time.DateTime specialFromDate, final java.math.BigDecimal specialPrice, final org.joda.time.DateTime specialToDate, final com.yogento.api.models.catalog.product.magento.MagentoProductStatus status, final com.google.common.collect.ImmutableSet<String> tags, final com.yogento.api.models.catalog.product.magento.MagentoProductType type, final org.joda.time.DateTime updatedAt, final String urlKey, final String urlPath, final com.google.common.collect.ImmutableSet<String> visibility, final java.math.BigDecimal weight) {
-            return new MagentoProduct(activationInformation, backorders, cost, createdAt, description, images, isInStock, isQtyDecimal, isRecurring, lowStockDate, maxSaleQty, metaDescription, metaKeyword, metaTitle, minimalPrice, minQty, minSaleQty, model, name, newsFromDate, newsToDate, notifyStockQty, price, qty, shippingPolicy, shortDescription, sku, specialFromDate, specialPrice, specialToDate, status, tags, type, updatedAt, urlKey, urlPath, visibility, weight);
+        protected MagentoProduct _build(final String activationInformation, final Integer backorders, final java.math.BigDecimal cost, final org.joda.time.DateTime createdAt, final String description, final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> images, final Boolean isInStock, final Boolean isQtyDecimal, final Boolean isRecurring, final org.joda.time.DateTime lowStockDate, final java.math.BigDecimal maxSaleQty, final String metaDescription, final String metaKeyword, final String metaTitle, final java.math.BigDecimal minimalPrice, final java.math.BigDecimal minQty, final java.math.BigDecimal minSaleQty, final String model, final String name, final org.joda.time.DateTime newsFromDate, final org.joda.time.DateTime newsToDate, final java.math.BigDecimal notifyStockQty, final java.math.BigDecimal price, final java.math.BigDecimal qty, final String shippingPolicy, final String shortDescription, final String sku, final org.joda.time.DateTime specialFromDate, final java.math.BigDecimal specialPrice, final org.joda.time.DateTime specialToDate, final String store, final com.yogento.api.models.catalog.product.magento.MagentoProductStatus status, final com.google.common.collect.ImmutableSet<String> tags, final com.yogento.api.models.catalog.product.magento.MagentoProductType type, final org.joda.time.DateTime updatedAt, final String urlKey, final String urlPath, final com.google.common.collect.ImmutableSet<String> visibility, final java.math.BigDecimal weight) {
+            return new MagentoProduct(activationInformation, backorders, cost, createdAt, description, images, isInStock, isQtyDecimal, isRecurring, lowStockDate, maxSaleQty, metaDescription, metaKeyword, metaTitle, minimalPrice, minQty, minSaleQty, model, name, newsFromDate, newsToDate, notifyStockQty, price, qty, shippingPolicy, shortDescription, sku, specialFromDate, specialPrice, specialToDate, store, status, tags, type, updatedAt, urlKey, urlPath, visibility, weight);
         }
 
         public MagentoProduct build() {
-            return _build(activationInformation, backorders, cost, createdAt, description, images, isInStock, isQtyDecimal, isRecurring, lowStockDate, maxSaleQty, metaDescription, metaKeyword, metaTitle, minimalPrice, minQty, minSaleQty, model, name, newsFromDate, newsToDate, notifyStockQty, price, qty, shippingPolicy, shortDescription, sku, specialFromDate, specialPrice, specialToDate, status, tags, type, updatedAt, urlKey, urlPath, visibility, weight);
+            return _build(activationInformation, backorders, cost, createdAt, description, images, isInStock, isQtyDecimal, isRecurring, lowStockDate, maxSaleQty, metaDescription, metaKeyword, metaTitle, minimalPrice, minQty, minSaleQty, model, name, newsFromDate, newsToDate, notifyStockQty, price, qty, shippingPolicy, shortDescription, sku, specialFromDate, specialPrice, specialToDate, store, status, tags, type, updatedAt, urlKey, urlPath, visibility, weight);
         }
 
         public Builder setActivationInformation(final String activationInformation) {
@@ -210,6 +211,11 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
             return this;
         }
 
+        public Builder setStore(final String store) {
+            this.store = store;
+            return this;
+        }
+
         public Builder setTags(final com.google.common.collect.ImmutableSet<String> tags) {
             this.tags = tags;
             return this;
@@ -275,6 +281,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         private org.joda.time.DateTime specialFromDate;
         private java.math.BigDecimal specialPrice;
         private org.joda.time.DateTime specialToDate;
+        private String store;
         private com.yogento.api.models.catalog.product.magento.MagentoProductStatus status;
         private com.google.common.collect.ImmutableSet<String> tags;
         private com.yogento.api.models.catalog.product.magento.MagentoProductType type;
@@ -286,7 +293,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
     }
 
     public MagentoProduct(final MagentoProduct other) {
-        this(other.getActivationInformation(), other.getBackorders(), other.getCost(), other.getCreatedAt(), other.getDescription(), other.getImages(), other.isInStock(), other.isQtyDecimal(), other.isRecurring(), other.getLowStockDate(), other.getMaxSaleQty(), other.getMetaDescription(), other.getMetaKeyword(), other.getMetaTitle(), other.getMinimalPrice(), other.getMinQty(), other.getMinSaleQty(), other.getModel(), other.getName(), other.getNewsFromDate(), other.getNewsToDate(), other.getNotifyStockQty(), other.getPrice(), other.getQty(), other.getShippingPolicy(), other.getShortDescription(), other.getSku(), other.getSpecialFromDate(), other.getSpecialPrice(), other.getSpecialToDate(), other.getStatus(), other.getTags(), other.getType(), other.getUpdatedAt(), other.getUrlKey(), other.getUrlPath(), other.getVisibility(), other.getWeight());
+        this(other.getActivationInformation(), other.getBackorders(), other.getCost(), other.getCreatedAt(), other.getDescription(), other.getImages(), other.isInStock(), other.isQtyDecimal(), other.isRecurring(), other.getLowStockDate(), other.getMaxSaleQty(), other.getMetaDescription(), other.getMetaKeyword(), other.getMetaTitle(), other.getMinimalPrice(), other.getMinQty(), other.getMinSaleQty(), other.getModel(), other.getName(), other.getNewsFromDate(), other.getNewsToDate(), other.getNotifyStockQty(), other.getPrice(), other.getQty(), other.getShippingPolicy(), other.getShortDescription(), other.getSku(), other.getSpecialFromDate(), other.getSpecialPrice(), other.getSpecialToDate(), other.getStore(), other.getStatus(), other.getTags(), other.getType(), other.getUpdatedAt(), other.getUrlKey(), other.getUrlPath(), other.getVisibility(), other.getWeight());
     }
 
     public MagentoProduct(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
@@ -324,6 +331,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         org.joda.time.DateTime specialFromDate = null;
         java.math.BigDecimal specialPrice = null;
         org.joda.time.DateTime specialToDate = null;
+        String store = null;
         com.yogento.api.models.catalog.product.magento.MagentoProductStatus status = null;
         com.google.common.collect.ImmutableSet<String> tags = null;
         com.yogento.api.models.catalog.product.magento.MagentoProductType type = null;
@@ -429,6 +437,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                     specialToDate = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
                 } catch (IllegalArgumentException e) {
                 }
+                store = iprot.readString();
                 try {
                     status = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductStatus.class) : com.yogento.api.models.catalog.product.magento.MagentoProductStatus.valueOf(iprot.readString().trim().toUpperCase());
                 } catch (IllegalArgumentException e) {
@@ -475,7 +484,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                         }
                     }
                 }).apply(iprot);
-                if (__list.size > 37) {
+                if (__list.size > 38) {
                     try {
                         weight = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readDecimal() : new java.math.BigDecimal(iprot.readString());
                     } catch (NumberFormatException e) {
@@ -614,6 +623,8 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                             specialToDate = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
                         } catch (IllegalArgumentException e) {
                         }
+                    } else if (ifield.name.equals("store")) {
+                        store = iprot.readString();
                     } else if (ifield.name.equals("status")) {
                         try {
                             status = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductStatus.class) : com.yogento.api.models.catalog.product.magento.MagentoProductStatus.valueOf(iprot.readString().trim().toUpperCase());
@@ -709,6 +720,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         this.specialFromDate = specialFromDate;
         this.specialPrice = specialPrice;
         this.specialToDate = specialToDate;
+        this.store = com.google.common.base.Preconditions.checkNotNull(store, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing store");
         this.status = status;
         this.tags = tags;
         this.type = type;
@@ -719,7 +731,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         this.weight = weight;
     }
 
-    public MagentoProduct(final String name, final String shortDescription, final String sku, final String urlKey, final com.google.common.collect.ImmutableSet<String> visibility) {
+    public MagentoProduct(final String name, final String shortDescription, final String sku, final String store, final String urlKey, final com.google.common.collect.ImmutableSet<String> visibility) {
         this.activationInformation = null;
         this.backorders = null;
         this.cost = null;
@@ -750,6 +762,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         this.specialFromDate = null;
         this.specialPrice = null;
         this.specialToDate = null;
+        this.store = com.google.common.base.Preconditions.checkNotNull(store, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing store");
         this.status = null;
         this.tags = null;
         this.type = null;
@@ -760,7 +773,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         this.weight = null;
     }
 
-    public MagentoProduct(final String activationInformation, final Integer backorders, final java.math.BigDecimal cost, final org.joda.time.DateTime createdAt, final String description, final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> images, final Boolean isInStock, final Boolean isQtyDecimal, final Boolean isRecurring, final org.joda.time.DateTime lowStockDate, final java.math.BigDecimal maxSaleQty, final String metaDescription, final String metaKeyword, final String metaTitle, final java.math.BigDecimal minimalPrice, final java.math.BigDecimal minQty, final java.math.BigDecimal minSaleQty, final String model, final String name, final org.joda.time.DateTime newsFromDate, final org.joda.time.DateTime newsToDate, final java.math.BigDecimal notifyStockQty, final java.math.BigDecimal price, final java.math.BigDecimal qty, final String shippingPolicy, final String shortDescription, final String sku, final org.joda.time.DateTime specialFromDate, final java.math.BigDecimal specialPrice, final org.joda.time.DateTime specialToDate, final com.yogento.api.models.catalog.product.magento.MagentoProductStatus status, final com.google.common.collect.ImmutableSet<String> tags, final com.yogento.api.models.catalog.product.magento.MagentoProductType type, final org.joda.time.DateTime updatedAt, final String urlKey, final String urlPath, final com.google.common.collect.ImmutableSet<String> visibility, final java.math.BigDecimal weight) {
+    public MagentoProduct(final String activationInformation, final Integer backorders, final java.math.BigDecimal cost, final org.joda.time.DateTime createdAt, final String description, final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> images, final Boolean isInStock, final Boolean isQtyDecimal, final Boolean isRecurring, final org.joda.time.DateTime lowStockDate, final java.math.BigDecimal maxSaleQty, final String metaDescription, final String metaKeyword, final String metaTitle, final java.math.BigDecimal minimalPrice, final java.math.BigDecimal minQty, final java.math.BigDecimal minSaleQty, final String model, final String name, final org.joda.time.DateTime newsFromDate, final org.joda.time.DateTime newsToDate, final java.math.BigDecimal notifyStockQty, final java.math.BigDecimal price, final java.math.BigDecimal qty, final String shippingPolicy, final String shortDescription, final String sku, final org.joda.time.DateTime specialFromDate, final java.math.BigDecimal specialPrice, final org.joda.time.DateTime specialToDate, final String store, final com.yogento.api.models.catalog.product.magento.MagentoProductStatus status, final com.google.common.collect.ImmutableSet<String> tags, final com.yogento.api.models.catalog.product.magento.MagentoProductType type, final org.joda.time.DateTime updatedAt, final String urlKey, final String urlPath, final com.google.common.collect.ImmutableSet<String> visibility, final java.math.BigDecimal weight) {
         this.activationInformation = activationInformation;
         this.backorders = backorders;
         this.cost = cost;
@@ -791,6 +804,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         this.specialFromDate = specialFromDate;
         this.specialPrice = specialPrice;
         this.specialToDate = specialToDate;
+        this.store = com.google.common.base.Preconditions.checkNotNull(store, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing store");
         this.status = status;
         this.tags = tags;
         this.type = type;
@@ -910,6 +924,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
             ((getSpecialToDate() == null && other.getSpecialToDate() == null) ||
             (getSpecialToDate() != null && other.getSpecialToDate() != null &&
             getSpecialToDate().equals(other.getSpecialToDate()))) &&
+            getStore().equals(other.getStore()) &&
             ((getStatus() == null && other.getStatus() == null) ||
             (getStatus() != null && other.getStatus() != null &&
             getStatus().equals(other.getStatus()))) &&
@@ -998,6 +1013,8 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
             return getSpecialPrice();
         } else if (fieldName.equals("special_to_date")) {
             return getSpecialToDate();
+        } else if (fieldName.equals("store")) {
+            return getStore();
         } else if (fieldName.equals("status")) {
             return getStatus();
         } else if (fieldName.equals("tags")) {
@@ -1135,6 +1152,10 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         return status;
     }
 
+    public final String getStore() {
+        return store;
+    }
+
     public final com.google.common.collect.ImmutableSet<String> getTags() {
         return tags;
     }
@@ -1250,6 +1271,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         if (getSpecialToDate() != null) {
             hashCode = 31 * hashCode + getSpecialToDate().hashCode();
         }
+        hashCode = 31 * hashCode + getStore().hashCode();
         if (getStatus() != null) {
             hashCode = 31 * hashCode + getStatus().ordinal();
         }
@@ -1387,6 +1409,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         if (getSpecialToDate() != null) {
             helper.add("special_to_date", getSpecialToDate());
         }
+        helper.add("store", getStore());
         if (getStatus() != null) {
             helper.add("status", getStatus());
         }
@@ -1419,7 +1442,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         switch (writeAsTType) {
             case org.apache.thrift.protocol.TType.VOID:
             case org.apache.thrift.protocol.TType.LIST:
-                oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 38));
+                oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 39));
 
                 if (getActivationInformation() != null) {
                     oprot.writeString(getActivationInformation());
@@ -1592,6 +1615,8 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                 } else {
                     ((org.thryft.core.protocol.Protocol)oprot).writeNull();
                 }
+
+                oprot.writeString(getStore());
 
                 if (getStatus() != null) {
                     if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeEnum(getStatus()); } else { oprot.writeString(getStatus().toString()); }
@@ -1826,6 +1851,10 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                     oprot.writeFieldEnd();
                 }
 
+                oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("store", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                oprot.writeString(getStore());
+                oprot.writeFieldEnd();
+
                 if (getStatus() != null) {
                     oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("status", org.apache.thrift.protocol.TType.STRING, (short)-1));
                     if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeEnum(getStatus()); } else { oprot.writeString(getStatus().toString()); }
@@ -1915,6 +1944,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
     private final org.joda.time.DateTime specialFromDate;
     private final java.math.BigDecimal specialPrice;
     private final org.joda.time.DateTime specialToDate;
+    private final String store;
     private final com.yogento.api.models.catalog.product.magento.MagentoProductStatus status;
     private final com.google.common.collect.ImmutableSet<String> tags;
     private final com.yogento.api.models.catalog.product.magento.MagentoProductType type;

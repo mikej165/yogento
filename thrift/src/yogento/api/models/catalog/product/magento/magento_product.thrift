@@ -40,6 +40,7 @@ struct MagentoProduct {
     optional date.Date special_from_date;
     optional decimal.Decimal special_price;
     optional date.Date special_to_date;
+    required string store;
     // Optional in 1.3
     optional magento_product_status.MagentoProductStatus status;
     optional set<string> tags;
