@@ -13,7 +13,7 @@ struct MagentoProduct {
     optional i32 backorders;
     optional decimal.Decimal cost;
     optional date_time.DateTime created_at;
-    required string description;
+    optional string description;
     optional set<magento_product_image.MagentoProductImage> images;
     optional bool is_in_stock;
     optional bool is_qty_decimal;

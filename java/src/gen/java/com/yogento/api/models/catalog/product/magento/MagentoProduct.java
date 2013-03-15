@@ -683,7 +683,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         this.backorders = backorders;
         this.cost = cost;
         this.createdAt = createdAt;
-        this.description = com.google.common.base.Preconditions.checkNotNull(description, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing description");
+        this.description = description;
         this.images = images;
         this.isInStock = isInStock;
         this.isQtyDecimal = isQtyDecimal;
@@ -719,12 +719,12 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         this.weight = weight;
     }
 
-    public MagentoProduct(final String description, final String name, final String shortDescription, final String sku, final String urlKey, final com.google.common.collect.ImmutableSet<String> visibility) {
+    public MagentoProduct(final String name, final String shortDescription, final String sku, final String urlKey, final com.google.common.collect.ImmutableSet<String> visibility) {
         this.activationInformation = null;
         this.backorders = null;
         this.cost = null;
         this.createdAt = null;
-        this.description = com.google.common.base.Preconditions.checkNotNull(description, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing description");
+        this.description = null;
         this.images = null;
         this.isInStock = null;
         this.isQtyDecimal = null;
@@ -765,7 +765,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         this.backorders = backorders;
         this.cost = cost;
         this.createdAt = createdAt;
-        this.description = com.google.common.base.Preconditions.checkNotNull(description, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing description");
+        this.description = description;
         this.images = images;
         this.isInStock = isInStock;
         this.isQtyDecimal = isQtyDecimal;
@@ -838,7 +838,9 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
             ((getCreatedAt() == null && other.getCreatedAt() == null) ||
             (getCreatedAt() != null && other.getCreatedAt() != null &&
             getCreatedAt().equals(other.getCreatedAt()))) &&
-            getDescription().equals(other.getDescription()) &&
+            ((getDescription() == null && other.getDescription() == null) ||
+            (getDescription() != null && other.getDescription() != null &&
+            getDescription().equals(other.getDescription()))) &&
             ((getImages() == null && other.getImages() == null) ||
             (getImages() != null && other.getImages() != null &&
             getImages().equals(other.getImages()))) &&
@@ -1176,7 +1178,9 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         if (getCreatedAt() != null) {
             hashCode = 31 * hashCode + getCreatedAt().hashCode();
         }
-        hashCode = 31 * hashCode + getDescription().hashCode();
+        if (getDescription() != null) {
+            hashCode = 31 * hashCode + getDescription().hashCode();
+        }
         if (getImages() != null) {
             hashCode = 31 * hashCode + getImages().hashCode();
         }
@@ -1311,7 +1315,9 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         if (getCreatedAt() != null) {
             helper.add("created_at", getCreatedAt());
         }
-        helper.add("description", getDescription());
+        if (getDescription() != null) {
+            helper.add("description", getDescription());
+        }
         if (getImages() != null) {
             helper.add("images", getImages());
         }
@@ -1439,7 +1445,11 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                     ((org.thryft.core.protocol.Protocol)oprot).writeNull();
                 }
 
-                oprot.writeString(getDescription());
+                if (getDescription() != null) {
+                    oprot.writeString(getDescription());
+                } else {
+                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                }
 
                 if (getImages() != null) {
                     oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getImages().size()));
@@ -1662,9 +1672,11 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                     oprot.writeFieldEnd();
                 }
 
-                oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("description", org.apache.thrift.protocol.TType.STRING, (short)-1));
-                oprot.writeString(getDescription());
-                oprot.writeFieldEnd();
+                if (getDescription() != null) {
+                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("description", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                    oprot.writeString(getDescription());
+                    oprot.writeFieldEnd();
+                }
 
                 if (getImages() != null) {
                     oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("images", org.apache.thrift.protocol.TType.SET, (short)-1));

@@ -12,7 +12,6 @@ class MagentoProduct(object):
     class Builder:
         def __init__(
             self,
-            description,
             name,
             short_description,
             sku,
@@ -22,6 +21,7 @@ class MagentoProduct(object):
             backorders=None,
             cost=None,
             created_at=None,
+            description=None,
             images=None,
             is_in_stock=None,
             is_qty_decimal=None,
@@ -294,7 +294,6 @@ class MagentoProduct(object):
 
     def __init__(
         self,
-        description,
         name,
         short_description,
         sku,
@@ -304,6 +303,7 @@ class MagentoProduct(object):
         backorders=None,
         cost=None,
         created_at=None,
+        description=None,
         images=None,
         is_in_stock=None,
         is_qty_decimal=None,
@@ -353,10 +353,9 @@ class MagentoProduct(object):
                 raise TypeError(getattr(__builtin__, 'type')(created_at))
         self.__created_at = created_at
 
-        if description is None:
-            raise ValueError('description is required')
-        if not isinstance(description, basestring):
-            raise TypeError(getattr(__builtin__, 'type')(description))
+        if description is not None:
+            if not isinstance(description, basestring):
+                raise TypeError(getattr(__builtin__, 'type')(description))
         self.__description = description
 
         if images is not None:
@@ -624,7 +623,8 @@ class MagentoProduct(object):
             field_reprs.append('cost=' + repr(self.cost))
         if self.created_at is not None:
             field_reprs.append('created_at=' + repr(self.created_at))
-        field_reprs.append('description=' + "'" + self.description.encode('ascii', 'replace') + "'")
+        if self.description is not None:
+            field_reprs.append('description=' + "'" + self.description.encode('ascii', 'replace') + "'")
         if self.images is not None:
             field_reprs.append('images=' + repr(self.images))
         if self.is_in_stock is not None:
@@ -698,7 +698,8 @@ class MagentoProduct(object):
             field_reprs.append('cost=' + repr(self.cost))
         if self.created_at is not None:
             field_reprs.append('created_at=' + repr(self.created_at))
-        field_reprs.append('description=' + "'" + self.description.encode('ascii', 'replace') + "'")
+        if self.description is not None:
+            field_reprs.append('description=' + "'" + self.description.encode('ascii', 'replace') + "'")
         if self.images is not None:
             field_reprs.append('images=' + repr(self.images))
         if self.is_in_stock is not None:
@@ -891,7 +892,10 @@ class MagentoProduct(object):
                 except (TypeError,):
                     pass
             elif ifield_name == 'description':
-                init_kwds['description'] = iprot.readString()
+                try:
+                    init_kwds['description'] = iprot.readString()
+                except (TypeError, ValueError,):
+                    pass
             elif ifield_name == 'images':
                 init_kwds['images'] = frozenset([yogento.api.models.catalog.product.magento.magento_product_image.MagentoProductImage.read(iprot) for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
             elif ifield_name == 'is_in_stock':
@@ -1199,9 +1203,10 @@ class MagentoProduct(object):
             oprot.writeDateTime(self.created_at) if hasattr(oprot, 'writeDateTime') else oprot.writeI64(long(mktime(self.created_at.timetuple())) * 1000l)
             oprot.writeFieldEnd()
 
-        oprot.writeFieldBegin('description', 11, -1)
-        oprot.writeString(self.description)
-        oprot.writeFieldEnd()
+        if self.description is not None:
+            oprot.writeFieldBegin('description', 11, -1)
+            oprot.writeString(self.description)
+            oprot.writeFieldEnd()
 
         if self.images is not None:
             oprot.writeFieldBegin('images', 14, -1)
