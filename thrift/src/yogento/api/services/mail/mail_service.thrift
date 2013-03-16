@@ -1,6 +1,7 @@
 namespace java com.yogento.api.services.mail
 namespace * yogento.api.services.mail
 
+include "thryft/util/date_time.thrift"
 include "yogento/api/models/mail/campaign/mail_campaign.thrift"
 include "yogento/api/models/mail/campaign/mail_campaign_content.thrift"
 include "yogento/api/models/mail/campaign/mail_campaign_stats.thrift"
@@ -25,7 +26,7 @@ service MailService {
     /**
         Get a locally-stored campaign.
         Used as an intermediate "restore" before sending a campaign to the mail
-            service provider.        
+            service provider.
         Never calls the mail service provider.
      **/
     mail_campaign.MailCampaign
@@ -33,14 +34,14 @@ service MailService {
         required string cid,
         optional bool include_content
     ) throws (mail_exception.MailException e);
-    
+
     /**
         Get all locally-stored campaigns, sans content.
      */
     set<mail_campaign.MailCampaign>
     get_mail_campaigns(optional bool include_content)
     throws (mail_exception.MailException e);
-    
+
     /**
         Get the campaign statistics kept by the mail service provider.
         Always calls the mail service provider, stores nothing locally.
@@ -61,16 +62,16 @@ service MailService {
     /**
         Get the templates kept by the mail service provider.
         Always calls the mail service provider, stores nothing locally.
-     */        
+     */
     set<mail_template.MailTemplate>
     get_mail_templates(
         optional set<mail_template_type.MailTemplateType> types
     ) throws (mail_exception.MailException e);
-    
+
     /**
         Get information about a template from the mail service provider.
         Always calls the mail service provider, stores nothing locally.
-     */        
+     */
     mail_template_info.MailTemplateInfo
     get_mail_template_info(
         required i32 tid,
@@ -90,7 +91,7 @@ service MailService {
         optional date_time.DateTime schedule_time_b,
         optional list<string> test_emails
     ) throws (mail_exception.MailException e);
-            
+
     /**
         Overwrite the mail campaign.
         Used as an intermediate "save" before sending a campaign.
