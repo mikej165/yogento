@@ -3,7 +3,6 @@ from datetime import datetime
 from itertools import ifilterfalse
 from time import mktime
 import __builtin__
-import yogento.api.models.catalog.product.magento.magento_product
 import yogento.api.models.catalog.product.magento.magento_product_image
 import yogento.api.models.catalog.product.magento.magento_product_status
 
