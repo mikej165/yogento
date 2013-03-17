@@ -1106,7 +1106,7 @@ public interface CatalogService {
             }
 
             public getProductBySkuResponse(final com.yogento.api.models.catalog.product.Product returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.getProductBySkuResponse: missing returnValue");
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getProductBySku: missing returnValue");
             }
 
             @Override
@@ -1516,7 +1516,7 @@ public interface CatalogService {
             }
 
             public getProductsResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.getProductsResponse: missing returnValue");
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getProducts: missing returnValue");
             }
 
             @Override
@@ -1839,7 +1839,7 @@ public interface CatalogService {
             }
 
             public getProductSkusResponse(final com.google.common.collect.ImmutableSet<String> returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.getProductSkusResponse: missing returnValue");
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getProductSkus: missing returnValue");
             }
 
             @Override
@@ -2245,7 +2245,7 @@ public interface CatalogService {
             }
 
             public getProductsBySkusResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.getProductsBySkusResponse: missing returnValue");
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getProductsBySkus: missing returnValue");
             }
 
             @Override
@@ -2619,7 +2619,7 @@ public interface CatalogService {
             }
 
             public getProductThumbnailUrlResponse(final String returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.getProductThumbnailUrlResponse: missing returnValue");
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getProductThumbnailUrl: missing returnValue");
             }
 
             @Override
@@ -2977,7 +2977,7 @@ public interface CatalogService {
             }
 
             public getSampleProductThumbnailUrlResponse(final String returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.getSampleProductThumbnailUrlResponse: missing returnValue");
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getSampleProductThumbnailUrl: missing returnValue");
             }
 
             @Override
@@ -3306,7 +3306,7 @@ public interface CatalogService {
             }
 
             public getSampleProductBySkuResponse(final com.yogento.api.models.catalog.product.Product returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.getSampleProductBySkuResponse: missing returnValue");
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getSampleProductBySku: missing returnValue");
             }
 
             @Override
@@ -3617,7 +3617,7 @@ public interface CatalogService {
             }
 
             public getSampleProductsResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.getSampleProductsResponse: missing returnValue");
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getSampleProducts: missing returnValue");
             }
 
             @Override

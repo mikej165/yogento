@@ -607,7 +607,7 @@ public interface ImageService {
             }
 
             public getImageThumbnailUrlResponse(final String returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.image.getImageThumbnailUrlResponse: missing returnValue");
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.image.ImageService.getImageThumbnailUrl: missing returnValue");
             }
 
             @Override
@@ -965,7 +965,7 @@ public interface ImageService {
             }
 
             public putImageResponse(final String returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.image.putImageResponse: missing returnValue");
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.image.ImageService.putImage: missing returnValue");
             }
 
             @Override

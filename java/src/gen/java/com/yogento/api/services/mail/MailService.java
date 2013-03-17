@@ -645,7 +645,7 @@ public interface MailService {
             }
 
             public getMailCampaignResponse(final com.yogento.api.models.mail.campaign.MailCampaign returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.getMailCampaignResponse: missing returnValue");
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.getMailCampaign: missing returnValue");
             }
 
             @Override
@@ -1011,7 +1011,7 @@ public interface MailService {
             }
 
             public getMailCampaignsResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.campaign.MailCampaign> returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.getMailCampaignsResponse: missing returnValue");
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.getMailCampaigns: missing returnValue");
             }
 
             @Override
@@ -1356,7 +1356,7 @@ public interface MailService {
             }
 
             public getMailCampaignStatsResponse(final com.yogento.api.models.mail.campaign.MailCampaignStats returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.getMailCampaignStatsResponse: missing returnValue");
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.getMailCampaignStats: missing returnValue");
             }
 
             @Override
@@ -1667,7 +1667,7 @@ public interface MailService {
             }
 
             public getMailListsResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.list.MailList> returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.getMailListsResponse: missing returnValue");
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.getMailLists: missing returnValue");
             }
 
             @Override
@@ -2091,7 +2091,7 @@ public interface MailService {
             }
 
             public getMailTemplatesResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplate> returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.getMailTemplatesResponse: missing returnValue");
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.getMailTemplates: missing returnValue");
             }
 
             @Override
@@ -2489,7 +2489,7 @@ public interface MailService {
             }
 
             public getMailTemplateInfoResponse(final com.yogento.api.models.mail.template.MailTemplateInfo returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.getMailTemplateInfoResponse: missing returnValue");
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.getMailTemplateInfo: missing returnValue");
             }
 
             @Override
@@ -3008,7 +3008,7 @@ public interface MailService {
             }
 
             public postMailCampaignResponse(final com.yogento.api.models.mail.campaign.MailCampaign returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.postMailCampaignResponse: missing returnValue");
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.postMailCampaign: missing returnValue");
             }
 
             @Override
@@ -3389,7 +3389,7 @@ public interface MailService {
             }
 
             public putMailCampaignResponse(final com.yogento.api.models.mail.campaign.MailCampaign returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.putMailCampaignResponse: missing returnValue");
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.putMailCampaign: missing returnValue");
             }
 
             @Override

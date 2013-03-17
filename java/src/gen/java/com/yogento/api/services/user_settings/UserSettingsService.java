@@ -179,7 +179,7 @@ public interface UserSettingsService {
             }
 
             public getCurrentUserSettingsResponse(final com.yogento.api.models.user_settings.UserSettings returnValue) {
-                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.user_settings.getCurrentUserSettingsResponse: missing returnValue");
+                this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.user_settings.UserSettingsService.getCurrentUserSettings: missing returnValue");
             }
 
             @Override
