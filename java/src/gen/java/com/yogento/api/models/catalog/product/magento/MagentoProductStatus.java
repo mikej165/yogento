@@ -7,7 +7,7 @@ public enum MagentoProductStatus {
     private MagentoProductStatus(int value) {
         this.value = value;
     }
-    
+
     public static MagentoProductStatus valueOf(final int value) {
         switch (value) {
         case 2: return DISABLED;
@@ -23,6 +23,6 @@ public enum MagentoProductStatus {
     public final int value() {
         return value;
     }
-        
+
     private final int value;
 }
