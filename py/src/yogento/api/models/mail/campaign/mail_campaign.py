@@ -11,15 +11,17 @@ class MailCampaign(object):
             content=None,
             id=None,
             mail_chimp_campaign=None,
+            mail_chimp_template_id=None,
             status=None
         ):
             self.__content = content
             self.__id = id
             self.__mail_chimp_campaign = mail_chimp_campaign
+            self.__mail_chimp_template_id = mail_chimp_template_id
             self.__status = status
 
         def build(self):
-            return MailCampaign(content=self.__content, id=self.__id, mail_chimp_campaign=self.__mail_chimp_campaign, status=self.__status)
+            return MailCampaign(content=self.__content, id=self.__id, mail_chimp_campaign=self.__mail_chimp_campaign, mail_chimp_template_id=self.__mail_chimp_template_id, status=self.__status)
 
         def set_content(self, content):
             self.__content = content
@@ -33,6 +35,10 @@ class MailCampaign(object):
             self.__mail_chimp_campaign = mail_chimp_campaign
             return self
 
+        def set_mail_chimp_template_id(self, mail_chimp_template_id):
+            self.__mail_chimp_template_id = mail_chimp_template_id
+            return self
+
         def set_status(self, status):
             self.__status = status
             return self
@@ -42,6 +48,7 @@ class MailCampaign(object):
                 self.set_content(mail_campaign.content)
                 self.set_id(mail_campaign.id)
                 self.set_mail_chimp_campaign(mail_campaign.mail_chimp_campaign)
+                self.set_mail_chimp_template_id(mail_campaign.mail_chimp_template_id)
                 self.set_status(mail_campaign.status)
             elif isinstance(mail_campaign, dict):
                 for key, value in mail_campaign.iteritems():
@@ -55,6 +62,7 @@ class MailCampaign(object):
         content=None,
         id=None,
         mail_chimp_campaign=None,
+        mail_chimp_template_id=None,
         status=None
     ):
         if content is not None:
@@ -72,6 +80,11 @@ class MailCampaign(object):
                 raise TypeError(getattr(__builtin__, 'type')(mail_chimp_campaign))
         self.__mail_chimp_campaign = mail_chimp_campaign
 
+        if mail_chimp_template_id is not None:
+            if not isinstance(mail_chimp_template_id, basestring):
+                raise TypeError(getattr(__builtin__, 'type')(mail_chimp_template_id))
+        self.__mail_chimp_template_id = mail_chimp_template_id
+
         if status is not None:
             if not isinstance(status, yogento.api.models.mail.campaign.mail_campaign_status.MailCampaignStatus):
                 raise TypeError(getattr(__builtin__, 'type')(status))
@@ -84,12 +97,14 @@ class MailCampaign(object):
             return False
         if self.mail_chimp_campaign != other.mail_chimp_campaign:
             return False
+        if self.mail_chimp_template_id != other.mail_chimp_template_id:
+            return False
         if self.status != other.status:
             return False
         return True
 
     def __hash__(self):
-        return hash((self.content,self.id,self.mail_chimp_campaign,self.status,))
+        return hash((self.content,self.id,self.mail_chimp_campaign,self.mail_chimp_template_id,self.status,))
 
     def __ne__(self, other):
         return not self.__eq__(other)
@@ -102,6 +117,8 @@ class MailCampaign(object):
             field_reprs.append('id=' + "'" + self.id.encode('ascii', 'replace') + "'")
         if self.mail_chimp_campaign is not None:
             field_reprs.append('mail_chimp_campaign=' + repr(self.mail_chimp_campaign))
+        if self.mail_chimp_template_id is not None:
+            field_reprs.append('mail_chimp_template_id=' + "'" + self.mail_chimp_template_id.encode('ascii', 'replace') + "'")
         if self.status is not None:
             field_reprs.append('status=' + repr(self.status))
         return 'MailCampaign(' + ', '.join(field_reprs) + ')'
@@ -114,12 +131,14 @@ class MailCampaign(object):
             field_reprs.append('id=' + "'" + self.id.encode('ascii', 'replace') + "'")
         if self.mail_chimp_campaign is not None:
             field_reprs.append('mail_chimp_campaign=' + repr(self.mail_chimp_campaign))
+        if self.mail_chimp_template_id is not None:
+            field_reprs.append('mail_chimp_template_id=' + "'" + self.mail_chimp_template_id.encode('ascii', 'replace') + "'")
         if self.status is not None:
             field_reprs.append('status=' + repr(self.status))
         return 'MailCampaign(' + ', '.join(field_reprs) + ')'
 
     def as_dict(self):
-        return {'content': self.content, 'id': self.id, 'mail_chimp_campaign': self.mail_chimp_campaign, 'status': self.status}
+        return {'content': self.content, 'id': self.id, 'mail_chimp_campaign': self.mail_chimp_campaign, 'mail_chimp_template_id': self.mail_chimp_template_id, 'status': self.status}
 
     @property
     def content(self):
@@ -132,6 +151,10 @@ class MailCampaign(object):
     @property
     def mail_chimp_campaign(self):
         return self.__mail_chimp_campaign
+
+    @property
+    def mail_chimp_template_id(self):
+        return self.__mail_chimp_template_id
 
     @classmethod
     def read(cls, iprot):
@@ -151,6 +174,11 @@ class MailCampaign(object):
                     pass
             elif ifield_name == 'mail_chimp_campaign':
                 init_kwds['mail_chimp_campaign'] = yochimp.models.campaign.campaign.Campaign.read(iprot)
+            elif ifield_name == 'mail_chimp_template_id':
+                try:
+                    init_kwds['mail_chimp_template_id'] = iprot.readString()
+                except (TypeError, ValueError,):
+                    pass
             elif ifield_name == 'status':
                 try:
                     init_kwds['status'] = yogento.api.models.mail.campaign.mail_campaign_status.MailCampaignStatus.value_of(iprot.readString().strip().upper())
@@ -161,16 +189,18 @@ class MailCampaign(object):
 
         return cls(**init_kwds)
 
-    def replace(self, content=None, id=None, mail_chimp_campaign=None, status=None):
+    def replace(self, content=None, id=None, mail_chimp_campaign=None, mail_chimp_template_id=None, status=None):
         if content is None:
             content = self.content
         if id is None:
             id = self.id
         if mail_chimp_campaign is None:
             mail_chimp_campaign = self.mail_chimp_campaign
+        if mail_chimp_template_id is None:
+            mail_chimp_template_id = self.mail_chimp_template_id
         if status is None:
             status = self.status
-        return self.__class__(content=content, id=id, mail_chimp_campaign=mail_chimp_campaign, status=status)
+        return self.__class__(content=content, id=id, mail_chimp_campaign=mail_chimp_campaign, mail_chimp_template_id=mail_chimp_template_id, status=status)
 
     @property
     def status(self):
@@ -192,6 +222,11 @@ class MailCampaign(object):
         if self.mail_chimp_campaign is not None:
             oprot.writeFieldBegin('mail_chimp_campaign', 12, -1)
             self.mail_chimp_campaign.write(oprot)
+            oprot.writeFieldEnd()
+
+        if self.mail_chimp_template_id is not None:
+            oprot.writeFieldBegin('mail_chimp_template_id', 11, -1)
+            oprot.writeString(self.mail_chimp_template_id)
             oprot.writeFieldEnd()
 
         if self.status is not None:

@@ -10,15 +10,16 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
             this.content = other.getContent();
             this.id = other.getId();
             this.mailChimpCampaign = other.getMailChimpCampaign();
+            this.mailChimpTemplateId = other.getMailChimpTemplateId();
             this.status = other.getStatus();
         }
 
-        protected MailCampaign _build(final com.yogento.api.models.mail.campaign.MailCampaignContent content, final String id, final com.yochimp.models.campaign.Campaign mailChimpCampaign, final com.yogento.api.models.mail.campaign.MailCampaignStatus status) {
-            return new MailCampaign(content, id, mailChimpCampaign, status);
+        protected MailCampaign _build(final com.yogento.api.models.mail.campaign.MailCampaignContent content, final String id, final com.yochimp.models.campaign.Campaign mailChimpCampaign, final String mailChimpTemplateId, final com.yogento.api.models.mail.campaign.MailCampaignStatus status) {
+            return new MailCampaign(content, id, mailChimpCampaign, mailChimpTemplateId, status);
         }
 
         public MailCampaign build() {
-            return _build(content, id, mailChimpCampaign, status);
+            return _build(content, id, mailChimpCampaign, mailChimpTemplateId, status);
         }
 
         public Builder setContent(final com.yogento.api.models.mail.campaign.MailCampaignContent content) {
@@ -36,6 +37,11 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
             return this;
         }
 
+        public Builder setMailChimpTemplateId(final String mailChimpTemplateId) {
+            this.mailChimpTemplateId = mailChimpTemplateId;
+            return this;
+        }
+
         public Builder setStatus(final com.yogento.api.models.mail.campaign.MailCampaignStatus status) {
             this.status = status;
             return this;
@@ -44,6 +50,7 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
         private com.yogento.api.models.mail.campaign.MailCampaignContent content;
         private String id;
         private com.yochimp.models.campaign.Campaign mailChimpCampaign;
+        private String mailChimpTemplateId;
         private com.yogento.api.models.mail.campaign.MailCampaignStatus status;
     }
 
@@ -51,11 +58,12 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
         content = null;
         id = null;
         mailChimpCampaign = null;
+        mailChimpTemplateId = null;
         status = null;
     }
 
     public MailCampaign(final MailCampaign other) {
-        this(other.getContent(), other.getId(), other.getMailChimpCampaign(), other.getStatus());
+        this(other.getContent(), other.getId(), other.getMailChimpCampaign(), other.getMailChimpTemplateId(), other.getStatus());
     }
 
     public MailCampaign(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
@@ -66,6 +74,7 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
         com.yogento.api.models.mail.campaign.MailCampaignContent content = null;
         String id = null;
         com.yochimp.models.campaign.Campaign mailChimpCampaign = null;
+        String mailChimpTemplateId = null;
         com.yogento.api.models.mail.campaign.MailCampaignStatus status = null;
 
         switch (readAsTType) {
@@ -81,6 +90,9 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
                     mailChimpCampaign = new com.yochimp.models.campaign.Campaign(iprot);
                 }
                 if (__list.size > 3) {
+                    mailChimpTemplateId = iprot.readString();
+                }
+                if (__list.size > 4) {
                     try {
                         status = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readEnum(com.yogento.api.models.mail.campaign.MailCampaignStatus.class) : com.yogento.api.models.mail.campaign.MailCampaignStatus.valueOf(iprot.readString().trim().toUpperCase());
                     } catch (IllegalArgumentException e) {
@@ -102,6 +114,8 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
                         id = iprot.readString();
                     } else if (ifield.name.equals("mail_chimp_campaign")) {
                         mailChimpCampaign = new com.yochimp.models.campaign.Campaign(iprot);
+                    } else if (ifield.name.equals("mail_chimp_template_id")) {
+                        mailChimpTemplateId = iprot.readString();
                     } else if (ifield.name.equals("status")) {
                         try {
                             status = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readEnum(com.yogento.api.models.mail.campaign.MailCampaignStatus.class) : com.yogento.api.models.mail.campaign.MailCampaignStatus.valueOf(iprot.readString().trim().toUpperCase());
@@ -117,13 +131,15 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
         this.content = content;
         this.id = id;
         this.mailChimpCampaign = mailChimpCampaign;
+        this.mailChimpTemplateId = mailChimpTemplateId;
         this.status = status;
     }
 
-    public MailCampaign(final com.yogento.api.models.mail.campaign.MailCampaignContent content, final String id, final com.yochimp.models.campaign.Campaign mailChimpCampaign, final com.yogento.api.models.mail.campaign.MailCampaignStatus status) {
+    public MailCampaign(final com.yogento.api.models.mail.campaign.MailCampaignContent content, final String id, final com.yochimp.models.campaign.Campaign mailChimpCampaign, final String mailChimpTemplateId, final com.yogento.api.models.mail.campaign.MailCampaignStatus status) {
         this.content = content;
         this.id = id;
         this.mailChimpCampaign = mailChimpCampaign;
+        this.mailChimpTemplateId = mailChimpTemplateId;
         this.status = status;
     }
 
@@ -161,6 +177,9 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
             ((getMailChimpCampaign() == null && other.getMailChimpCampaign() == null) ||
             (getMailChimpCampaign() != null && other.getMailChimpCampaign() != null &&
             getMailChimpCampaign().equals(other.getMailChimpCampaign()))) &&
+            ((getMailChimpTemplateId() == null && other.getMailChimpTemplateId() == null) ||
+            (getMailChimpTemplateId() != null && other.getMailChimpTemplateId() != null &&
+            getMailChimpTemplateId().equals(other.getMailChimpTemplateId()))) &&
             ((getStatus() == null && other.getStatus() == null) ||
             (getStatus() != null && other.getStatus() != null &&
             getStatus().equals(other.getStatus())));
@@ -178,6 +197,8 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
             return getId();
         } else if (fieldName.equals("mail_chimp_campaign")) {
             return getMailChimpCampaign();
+        } else if (fieldName.equals("mail_chimp_template_id")) {
+            return getMailChimpTemplateId();
         } else if (fieldName.equals("status")) {
             return getStatus();
         }
@@ -201,6 +222,10 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
         return mailChimpCampaign;
     }
 
+    public final String getMailChimpTemplateId() {
+        return mailChimpTemplateId;
+    }
+
     public final com.yogento.api.models.mail.campaign.MailCampaignStatus getStatus() {
         return status;
     }
@@ -216,6 +241,9 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
         }
         if (getMailChimpCampaign() != null) {
             hashCode = 31 * hashCode + getMailChimpCampaign().hashCode();
+        }
+        if (getMailChimpTemplateId() != null) {
+            hashCode = 31 * hashCode + getMailChimpTemplateId().hashCode();
         }
         if (getStatus() != null) {
             hashCode = 31 * hashCode + getStatus().ordinal();
@@ -250,6 +278,9 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
         if (getMailChimpCampaign() != null) {
             helper.add("mail_chimp_campaign", getMailChimpCampaign());
         }
+        if (getMailChimpTemplateId() != null) {
+            helper.add("mail_chimp_template_id", getMailChimpTemplateId());
+        }
         if (getStatus() != null) {
             helper.add("status", getStatus());
         }
@@ -265,7 +296,7 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
         switch (writeAsTType) {
             case org.apache.thrift.protocol.TType.VOID:
             case org.apache.thrift.protocol.TType.LIST:
-                oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 4));
+                oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 5));
 
                 if (getContent() != null) {
                     getContent().write(oprot);
@@ -281,6 +312,12 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
 
                 if (getMailChimpCampaign() != null) {
                     getMailChimpCampaign().write(oprot);
+                } else {
+                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                }
+
+                if (getMailChimpTemplateId() != null) {
+                    oprot.writeString(getMailChimpTemplateId());
                 } else {
                     ((org.thryft.core.protocol.Protocol)oprot).writeNull();
                 }
@@ -316,6 +353,12 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
                     oprot.writeFieldEnd();
                 }
 
+                if (getMailChimpTemplateId() != null) {
+                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("mail_chimp_template_id", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                    oprot.writeString(getMailChimpTemplateId());
+                    oprot.writeFieldEnd();
+                }
+
                 if (getStatus() != null) {
                     oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("status", org.apache.thrift.protocol.TType.STRING, (short)-1));
                     if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeEnum(getStatus()); } else { oprot.writeString(getStatus().toString()); }
@@ -332,5 +375,6 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
     private final com.yogento.api.models.mail.campaign.MailCampaignContent content;
     private final String id;
     private final com.yochimp.models.campaign.Campaign mailChimpCampaign;
+    private final String mailChimpTemplateId;
     private final com.yogento.api.models.mail.campaign.MailCampaignStatus status;
 }

@@ -9,5 +9,6 @@ struct MailCampaign {
     optional mail_campaign_content.MailCampaignContent content;
     optional string id;
     optional campaign.Campaign mail_chimp_campaign;
+    optional string mail_chimp_template_id;
     optional mail_campaign_status.MailCampaignStatus status;
 }
