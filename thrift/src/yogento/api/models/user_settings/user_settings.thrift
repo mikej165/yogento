@@ -42,3 +42,4 @@ struct UserSettings {
      */
     optional bool use_sample_data;
 }
+
