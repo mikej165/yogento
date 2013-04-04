@@ -186,7 +186,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                 break;
         }
 
-        this.displayName = displayName;
+        this.displayName = displayName != null ? org.thryft.core.Preconditions.checkNotEmpty(displayName, "com.yogento.api.models.user_settings.UserSettings: displayName is empty") : null;
         this.email = email;
         this.logoImageUrl = logoImageUrl;
         this.magentoStoreUrl = magentoStoreUrl;
@@ -196,7 +196,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
     }
 
     public UserSettings(final String displayName, final String email, final String logoImageUrl, final String magentoStoreUrl, final org.joda.time.DateTime productsMtime, final com.google.common.collect.ImmutableList<String> productSearchQueries, final Boolean useSampleData) {
-        this.displayName = displayName;
+        this.displayName = displayName != null ? org.thryft.core.Preconditions.checkNotEmpty(displayName, "com.yogento.api.models.user_settings.UserSettings: displayName is empty") : null;
         this.email = email;
         this.logoImageUrl = logoImageUrl;
         this.magentoStoreUrl = magentoStoreUrl;
