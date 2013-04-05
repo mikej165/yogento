@@ -2,7 +2,6 @@ namespace java com.yogento.api.models.catalog.product.magento
 namespace * yogento.api.models.catalog.product.magento
 
 include "thryft/util/decimal.thrift"
-include "thryft/util/date.thrift"
 include "thryft/util/date_time.thrift"
 include "yogento/api/models/catalog/product/magento/magento_product_image.thrift"
 include "yogento/api/models/catalog/product/magento/magento_product_status.thrift"
@@ -18,7 +17,7 @@ struct MagentoProduct {
     optional bool is_in_stock;
     optional bool is_qty_decimal;
     optional bool is_recurring;
-    optional date.Date low_stock_date;
+    optional date_time.DateTime low_stock_date;
     optional decimal.Decimal max_sale_qty;
     optional string meta_description;
     optional string meta_keyword;
@@ -28,8 +27,8 @@ struct MagentoProduct {
     optional decimal.Decimal min_sale_qty;
     optional string model;
     required string name;
-    optional date.Date news_from_date;
-    optional date.Date news_to_date;
+    optional date_time.DateTime news_from_date;
+    optional date_time.DateTime news_to_date;
     optional decimal.Decimal notify_stock_qty;
     // Optional in 1.3
     optional decimal.Decimal price;
@@ -37,9 +36,9 @@ struct MagentoProduct {
     optional string shipping_policy;
     required string short_description;
     required string sku;
-    optional date.Date special_from_date;
+    optional date_time.DateTime special_from_date;
     optional decimal.Decimal special_price;
-    optional date.Date special_to_date;
+    optional date_time.DateTime special_to_date;
     required string store;
     // Optional in 1.3
     optional magento_product_status.MagentoProductStatus status;
