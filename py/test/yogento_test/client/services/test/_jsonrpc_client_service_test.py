@@ -29,10 +29,36 @@
 # OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
 # OF SUCH DAMAGE.
 #-------------------------------------------------------------------------------
+from yogento.api.services.user_settings.no_such_user_settings_exception import \
+    NoSuchUserSettingsException
+from yogento.client.services.user_settings.impl.jsonrpc_client_user_settings_service import \
+    JsonrpcClientUserSettingsService
+import logging
 
-from yogento_test.client.services.test._web_client_service_test import \
-    _WebClientServiceTest
 
+class _JsonrpcClientServiceTest(object):
+    API_PASSWORD = '_web_service_test'
+    API_NETINFO = None
+    API_PATH = None
+    API_USERNAME = '_web_service_test'
+    API_URL = None
+    for api_netinfo, api_path in (
+        ('localhost:8080', '/yogento/api/'),
+        ('yogento.com', '/api/'),
+    ):
+        api_url = "http://%(API_USERNAME)s:%(API_PASSWORD)s@%(api_netinfo)s%(api_path)s" % locals()
+        try:
+            JsonrpcClientUserSettingsService(api_url).get_current_user_settings()
+        except NoSuchUserSettingsException:
+            pass
+        except:
+            logging.error("unable to contact %s", api_netinfo, exc_info=True)
+            continue
+        API_NETINFO = api_netinfo
+        API_PATH = api_path
+        API_URL = api_url
+        break
 
-class _JsonrpcClientServiceTest(_WebClientServiceTest):
-    pass
+    HEADERS = {'User-Agent': 'Test'}
+
+    KWDS = {'api_url': API_URL, 'headers': HEADERS}

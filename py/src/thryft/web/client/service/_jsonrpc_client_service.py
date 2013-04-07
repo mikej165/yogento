@@ -30,19 +30,89 @@
 # OF SUCH DAMAGE.
 #-------------------------------------------------------------------------------
 
-from thryft.web.client.service._web_client_service import _WebClientService
 from thryft.core.protocol.builtins_protocol import BuiltinsProtocol
+from urlparse import urlparse
+import base64
+import logging
+import re
+import urllib2
 try:
     import json
 except ImportError:
     import simplejson as json
 
-class _JsonrpcClientService(_WebClientService):
-    def __init__(self, *args, **kwds):
-        _WebClientService.__init__(self, *args, **kwds)
+
+class _JsonrpcClientService(object):
+    def __init__(self, api_url, headers=None):
+        object.__init__(self)
+
+        if headers is None:
+            headers = {}
+        else:
+            if not isinstance(headers, dict):
+                raise TypeError(headers)
+            headers = headers.copy()
+
+        self.__api_url = api_url.rstrip('/')
+        parsed_api_url = urlparse(api_url)
+        parsed_api_url_netloc = parsed_api_url.netloc.split('@', 1)
+        if len(parsed_api_url_netloc) == 2:
+            username_password = parsed_api_url_netloc[0].split(':', 1)
+            if len(username_password) == 2:
+                username, password = username_password
+                netloc = parsed_api_url_netloc[1]
+                headers['Authorization'] = \
+                    'Basic ' + \
+                        base64.b64encode(
+                            "%s:%s" % (
+                                username,
+                                password
+                            )
+                        )
+                self.__api_url = \
+                    parsed_api_url.scheme + '://' + netloc + \
+                        parsed_api_url.path + \
+                        parsed_api_url.query
+
+    #            auth_handler = urllib2.HTTPBasicAuthHandler()
+    #            auth_handler.add_password(realm='Realm',
+    #                                      uri=self.__api_url,
+    #                                      user=username,
+    #                                      passwd=password)
+    #            opener = urllib2.build_opener(auth_handler)
+    #            urllib2.install_opener(opener)
+
+        self.__headers = headers
+
+        self.__logger = logging.getLogger(self.__class__.__module__ + '.' + self.__class__.__name__)
+
         self.__next_id = 1
 
-    def _request(self, method, **kwds):
+    @staticmethod
+    def _import_exception_class(exception_class_qname):
+        def decamelize(name):
+            return re.sub('(((?<=[a-z])[A-Z])|([A-Z](?![A-Z]|$)))', '_\\1', name)\
+                       .lower()\
+                       .strip('_')
+
+        exception_class_qname = exception_class_qname.split('.')
+        if len(exception_class_qname) < 2:
+            raise
+        elif exception_class_qname[0] not in ('com', 'org'):
+            raise
+
+        exception_class_name = exception_class_qname[-1]
+        exception_module_qname = \
+            exception_class_qname[1:-1] + \
+                [decamelize(exception_class_name)]
+
+        exception_module = __import__('.'.join(exception_module_qname))
+        for module_name in exception_module_qname[1:]:
+            exception_module = getattr(exception_module, module_name)
+
+        return getattr(exception_module, exception_class_name)
+
+    def _request(self, method, headers=None, **kwds):
         request = {'jsonrpc': '2.0', 'method': method}
         request['id'] = id(request)
         params = {}
@@ -56,9 +126,25 @@ class _JsonrpcClientService(_WebClientService):
         request['params'] = params
         request_json = json.dumps(request)
 
-        response = _WebClientService._request(self, 'POST', '', request_json)
+        if headers is not None:
+            headers = headers.copy()
+            headers.update(self.__headers)
+        else:
+            headers = self.__headers
 
-        response_json = self._read_response(response)
+        request = urllib2.Request(self.__api_url, request_json, headers)
+        request.get_method = lambda: 'POST'
+
+        response = urllib2.urlopen(request)
+
+        response_json = []
+        while True:
+            response_datum = response.read()
+            if len(response_datum) == 0:
+                break
+            response_json.append(response_datum)
+        response_json = ''.join(response_json)
+
         response = json.loads(response_json)
         if response.get('id') != str(request['id']):
             raise RuntimeError("JSON-RPC: mismatched id: got %s, expected %s" % (response.get('id'), request['id']))
