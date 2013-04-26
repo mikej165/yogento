@@ -198,7 +198,7 @@ class CampaignCreateOptions(object):
 
         if from_email is None:
             raise ValueError('from_email is required')
-        if not isinstance(from_email, basestring):
+        if not isinstance(from_email, str):
             raise TypeError(getattr(__builtin__, 'type')(from_email))
         self.__from_email = from_email
 
@@ -342,7 +342,7 @@ class CampaignCreateOptions(object):
         field_reprs = []
         field_reprs.append('list_id=' + "'" + self.list_id.encode('ascii', 'replace') + "'")
         field_reprs.append('subject=' + "'" + self.subject.encode('ascii', 'replace') + "'")
-        field_reprs.append('from_email=' + "'" + self.from_email.encode('ascii', 'replace') + "'")
+        field_reprs.append('from_email=' + repr(self.from_email))
         field_reprs.append('from_name=' + "'" + self.from_name.encode('ascii', 'replace') + "'")
         field_reprs.append('to_name=' + "'" + self.to_name.encode('ascii', 'replace') + "'")
         if self.template_id is not None:
@@ -381,7 +381,7 @@ class CampaignCreateOptions(object):
         field_reprs = []
         field_reprs.append('list_id=' + "'" + self.list_id.encode('ascii', 'replace') + "'")
         field_reprs.append('subject=' + "'" + self.subject.encode('ascii', 'replace') + "'")
-        field_reprs.append('from_email=' + "'" + self.from_email.encode('ascii', 'replace') + "'")
+        field_reprs.append('from_email=' + repr(self.from_email))
         field_reprs.append('from_name=' + "'" + self.from_name.encode('ascii', 'replace') + "'")
         field_reprs.append('to_name=' + "'" + self.to_name.encode('ascii', 'replace') + "'")
         if self.template_id is not None:
@@ -646,8 +646,8 @@ class CampaignCreateOptions(object):
         oprot.writeString(self.subject)
         oprot.writeFieldEnd()
 
-        oprot.writeFieldBegin('from_email', 11, -1)
-        oprot.writeString(self.from_email)
+        oprot.writeFieldBegin('from_email', 12, -1)
+        oprot.writeEmailAddress(self.from_email) if hasattr(oprot, 'writeEmailAddress') else oprot.writeString(str(self.from_email))
         oprot.writeFieldEnd()
 
         oprot.writeFieldBegin('from_name', 11, -1)

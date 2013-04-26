@@ -48,7 +48,7 @@ class OAuth2Metadata(object):
     ):
         if api_endpoint is None:
             raise ValueError('api_endpoint is required')
-        if not isinstance(api_endpoint, basestring):
+        if not isinstance(api_endpoint, str):
             raise TypeError(getattr(__builtin__, 'type')(api_endpoint))
         self.__api_endpoint = api_endpoint
 
@@ -60,7 +60,7 @@ class OAuth2Metadata(object):
 
         if login_url is None:
             raise ValueError('login_url is required')
-        if not isinstance(login_url, basestring):
+        if not isinstance(login_url, str):
             raise TypeError(getattr(__builtin__, 'type')(login_url))
         self.__login_url = login_url
 
@@ -81,16 +81,16 @@ class OAuth2Metadata(object):
 
     def __repr__(self):
         field_reprs = []
-        field_reprs.append('api_endpoint=' + "'" + self.api_endpoint.encode('ascii', 'replace') + "'")
+        field_reprs.append('api_endpoint=' + repr(self.api_endpoint))
         field_reprs.append('dc=' + "'" + self.dc.encode('ascii', 'replace') + "'")
-        field_reprs.append('login_url=' + "'" + self.login_url.encode('ascii', 'replace') + "'")
+        field_reprs.append('login_url=' + repr(self.login_url))
         return 'OAuth2Metadata(' + ', '.join(field_reprs) + ')'
 
     def __str__(self):
         field_reprs = []
-        field_reprs.append('api_endpoint=' + "'" + self.api_endpoint.encode('ascii', 'replace') + "'")
+        field_reprs.append('api_endpoint=' + repr(self.api_endpoint))
         field_reprs.append('dc=' + "'" + self.dc.encode('ascii', 'replace') + "'")
-        field_reprs.append('login_url=' + "'" + self.login_url.encode('ascii', 'replace') + "'")
+        field_reprs.append('login_url=' + repr(self.login_url))
         return 'OAuth2Metadata(' + ', '.join(field_reprs) + ')'
 
     @property
@@ -140,16 +140,16 @@ class OAuth2Metadata(object):
     def write(self, oprot):
         oprot.writeStructBegin('OAuth2Metadata')
 
-        oprot.writeFieldBegin('api_endpoint', 11, -1)
-        oprot.writeString(self.api_endpoint)
+        oprot.writeFieldBegin('api_endpoint', 12, -1)
+        oprot.writeUrl(self.api_endpoint) if hasattr(oprot, 'writeUrl') else oprot.writeString(str(self.api_endpoint))
         oprot.writeFieldEnd()
 
         oprot.writeFieldBegin('dc', 11, -1)
         oprot.writeString(self.dc)
         oprot.writeFieldEnd()
 
-        oprot.writeFieldBegin('login_url', 11, -1)
-        oprot.writeString(self.login_url)
+        oprot.writeFieldBegin('login_url', 12, -1)
+        oprot.writeUrl(self.login_url) if hasattr(oprot, 'writeUrl') else oprot.writeString(str(self.login_url))
         oprot.writeFieldEnd()
 
         oprot.writeFieldStop()

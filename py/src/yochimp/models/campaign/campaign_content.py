@@ -73,7 +73,7 @@ class CampaignContent(object):
         self.__text = text
 
         if url is not None:
-            if not isinstance(url, basestring):
+            if not isinstance(url, str):
                 raise TypeError(getattr(__builtin__, 'type')(url))
         self.__url = url
 
@@ -113,7 +113,7 @@ class CampaignContent(object):
         if self.text is not None:
             field_reprs.append('text=' + "'" + self.text.encode('ascii', 'replace') + "'")
         if self.url is not None:
-            field_reprs.append('url=' + "'" + self.url.encode('ascii', 'replace') + "'")
+            field_reprs.append('url=' + repr(self.url))
         if self.archive is not None:
             field_reprs.append('archive=' + "'" + self.archive.encode('ascii', 'replace') + "'")
         if self.archive_type is not None:
@@ -127,7 +127,7 @@ class CampaignContent(object):
         if self.text is not None:
             field_reprs.append('text=' + "'" + self.text.encode('ascii', 'replace') + "'")
         if self.url is not None:
-            field_reprs.append('url=' + "'" + self.url.encode('ascii', 'replace') + "'")
+            field_reprs.append('url=' + repr(self.url))
         if self.archive is not None:
             field_reprs.append('archive=' + "'" + self.archive.encode('ascii', 'replace') + "'")
         if self.archive_type is not None:
@@ -169,10 +169,7 @@ class CampaignContent(object):
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'url':
-                try:
-                    init_kwds['url'] = iprot.readString()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['url'] = iprot.readString()
             elif ifield_name == 'archive':
                 try:
                     init_kwds['archive'] = iprot.readString()
@@ -223,8 +220,8 @@ class CampaignContent(object):
             oprot.writeFieldEnd()
 
         if self.url is not None:
-            oprot.writeFieldBegin('url', 11, -1)
-            oprot.writeString(self.url)
+            oprot.writeFieldBegin('url', 12, -1)
+            oprot.writeUrl(self.url) if hasattr(oprot, 'writeUrl') else oprot.writeString(str(self.url))
             oprot.writeFieldEnd()
 
         if self.archive is not None:

@@ -137,7 +137,7 @@ class AccountContactDetails(object):
         self.__lname = lname
 
         if email is not None:
-            if not isinstance(email, basestring):
+            if not isinstance(email, str):
                 raise TypeError(getattr(__builtin__, 'type')(email))
         self.__email = email
 
@@ -177,7 +177,7 @@ class AccountContactDetails(object):
         self.__country = country
 
         if url is not None:
-            if not isinstance(url, basestring):
+            if not isinstance(url, str):
                 raise TypeError(getattr(__builtin__, 'type')(url))
         self.__url = url
 
@@ -233,7 +233,7 @@ class AccountContactDetails(object):
         if self.lname is not None:
             field_reprs.append('lname=' + "'" + self.lname.encode('ascii', 'replace') + "'")
         if self.email is not None:
-            field_reprs.append('email=' + "'" + self.email.encode('ascii', 'replace') + "'")
+            field_reprs.append('email=' + repr(self.email))
         if self.company is not None:
             field_reprs.append('company=' + "'" + self.company.encode('ascii', 'replace') + "'")
         if self.address1 is not None:
@@ -249,7 +249,7 @@ class AccountContactDetails(object):
         if self.country is not None:
             field_reprs.append('country=' + "'" + self.country.encode('ascii', 'replace') + "'")
         if self.url is not None:
-            field_reprs.append('url=' + "'" + self.url.encode('ascii', 'replace') + "'")
+            field_reprs.append('url=' + repr(self.url))
         if self.phone is not None:
             field_reprs.append('phone=' + "'" + self.phone.encode('ascii', 'replace') + "'")
         if self.fax is not None:
@@ -263,7 +263,7 @@ class AccountContactDetails(object):
         if self.lname is not None:
             field_reprs.append('lname=' + "'" + self.lname.encode('ascii', 'replace') + "'")
         if self.email is not None:
-            field_reprs.append('email=' + "'" + self.email.encode('ascii', 'replace') + "'")
+            field_reprs.append('email=' + repr(self.email))
         if self.company is not None:
             field_reprs.append('company=' + "'" + self.company.encode('ascii', 'replace') + "'")
         if self.address1 is not None:
@@ -279,7 +279,7 @@ class AccountContactDetails(object):
         if self.country is not None:
             field_reprs.append('country=' + "'" + self.country.encode('ascii', 'replace') + "'")
         if self.url is not None:
-            field_reprs.append('url=' + "'" + self.url.encode('ascii', 'replace') + "'")
+            field_reprs.append('url=' + repr(self.url))
         if self.phone is not None:
             field_reprs.append('phone=' + "'" + self.phone.encode('ascii', 'replace') + "'")
         if self.fax is not None:
@@ -349,10 +349,7 @@ class AccountContactDetails(object):
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'email':
-                try:
-                    init_kwds['email'] = iprot.readString()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['email'] = iprot.readString()
             elif ifield_name == 'company':
                 try:
                     init_kwds['company'] = iprot.readString()
@@ -389,10 +386,7 @@ class AccountContactDetails(object):
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'url':
-                try:
-                    init_kwds['url'] = iprot.readString()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['url'] = iprot.readString()
             elif ifield_name == 'phone':
                 try:
                     init_kwds['phone'] = iprot.readString()
@@ -459,8 +453,8 @@ class AccountContactDetails(object):
             oprot.writeFieldEnd()
 
         if self.email is not None:
-            oprot.writeFieldBegin('email', 11, -1)
-            oprot.writeString(self.email)
+            oprot.writeFieldBegin('email', 12, -1)
+            oprot.writeEmailAddress(self.email) if hasattr(oprot, 'writeEmailAddress') else oprot.writeString(str(self.email))
             oprot.writeFieldEnd()
 
         if self.company is not None:
@@ -499,8 +493,8 @@ class AccountContactDetails(object):
             oprot.writeFieldEnd()
 
         if self.url is not None:
-            oprot.writeFieldBegin('url', 11, -1)
-            oprot.writeString(self.url)
+            oprot.writeFieldBegin('url', 12, -1)
+            oprot.writeUrl(self.url) if hasattr(oprot, 'writeUrl') else oprot.writeString(str(self.url))
             oprot.writeFieldEnd()
 
         if self.phone is not None:

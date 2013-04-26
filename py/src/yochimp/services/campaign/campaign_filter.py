@@ -175,7 +175,7 @@ class CampaignFilter(object):
         self.__from_name = from_name
 
         if from_email is not None:
-            if not isinstance(from_email, basestring):
+            if not isinstance(from_email, str):
                 raise TypeError(getattr(__builtin__, 'type')(from_email))
         self.__from_email = from_email
 
@@ -263,7 +263,7 @@ class CampaignFilter(object):
         if self.from_name is not None:
             field_reprs.append('from_name=' + "'" + self.from_name.encode('ascii', 'replace') + "'")
         if self.from_email is not None:
-            field_reprs.append('from_email=' + "'" + self.from_email.encode('ascii', 'replace') + "'")
+            field_reprs.append('from_email=' + repr(self.from_email))
         if self.title is not None:
             field_reprs.append('title=' + "'" + self.title.encode('ascii', 'replace') + "'")
         if self.subject is not None:
@@ -295,7 +295,7 @@ class CampaignFilter(object):
         if self.from_name is not None:
             field_reprs.append('from_name=' + "'" + self.from_name.encode('ascii', 'replace') + "'")
         if self.from_email is not None:
-            field_reprs.append('from_email=' + "'" + self.from_email.encode('ascii', 'replace') + "'")
+            field_reprs.append('from_email=' + repr(self.from_email))
         if self.title is not None:
             field_reprs.append('title=' + "'" + self.title.encode('ascii', 'replace') + "'")
         if self.subject is not None:
@@ -364,10 +364,7 @@ class CampaignFilter(object):
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'from_email':
-                try:
-                    init_kwds['from_email'] = iprot.readString()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['from_email'] = iprot.readString()
             elif ifield_name == 'title':
                 try:
                     init_kwds['title'] = iprot.readString()
@@ -523,8 +520,8 @@ class CampaignFilter(object):
             oprot.writeFieldEnd()
 
         if self.from_email is not None:
-            oprot.writeFieldBegin('from_email', 11, -1)
-            oprot.writeString(self.from_email)
+            oprot.writeFieldBegin('from_email', 12, -1)
+            oprot.writeEmailAddress(self.from_email) if hasattr(oprot, 'writeEmailAddress') else oprot.writeString(str(self.from_email))
             oprot.writeFieldEnd()
 
         if self.title is not None:

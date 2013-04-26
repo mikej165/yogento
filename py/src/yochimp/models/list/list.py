@@ -180,7 +180,7 @@ class List(object):
         self.__default_from_name = default_from_name
 
         if default_from_email is not None:
-            if not isinstance(default_from_email, basestring):
+            if not isinstance(default_from_email, str):
                 raise TypeError(getattr(__builtin__, 'type')(default_from_email))
         self.__default_from_email = default_from_email
 
@@ -200,12 +200,12 @@ class List(object):
         self.__list_rating = list_rating
 
         if subscribe_url_short is not None:
-            if not isinstance(subscribe_url_short, basestring):
+            if not isinstance(subscribe_url_short, str):
                 raise TypeError(getattr(__builtin__, 'type')(subscribe_url_short))
         self.__subscribe_url_short = subscribe_url_short
 
         if subscribe_url_long is not None:
-            if not isinstance(subscribe_url_long, basestring):
+            if not isinstance(subscribe_url_long, str):
                 raise TypeError(getattr(__builtin__, 'type')(subscribe_url_long))
         self.__subscribe_url_long = subscribe_url_long
 
@@ -275,7 +275,7 @@ class List(object):
         if self.default_from_name is not None:
             field_reprs.append('default_from_name=' + "'" + self.default_from_name.encode('ascii', 'replace') + "'")
         if self.default_from_email is not None:
-            field_reprs.append('default_from_email=' + "'" + self.default_from_email.encode('ascii', 'replace') + "'")
+            field_reprs.append('default_from_email=' + repr(self.default_from_email))
         if self.default_subject is not None:
             field_reprs.append('default_subject=' + "'" + self.default_subject.encode('ascii', 'replace') + "'")
         if self.default_language is not None:
@@ -283,9 +283,9 @@ class List(object):
         if self.list_rating is not None:
             field_reprs.append('list_rating=' + repr(self.list_rating))
         if self.subscribe_url_short is not None:
-            field_reprs.append('subscribe_url_short=' + "'" + self.subscribe_url_short.encode('ascii', 'replace') + "'")
+            field_reprs.append('subscribe_url_short=' + repr(self.subscribe_url_short))
         if self.subscribe_url_long is not None:
-            field_reprs.append('subscribe_url_long=' + "'" + self.subscribe_url_long.encode('ascii', 'replace') + "'")
+            field_reprs.append('subscribe_url_long=' + repr(self.subscribe_url_long))
         if self.beamer_address is not None:
             field_reprs.append('beamer_address=' + "'" + self.beamer_address.encode('ascii', 'replace') + "'")
         if self.visibility is not None:
@@ -309,7 +309,7 @@ class List(object):
         if self.default_from_name is not None:
             field_reprs.append('default_from_name=' + "'" + self.default_from_name.encode('ascii', 'replace') + "'")
         if self.default_from_email is not None:
-            field_reprs.append('default_from_email=' + "'" + self.default_from_email.encode('ascii', 'replace') + "'")
+            field_reprs.append('default_from_email=' + repr(self.default_from_email))
         if self.default_subject is not None:
             field_reprs.append('default_subject=' + "'" + self.default_subject.encode('ascii', 'replace') + "'")
         if self.default_language is not None:
@@ -317,9 +317,9 @@ class List(object):
         if self.list_rating is not None:
             field_reprs.append('list_rating=' + repr(self.list_rating))
         if self.subscribe_url_short is not None:
-            field_reprs.append('subscribe_url_short=' + "'" + self.subscribe_url_short.encode('ascii', 'replace') + "'")
+            field_reprs.append('subscribe_url_short=' + repr(self.subscribe_url_short))
         if self.subscribe_url_long is not None:
-            field_reprs.append('subscribe_url_long=' + "'" + self.subscribe_url_long.encode('ascii', 'replace') + "'")
+            field_reprs.append('subscribe_url_long=' + repr(self.subscribe_url_long))
         if self.beamer_address is not None:
             field_reprs.append('beamer_address=' + "'" + self.beamer_address.encode('ascii', 'replace') + "'")
         if self.visibility is not None:
@@ -414,10 +414,7 @@ class List(object):
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'default_from_email':
-                try:
-                    init_kwds['default_from_email'] = iprot.readString()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['default_from_email'] = iprot.readString()
             elif ifield_name == 'default_subject':
                 try:
                     init_kwds['default_subject'] = iprot.readString()
@@ -434,15 +431,9 @@ class List(object):
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'subscribe_url_short':
-                try:
-                    init_kwds['subscribe_url_short'] = iprot.readString()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['subscribe_url_short'] = iprot.readString()
             elif ifield_name == 'subscribe_url_long':
-                try:
-                    init_kwds['subscribe_url_long'] = iprot.readString()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['subscribe_url_long'] = iprot.readString()
             elif ifield_name == 'beamer_address':
                 try:
                     init_kwds['beamer_address'] = iprot.readString()
@@ -550,8 +541,8 @@ class List(object):
             oprot.writeFieldEnd()
 
         if self.default_from_email is not None:
-            oprot.writeFieldBegin('default_from_email', 11, -1)
-            oprot.writeString(self.default_from_email)
+            oprot.writeFieldBegin('default_from_email', 12, -1)
+            oprot.writeEmailAddress(self.default_from_email) if hasattr(oprot, 'writeEmailAddress') else oprot.writeString(str(self.default_from_email))
             oprot.writeFieldEnd()
 
         if self.default_subject is not None:
@@ -570,13 +561,13 @@ class List(object):
             oprot.writeFieldEnd()
 
         if self.subscribe_url_short is not None:
-            oprot.writeFieldBegin('subscribe_url_short', 11, -1)
-            oprot.writeString(self.subscribe_url_short)
+            oprot.writeFieldBegin('subscribe_url_short', 12, -1)
+            oprot.writeUrl(self.subscribe_url_short) if hasattr(oprot, 'writeUrl') else oprot.writeString(str(self.subscribe_url_short))
             oprot.writeFieldEnd()
 
         if self.subscribe_url_long is not None:
-            oprot.writeFieldBegin('subscribe_url_long', 11, -1)
-            oprot.writeString(self.subscribe_url_long)
+            oprot.writeFieldBegin('subscribe_url_long', 12, -1)
+            oprot.writeUrl(self.subscribe_url_long) if hasattr(oprot, 'writeUrl') else oprot.writeString(str(self.subscribe_url_long))
             oprot.writeFieldEnd()
 
         if self.beamer_address is not None:
