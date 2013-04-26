@@ -14,9 +14,9 @@ include "yogento/api/services/mail/mail_exception.thrift"
 
 service MailService {
     /**
-        Delete a campaign.
-        Never calls the mail service provider; will orphan a campaign on the
-            mail service provider if the campaign has been sent.
+     *  Delete a campaign.
+     *  Never calls the mail service provider; will orphan a campaign on the
+     *      mail service provider if the campaign has been sent.
      */
     bool
     delete_mail_campaign(
@@ -25,11 +25,11 @@ service MailService {
     ) throws (mail_exception.MailException e);
 
     /**
-        Get a locally-stored campaign.
-        Used as an intermediate "restore" before sending a campaign to the mail
-            service provider.
-        Never calls the mail service provider.
-     **/
+     *  Get a locally-stored campaign.
+     *  Used as an intermediate "restore" before sending a campaign to the mail
+     *      service provider.
+     *  Never calls the mail service provider.
+     */
     mail_campaign.MailCampaign
     get_mail_campaign(
         required string cid,
@@ -37,15 +37,15 @@ service MailService {
     ) throws (mail_exception.MailException e);
 
     /**
-        Get all locally-stored campaigns, sans content.
+     *  Get all locally-stored campaigns, sans content.
      */
     set<mail_campaign.MailCampaign>
     get_mail_campaigns(optional bool include_content)
     throws (mail_exception.MailException e);
 
     /**
-        Get the campaign statistics kept by the mail service provider.
-        Always calls the mail service provider, stores nothing locally.
+     * Get the campaign statistics kept by the mail service provider.
+     * Always calls the mail service provider, stores nothing locally.
      */
     mail_campaign_stats.MailCampaignStats
     get_mail_campaign_stats(
@@ -53,16 +53,20 @@ service MailService {
     ) throws (mail_exception.MailException e);
 
     /**
-        Get the lists of subscribers kept by the mail service provider.
-        Always calls the mail service provider, stores nothing locally.
+     *   Get the lists of subscribers kept by the mail service provider.
+     *   Always calls the mail service provider, stores nothing locally.
      */
     set<mail_list.MailList>
     get_mail_lists()
     throws (mail_exception.MailException e);
 
     /**
-        Get the templates kept by the mail service provider.
-        Always calls the mail service provider, stores nothing locally.
+     * Get the templates kept by the mail service provider.
+     * Always calls the mail service provider, stores nothing locally.
+     *
+     * @param types types of mail templates to include
+     * @return set of matching mail templates
+     * @throw MailException generic MailException on any error
      */
     set<mail_template.MailTemplate>
     get_mail_templates(
@@ -70,8 +74,8 @@ service MailService {
     ) throws (mail_exception.MailException e);
 
     /**
-        Get information about a template from the mail service provider.
-        Always calls the mail service provider, stores nothing locally.
+     *   Get information about a template from the mail service provider.
+     *   Always calls the mail service provider, stores nothing locally.
      */
     mail_template_info.MailTemplateInfo
     get_mail_template_info(
@@ -80,10 +84,10 @@ service MailService {
     ) throws (mail_exception.MailException e);
 
     /**
-        Send a mail campaign to the mail service provider.
-        Always calls the mail service provider.
-        Overwrites locally-stored campaign and campaign content.
-        Returns an updated copy of the campaign with e.g., new IDs.
+     *   Send a mail campaign to the mail service provider.
+     *   Always calls the mail service provider.
+     *   Overwrites locally-stored campaign and campaign content.
+     *   Returns an updated copy of the campaign with e.g., new IDs.
      */
     mail_campaign.MailCampaign
     post_mail_campaign(
@@ -94,10 +98,10 @@ service MailService {
     ) throws (mail_exception.MailException e);
 
     /**
-        Overwrite the mail campaign.
-        Used as an intermediate "save" before sending a campaign.
-        Copies to the mail service provider if write_through is true.
-        Returns an updated copy of the campaign with e.g., new IDs.
+     *   Overwrite the mail campaign.
+     *   Used as an intermediate "save" before sending a campaign.
+     *   Copies to the mail service provider if write_through is true.
+     *   Returns an updated copy of the campaign with e.g., new IDs.
      */
     mail_campaign.MailCampaign
     put_mail_campaign(
