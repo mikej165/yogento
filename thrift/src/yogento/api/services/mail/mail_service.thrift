@@ -2,6 +2,7 @@ namespace java com.yogento.api.services.mail
 namespace * yogento.api.services.mail
 
 include "thryft/util/date_time.thrift"
+include "thryft/util/email_address.thrift"
 include "yogento/api/models/mail/campaign/mail_campaign.thrift"
 include "yogento/api/models/mail/campaign/mail_campaign_content.thrift"
 include "yogento/api/models/mail/campaign/mail_campaign_stats.thrift"
@@ -89,7 +90,7 @@ service MailService {
         required mail_campaign.MailCampaign campaign,
         optional date_time.DateTime schedule_time,
         optional date_time.DateTime schedule_time_b,
-        optional list<string> test_emails
+        optional list<email_address.EmailAddress> test_emails
     ) throws (mail_exception.MailException e);
 
     /**

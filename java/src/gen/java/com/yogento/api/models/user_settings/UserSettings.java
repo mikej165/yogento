@@ -16,7 +16,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
             this.useSampleData = other.isUseSampleData();
         }
 
-        protected UserSettings _build(final String displayName, final String email, final String logoImageUrl, final String magentoStoreUrl, final org.joda.time.DateTime productsMtime, final com.google.common.collect.ImmutableList<String> productSearchQueries, final Boolean useSampleData) {
+        protected UserSettings _build(final String displayName, final javax.mail.internet.InternetAddress email, final java.net.URL logoImageUrl, final java.net.URL magentoStoreUrl, final org.joda.time.DateTime productsMtime, final com.google.common.collect.ImmutableList<String> productSearchQueries, final Boolean useSampleData) {
             return new UserSettings(displayName, email, logoImageUrl, magentoStoreUrl, productsMtime, productSearchQueries, useSampleData);
         }
 
@@ -29,17 +29,17 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
             return this;
         }
 
-        public Builder setEmail(final String email) {
+        public Builder setEmail(final javax.mail.internet.InternetAddress email) {
             this.email = email;
             return this;
         }
 
-        public Builder setLogoImageUrl(final String logoImageUrl) {
+        public Builder setLogoImageUrl(final java.net.URL logoImageUrl) {
             this.logoImageUrl = logoImageUrl;
             return this;
         }
 
-        public Builder setMagentoStoreUrl(final String magentoStoreUrl) {
+        public Builder setMagentoStoreUrl(final java.net.URL magentoStoreUrl) {
             this.magentoStoreUrl = magentoStoreUrl;
             return this;
         }
@@ -60,9 +60,9 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         }
 
         private String displayName;
-        private String email;
-        private String logoImageUrl;
-        private String magentoStoreUrl;
+        private javax.mail.internet.InternetAddress email;
+        private java.net.URL logoImageUrl;
+        private java.net.URL magentoStoreUrl;
         private org.joda.time.DateTime productsMtime;
         private com.google.common.collect.ImmutableList<String> productSearchQueries;
         private Boolean useSampleData;
@@ -88,9 +88,9 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
 
     public UserSettings(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
         String displayName = null;
-        String email = null;
-        String logoImageUrl = null;
-        String magentoStoreUrl = null;
+        javax.mail.internet.InternetAddress email = null;
+        java.net.URL logoImageUrl = null;
+        java.net.URL magentoStoreUrl = null;
         org.joda.time.DateTime productsMtime = null;
         com.google.common.collect.ImmutableList<String> productSearchQueries = null;
         Boolean useSampleData = null;
@@ -102,13 +102,22 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                     displayName = iprot.readString();
                 }
                 if (__list.size > 1) {
-                    email = iprot.readString();
+                    try {
+                        email = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readEmailAddress() : new javax.mail.internet.InternetAddress(iprot.readString());
+                    } catch (javax.mail.internet.AddressException e) {
+                    }
                 }
                 if (__list.size > 2) {
-                    logoImageUrl = iprot.readString();
+                    try {
+                        logoImageUrl = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readUrl() : new java.net.URL(iprot.readString());
+                    } catch (java.net.MalformedURLException e) {
+                    }
                 }
                 if (__list.size > 3) {
-                    magentoStoreUrl = iprot.readString();
+                    try {
+                        magentoStoreUrl = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readUrl() : new java.net.URL(iprot.readString());
+                    } catch (java.net.MalformedURLException e) {
+                    }
                 }
                 if (__list.size > 4) {
                     try {
@@ -150,11 +159,20 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                     } else if (ifield.name.equals("display_name")) {
                         displayName = iprot.readString();
                     } else if (ifield.name.equals("email")) {
-                        email = iprot.readString();
+                        try {
+                            email = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readEmailAddress() : new javax.mail.internet.InternetAddress(iprot.readString());
+                        } catch (javax.mail.internet.AddressException e) {
+                        }
                     } else if (ifield.name.equals("logo_image_url")) {
-                        logoImageUrl = iprot.readString();
+                        try {
+                            logoImageUrl = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readUrl() : new java.net.URL(iprot.readString());
+                        } catch (java.net.MalformedURLException e) {
+                        }
                     } else if (ifield.name.equals("magento_store_url")) {
-                        magentoStoreUrl = iprot.readString();
+                        try {
+                            magentoStoreUrl = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readUrl() : new java.net.URL(iprot.readString());
+                        } catch (java.net.MalformedURLException e) {
+                        }
                     } else if (ifield.name.equals("products_mtime")) {
                         try {
                             productsMtime = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
@@ -195,7 +213,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         this.useSampleData = useSampleData;
     }
 
-    public UserSettings(final String displayName, final String email, final String logoImageUrl, final String magentoStoreUrl, final org.joda.time.DateTime productsMtime, final com.google.common.collect.ImmutableList<String> productSearchQueries, final Boolean useSampleData) {
+    public UserSettings(final String displayName, final javax.mail.internet.InternetAddress email, final java.net.URL logoImageUrl, final java.net.URL magentoStoreUrl, final org.joda.time.DateTime productsMtime, final com.google.common.collect.ImmutableList<String> productSearchQueries, final Boolean useSampleData) {
         this.displayName = displayName != null ? org.thryft.core.Preconditions.checkNotEmpty(displayName, "com.yogento.api.models.user_settings.UserSettings: displayName is empty") : null;
         this.email = email;
         this.logoImageUrl = logoImageUrl;
@@ -281,7 +299,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         return displayName;
     }
 
-    public final String getEmail() {
+    public final javax.mail.internet.InternetAddress getEmail() {
         return email;
     }
 
@@ -290,11 +308,11 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         throw new UnsupportedOperationException();
     }
 
-    public final String getLogoImageUrl() {
+    public final java.net.URL getLogoImageUrl() {
         return logoImageUrl;
     }
 
-    public final String getMagentoStoreUrl() {
+    public final java.net.URL getMagentoStoreUrl() {
         return magentoStoreUrl;
     }
 
@@ -397,19 +415,19 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                 }
 
                 if (getEmail() != null) {
-                    oprot.writeString(getEmail());
+                    if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeEmailAddress(getEmail()); } else { oprot.writeString(getEmail().toString()); }
                 } else {
                     ((org.thryft.core.protocol.Protocol)oprot).writeNull();
                 }
 
                 if (getLogoImageUrl() != null) {
-                    oprot.writeString(getLogoImageUrl());
+                    if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeUrl(getLogoImageUrl()); } else { oprot.writeString(getLogoImageUrl().toString()); }
                 } else {
                     ((org.thryft.core.protocol.Protocol)oprot).writeNull();
                 }
 
                 if (getMagentoStoreUrl() != null) {
-                    oprot.writeString(getMagentoStoreUrl());
+                    if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeUrl(getMagentoStoreUrl()); } else { oprot.writeString(getMagentoStoreUrl().toString()); }
                 } else {
                     ((org.thryft.core.protocol.Protocol)oprot).writeNull();
                 }
@@ -450,20 +468,20 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                 }
 
                 if (getEmail() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("email", org.apache.thrift.protocol.TType.STRING, (short)-1));
-                    oprot.writeString(getEmail());
+                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("email", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
+                    if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeEmailAddress(getEmail()); } else { oprot.writeString(getEmail().toString()); }
                     oprot.writeFieldEnd();
                 }
 
                 if (getLogoImageUrl() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("logo_image_url", org.apache.thrift.protocol.TType.STRING, (short)-1));
-                    oprot.writeString(getLogoImageUrl());
+                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("logo_image_url", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
+                    if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeUrl(getLogoImageUrl()); } else { oprot.writeString(getLogoImageUrl().toString()); }
                     oprot.writeFieldEnd();
                 }
 
                 if (getMagentoStoreUrl() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("magento_store_url", org.apache.thrift.protocol.TType.STRING, (short)-1));
-                    oprot.writeString(getMagentoStoreUrl());
+                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("magento_store_url", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
+                    if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeUrl(getMagentoStoreUrl()); } else { oprot.writeString(getMagentoStoreUrl().toString()); }
                     oprot.writeFieldEnd();
                 }
 
@@ -497,9 +515,9 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
     }
 
     private final String displayName;
-    private final String email;
-    private final String logoImageUrl;
-    private final String magentoStoreUrl;
+    private final javax.mail.internet.InternetAddress email;
+    private final java.net.URL logoImageUrl;
+    private final java.net.URL magentoStoreUrl;
     private final org.joda.time.DateTime productsMtime;
     private final com.google.common.collect.ImmutableList<String> productSearchQueries;
     private final Boolean useSampleData;

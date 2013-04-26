@@ -2,6 +2,8 @@ namespace java com.yogento.api.models.user_settings
 namespace * yogento.api.models.user_settings
 
 include "thryft/util/date_time.thrift"
+include "thryft/util/email_address.thrift"
+include "thryft/util/url.thrift"
 
 struct UserSettings {
     /**
@@ -12,17 +14,17 @@ struct UserSettings {
     /**
      * @validation {"pattern": "email"}
      */
-    optional string email;
+    optional email_address.EmailAddress email;
 
     /**
      * @validation {"pattern": "url"}
      */
-    optional string logo_image_url;
+    optional url.Url logo_image_url;
 
     /**
      *@validation {"pattern": "url"}
      */
-    optional string magento_store_url;
+    optional url.Url magento_store_url;
 
     optional date_time.DateTime products_mtime;
 

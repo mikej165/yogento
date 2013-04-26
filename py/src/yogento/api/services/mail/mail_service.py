@@ -137,7 +137,7 @@ class MailService(object):
             if not isinstance(schedule_time_b, datetime):
                 raise TypeError(getattr(__builtin__, 'type')(schedule_time_b))
         if test_emails is not None:
-            if not (isinstance(test_emails, tuple) and len(list(ifilterfalse(lambda _: isinstance(_, basestring), test_emails))) == 0):
+            if not (isinstance(test_emails, tuple) and len(list(ifilterfalse(lambda _: isinstance(_, str), test_emails))) == 0):
                 raise TypeError(getattr(__builtin__, 'type')(test_emails))
 
         post_mail_campaign_return_value = self._post_mail_campaign(campaign=campaign, schedule_time=schedule_time, schedule_time_b=schedule_time_b, test_emails=test_emails)

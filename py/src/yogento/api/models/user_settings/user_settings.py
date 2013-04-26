@@ -87,17 +87,17 @@ class UserSettings(object):
         self.__display_name = display_name
 
         if email is not None:
-            if not isinstance(email, basestring):
+            if not isinstance(email, str):
                 raise TypeError(getattr(__builtin__, 'type')(email))
         self.__email = email
 
         if logo_image_url is not None:
-            if not isinstance(logo_image_url, basestring):
+            if not isinstance(logo_image_url, str):
                 raise TypeError(getattr(__builtin__, 'type')(logo_image_url))
         self.__logo_image_url = logo_image_url
 
         if magento_store_url is not None:
-            if not isinstance(magento_store_url, basestring):
+            if not isinstance(magento_store_url, str):
                 raise TypeError(getattr(__builtin__, 'type')(magento_store_url))
         self.__magento_store_url = magento_store_url
 
@@ -144,11 +144,11 @@ class UserSettings(object):
         if self.display_name is not None:
             field_reprs.append('display_name=' + "'" + self.display_name.encode('ascii', 'replace') + "'")
         if self.email is not None:
-            field_reprs.append('email=' + "'" + self.email.encode('ascii', 'replace') + "'")
+            field_reprs.append('email=' + repr(self.email))
         if self.logo_image_url is not None:
-            field_reprs.append('logo_image_url=' + "'" + self.logo_image_url.encode('ascii', 'replace') + "'")
+            field_reprs.append('logo_image_url=' + repr(self.logo_image_url))
         if self.magento_store_url is not None:
-            field_reprs.append('magento_store_url=' + "'" + self.magento_store_url.encode('ascii', 'replace') + "'")
+            field_reprs.append('magento_store_url=' + repr(self.magento_store_url))
         if self.products_mtime is not None:
             field_reprs.append('products_mtime=' + repr(self.products_mtime))
         if self.product_search_queries is not None:
@@ -162,11 +162,11 @@ class UserSettings(object):
         if self.display_name is not None:
             field_reprs.append('display_name=' + "'" + self.display_name.encode('ascii', 'replace') + "'")
         if self.email is not None:
-            field_reprs.append('email=' + "'" + self.email.encode('ascii', 'replace') + "'")
+            field_reprs.append('email=' + repr(self.email))
         if self.logo_image_url is not None:
-            field_reprs.append('logo_image_url=' + "'" + self.logo_image_url.encode('ascii', 'replace') + "'")
+            field_reprs.append('logo_image_url=' + repr(self.logo_image_url))
         if self.magento_store_url is not None:
-            field_reprs.append('magento_store_url=' + "'" + self.magento_store_url.encode('ascii', 'replace') + "'")
+            field_reprs.append('magento_store_url=' + repr(self.magento_store_url))
         if self.products_mtime is not None:
             field_reprs.append('products_mtime=' + repr(self.products_mtime))
         if self.product_search_queries is not None:
@@ -217,20 +217,11 @@ class UserSettings(object):
                 except (TypeError, ValueError,):
                     pass
             elif ifield_name == 'email':
-                try:
-                    init_kwds['email'] = iprot.readString()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['email'] = iprot.readString()
             elif ifield_name == 'logo_image_url':
-                try:
-                    init_kwds['logo_image_url'] = iprot.readString()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['logo_image_url'] = iprot.readString()
             elif ifield_name == 'magento_store_url':
-                try:
-                    init_kwds['magento_store_url'] = iprot.readString()
-                except (TypeError, ValueError,):
-                    pass
+                init_kwds['magento_store_url'] = iprot.readString()
             elif ifield_name == 'products_mtime':
                 try:
                     init_kwds['products_mtime'] = iprot.readDateTime() if hasattr(iprot, 'readDateTime') else datetime.fromtimestamp(iprot.readI64() / 1000.0)
@@ -278,18 +269,18 @@ class UserSettings(object):
             oprot.writeFieldEnd()
 
         if self.email is not None:
-            oprot.writeFieldBegin('email', 11, -1)
-            oprot.writeString(self.email)
+            oprot.writeFieldBegin('email', 12, -1)
+            oprot.writeEmailAddress(self.email) if hasattr(oprot, 'writeEmailAddress') else oprot.writeString(str(self.email))
             oprot.writeFieldEnd()
 
         if self.logo_image_url is not None:
-            oprot.writeFieldBegin('logo_image_url', 11, -1)
-            oprot.writeString(self.logo_image_url)
+            oprot.writeFieldBegin('logo_image_url', 12, -1)
+            oprot.writeUrl(self.logo_image_url) if hasattr(oprot, 'writeUrl') else oprot.writeString(str(self.logo_image_url))
             oprot.writeFieldEnd()
 
         if self.magento_store_url is not None:
-            oprot.writeFieldBegin('magento_store_url', 11, -1)
-            oprot.writeString(self.magento_store_url)
+            oprot.writeFieldBegin('magento_store_url', 12, -1)
+            oprot.writeUrl(self.magento_store_url) if hasattr(oprot, 'writeUrl') else oprot.writeString(str(self.magento_store_url))
             oprot.writeFieldEnd()
 
         if self.products_mtime is not None:
