@@ -229,5 +229,6 @@ public class AgentException extends java.lang.Exception implements org.apache.th
     }
 
     private final String causeMessage;
+
     private final String url;
 }

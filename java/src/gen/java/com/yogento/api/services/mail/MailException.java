@@ -215,5 +215,6 @@ public class MailException extends java.lang.Exception implements org.apache.thr
     }
 
     private final int code;
+
     private final String error;
 }

@@ -438,9 +438,14 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
     }
 
     private final Boolean exclude;
+
     private final String file;
+
     private final String label;
+
     private final Integer position;
+
     private final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> types;
+
     private final String url;
 }

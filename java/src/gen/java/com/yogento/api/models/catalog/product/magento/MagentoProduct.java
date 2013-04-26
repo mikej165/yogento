@@ -280,6 +280,9 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         private org.joda.time.DateTime newsFromDate;
         private org.joda.time.DateTime newsToDate;
         private java.math.BigDecimal notifyStockQty;
+        /**
+         * Optional in 1.3
+         */
         private java.math.BigDecimal price;
         private java.math.BigDecimal qty;
         private String shippingPolicy;
@@ -289,12 +292,24 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         private java.math.BigDecimal specialPrice;
         private org.joda.time.DateTime specialToDate;
         private String store;
+        /**
+         * Optional in 1.3
+         */
         private com.yogento.api.models.catalog.product.magento.MagentoProductStatus status;
         private com.google.common.collect.ImmutableSet<String> tags;
+        /**
+         * Optional in 1.3
+         */
         private String type;
         private org.joda.time.DateTime updatedAt;
         private String urlKey;
+        /**
+         * Optional in 1.3
+         */
         private String urlPath;
+        /**
+         * Formerly an enum; the strings differ between Magento versions
+         */
         private com.google.common.collect.ImmutableSet<String> visibility;
         private java.math.BigDecimal weight;
     }
@@ -1163,6 +1178,9 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         return notifyStockQty;
     }
 
+    /**
+     * Optional in 1.3
+     */
     public final java.math.BigDecimal getPrice() {
         return price;
     }
@@ -1195,6 +1213,9 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         return specialToDate;
     }
 
+    /**
+     * Optional in 1.3
+     */
     public final com.yogento.api.models.catalog.product.magento.MagentoProductStatus getStatus() {
         return status;
     }
@@ -1207,6 +1228,9 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         return tags;
     }
 
+    /**
+     * Optional in 1.3
+     */
     public final String getType() {
         return type;
     }
@@ -1219,10 +1243,16 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         return urlKey;
     }
 
+    /**
+     * Optional in 1.3
+     */
     public final String getUrlPath() {
         return urlPath;
     }
 
+    /**
+     * Formerly an enum; the strings differ between Magento versions
+     */
     public final com.google.common.collect.ImmutableSet<String> getVisibility() {
         return visibility;
     }
@@ -1988,43 +2018,97 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
     }
 
     private final String activationInformation;
+
     private final Integer backorders;
+
     private final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> children;
+
     private final java.math.BigDecimal cost;
+
     private final org.joda.time.DateTime createdAt;
+
     private final String description;
+
     private final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> images;
+
     private final Boolean isInStock;
+
     private final Boolean isQtyDecimal;
+
     private final Boolean isRecurring;
+
     private final org.joda.time.DateTime lowStockDate;
+
     private final java.math.BigDecimal maxSaleQty;
+
     private final String metaDescription;
+
     private final String metaKeyword;
+
     private final String metaTitle;
+
     private final java.math.BigDecimal minimalPrice;
+
     private final java.math.BigDecimal minQty;
+
     private final java.math.BigDecimal minSaleQty;
+
     private final String model;
+
     private final String name;
+
     private final org.joda.time.DateTime newsFromDate;
+
     private final org.joda.time.DateTime newsToDate;
+
     private final java.math.BigDecimal notifyStockQty;
+
+    /**
+     * Optional in 1.3
+     */
     private final java.math.BigDecimal price;
+
     private final java.math.BigDecimal qty;
+
     private final String shippingPolicy;
+
     private final String shortDescription;
+
     private final String sku;
+
     private final org.joda.time.DateTime specialFromDate;
+
     private final java.math.BigDecimal specialPrice;
+
     private final org.joda.time.DateTime specialToDate;
+
     private final String store;
+
+    /**
+     * Optional in 1.3
+     */
     private final com.yogento.api.models.catalog.product.magento.MagentoProductStatus status;
+
     private final com.google.common.collect.ImmutableSet<String> tags;
+
+    /**
+     * Optional in 1.3
+     */
     private final String type;
+
     private final org.joda.time.DateTime updatedAt;
+
     private final String urlKey;
+
+    /**
+     * Optional in 1.3
+     */
     private final String urlPath;
+
+    /**
+     * Formerly an enum; the strings differ between Magento versions
+     */
     private final com.google.common.collect.ImmutableSet<String> visibility;
+
     private final java.math.BigDecimal weight;
 }

@@ -210,5 +210,6 @@ public class ImageResolution implements org.apache.thrift.TBase<ImageResolution,
     }
 
     private final int heightPx;
+
     private final int widthPx;
 }

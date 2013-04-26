@@ -207,6 +207,7 @@ public interface ImageService {
             }
 
             private final String imageUrl;
+
             private final com.yogento.api.models.image.ImageResolution thumbnailResolution;
         }
 
@@ -569,6 +570,7 @@ public interface ImageService {
             }
 
             private final String imageUrl;
+
             private final com.yogento.api.models.image.ImageResolution thumbnailResolution;
         }
 
@@ -927,6 +929,7 @@ public interface ImageService {
             }
 
             private final java.nio.ByteBuffer image;
+
             private final String imageMimeSubtype;
         }
 
@@ -1082,6 +1085,8 @@ public interface ImageService {
     }
 
     public boolean deleteImageThumbnail(String imageUrl, com.yogento.api.models.image.ImageResolution thumbnailResolution);
+
     public String getImageThumbnailUrl(String imageUrl, com.yogento.api.models.image.ImageResolution thumbnailResolution) throws com.yogento.api.services.image.ImageIoException;
+
     public String putImage(java.nio.ByteBuffer image, String imageMimeSubtype) throws com.yogento.api.services.image.ImageIoException;
 }

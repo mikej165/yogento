@@ -373,8 +373,12 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
     }
 
     private final com.yogento.api.models.mail.campaign.MailCampaignContent content;
+
     private final String id;
+
     private final com.yochimp.models.campaign.Campaign mailChimpCampaign;
+
     private final String mailChimpTemplateId;
+
     private final com.yogento.api.models.mail.campaign.MailCampaignStatus status;
 }

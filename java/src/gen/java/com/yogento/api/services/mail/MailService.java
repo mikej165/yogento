@@ -226,6 +226,7 @@ public interface MailService {
             }
 
             private final String cid;
+
             private final Boolean writeThrough;
         }
 
@@ -607,6 +608,7 @@ public interface MailService {
             }
 
             private final String cid;
+
             private final Boolean includeContent;
         }
 
@@ -1821,6 +1823,9 @@ public interface MailService {
                     return this;
                 }
 
+                /**
+                 * types of mail templates to include
+                 */
                 private com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> types;
             }
 
@@ -1948,6 +1953,9 @@ public interface MailService {
                 throw new UnsupportedOperationException();
             }
 
+            /**
+             * types of mail templates to include
+             */
             public final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> getTypes() {
                 return types;
             }
@@ -2038,6 +2046,9 @@ public interface MailService {
                 }
             }
 
+            /**
+             * types of mail templates to include
+             */
             private final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> types;
         }
 
@@ -2064,6 +2075,9 @@ public interface MailService {
                     return this;
                 }
 
+                /**
+                 * set of matching mail templates
+                 */
                 private com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplate> returnValue;
             }
 
@@ -2139,6 +2153,9 @@ public interface MailService {
                 throw new UnsupportedOperationException();
             }
 
+            /**
+             * set of matching mail templates
+             */
             public final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplate> getReturnValue() {
                 return returnValue;
             }
@@ -2219,6 +2236,9 @@ public interface MailService {
                 }
             }
 
+            /**
+             * set of matching mail templates
+             */
             private final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplate> returnValue;
         }
 
@@ -2451,6 +2471,7 @@ public interface MailService {
             }
 
             private final int tid;
+
             private final com.yogento.api.models.mail.template.MailTemplateType type;
         }
 
@@ -2976,8 +2997,11 @@ public interface MailService {
             }
 
             private final com.yogento.api.models.mail.campaign.MailCampaign campaign;
+
             private final org.joda.time.DateTime scheduleTime;
+
             private final org.joda.time.DateTime scheduleTimeB;
+
             private final com.google.common.collect.ImmutableList<javax.mail.internet.InternetAddress> testEmails;
         }
 
@@ -3359,6 +3383,7 @@ public interface MailService {
             }
 
             private final com.yogento.api.models.mail.campaign.MailCampaign campaign;
+
             private final Boolean writeThrough;
         }
 
@@ -3517,13 +3542,75 @@ public interface MailService {
         }
     }
 
+    /**
+     * Delete a campaign.
+     * Never calls the mail service provider; will orphan a campaign on the
+     * mail service provider if the campaign has been sent.
+     *
+     */
     public boolean deleteMailCampaign(String cid, Boolean writeThrough) throws com.yogento.api.services.mail.MailException;
+
+    /**
+     * Get a locally-stored campaign.
+     * Used as an intermediate "restore" before sending a campaign to the mail
+     * service provider.
+     * Never calls the mail service provider.
+     *
+     */
     public com.yogento.api.models.mail.campaign.MailCampaign getMailCampaign(String cid, Boolean includeContent) throws com.yogento.api.services.mail.MailException;
+
+    /**
+     * Get all locally-stored campaigns, sans content.
+     *
+     */
     public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.campaign.MailCampaign> getMailCampaigns(Boolean includeContent) throws com.yogento.api.services.mail.MailException;
+
+    /**
+     * Get the campaign statistics kept by the mail service provider.
+     * Always calls the mail service provider, stores nothing locally.
+     *
+     */
     public com.yogento.api.models.mail.campaign.MailCampaignStats getMailCampaignStats(String cid) throws com.yogento.api.services.mail.MailException;
+
+    /**
+     * Get the lists of subscribers kept by the mail service provider.
+     * Always calls the mail service provider, stores nothing locally.
+     *
+     */
     public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.list.MailList> getMailLists() throws com.yogento.api.services.mail.MailException;
+
+    /**
+     * Get the templates kept by the mail service provider.
+     * Always calls the mail service provider, stores nothing locally.
+     *
+     * @param types types of mail templates to include
+     * @return set of matching mail templates
+     * @throws com.yogento.api.services.mail.MailException generic MailException on any error
+     */
     public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplate> getMailTemplates(com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> types) throws com.yogento.api.services.mail.MailException;
+
+    /**
+     * Get information about a template from the mail service provider.
+     * Always calls the mail service provider, stores nothing locally.
+     *
+     */
     public com.yogento.api.models.mail.template.MailTemplateInfo getMailTemplateInfo(int tid, com.yogento.api.models.mail.template.MailTemplateType type) throws com.yogento.api.services.mail.MailException;
+
+    /**
+     * Send a mail campaign to the mail service provider.
+     * Always calls the mail service provider.
+     * Overwrites locally-stored campaign and campaign content.
+     * Returns an updated copy of the campaign with e.g., new IDs.
+     *
+     */
     public com.yogento.api.models.mail.campaign.MailCampaign postMailCampaign(com.yogento.api.models.mail.campaign.MailCampaign campaign, org.joda.time.DateTime scheduleTime, org.joda.time.DateTime scheduleTimeB, com.google.common.collect.ImmutableList<javax.mail.internet.InternetAddress> testEmails) throws com.yogento.api.services.mail.MailException;
+
+    /**
+     * Overwrite the mail campaign.
+     * Used as an intermediate "save" before sending a campaign.
+     * Copies to the mail service provider if write_through is true.
+     * Returns an updated copy of the campaign with e.g., new IDs.
+     *
+     */
     public com.yogento.api.models.mail.campaign.MailCampaign putMailCampaign(com.yogento.api.models.mail.campaign.MailCampaign campaign, Boolean writeThrough) throws com.yogento.api.services.mail.MailException;
 }

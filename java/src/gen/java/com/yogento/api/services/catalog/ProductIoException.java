@@ -210,5 +210,6 @@ public class ProductIoException extends java.lang.Exception implements org.apach
     }
 
     private final String causeMessage;
+
     private final String sku;
 }

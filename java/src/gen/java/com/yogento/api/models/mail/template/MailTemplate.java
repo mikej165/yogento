@@ -205,5 +205,6 @@ public class MailTemplate implements org.apache.thrift.TBase<MailTemplate, org.a
     }
 
     private final com.yochimp.models.template.Template mailChimpTemplate;
+
     private final com.yogento.api.models.mail.template.MailTemplateType type;
 }

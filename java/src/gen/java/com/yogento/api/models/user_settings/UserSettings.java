@@ -59,9 +59,21 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
             return this;
         }
 
+        /**
+
+         */
         private String displayName;
+        /**
+
+         */
         private javax.mail.internet.InternetAddress email;
+        /**
+
+         */
         private java.net.URL logoImageUrl;
+        /**
+
+         */
         private java.net.URL magentoStoreUrl;
         private org.joda.time.DateTime productsMtime;
         private com.google.common.collect.ImmutableList<String> productSearchQueries;
@@ -295,10 +307,16 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         return null;
     }
 
+    /**
+
+     */
     public final String getDisplayName() {
         return displayName;
     }
 
+    /**
+
+     */
     public final javax.mail.internet.InternetAddress getEmail() {
         return email;
     }
@@ -308,10 +326,16 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         throw new UnsupportedOperationException();
     }
 
+    /**
+
+     */
     public final java.net.URL getLogoImageUrl() {
         return logoImageUrl;
     }
 
+    /**
+
+     */
     public final java.net.URL getMagentoStoreUrl() {
         return magentoStoreUrl;
     }
@@ -514,11 +538,29 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         }
     }
 
+    /**
+
+     */
     private final String displayName;
+
+    /**
+
+     */
     private final javax.mail.internet.InternetAddress email;
+
+    /**
+
+     */
     private final java.net.URL logoImageUrl;
+
+    /**
+
+     */
     private final java.net.URL magentoStoreUrl;
+
     private final org.joda.time.DateTime productsMtime;
+
     private final com.google.common.collect.ImmutableList<String> productSearchQueries;
+
     private final Boolean useSampleData;
 }

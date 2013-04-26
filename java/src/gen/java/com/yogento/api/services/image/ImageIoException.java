@@ -229,5 +229,6 @@ public class ImageIoException extends java.lang.Exception implements org.apache.
     }
 
     private final String causeMessage;
+
     private final String imageUrl;
 }

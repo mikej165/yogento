@@ -210,5 +210,6 @@ public class NoSuchProductImageException extends java.lang.Exception implements 
     }
 
     private final String causeMessage;
+
     private final String sku;
 }
