@@ -1427,13 +1427,13 @@ public interface CatalogService {
                         if (isIncludeDisabled() != null) {
                             oprot.writeBool(isIncludeDisabled());
                         } else {
-                            ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                            ((org.thryft.protocol.Protocol)oprot).writeNull();
                         }
 
                         if (getQuery() != null) {
                             oprot.writeString(getQuery());
                         } else {
-                            ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                            ((org.thryft.protocol.Protocol)oprot).writeNull();
                         }
 
                         oprot.writeListEnd();

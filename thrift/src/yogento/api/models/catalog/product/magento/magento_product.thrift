@@ -1,8 +1,8 @@
 namespace java com.yogento.api.models.catalog.product.magento
 namespace * yogento.api.models.catalog.product.magento
 
-include "native/decimal.thrift"
-include "native/date_time.thrift"
+include "thryft/native/decimal.thrift"
+include "thryft/native/date_time.thrift"
 include "yogento/api/models/catalog/product/magento/magento_product_image.thrift"
 include "yogento/api/models/catalog/product/magento/magento_product_status.thrift"
 

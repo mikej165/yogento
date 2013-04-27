@@ -94,7 +94,7 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
                 }
                 if (__list.size > 4) {
                     try {
-                        status = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readEnum(com.yogento.api.models.mail.campaign.MailCampaignStatus.class) : com.yogento.api.models.mail.campaign.MailCampaignStatus.valueOf(iprot.readString().trim().toUpperCase());
+                        status = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readEnum(com.yogento.api.models.mail.campaign.MailCampaignStatus.class) : com.yogento.api.models.mail.campaign.MailCampaignStatus.valueOf(iprot.readString().trim().toUpperCase());
                     } catch (IllegalArgumentException e) {
                     }
                 }
@@ -118,7 +118,7 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
                         mailChimpTemplateId = iprot.readString();
                     } else if (ifield.name.equals("status")) {
                         try {
-                            status = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readEnum(com.yogento.api.models.mail.campaign.MailCampaignStatus.class) : com.yogento.api.models.mail.campaign.MailCampaignStatus.valueOf(iprot.readString().trim().toUpperCase());
+                            status = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readEnum(com.yogento.api.models.mail.campaign.MailCampaignStatus.class) : com.yogento.api.models.mail.campaign.MailCampaignStatus.valueOf(iprot.readString().trim().toUpperCase());
                         } catch (IllegalArgumentException e) {
                         }
                     }
@@ -301,31 +301,31 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
                 if (getContent() != null) {
                     getContent().write(oprot);
                 } else {
-                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.Protocol)oprot).writeNull();
                 }
 
                 if (getId() != null) {
                     oprot.writeString(getId());
                 } else {
-                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.Protocol)oprot).writeNull();
                 }
 
                 if (getMailChimpCampaign() != null) {
                     getMailChimpCampaign().write(oprot);
                 } else {
-                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.Protocol)oprot).writeNull();
                 }
 
                 if (getMailChimpTemplateId() != null) {
                     oprot.writeString(getMailChimpTemplateId());
                 } else {
-                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.Protocol)oprot).writeNull();
                 }
 
                 if (getStatus() != null) {
-                    if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeEnum(getStatus()); } else { oprot.writeString(getStatus().toString()); }
+                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeEnum(getStatus()); } else { oprot.writeString(getStatus().toString()); }
                 } else {
-                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.Protocol)oprot).writeNull();
                 }
 
                 oprot.writeListEnd();
@@ -361,7 +361,7 @@ public class MailCampaign implements org.apache.thrift.TBase<MailCampaign, org.a
 
                 if (getStatus() != null) {
                     oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("status", org.apache.thrift.protocol.TType.STRING, (short)-1));
-                    if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeEnum(getStatus()); } else { oprot.writeString(getStatus().toString()); }
+                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeEnum(getStatus()); } else { oprot.writeString(getStatus().toString()); }
                     oprot.writeFieldEnd();
                 }
 

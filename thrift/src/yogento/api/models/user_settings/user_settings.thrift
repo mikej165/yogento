@@ -1,9 +1,9 @@
 namespace java com.yogento.api.models.user_settings
 namespace * yogento.api.models.user_settings
 
-include "native/date_time.thrift"
-include "native/email_address.thrift"
-include "native/url.thrift"
+include "thryft/native/date_time.thrift"
+include "thryft/native/email_address.thrift"
+include "thryft/native/url.thrift"
 
 struct UserSettings {
     /**

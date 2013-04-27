@@ -173,7 +173,7 @@ public interface AgentService {
                         if (isSync() != null) {
                             oprot.writeBool(isSync());
                         } else {
-                            ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                            ((org.thryft.protocol.Protocol)oprot).writeNull();
                         }
 
                         oprot.writeListEnd();

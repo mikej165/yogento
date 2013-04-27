@@ -1,8 +1,8 @@
 namespace java com.yogento.api.services.mail
 namespace * yogento.api.services.mail
 
-include "native/date_time.thrift"
-include "native/email_address.thrift"
+include "thryft/native/date_time.thrift"
+include "thryft/native/email_address.thrift"
 include "yogento/api/models/mail/campaign/mail_campaign.thrift"
 include "yogento/api/models/mail/campaign/mail_campaign_content.thrift"
 include "yogento/api/models/mail/campaign/mail_campaign_stats.thrift"

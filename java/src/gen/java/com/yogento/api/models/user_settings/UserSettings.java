@@ -16,7 +16,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
             this.useSampleData = other.isUseSampleData();
         }
 
-        protected UserSettings _build(final String displayName, final javax.mail.internet.InternetAddress email, final java.net.URL logoImageUrl, final java.net.URL magentoStoreUrl, final org.joda.time.DateTime productsMtime, final com.google.common.collect.ImmutableList<String> productSearchQueries, final Boolean useSampleData) {
+        protected UserSettings _build(final String displayName, final org.thryft.native_.EmailAddress email, final org.thryft.native_.Url logoImageUrl, final org.thryft.native_.Url magentoStoreUrl, final org.joda.time.DateTime productsMtime, final com.google.common.collect.ImmutableList<String> productSearchQueries, final Boolean useSampleData) {
             return new UserSettings(displayName, email, logoImageUrl, magentoStoreUrl, productsMtime, productSearchQueries, useSampleData);
         }
 
@@ -29,17 +29,17 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
             return this;
         }
 
-        public Builder setEmail(final javax.mail.internet.InternetAddress email) {
+        public Builder setEmail(final org.thryft.native_.EmailAddress email) {
             this.email = email;
             return this;
         }
 
-        public Builder setLogoImageUrl(final java.net.URL logoImageUrl) {
+        public Builder setLogoImageUrl(final org.thryft.native_.Url logoImageUrl) {
             this.logoImageUrl = logoImageUrl;
             return this;
         }
 
-        public Builder setMagentoStoreUrl(final java.net.URL magentoStoreUrl) {
+        public Builder setMagentoStoreUrl(final org.thryft.native_.Url magentoStoreUrl) {
             this.magentoStoreUrl = magentoStoreUrl;
             return this;
         }
@@ -66,15 +66,15 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         /**
 
          */
-        private javax.mail.internet.InternetAddress email;
+        private org.thryft.native_.EmailAddress email;
         /**
 
          */
-        private java.net.URL logoImageUrl;
+        private org.thryft.native_.Url logoImageUrl;
         /**
 
          */
-        private java.net.URL magentoStoreUrl;
+        private org.thryft.native_.Url magentoStoreUrl;
         private org.joda.time.DateTime productsMtime;
         private com.google.common.collect.ImmutableList<String> productSearchQueries;
         private Boolean useSampleData;
@@ -100,9 +100,9 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
 
     public UserSettings(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
         String displayName = null;
-        javax.mail.internet.InternetAddress email = null;
-        java.net.URL logoImageUrl = null;
-        java.net.URL magentoStoreUrl = null;
+        org.thryft.native_.EmailAddress email = null;
+        org.thryft.native_.Url logoImageUrl = null;
+        org.thryft.native_.Url magentoStoreUrl = null;
         org.joda.time.DateTime productsMtime = null;
         com.google.common.collect.ImmutableList<String> productSearchQueries = null;
         Boolean useSampleData = null;
@@ -114,26 +114,23 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                     displayName = iprot.readString();
                 }
                 if (__list.size > 1) {
-                    try {
-                        email = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readEmailAddress() : new javax.mail.internet.InternetAddress(iprot.readString());
-                    } catch (javax.mail.internet.AddressException e) {
-                    }
+                    email = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readEmailAddress() : new org.thryft.native_.EmailAddress(iprot.readString());
                 }
                 if (__list.size > 2) {
                     try {
-                        logoImageUrl = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readUrl() : new java.net.URL(iprot.readString());
+                        logoImageUrl = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readUrl() : org.thryft.native_.Url.parse(iprot.readString());
                     } catch (java.net.MalformedURLException e) {
                     }
                 }
                 if (__list.size > 3) {
                     try {
-                        magentoStoreUrl = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readUrl() : new java.net.URL(iprot.readString());
+                        magentoStoreUrl = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readUrl() : org.thryft.native_.Url.parse(iprot.readString());
                     } catch (java.net.MalformedURLException e) {
                     }
                 }
                 if (__list.size > 4) {
                     try {
-                        productsMtime = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                        productsMtime = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
                     } catch (IllegalArgumentException e) {
                     }
                 }
@@ -171,23 +168,20 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                     } else if (ifield.name.equals("display_name")) {
                         displayName = iprot.readString();
                     } else if (ifield.name.equals("email")) {
-                        try {
-                            email = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readEmailAddress() : new javax.mail.internet.InternetAddress(iprot.readString());
-                        } catch (javax.mail.internet.AddressException e) {
-                        }
+                        email = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readEmailAddress() : new org.thryft.native_.EmailAddress(iprot.readString());
                     } else if (ifield.name.equals("logo_image_url")) {
                         try {
-                            logoImageUrl = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readUrl() : new java.net.URL(iprot.readString());
+                            logoImageUrl = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readUrl() : org.thryft.native_.Url.parse(iprot.readString());
                         } catch (java.net.MalformedURLException e) {
                         }
                     } else if (ifield.name.equals("magento_store_url")) {
                         try {
-                            magentoStoreUrl = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readUrl() : new java.net.URL(iprot.readString());
+                            magentoStoreUrl = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readUrl() : org.thryft.native_.Url.parse(iprot.readString());
                         } catch (java.net.MalformedURLException e) {
                         }
                     } else if (ifield.name.equals("products_mtime")) {
                         try {
-                            productsMtime = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                            productsMtime = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
                         } catch (IllegalArgumentException e) {
                         }
                     } else if (ifield.name.equals("product_search_queries")) {
@@ -216,7 +210,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                 break;
         }
 
-        this.displayName = displayName != null ? org.thryft.core.Preconditions.checkNotEmpty(displayName, "com.yogento.api.models.user_settings.UserSettings: displayName is empty") : null;
+        this.displayName = displayName != null ? org.thryft.Preconditions.checkNotEmpty(displayName, "com.yogento.api.models.user_settings.UserSettings: displayName is empty") : null;
         this.email = email;
         this.logoImageUrl = logoImageUrl;
         this.magentoStoreUrl = magentoStoreUrl;
@@ -225,8 +219,8 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         this.useSampleData = useSampleData;
     }
 
-    public UserSettings(final String displayName, final javax.mail.internet.InternetAddress email, final java.net.URL logoImageUrl, final java.net.URL magentoStoreUrl, final org.joda.time.DateTime productsMtime, final com.google.common.collect.ImmutableList<String> productSearchQueries, final Boolean useSampleData) {
-        this.displayName = displayName != null ? org.thryft.core.Preconditions.checkNotEmpty(displayName, "com.yogento.api.models.user_settings.UserSettings: displayName is empty") : null;
+    public UserSettings(final String displayName, final org.thryft.native_.EmailAddress email, final org.thryft.native_.Url logoImageUrl, final org.thryft.native_.Url magentoStoreUrl, final org.joda.time.DateTime productsMtime, final com.google.common.collect.ImmutableList<String> productSearchQueries, final Boolean useSampleData) {
+        this.displayName = displayName != null ? org.thryft.Preconditions.checkNotEmpty(displayName, "com.yogento.api.models.user_settings.UserSettings: displayName is empty") : null;
         this.email = email;
         this.logoImageUrl = logoImageUrl;
         this.magentoStoreUrl = magentoStoreUrl;
@@ -317,7 +311,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
     /**
 
      */
-    public final javax.mail.internet.InternetAddress getEmail() {
+    public final org.thryft.native_.EmailAddress getEmail() {
         return email;
     }
 
@@ -329,14 +323,14 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
     /**
 
      */
-    public final java.net.URL getLogoImageUrl() {
+    public final org.thryft.native_.Url getLogoImageUrl() {
         return logoImageUrl;
     }
 
     /**
 
      */
-    public final java.net.URL getMagentoStoreUrl() {
+    public final org.thryft.native_.Url getMagentoStoreUrl() {
         return magentoStoreUrl;
     }
 
@@ -435,31 +429,31 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                 if (getDisplayName() != null) {
                     oprot.writeString(getDisplayName());
                 } else {
-                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.Protocol)oprot).writeNull();
                 }
 
                 if (getEmail() != null) {
-                    if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeEmailAddress(getEmail()); } else { oprot.writeString(getEmail().toString()); }
+                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeEmailAddress(getEmail()); } else { oprot.writeString(getEmail().toString()); }
                 } else {
-                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.Protocol)oprot).writeNull();
                 }
 
                 if (getLogoImageUrl() != null) {
-                    if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeUrl(getLogoImageUrl()); } else { oprot.writeString(getLogoImageUrl().toString()); }
+                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeUrl(getLogoImageUrl()); } else { oprot.writeString(getLogoImageUrl().toString()); }
                 } else {
-                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.Protocol)oprot).writeNull();
                 }
 
                 if (getMagentoStoreUrl() != null) {
-                    if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeUrl(getMagentoStoreUrl()); } else { oprot.writeString(getMagentoStoreUrl().toString()); }
+                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeUrl(getMagentoStoreUrl()); } else { oprot.writeString(getMagentoStoreUrl().toString()); }
                 } else {
-                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.Protocol)oprot).writeNull();
                 }
 
                 if (getProductsMtime() != null) {
-                    if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeDateTime(getProductsMtime()); } else { oprot.writeI64(getProductsMtime().getMillis()); }
+                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getProductsMtime()); } else { oprot.writeI64(getProductsMtime().getMillis()); }
                 } else {
-                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.Protocol)oprot).writeNull();
                 }
 
                 if (getProductSearchQueries() != null) {
@@ -469,13 +463,13 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                     }
                     oprot.writeListEnd();
                 } else {
-                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.Protocol)oprot).writeNull();
                 }
 
                 if (isUseSampleData() != null) {
                     oprot.writeBool(isUseSampleData());
                 } else {
-                    ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.Protocol)oprot).writeNull();
                 }
 
                 oprot.writeListEnd();
@@ -493,25 +487,25 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
 
                 if (getEmail() != null) {
                     oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("email", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeEmailAddress(getEmail()); } else { oprot.writeString(getEmail().toString()); }
+                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeEmailAddress(getEmail()); } else { oprot.writeString(getEmail().toString()); }
                     oprot.writeFieldEnd();
                 }
 
                 if (getLogoImageUrl() != null) {
                     oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("logo_image_url", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeUrl(getLogoImageUrl()); } else { oprot.writeString(getLogoImageUrl().toString()); }
+                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeUrl(getLogoImageUrl()); } else { oprot.writeString(getLogoImageUrl().toString()); }
                     oprot.writeFieldEnd();
                 }
 
                 if (getMagentoStoreUrl() != null) {
                     oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("magento_store_url", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeUrl(getMagentoStoreUrl()); } else { oprot.writeString(getMagentoStoreUrl().toString()); }
+                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeUrl(getMagentoStoreUrl()); } else { oprot.writeString(getMagentoStoreUrl().toString()); }
                     oprot.writeFieldEnd();
                 }
 
                 if (getProductsMtime() != null) {
                     oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("products_mtime", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeDateTime(getProductsMtime()); } else { oprot.writeI64(getProductsMtime().getMillis()); }
+                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getProductsMtime()); } else { oprot.writeI64(getProductsMtime().getMillis()); }
                     oprot.writeFieldEnd();
                 }
 
@@ -546,17 +540,17 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
     /**
 
      */
-    private final javax.mail.internet.InternetAddress email;
+    private final org.thryft.native_.EmailAddress email;
 
     /**
 
      */
-    private final java.net.URL logoImageUrl;
+    private final org.thryft.native_.Url logoImageUrl;
 
     /**
 
      */
-    private final java.net.URL magentoStoreUrl;
+    private final org.thryft.native_.Url magentoStoreUrl;
 
     private final org.joda.time.DateTime productsMtime;
 

@@ -198,7 +198,7 @@ public interface MailService {
                         if (isWriteThrough() != null) {
                             oprot.writeBool(isWriteThrough());
                         } else {
-                            ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                            ((org.thryft.protocol.Protocol)oprot).writeNull();
                         }
 
                         oprot.writeListEnd();
@@ -580,7 +580,7 @@ public interface MailService {
                         if (isIncludeContent() != null) {
                             oprot.writeBool(isIncludeContent());
                         } else {
-                            ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                            ((org.thryft.protocol.Protocol)oprot).writeNull();
                         }
 
                         oprot.writeListEnd();
@@ -937,7 +937,7 @@ public interface MailService {
                         if (isIncludeContent() != null) {
                             oprot.writeBool(isIncludeContent());
                         } else {
-                            ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                            ((org.thryft.protocol.Protocol)oprot).writeNull();
                         }
 
                         oprot.writeListEnd();
@@ -2019,7 +2019,7 @@ public interface MailService {
                             }
                             oprot.writeSetEnd();
                         } else {
-                            ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                            ((org.thryft.protocol.Protocol)oprot).writeNull();
                         }
 
                         oprot.writeListEnd();
@@ -2443,7 +2443,7 @@ public interface MailService {
                         if (getType() != null) {
                             getType().write(oprot);
                         } else {
-                            ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                            ((org.thryft.protocol.Protocol)oprot).writeNull();
                         }
 
                         oprot.writeListEnd();
@@ -2642,7 +2642,7 @@ public interface MailService {
                     this.testEmails = other.getTestEmails();
                 }
 
-                protected postMailCampaignRequest _build(final com.yogento.api.models.mail.campaign.MailCampaign campaign, final org.joda.time.DateTime scheduleTime, final org.joda.time.DateTime scheduleTimeB, final com.google.common.collect.ImmutableList<javax.mail.internet.InternetAddress> testEmails) {
+                protected postMailCampaignRequest _build(final com.yogento.api.models.mail.campaign.MailCampaign campaign, final org.joda.time.DateTime scheduleTime, final org.joda.time.DateTime scheduleTimeB, final com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> testEmails) {
                     return new postMailCampaignRequest(campaign, scheduleTime, scheduleTimeB, testEmails);
                 }
 
@@ -2665,7 +2665,7 @@ public interface MailService {
                     return this;
                 }
 
-                public Builder setTestEmails(final com.google.common.collect.ImmutableList<javax.mail.internet.InternetAddress> testEmails) {
+                public Builder setTestEmails(final com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> testEmails) {
                     this.testEmails = testEmails;
                     return this;
                 }
@@ -2673,7 +2673,7 @@ public interface MailService {
                 private com.yogento.api.models.mail.campaign.MailCampaign campaign;
                 private org.joda.time.DateTime scheduleTime;
                 private org.joda.time.DateTime scheduleTimeB;
-                private com.google.common.collect.ImmutableList<javax.mail.internet.InternetAddress> testEmails;
+                private com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> testEmails;
             }
 
             public postMailCampaignRequest(final postMailCampaignRequest other) {
@@ -2688,7 +2688,7 @@ public interface MailService {
                 com.yogento.api.models.mail.campaign.MailCampaign campaign = null;
                 org.joda.time.DateTime scheduleTime = null;
                 org.joda.time.DateTime scheduleTimeB = null;
-                com.google.common.collect.ImmutableList<javax.mail.internet.InternetAddress> testEmails = null;
+                com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> testEmails = null;
 
                 switch (readAsTType) {
                     case org.apache.thrift.protocol.TType.LIST:
@@ -2696,29 +2696,25 @@ public interface MailService {
                         campaign = new com.yogento.api.models.mail.campaign.MailCampaign(iprot);
                         if (__list.size > 1) {
                             try {
-                                scheduleTime = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                                scheduleTime = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
                             } catch (IllegalArgumentException e) {
                             }
                         }
                         if (__list.size > 2) {
                             try {
-                                scheduleTimeB = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                                scheduleTimeB = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
                             } catch (IllegalArgumentException e) {
                             }
                         }
                         if (__list.size > 3) {
-                            testEmails = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableList<javax.mail.internet.InternetAddress>>() {
+                            testEmails = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>>() {
                                 @Override
-                                public com.google.common.collect.ImmutableList<javax.mail.internet.InternetAddress> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                                public com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> apply(final org.apache.thrift.protocol.TProtocol iprot) {
                                     try {
                                         final org.apache.thrift.protocol.TList sequenceBegin = iprot.readListBegin();
-                                        final java.util.List<javax.mail.internet.InternetAddress> sequence = new java.util.ArrayList<javax.mail.internet.InternetAddress>();
+                                        final java.util.List<org.thryft.native_.EmailAddress> sequence = new java.util.ArrayList<org.thryft.native_.EmailAddress>();
                                         for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
-                                            try {
-                                                sequence.add((iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readEmailAddress() : new javax.mail.internet.InternetAddress(iprot.readString()));
-                                            } catch (javax.mail.internet.AddressException e) {
-                                                 throw new IllegalArgumentException(e);
-                                            }
+                                            sequence.add((iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readEmailAddress() : new org.thryft.native_.EmailAddress(iprot.readString()));
                                         }
                                         iprot.readListEnd();
                                         return com.google.common.collect.ImmutableList.copyOf(sequence);
@@ -2742,27 +2738,23 @@ public interface MailService {
                                 campaign = new com.yogento.api.models.mail.campaign.MailCampaign(iprot);
                             } else if (ifield.name.equals("schedule_time")) {
                                 try {
-                                    scheduleTime = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                                    scheduleTime = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
                                 } catch (IllegalArgumentException e) {
                                 }
                             } else if (ifield.name.equals("schedule_time_b")) {
                                 try {
-                                    scheduleTimeB = (iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                                    scheduleTimeB = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
                                 } catch (IllegalArgumentException e) {
                                 }
                             } else if (ifield.name.equals("test_emails")) {
-                                testEmails = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableList<javax.mail.internet.InternetAddress>>() {
+                                testEmails = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>>() {
                                     @Override
-                                    public com.google.common.collect.ImmutableList<javax.mail.internet.InternetAddress> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                                    public com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> apply(final org.apache.thrift.protocol.TProtocol iprot) {
                                         try {
                                             final org.apache.thrift.protocol.TList sequenceBegin = iprot.readListBegin();
-                                            final java.util.List<javax.mail.internet.InternetAddress> sequence = new java.util.ArrayList<javax.mail.internet.InternetAddress>();
+                                            final java.util.List<org.thryft.native_.EmailAddress> sequence = new java.util.ArrayList<org.thryft.native_.EmailAddress>();
                                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
-                                                try {
-                                                    sequence.add((iprot instanceof org.thryft.core.protocol.Protocol) ? ((org.thryft.core.protocol.Protocol)iprot).readEmailAddress() : new javax.mail.internet.InternetAddress(iprot.readString()));
-                                                } catch (javax.mail.internet.AddressException e) {
-                                                     throw new IllegalArgumentException(e);
-                                                }
+                                                sequence.add((iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readEmailAddress() : new org.thryft.native_.EmailAddress(iprot.readString()));
                                             }
                                             iprot.readListEnd();
                                             return com.google.common.collect.ImmutableList.copyOf(sequence);
@@ -2791,7 +2783,7 @@ public interface MailService {
                 this.testEmails = null;
             }
 
-            public postMailCampaignRequest(final com.yogento.api.models.mail.campaign.MailCampaign campaign, final org.joda.time.DateTime scheduleTime, final org.joda.time.DateTime scheduleTimeB, final com.google.common.collect.ImmutableList<javax.mail.internet.InternetAddress> testEmails) {
+            public postMailCampaignRequest(final com.yogento.api.models.mail.campaign.MailCampaign campaign, final org.joda.time.DateTime scheduleTime, final org.joda.time.DateTime scheduleTimeB, final com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> testEmails) {
                 this.campaign = com.google.common.base.Preconditions.checkNotNull(campaign, "com.yogento.api.services.mail.postMailCampaignRequest: missing campaign");
                 this.scheduleTime = scheduleTime;
                 this.scheduleTimeB = scheduleTimeB;
@@ -2870,7 +2862,7 @@ public interface MailService {
                 return scheduleTimeB;
             }
 
-            public final com.google.common.collect.ImmutableList<javax.mail.internet.InternetAddress> getTestEmails() {
+            public final com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> getTestEmails() {
                 return testEmails;
             }
 
@@ -2935,25 +2927,25 @@ public interface MailService {
                         getCampaign().write(oprot);
 
                         if (getScheduleTime() != null) {
-                            if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeDateTime(getScheduleTime()); } else { oprot.writeI64(getScheduleTime().getMillis()); }
+                            if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getScheduleTime()); } else { oprot.writeI64(getScheduleTime().getMillis()); }
                         } else {
-                            ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                            ((org.thryft.protocol.Protocol)oprot).writeNull();
                         }
 
                         if (getScheduleTimeB() != null) {
-                            if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeDateTime(getScheduleTimeB()); } else { oprot.writeI64(getScheduleTimeB().getMillis()); }
+                            if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getScheduleTimeB()); } else { oprot.writeI64(getScheduleTimeB().getMillis()); }
                         } else {
-                            ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                            ((org.thryft.protocol.Protocol)oprot).writeNull();
                         }
 
                         if (getTestEmails() != null) {
                             oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, getTestEmails().size()));
-                            for (final javax.mail.internet.InternetAddress _iter0 : getTestEmails()) {
-                                if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeEmailAddress(_iter0); } else { oprot.writeString(_iter0.toString()); }
+                            for (final org.thryft.native_.EmailAddress _iter0 : getTestEmails()) {
+                                if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeEmailAddress(_iter0); } else { oprot.writeString(_iter0.toString()); }
                             }
                             oprot.writeListEnd();
                         } else {
-                            ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                            ((org.thryft.protocol.Protocol)oprot).writeNull();
                         }
 
                         oprot.writeListEnd();
@@ -2969,21 +2961,21 @@ public interface MailService {
 
                         if (getScheduleTime() != null) {
                             oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("schedule_time", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                            if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeDateTime(getScheduleTime()); } else { oprot.writeI64(getScheduleTime().getMillis()); }
+                            if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getScheduleTime()); } else { oprot.writeI64(getScheduleTime().getMillis()); }
                             oprot.writeFieldEnd();
                         }
 
                         if (getScheduleTimeB() != null) {
                             oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("schedule_time_b", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                            if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeDateTime(getScheduleTimeB()); } else { oprot.writeI64(getScheduleTimeB().getMillis()); }
+                            if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getScheduleTimeB()); } else { oprot.writeI64(getScheduleTimeB().getMillis()); }
                             oprot.writeFieldEnd();
                         }
 
                         if (getTestEmails() != null) {
                             oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("test_emails", org.apache.thrift.protocol.TType.LIST, (short)-1));
                             oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, getTestEmails().size()));
-                            for (final javax.mail.internet.InternetAddress _iter0 : getTestEmails()) {
-                                if (oprot instanceof org.thryft.core.protocol.Protocol) { ((org.thryft.core.protocol.Protocol)oprot).writeEmailAddress(_iter0); } else { oprot.writeString(_iter0.toString()); }
+                            for (final org.thryft.native_.EmailAddress _iter0 : getTestEmails()) {
+                                if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeEmailAddress(_iter0); } else { oprot.writeString(_iter0.toString()); }
                             }
                             oprot.writeListEnd();
                             oprot.writeFieldEnd();
@@ -3002,7 +2994,7 @@ public interface MailService {
 
             private final org.joda.time.DateTime scheduleTimeB;
 
-            private final com.google.common.collect.ImmutableList<javax.mail.internet.InternetAddress> testEmails;
+            private final com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> testEmails;
         }
 
         @SuppressWarnings({"serial"})
@@ -3355,7 +3347,7 @@ public interface MailService {
                         if (isWriteThrough() != null) {
                             oprot.writeBool(isWriteThrough());
                         } else {
-                            ((org.thryft.core.protocol.Protocol)oprot).writeNull();
+                            ((org.thryft.protocol.Protocol)oprot).writeNull();
                         }
 
                         oprot.writeListEnd();
@@ -3603,7 +3595,7 @@ public interface MailService {
      * Returns an updated copy of the campaign with e.g., new IDs.
      *
      */
-    public com.yogento.api.models.mail.campaign.MailCampaign postMailCampaign(com.yogento.api.models.mail.campaign.MailCampaign campaign, org.joda.time.DateTime scheduleTime, org.joda.time.DateTime scheduleTimeB, com.google.common.collect.ImmutableList<javax.mail.internet.InternetAddress> testEmails) throws com.yogento.api.services.mail.MailException;
+    public com.yogento.api.models.mail.campaign.MailCampaign postMailCampaign(com.yogento.api.models.mail.campaign.MailCampaign campaign, org.joda.time.DateTime scheduleTime, org.joda.time.DateTime scheduleTimeB, com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> testEmails) throws com.yogento.api.services.mail.MailException;
 
     /**
      * Overwrite the mail campaign.
