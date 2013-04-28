@@ -141,7 +141,7 @@ class OAuth2Metadata(object):
         oprot.writeStructBegin('OAuth2Metadata')
 
         oprot.writeFieldBegin('api_endpoint', 12, -1)
-        oprot.writeUrl(self.api_endpoint) if hasattr(oprot, 'writeUrl') else oprot.writeString(str(self.api_endpoint))
+        oprot.writeUrl(self.api_endpoint)
         oprot.writeFieldEnd()
 
         oprot.writeFieldBegin('dc', 11, -1)
@@ -149,7 +149,7 @@ class OAuth2Metadata(object):
         oprot.writeFieldEnd()
 
         oprot.writeFieldBegin('login_url', 12, -1)
-        oprot.writeUrl(self.login_url) if hasattr(oprot, 'writeUrl') else oprot.writeString(str(self.login_url))
+        oprot.writeUrl(self.login_url)
         oprot.writeFieldEnd()
 
         oprot.writeFieldStop()

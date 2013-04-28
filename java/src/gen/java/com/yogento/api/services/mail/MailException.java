@@ -1,7 +1,7 @@
 package com.yogento.api.services.mail;
 
 @SuppressWarnings({"serial"})
-public class MailException extends java.lang.Exception implements org.apache.thrift.TBase<MailException, org.apache.thrift.TFieldIdEnum> {
+public class MailException extends java.lang.Exception implements org.thryft.TBase<MailException> {
     public static class Builder {
         public Builder() {
         }
@@ -37,28 +37,28 @@ public class MailException extends java.lang.Exception implements org.apache.thr
         this(other.getCode(), other.getError());
     }
 
-    public MailException(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-        this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+    public MailException(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+        this(iprot, org.thryft.protocol.TType.STRUCT);
     }
 
-    public MailException(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+    public MailException(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
         int code = 0;
         String error = null;
 
         switch (readAsTType) {
-            case org.apache.thrift.protocol.TType.LIST:
+            case org.thryft.protocol.TType.LIST:
                 iprot.readListBegin();
                 code = iprot.readI32();
                 error = iprot.readString();
                 iprot.readListEnd();
                 break;
 
-            case org.apache.thrift.protocol.TType.STRUCT:
+            case org.thryft.protocol.TType.STRUCT:
             default:
                 iprot.readStructBegin();
                 while (true) {
-                    final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                    if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                    final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                    if (ifield.type == org.thryft.protocol.TType.STOP) {
                         break;
                     } else if (ifield.name.equals("code")) {
                         code = iprot.readI32();
@@ -86,17 +86,7 @@ public class MailException extends java.lang.Exception implements org.apache.thr
     }
 
     @Override
-    public void clear() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public int compareTo(final MailException other) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public org.apache.thrift.TBase<MailException, org.apache.thrift.TFieldIdEnum> deepCopy() {
         throw new UnsupportedOperationException();
     }
 
@@ -112,11 +102,6 @@ public class MailException extends java.lang.Exception implements org.apache.thr
         return
             getCode() == other.getCode() &&
             getError().equals(other.getError());
-    }
-
-    @Override
-    public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-        throw new UnsupportedOperationException();
     }
 
     public Object get(final String fieldName) {
@@ -137,11 +122,6 @@ public class MailException extends java.lang.Exception implements org.apache.thr
     }
 
     @Override
-    public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public String getMessage() {
         return toString();
     }
@@ -155,21 +135,6 @@ public class MailException extends java.lang.Exception implements org.apache.thr
     }
 
     @Override
-    public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public String toString() {
         final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
         helper.add("code", getCode());
@@ -178,15 +143,15 @@ public class MailException extends java.lang.Exception implements org.apache.thr
     }
 
     @Override
-    public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-        write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+    public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+        write(oprot, org.thryft.protocol.TType.STRUCT);
     }
 
-    public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+    public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
         switch (writeAsTType) {
-            case org.apache.thrift.protocol.TType.VOID:
-            case org.apache.thrift.protocol.TType.LIST:
-                oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 2));
+            case org.thryft.protocol.TType.VOID:
+            case org.thryft.protocol.TType.LIST:
+                oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 2));
 
                 oprot.writeI32(getCode());
 
@@ -195,15 +160,15 @@ public class MailException extends java.lang.Exception implements org.apache.thr
                 oprot.writeListEnd();
                 break;
 
-            case org.apache.thrift.protocol.TType.STRUCT:
+            case org.thryft.protocol.TType.STRUCT:
             default:
-                oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("MailException"));
+                oprot.writeStructBegin(new org.thryft.protocol.TStruct("MailException"));
 
-                oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("code", org.apache.thrift.protocol.TType.I32, (short)-1));
+                oprot.writeFieldBegin(new org.thryft.protocol.TField("code", org.thryft.protocol.TType.I32, (short)-1));
                 oprot.writeI32(getCode());
                 oprot.writeFieldEnd();
 
-                oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("error", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                oprot.writeFieldBegin(new org.thryft.protocol.TField("error", org.thryft.protocol.TType.STRING, (short)-1));
                 oprot.writeString(getError());
                 oprot.writeFieldEnd();
 

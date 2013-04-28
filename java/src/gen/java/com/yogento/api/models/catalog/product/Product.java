@@ -1,7 +1,7 @@
 package com.yogento.api.models.catalog.product;
 
 @SuppressWarnings({"serial"})
-public class Product implements org.apache.thrift.TBase<Product, org.apache.thrift.TFieldIdEnum> {
+public class Product implements org.thryft.TBase<Product> {
     public static class Builder {
         public Builder() {
         }
@@ -30,26 +30,26 @@ public class Product implements org.apache.thrift.TBase<Product, org.apache.thri
         this(other.getMagentoProduct());
     }
 
-    public Product(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-        this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+    public Product(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+        this(iprot, org.thryft.protocol.TType.STRUCT);
     }
 
-    public Product(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+    public Product(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
         com.yogento.api.models.catalog.product.magento.MagentoProduct magentoProduct = null;
 
         switch (readAsTType) {
-            case org.apache.thrift.protocol.TType.LIST:
+            case org.thryft.protocol.TType.LIST:
                 iprot.readListBegin();
                 magentoProduct = new com.yogento.api.models.catalog.product.magento.MagentoProduct(iprot);
                 iprot.readListEnd();
                 break;
 
-            case org.apache.thrift.protocol.TType.STRUCT:
+            case org.thryft.protocol.TType.STRUCT:
             default:
                 iprot.readStructBegin();
                 while (true) {
-                    final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                    if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                    final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                    if (ifield.type == org.thryft.protocol.TType.STOP) {
                         break;
                     } else if (ifield.name.equals("magento_product")) {
                         magentoProduct = new com.yogento.api.models.catalog.product.magento.MagentoProduct(iprot);
@@ -68,17 +68,7 @@ public class Product implements org.apache.thrift.TBase<Product, org.apache.thri
     }
 
     @Override
-    public void clear() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public int compareTo(final Product other) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public org.apache.thrift.TBase<Product, org.apache.thrift.TFieldIdEnum> deepCopy() {
         throw new UnsupportedOperationException();
     }
 
@@ -95,21 +85,11 @@ public class Product implements org.apache.thrift.TBase<Product, org.apache.thri
             getMagentoProduct().equals(other.getMagentoProduct());
     }
 
-    @Override
-    public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-        throw new UnsupportedOperationException();
-    }
-
     public Object get(final String fieldName) {
         if (fieldName.equals("magento_product")) {
             return getMagentoProduct();
         }
         return null;
-    }
-
-    @Override
-    public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-        throw new UnsupportedOperationException();
     }
 
     public final com.yogento.api.models.catalog.product.magento.MagentoProduct getMagentoProduct() {
@@ -124,21 +104,6 @@ public class Product implements org.apache.thrift.TBase<Product, org.apache.thri
     }
 
     @Override
-    public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public String toString() {
         final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
         helper.add("magento_product", getMagentoProduct());
@@ -146,30 +111,30 @@ public class Product implements org.apache.thrift.TBase<Product, org.apache.thri
     }
 
     @Override
-    public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-        write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+    public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+        write(oprot, org.thryft.protocol.TType.STRUCT);
     }
 
-    public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+    public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
         switch (writeAsTType) {
-            case org.apache.thrift.protocol.TType.VOID: {
+            case org.thryft.protocol.TType.VOID: {
                 getMagentoProduct().write(oprot);
                 break;
             }
 
-            case org.apache.thrift.protocol.TType.LIST:
-                oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+            case org.thryft.protocol.TType.LIST:
+                oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                 getMagentoProduct().write(oprot);
 
                 oprot.writeListEnd();
                 break;
 
-            case org.apache.thrift.protocol.TType.STRUCT:
+            case org.thryft.protocol.TType.STRUCT:
             default:
-                oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("Product"));
+                oprot.writeStructBegin(new org.thryft.protocol.TStruct("Product"));
 
-                oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("magento_product", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
+                oprot.writeFieldBegin(new org.thryft.protocol.TField("magento_product", org.thryft.protocol.TType.STRUCT, (short)-1));
                 getMagentoProduct().write(oprot);
                 oprot.writeFieldEnd();
 

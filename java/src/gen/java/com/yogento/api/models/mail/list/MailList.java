@@ -1,7 +1,7 @@
 package com.yogento.api.models.mail.list;
 
 @SuppressWarnings({"serial"})
-public class MailList implements org.apache.thrift.TBase<MailList, org.apache.thrift.TFieldIdEnum> {
+public class MailList implements org.thryft.TBase<MailList> {
     public static class Builder {
         public Builder() {
         }
@@ -30,26 +30,26 @@ public class MailList implements org.apache.thrift.TBase<MailList, org.apache.th
         this(other.getMailChimpList());
     }
 
-    public MailList(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-        this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+    public MailList(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+        this(iprot, org.thryft.protocol.TType.STRUCT);
     }
 
-    public MailList(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+    public MailList(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
         com.yochimp.models.list.List mailChimpList = null;
 
         switch (readAsTType) {
-            case org.apache.thrift.protocol.TType.LIST:
+            case org.thryft.protocol.TType.LIST:
                 iprot.readListBegin();
                 mailChimpList = new com.yochimp.models.list.List(iprot);
                 iprot.readListEnd();
                 break;
 
-            case org.apache.thrift.protocol.TType.STRUCT:
+            case org.thryft.protocol.TType.STRUCT:
             default:
                 iprot.readStructBegin();
                 while (true) {
-                    final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                    if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                    final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                    if (ifield.type == org.thryft.protocol.TType.STOP) {
                         break;
                     } else if (ifield.name.equals("mail_chimp_list")) {
                         mailChimpList = new com.yochimp.models.list.List(iprot);
@@ -68,17 +68,7 @@ public class MailList implements org.apache.thrift.TBase<MailList, org.apache.th
     }
 
     @Override
-    public void clear() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public int compareTo(final MailList other) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public org.apache.thrift.TBase<MailList, org.apache.thrift.TFieldIdEnum> deepCopy() {
         throw new UnsupportedOperationException();
     }
 
@@ -95,21 +85,11 @@ public class MailList implements org.apache.thrift.TBase<MailList, org.apache.th
             getMailChimpList().equals(other.getMailChimpList());
     }
 
-    @Override
-    public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-        throw new UnsupportedOperationException();
-    }
-
     public Object get(final String fieldName) {
         if (fieldName.equals("mail_chimp_list")) {
             return getMailChimpList();
         }
         return null;
-    }
-
-    @Override
-    public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-        throw new UnsupportedOperationException();
     }
 
     public final com.yochimp.models.list.List getMailChimpList() {
@@ -124,21 +104,6 @@ public class MailList implements org.apache.thrift.TBase<MailList, org.apache.th
     }
 
     @Override
-    public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public String toString() {
         final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
         helper.add("mail_chimp_list", getMailChimpList());
@@ -146,30 +111,30 @@ public class MailList implements org.apache.thrift.TBase<MailList, org.apache.th
     }
 
     @Override
-    public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-        write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+    public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+        write(oprot, org.thryft.protocol.TType.STRUCT);
     }
 
-    public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+    public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
         switch (writeAsTType) {
-            case org.apache.thrift.protocol.TType.VOID: {
+            case org.thryft.protocol.TType.VOID: {
                 getMailChimpList().write(oprot);
                 break;
             }
 
-            case org.apache.thrift.protocol.TType.LIST:
-                oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+            case org.thryft.protocol.TType.LIST:
+                oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                 getMailChimpList().write(oprot);
 
                 oprot.writeListEnd();
                 break;
 
-            case org.apache.thrift.protocol.TType.STRUCT:
+            case org.thryft.protocol.TType.STRUCT:
             default:
-                oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("MailList"));
+                oprot.writeStructBegin(new org.thryft.protocol.TStruct("MailList"));
 
-                oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("mail_chimp_list", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
+                oprot.writeFieldBegin(new org.thryft.protocol.TField("mail_chimp_list", org.thryft.protocol.TType.STRUCT, (short)-1));
                 getMailChimpList().write(oprot);
                 oprot.writeFieldEnd();
 

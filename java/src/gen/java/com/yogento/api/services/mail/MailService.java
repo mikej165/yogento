@@ -3,7 +3,7 @@ package com.yogento.api.services.mail;
 public interface MailService {
     public static class Messages {
         @SuppressWarnings({"serial"})
-        public final static class deleteMailCampaignRequest implements org.apache.thrift.TBase<deleteMailCampaignRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class deleteMailCampaignRequest implements org.thryft.TBase<deleteMailCampaignRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -39,17 +39,17 @@ public interface MailService {
                 this(other.getCid(), other.isWriteThrough());
             }
 
-            public deleteMailCampaignRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public deleteMailCampaignRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public deleteMailCampaignRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public deleteMailCampaignRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String cid = null;
                 Boolean writeThrough = null;
 
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
-                        final org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+                    case org.thryft.protocol.TType.LIST:
+                        final org.thryft.protocol.TList __list = iprot.readListBegin();
                         cid = iprot.readString();
                         if (__list.size > 1) {
                             writeThrough = iprot.readBool();
@@ -57,12 +57,12 @@ public interface MailService {
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("cid")) {
                                 cid = iprot.readString();
@@ -90,17 +90,7 @@ public interface MailService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final deleteMailCampaignRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<deleteMailCampaignRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -120,11 +110,6 @@ public interface MailService {
                     isWriteThrough().equals(other.isWriteThrough())));
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("cid")) {
                     return getCid();
@@ -139,11 +124,6 @@ public interface MailService {
             }
 
             @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int hashCode() {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getCid().hashCode();
@@ -153,23 +133,8 @@ public interface MailService {
                 return hashCode;
             }
 
-            @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
             public final Boolean isWriteThrough() {
                 return writeThrough;
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
             }
 
             @Override
@@ -183,37 +148,37 @@ public interface MailService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 2));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 2));
 
                         oprot.writeString(getCid());
 
                         if (isWriteThrough() != null) {
                             oprot.writeBool(isWriteThrough());
                         } else {
-                            ((org.thryft.protocol.Protocol)oprot).writeNull();
+                            ((org.thryft.protocol.TProtocol)oprot).writeNull();
                         }
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("deleteMailCampaignRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("deleteMailCampaignRequest"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("cid", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("cid", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getCid());
                         oprot.writeFieldEnd();
 
                         if (isWriteThrough() != null) {
-                            oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("write_through", org.apache.thrift.protocol.TType.BOOL, (short)-1));
+                            oprot.writeFieldBegin(new org.thryft.protocol.TField("write_through", org.thryft.protocol.TType.BOOL, (short)-1));
                             oprot.writeBool(isWriteThrough());
                             oprot.writeFieldEnd();
                         }
@@ -231,7 +196,7 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class deleteMailCampaignResponse implements org.apache.thrift.TBase<deleteMailCampaignResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class deleteMailCampaignResponse implements org.thryft.TBase<deleteMailCampaignResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -260,7 +225,7 @@ public interface MailService {
                 this(other.isReturnValue());
             }
 
-            public deleteMailCampaignResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+            public deleteMailCampaignResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = iprot.readBool();
             }
 
@@ -273,17 +238,7 @@ public interface MailService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final deleteMailCampaignResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<deleteMailCampaignResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -300,21 +255,11 @@ public interface MailService {
                     isReturnValue() == other.isReturnValue();
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return isReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             @Override
@@ -329,21 +274,6 @@ public interface MailService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", isReturnValue());
@@ -351,26 +281,26 @@ public interface MailService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         oprot.writeBool(isReturnValue());
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("deleteMailCampaignResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("deleteMailCampaignResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.BOOL, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.BOOL, (short)-1));
                         oprot.writeBool(isReturnValue());
                         oprot.writeFieldEnd();
 
@@ -385,7 +315,7 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailCampaignRequest implements org.apache.thrift.TBase<getMailCampaignRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class getMailCampaignRequest implements org.thryft.TBase<getMailCampaignRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -421,17 +351,17 @@ public interface MailService {
                 this(other.getCid(), other.isIncludeContent());
             }
 
-            public getMailCampaignRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public getMailCampaignRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getMailCampaignRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public getMailCampaignRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String cid = null;
                 Boolean includeContent = null;
 
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
-                        final org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+                    case org.thryft.protocol.TType.LIST:
+                        final org.thryft.protocol.TList __list = iprot.readListBegin();
                         cid = iprot.readString();
                         if (__list.size > 1) {
                             includeContent = iprot.readBool();
@@ -439,12 +369,12 @@ public interface MailService {
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("cid")) {
                                 cid = iprot.readString();
@@ -472,17 +402,7 @@ public interface MailService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getMailCampaignRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getMailCampaignRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -502,11 +422,6 @@ public interface MailService {
                     isIncludeContent().equals(other.isIncludeContent())));
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("cid")) {
                     return getCid();
@@ -518,11 +433,6 @@ public interface MailService {
 
             public final String getCid() {
                 return cid;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             @Override
@@ -540,21 +450,6 @@ public interface MailService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("cid", getCid());
@@ -565,37 +460,37 @@ public interface MailService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 2));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 2));
 
                         oprot.writeString(getCid());
 
                         if (isIncludeContent() != null) {
                             oprot.writeBool(isIncludeContent());
                         } else {
-                            ((org.thryft.protocol.Protocol)oprot).writeNull();
+                            ((org.thryft.protocol.TProtocol)oprot).writeNull();
                         }
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getMailCampaignRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailCampaignRequest"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("cid", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("cid", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getCid());
                         oprot.writeFieldEnd();
 
                         if (isIncludeContent() != null) {
-                            oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("include_content", org.apache.thrift.protocol.TType.BOOL, (short)-1));
+                            oprot.writeFieldBegin(new org.thryft.protocol.TField("include_content", org.thryft.protocol.TType.BOOL, (short)-1));
                             oprot.writeBool(isIncludeContent());
                             oprot.writeFieldEnd();
                         }
@@ -613,7 +508,7 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailCampaignResponse implements org.apache.thrift.TBase<getMailCampaignResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class getMailCampaignResponse implements org.thryft.TBase<getMailCampaignResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -642,7 +537,7 @@ public interface MailService {
                 this(other.getReturnValue());
             }
 
-            public getMailCampaignResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+            public getMailCampaignResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = new com.yogento.api.models.mail.campaign.MailCampaign(iprot);
             }
 
@@ -651,17 +546,7 @@ public interface MailService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getMailCampaignResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getMailCampaignResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -678,21 +563,11 @@ public interface MailService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final com.yogento.api.models.mail.campaign.MailCampaign getReturnValue() {
@@ -707,21 +582,6 @@ public interface MailService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", getReturnValue());
@@ -729,30 +589,30 @@ public interface MailService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID: {
+                    case org.thryft.protocol.TType.VOID: {
                         getReturnValue().write(oprot);
                         break;
                     }
 
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         getReturnValue().write(oprot);
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getMailCampaignResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailCampaignResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getReturnValue().write(oprot);
                         oprot.writeFieldEnd();
 
@@ -767,7 +627,7 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailCampaignsRequest implements org.apache.thrift.TBase<getMailCampaignsRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class getMailCampaignsRequest implements org.thryft.TBase<getMailCampaignsRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -800,28 +660,28 @@ public interface MailService {
                 this(other.isIncludeContent());
             }
 
-            public getMailCampaignsRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public getMailCampaignsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getMailCampaignsRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public getMailCampaignsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 Boolean includeContent = null;
 
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
-                        final org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+                    case org.thryft.protocol.TType.LIST:
+                        final org.thryft.protocol.TList __list = iprot.readListBegin();
                         if (__list.size > 0) {
                             includeContent = iprot.readBool();
                         }
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("include_content")) {
                                 includeContent = iprot.readBool();
@@ -840,17 +700,7 @@ public interface MailService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getMailCampaignsRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getMailCampaignsRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -869,21 +719,11 @@ public interface MailService {
                     isIncludeContent().equals(other.isIncludeContent())));
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("include_content")) {
                     return isIncludeContent();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             @Override
@@ -900,21 +740,6 @@ public interface MailService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 if (isIncludeContent() != null) {
@@ -924,31 +749,31 @@ public interface MailService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         if (isIncludeContent() != null) {
                             oprot.writeBool(isIncludeContent());
                         } else {
-                            ((org.thryft.protocol.Protocol)oprot).writeNull();
+                            ((org.thryft.protocol.TProtocol)oprot).writeNull();
                         }
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getMailCampaignsRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailCampaignsRequest"));
 
                         if (isIncludeContent() != null) {
-                            oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("include_content", org.apache.thrift.protocol.TType.BOOL, (short)-1));
+                            oprot.writeFieldBegin(new org.thryft.protocol.TField("include_content", org.thryft.protocol.TType.BOOL, (short)-1));
                             oprot.writeBool(isIncludeContent());
                             oprot.writeFieldEnd();
                         }
@@ -964,7 +789,7 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailCampaignsResponse implements org.apache.thrift.TBase<getMailCampaignsResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class getMailCampaignsResponse implements org.thryft.TBase<getMailCampaignsResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -993,19 +818,19 @@ public interface MailService {
                 this(other.getReturnValue());
             }
 
-            public getMailCampaignsResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                returnValue = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.campaign.MailCampaign>>() {
+            public getMailCampaignsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                returnValue = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.campaign.MailCampaign>>() {
                     @Override
-                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.campaign.MailCampaign> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.campaign.MailCampaign> apply(final org.thryft.protocol.TProtocol iprot) {
                         try {
-                            final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                            final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
                             final java.util.Set<com.yogento.api.models.mail.campaign.MailCampaign> sequence = new java.util.LinkedHashSet<com.yogento.api.models.mail.campaign.MailCampaign>();
                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                 sequence.add(new com.yogento.api.models.mail.campaign.MailCampaign(iprot));
                             }
                             iprot.readSetEnd();
                             return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                        } catch (final org.apache.thrift.TException e) {
+                        } catch (final java.io.IOException e) {
                             return com.google.common.collect.ImmutableSet.of();
                         }
                     }
@@ -1017,17 +842,7 @@ public interface MailService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getMailCampaignsResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getMailCampaignsResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -1044,21 +859,11 @@ public interface MailService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.campaign.MailCampaign> getReturnValue() {
@@ -1073,21 +878,6 @@ public interface MailService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", getReturnValue());
@@ -1095,14 +885,14 @@ public interface MailService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID: {
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getReturnValue().size()));
+                    case org.thryft.protocol.TType.VOID: {
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
                         for (final com.yogento.api.models.mail.campaign.MailCampaign _iter0 : getReturnValue()) {
                             _iter0.write(oprot);
                         }
@@ -1110,10 +900,10 @@ public interface MailService {
                         break;
                     }
 
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getReturnValue().size()));
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
                         for (final com.yogento.api.models.mail.campaign.MailCampaign _iter0 : getReturnValue()) {
                             _iter0.write(oprot);
                         }
@@ -1122,12 +912,12 @@ public interface MailService {
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getMailCampaignsResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailCampaignsResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.SET, (short)-1));
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getReturnValue().size()));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.SET, (short)-1));
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
                         for (final com.yogento.api.models.mail.campaign.MailCampaign _iter0 : getReturnValue()) {
                             _iter0.write(oprot);
                         }
@@ -1145,7 +935,7 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailCampaignStatsRequest implements org.apache.thrift.TBase<getMailCampaignStatsRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class getMailCampaignStatsRequest implements org.thryft.TBase<getMailCampaignStatsRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -1174,26 +964,26 @@ public interface MailService {
                 this(other.getCid());
             }
 
-            public getMailCampaignStatsRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public getMailCampaignStatsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getMailCampaignStatsRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public getMailCampaignStatsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String cid = null;
 
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
+                    case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
                         cid = iprot.readString();
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("cid")) {
                                 cid = iprot.readString();
@@ -1212,17 +1002,7 @@ public interface MailService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getMailCampaignStatsRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getMailCampaignStatsRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -1239,11 +1019,6 @@ public interface MailService {
                     getCid().equals(other.getCid());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("cid")) {
                     return getCid();
@@ -1256,30 +1031,10 @@ public interface MailService {
             }
 
             @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int hashCode() {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getCid().hashCode();
                 return hashCode;
-            }
-
-            @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
             }
 
             @Override
@@ -1290,26 +1045,26 @@ public interface MailService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         oprot.writeString(getCid());
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getMailCampaignStatsRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailCampaignStatsRequest"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("cid", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("cid", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getCid());
                         oprot.writeFieldEnd();
 
@@ -1324,7 +1079,7 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailCampaignStatsResponse implements org.apache.thrift.TBase<getMailCampaignStatsResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class getMailCampaignStatsResponse implements org.thryft.TBase<getMailCampaignStatsResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -1353,7 +1108,7 @@ public interface MailService {
                 this(other.getReturnValue());
             }
 
-            public getMailCampaignStatsResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+            public getMailCampaignStatsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = new com.yogento.api.models.mail.campaign.MailCampaignStats(iprot);
             }
 
@@ -1362,17 +1117,7 @@ public interface MailService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getMailCampaignStatsResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getMailCampaignStatsResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -1389,21 +1134,11 @@ public interface MailService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final com.yogento.api.models.mail.campaign.MailCampaignStats getReturnValue() {
@@ -1418,21 +1153,6 @@ public interface MailService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", getReturnValue());
@@ -1440,30 +1160,30 @@ public interface MailService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID: {
+                    case org.thryft.protocol.TType.VOID: {
                         getReturnValue().write(oprot);
                         break;
                     }
 
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         getReturnValue().write(oprot);
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getMailCampaignStatsResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailCampaignStatsResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getReturnValue().write(oprot);
                         oprot.writeFieldEnd();
 
@@ -1478,7 +1198,7 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailListsRequest implements org.apache.thrift.TBase<getMailListsRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class getMailListsRequest implements org.thryft.TBase<getMailListsRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -1501,23 +1221,23 @@ public interface MailService {
             public getMailListsRequest(final getMailListsRequest other) {
             }
 
-            public getMailListsRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public getMailListsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getMailListsRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public getMailListsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
+                    case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             }
                             iprot.readFieldEnd();
@@ -1528,17 +1248,7 @@ public interface MailService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getMailListsRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getMailListsRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -1553,18 +1263,8 @@ public interface MailService {
                 return true;
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             @Override
@@ -1574,42 +1274,27 @@ public interface MailService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 return helper.toString();
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 0));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 0));
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getMailListsRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailListsRequest"));
 
                         oprot.writeFieldStop();
 
@@ -1620,7 +1305,7 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailListsResponse implements org.apache.thrift.TBase<getMailListsResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class getMailListsResponse implements org.thryft.TBase<getMailListsResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -1649,19 +1334,19 @@ public interface MailService {
                 this(other.getReturnValue());
             }
 
-            public getMailListsResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                returnValue = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.list.MailList>>() {
+            public getMailListsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                returnValue = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.list.MailList>>() {
                     @Override
-                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.list.MailList> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.list.MailList> apply(final org.thryft.protocol.TProtocol iprot) {
                         try {
-                            final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                            final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
                             final java.util.Set<com.yogento.api.models.mail.list.MailList> sequence = new java.util.LinkedHashSet<com.yogento.api.models.mail.list.MailList>();
                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                 sequence.add(new com.yogento.api.models.mail.list.MailList(iprot));
                             }
                             iprot.readSetEnd();
                             return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                        } catch (final org.apache.thrift.TException e) {
+                        } catch (final java.io.IOException e) {
                             return com.google.common.collect.ImmutableSet.of();
                         }
                     }
@@ -1673,17 +1358,7 @@ public interface MailService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getMailListsResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getMailListsResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -1700,21 +1375,11 @@ public interface MailService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.list.MailList> getReturnValue() {
@@ -1729,21 +1394,6 @@ public interface MailService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", getReturnValue());
@@ -1751,14 +1401,14 @@ public interface MailService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID: {
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getReturnValue().size()));
+                    case org.thryft.protocol.TType.VOID: {
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
                         for (final com.yogento.api.models.mail.list.MailList _iter0 : getReturnValue()) {
                             _iter0.write(oprot);
                         }
@@ -1766,10 +1416,10 @@ public interface MailService {
                         break;
                     }
 
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getReturnValue().size()));
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
                         for (final com.yogento.api.models.mail.list.MailList _iter0 : getReturnValue()) {
                             _iter0.write(oprot);
                         }
@@ -1778,12 +1428,12 @@ public interface MailService {
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getMailListsResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailListsResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.SET, (short)-1));
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getReturnValue().size()));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.SET, (short)-1));
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
                         for (final com.yogento.api.models.mail.list.MailList _iter0 : getReturnValue()) {
                             _iter0.write(oprot);
                         }
@@ -1801,7 +1451,7 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailTemplatesRequest implements org.apache.thrift.TBase<getMailTemplatesRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class getMailTemplatesRequest implements org.thryft.TBase<getMailTemplatesRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -1837,29 +1487,29 @@ public interface MailService {
                 this(other.getTypes());
             }
 
-            public getMailTemplatesRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public getMailTemplatesRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getMailTemplatesRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public getMailTemplatesRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> types = null;
 
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
-                        final org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+                    case org.thryft.protocol.TType.LIST:
+                        final org.thryft.protocol.TList __list = iprot.readListBegin();
                         if (__list.size > 0) {
-                            types = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType>>() {
+                            types = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType>>() {
                                 @Override
-                                public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                                public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> apply(final org.thryft.protocol.TProtocol iprot) {
                                     try {
-                                        final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                                        final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
                                         final java.util.Set<com.yogento.api.models.mail.template.MailTemplateType> sequence = new java.util.LinkedHashSet<com.yogento.api.models.mail.template.MailTemplateType>();
                                         for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                             sequence.add(new com.yogento.api.models.mail.template.MailTemplateType(iprot));
                                         }
                                         iprot.readSetEnd();
                                         return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                                    } catch (final org.apache.thrift.TException e) {
+                                    } catch (final java.io.IOException e) {
                                         return com.google.common.collect.ImmutableSet.of();
                                     }
                                 }
@@ -1868,26 +1518,26 @@ public interface MailService {
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("types")) {
-                                types = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType>>() {
+                                types = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType>>() {
                                     @Override
-                                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> apply(final org.thryft.protocol.TProtocol iprot) {
                                         try {
-                                            final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                                            final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
                                             final java.util.Set<com.yogento.api.models.mail.template.MailTemplateType> sequence = new java.util.LinkedHashSet<com.yogento.api.models.mail.template.MailTemplateType>();
                                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                                 sequence.add(new com.yogento.api.models.mail.template.MailTemplateType(iprot));
                                             }
                                             iprot.readSetEnd();
                                             return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                                        } catch (final org.apache.thrift.TException e) {
+                                        } catch (final java.io.IOException e) {
                                             return com.google.common.collect.ImmutableSet.of();
                                         }
                                     }
@@ -1907,17 +1557,7 @@ public interface MailService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getMailTemplatesRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getMailTemplatesRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -1936,21 +1576,11 @@ public interface MailService {
                     getTypes().equals(other.getTypes())));
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("types")) {
                     return getTypes();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             /**
@@ -1970,21 +1600,6 @@ public interface MailService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 if (getTypes() != null) {
@@ -1994,14 +1609,14 @@ public interface MailService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID: {
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getTypes().size()));
+                    case org.thryft.protocol.TType.VOID: {
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getTypes().size()));
                         for (final com.yogento.api.models.mail.template.MailTemplateType _iter0 : getTypes()) {
                             _iter0.write(oprot);
                         }
@@ -2009,29 +1624,29 @@ public interface MailService {
                         break;
                     }
 
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         if (getTypes() != null) {
-                            oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getTypes().size()));
+                            oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getTypes().size()));
                             for (final com.yogento.api.models.mail.template.MailTemplateType _iter0 : getTypes()) {
                                 _iter0.write(oprot);
                             }
                             oprot.writeSetEnd();
                         } else {
-                            ((org.thryft.protocol.Protocol)oprot).writeNull();
+                            ((org.thryft.protocol.TProtocol)oprot).writeNull();
                         }
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getMailTemplatesRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailTemplatesRequest"));
 
                         if (getTypes() != null) {
-                            oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("types", org.apache.thrift.protocol.TType.SET, (short)-1));
-                            oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getTypes().size()));
+                            oprot.writeFieldBegin(new org.thryft.protocol.TField("types", org.thryft.protocol.TType.SET, (short)-1));
+                            oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getTypes().size()));
                             for (final com.yogento.api.models.mail.template.MailTemplateType _iter0 : getTypes()) {
                                 _iter0.write(oprot);
                             }
@@ -2053,7 +1668,7 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailTemplatesResponse implements org.apache.thrift.TBase<getMailTemplatesResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class getMailTemplatesResponse implements org.thryft.TBase<getMailTemplatesResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -2085,19 +1700,19 @@ public interface MailService {
                 this(other.getReturnValue());
             }
 
-            public getMailTemplatesResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                returnValue = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplate>>() {
+            public getMailTemplatesResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                returnValue = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplate>>() {
                     @Override
-                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplate> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplate> apply(final org.thryft.protocol.TProtocol iprot) {
                         try {
-                            final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                            final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
                             final java.util.Set<com.yogento.api.models.mail.template.MailTemplate> sequence = new java.util.LinkedHashSet<com.yogento.api.models.mail.template.MailTemplate>();
                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                 sequence.add(new com.yogento.api.models.mail.template.MailTemplate(iprot));
                             }
                             iprot.readSetEnd();
                             return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                        } catch (final org.apache.thrift.TException e) {
+                        } catch (final java.io.IOException e) {
                             return com.google.common.collect.ImmutableSet.of();
                         }
                     }
@@ -2109,17 +1724,7 @@ public interface MailService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getMailTemplatesResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getMailTemplatesResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -2136,21 +1741,11 @@ public interface MailService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             /**
@@ -2168,21 +1763,6 @@ public interface MailService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", getReturnValue());
@@ -2190,14 +1770,14 @@ public interface MailService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID: {
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getReturnValue().size()));
+                    case org.thryft.protocol.TType.VOID: {
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
                         for (final com.yogento.api.models.mail.template.MailTemplate _iter0 : getReturnValue()) {
                             _iter0.write(oprot);
                         }
@@ -2205,10 +1785,10 @@ public interface MailService {
                         break;
                     }
 
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getReturnValue().size()));
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
                         for (final com.yogento.api.models.mail.template.MailTemplate _iter0 : getReturnValue()) {
                             _iter0.write(oprot);
                         }
@@ -2217,12 +1797,12 @@ public interface MailService {
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getMailTemplatesResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailTemplatesResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.SET, (short)-1));
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getReturnValue().size()));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.SET, (short)-1));
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
                         for (final com.yogento.api.models.mail.template.MailTemplate _iter0 : getReturnValue()) {
                             _iter0.write(oprot);
                         }
@@ -2243,7 +1823,7 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailTemplateInfoRequest implements org.apache.thrift.TBase<getMailTemplateInfoRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class getMailTemplateInfoRequest implements org.thryft.TBase<getMailTemplateInfoRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -2279,17 +1859,17 @@ public interface MailService {
                 this(other.getTid(), other.getType());
             }
 
-            public getMailTemplateInfoRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public getMailTemplateInfoRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getMailTemplateInfoRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public getMailTemplateInfoRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 int tid = 0;
                 com.yogento.api.models.mail.template.MailTemplateType type = null;
 
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
-                        final org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+                    case org.thryft.protocol.TType.LIST:
+                        final org.thryft.protocol.TList __list = iprot.readListBegin();
                         tid = iprot.readI32();
                         if (__list.size > 1) {
                             type = new com.yogento.api.models.mail.template.MailTemplateType(iprot);
@@ -2297,12 +1877,12 @@ public interface MailService {
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("tid")) {
                                 tid = iprot.readI32();
@@ -2335,17 +1915,7 @@ public interface MailService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getMailTemplateInfoRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getMailTemplateInfoRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -2365,11 +1935,6 @@ public interface MailService {
                     getType().equals(other.getType())));
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("tid")) {
                     return getTid();
@@ -2377,11 +1942,6 @@ public interface MailService {
                     return getType();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final int getTid() {
@@ -2403,21 +1963,6 @@ public interface MailService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("tid", getTid());
@@ -2428,37 +1973,37 @@ public interface MailService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 2));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 2));
 
                         oprot.writeI32(getTid());
 
                         if (getType() != null) {
                             getType().write(oprot);
                         } else {
-                            ((org.thryft.protocol.Protocol)oprot).writeNull();
+                            ((org.thryft.protocol.TProtocol)oprot).writeNull();
                         }
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getMailTemplateInfoRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailTemplateInfoRequest"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("tid", org.apache.thrift.protocol.TType.I32, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("tid", org.thryft.protocol.TType.I32, (short)-1));
                         oprot.writeI32(getTid());
                         oprot.writeFieldEnd();
 
                         if (getType() != null) {
-                            oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("type", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
+                            oprot.writeFieldBegin(new org.thryft.protocol.TField("type", org.thryft.protocol.TType.STRUCT, (short)-1));
                             getType().write(oprot);
                             oprot.writeFieldEnd();
                         }
@@ -2476,7 +2021,7 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailTemplateInfoResponse implements org.apache.thrift.TBase<getMailTemplateInfoResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class getMailTemplateInfoResponse implements org.thryft.TBase<getMailTemplateInfoResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -2505,7 +2050,7 @@ public interface MailService {
                 this(other.getReturnValue());
             }
 
-            public getMailTemplateInfoResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+            public getMailTemplateInfoResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = new com.yogento.api.models.mail.template.MailTemplateInfo(iprot);
             }
 
@@ -2514,17 +2059,7 @@ public interface MailService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getMailTemplateInfoResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getMailTemplateInfoResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -2541,21 +2076,11 @@ public interface MailService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final com.yogento.api.models.mail.template.MailTemplateInfo getReturnValue() {
@@ -2570,21 +2095,6 @@ public interface MailService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", getReturnValue());
@@ -2592,30 +2102,30 @@ public interface MailService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID: {
+                    case org.thryft.protocol.TType.VOID: {
                         getReturnValue().write(oprot);
                         break;
                     }
 
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         getReturnValue().write(oprot);
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getMailTemplateInfoResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailTemplateInfoResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getReturnValue().write(oprot);
                         oprot.writeFieldEnd();
 
@@ -2630,7 +2140,7 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class postMailCampaignRequest implements org.apache.thrift.TBase<postMailCampaignRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class postMailCampaignRequest implements org.thryft.TBase<postMailCampaignRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -2680,45 +2190,45 @@ public interface MailService {
                 this(other.getCampaign(), other.getScheduleTime(), other.getScheduleTimeB(), other.getTestEmails());
             }
 
-            public postMailCampaignRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public postMailCampaignRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public postMailCampaignRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public postMailCampaignRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 com.yogento.api.models.mail.campaign.MailCampaign campaign = null;
                 org.joda.time.DateTime scheduleTime = null;
                 org.joda.time.DateTime scheduleTimeB = null;
                 com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> testEmails = null;
 
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
-                        final org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+                    case org.thryft.protocol.TType.LIST:
+                        final org.thryft.protocol.TList __list = iprot.readListBegin();
                         campaign = new com.yogento.api.models.mail.campaign.MailCampaign(iprot);
                         if (__list.size > 1) {
                             try {
-                                scheduleTime = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                                scheduleTime = iprot.readDateTime();
                             } catch (IllegalArgumentException e) {
                             }
                         }
                         if (__list.size > 2) {
                             try {
-                                scheduleTimeB = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                                scheduleTimeB = iprot.readDateTime();
                             } catch (IllegalArgumentException e) {
                             }
                         }
                         if (__list.size > 3) {
-                            testEmails = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>>() {
+                            testEmails = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>>() {
                                 @Override
-                                public com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                                public com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> apply(final org.thryft.protocol.TProtocol iprot) {
                                     try {
-                                        final org.apache.thrift.protocol.TList sequenceBegin = iprot.readListBegin();
+                                        final org.thryft.protocol.TList sequenceBegin = iprot.readListBegin();
                                         final java.util.List<org.thryft.native_.EmailAddress> sequence = new java.util.ArrayList<org.thryft.native_.EmailAddress>();
                                         for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
-                                            sequence.add((iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readEmailAddress() : new org.thryft.native_.EmailAddress(iprot.readString()));
+                                            sequence.add(iprot.readEmailAddress());
                                         }
                                         iprot.readListEnd();
                                         return com.google.common.collect.ImmutableList.copyOf(sequence);
-                                    } catch (final org.apache.thrift.TException e) {
+                                    } catch (final java.io.IOException e) {
                                         return com.google.common.collect.ImmutableList.of();
                                     }
                                 }
@@ -2727,38 +2237,38 @@ public interface MailService {
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("campaign")) {
                                 campaign = new com.yogento.api.models.mail.campaign.MailCampaign(iprot);
                             } else if (ifield.name.equals("schedule_time")) {
                                 try {
-                                    scheduleTime = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                                    scheduleTime = iprot.readDateTime();
                                 } catch (IllegalArgumentException e) {
                                 }
                             } else if (ifield.name.equals("schedule_time_b")) {
                                 try {
-                                    scheduleTimeB = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                                    scheduleTimeB = iprot.readDateTime();
                                 } catch (IllegalArgumentException e) {
                                 }
                             } else if (ifield.name.equals("test_emails")) {
-                                testEmails = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>>() {
+                                testEmails = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>>() {
                                     @Override
-                                    public com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                                    public com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> apply(final org.thryft.protocol.TProtocol iprot) {
                                         try {
-                                            final org.apache.thrift.protocol.TList sequenceBegin = iprot.readListBegin();
+                                            final org.thryft.protocol.TList sequenceBegin = iprot.readListBegin();
                                             final java.util.List<org.thryft.native_.EmailAddress> sequence = new java.util.ArrayList<org.thryft.native_.EmailAddress>();
                                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
-                                                sequence.add((iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readEmailAddress() : new org.thryft.native_.EmailAddress(iprot.readString()));
+                                                sequence.add(iprot.readEmailAddress());
                                             }
                                             iprot.readListEnd();
                                             return com.google.common.collect.ImmutableList.copyOf(sequence);
-                                        } catch (final org.apache.thrift.TException e) {
+                                        } catch (final java.io.IOException e) {
                                             return com.google.common.collect.ImmutableList.of();
                                         }
                                     }
@@ -2791,17 +2301,7 @@ public interface MailService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final postMailCampaignRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<postMailCampaignRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -2827,11 +2327,6 @@ public interface MailService {
                     getTestEmails().equals(other.getTestEmails())));
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("campaign")) {
                     return getCampaign();
@@ -2847,11 +2342,6 @@ public interface MailService {
 
             public final com.yogento.api.models.mail.campaign.MailCampaign getCampaign() {
                 return campaign;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final org.joda.time.DateTime getScheduleTime() {
@@ -2883,21 +2373,6 @@ public interface MailService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("campaign", getCampaign());
@@ -2914,68 +2389,68 @@ public interface MailService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 4));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 4));
 
                         getCampaign().write(oprot);
 
                         if (getScheduleTime() != null) {
-                            if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getScheduleTime()); } else { oprot.writeI64(getScheduleTime().getMillis()); }
+                            oprot.writeDateTime(getScheduleTime());
                         } else {
-                            ((org.thryft.protocol.Protocol)oprot).writeNull();
+                            ((org.thryft.protocol.TProtocol)oprot).writeNull();
                         }
 
                         if (getScheduleTimeB() != null) {
-                            if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getScheduleTimeB()); } else { oprot.writeI64(getScheduleTimeB().getMillis()); }
+                            oprot.writeDateTime(getScheduleTimeB());
                         } else {
-                            ((org.thryft.protocol.Protocol)oprot).writeNull();
+                            ((org.thryft.protocol.TProtocol)oprot).writeNull();
                         }
 
                         if (getTestEmails() != null) {
-                            oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, getTestEmails().size()));
+                            oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.STRUCT, getTestEmails().size()));
                             for (final org.thryft.native_.EmailAddress _iter0 : getTestEmails()) {
-                                if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeEmailAddress(_iter0); } else { oprot.writeString(_iter0.toString()); }
+                                oprot.writeEmailAddress(_iter0);
                             }
                             oprot.writeListEnd();
                         } else {
-                            ((org.thryft.protocol.Protocol)oprot).writeNull();
+                            ((org.thryft.protocol.TProtocol)oprot).writeNull();
                         }
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("postMailCampaignRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("postMailCampaignRequest"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("campaign", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("campaign", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getCampaign().write(oprot);
                         oprot.writeFieldEnd();
 
                         if (getScheduleTime() != null) {
-                            oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("schedule_time", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                            if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getScheduleTime()); } else { oprot.writeI64(getScheduleTime().getMillis()); }
+                            oprot.writeFieldBegin(new org.thryft.protocol.TField("schedule_time", org.thryft.protocol.TType.STRUCT, (short)-1));
+                            oprot.writeDateTime(getScheduleTime());
                             oprot.writeFieldEnd();
                         }
 
                         if (getScheduleTimeB() != null) {
-                            oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("schedule_time_b", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                            if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getScheduleTimeB()); } else { oprot.writeI64(getScheduleTimeB().getMillis()); }
+                            oprot.writeFieldBegin(new org.thryft.protocol.TField("schedule_time_b", org.thryft.protocol.TType.STRUCT, (short)-1));
+                            oprot.writeDateTime(getScheduleTimeB());
                             oprot.writeFieldEnd();
                         }
 
                         if (getTestEmails() != null) {
-                            oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("test_emails", org.apache.thrift.protocol.TType.LIST, (short)-1));
-                            oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRUCT, getTestEmails().size()));
+                            oprot.writeFieldBegin(new org.thryft.protocol.TField("test_emails", org.thryft.protocol.TType.LIST, (short)-1));
+                            oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.STRUCT, getTestEmails().size()));
                             for (final org.thryft.native_.EmailAddress _iter0 : getTestEmails()) {
-                                if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeEmailAddress(_iter0); } else { oprot.writeString(_iter0.toString()); }
+                                oprot.writeEmailAddress(_iter0);
                             }
                             oprot.writeListEnd();
                             oprot.writeFieldEnd();
@@ -2998,7 +2473,7 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class postMailCampaignResponse implements org.apache.thrift.TBase<postMailCampaignResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class postMailCampaignResponse implements org.thryft.TBase<postMailCampaignResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -3027,7 +2502,7 @@ public interface MailService {
                 this(other.getReturnValue());
             }
 
-            public postMailCampaignResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+            public postMailCampaignResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = new com.yogento.api.models.mail.campaign.MailCampaign(iprot);
             }
 
@@ -3036,17 +2511,7 @@ public interface MailService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final postMailCampaignResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<postMailCampaignResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -3063,21 +2528,11 @@ public interface MailService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final com.yogento.api.models.mail.campaign.MailCampaign getReturnValue() {
@@ -3092,21 +2547,6 @@ public interface MailService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", getReturnValue());
@@ -3114,30 +2554,30 @@ public interface MailService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID: {
+                    case org.thryft.protocol.TType.VOID: {
                         getReturnValue().write(oprot);
                         break;
                     }
 
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         getReturnValue().write(oprot);
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("postMailCampaignResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("postMailCampaignResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getReturnValue().write(oprot);
                         oprot.writeFieldEnd();
 
@@ -3152,7 +2592,7 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class putMailCampaignRequest implements org.apache.thrift.TBase<putMailCampaignRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class putMailCampaignRequest implements org.thryft.TBase<putMailCampaignRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -3188,17 +2628,17 @@ public interface MailService {
                 this(other.getCampaign(), other.isWriteThrough());
             }
 
-            public putMailCampaignRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public putMailCampaignRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public putMailCampaignRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public putMailCampaignRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 com.yogento.api.models.mail.campaign.MailCampaign campaign = null;
                 Boolean writeThrough = null;
 
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
-                        final org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+                    case org.thryft.protocol.TType.LIST:
+                        final org.thryft.protocol.TList __list = iprot.readListBegin();
                         campaign = new com.yogento.api.models.mail.campaign.MailCampaign(iprot);
                         if (__list.size > 1) {
                             writeThrough = iprot.readBool();
@@ -3206,12 +2646,12 @@ public interface MailService {
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("campaign")) {
                                 campaign = new com.yogento.api.models.mail.campaign.MailCampaign(iprot);
@@ -3239,17 +2679,7 @@ public interface MailService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final putMailCampaignRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<putMailCampaignRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -3269,11 +2699,6 @@ public interface MailService {
                     isWriteThrough().equals(other.isWriteThrough())));
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("campaign")) {
                     return getCampaign();
@@ -3288,11 +2713,6 @@ public interface MailService {
             }
 
             @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int hashCode() {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getCampaign().hashCode();
@@ -3302,23 +2722,8 @@ public interface MailService {
                 return hashCode;
             }
 
-            @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
             public final Boolean isWriteThrough() {
                 return writeThrough;
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
             }
 
             @Override
@@ -3332,37 +2737,37 @@ public interface MailService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 2));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 2));
 
                         getCampaign().write(oprot);
 
                         if (isWriteThrough() != null) {
                             oprot.writeBool(isWriteThrough());
                         } else {
-                            ((org.thryft.protocol.Protocol)oprot).writeNull();
+                            ((org.thryft.protocol.TProtocol)oprot).writeNull();
                         }
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("putMailCampaignRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("putMailCampaignRequest"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("campaign", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("campaign", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getCampaign().write(oprot);
                         oprot.writeFieldEnd();
 
                         if (isWriteThrough() != null) {
-                            oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("write_through", org.apache.thrift.protocol.TType.BOOL, (short)-1));
+                            oprot.writeFieldBegin(new org.thryft.protocol.TField("write_through", org.thryft.protocol.TType.BOOL, (short)-1));
                             oprot.writeBool(isWriteThrough());
                             oprot.writeFieldEnd();
                         }
@@ -3380,7 +2785,7 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class putMailCampaignResponse implements org.apache.thrift.TBase<putMailCampaignResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class putMailCampaignResponse implements org.thryft.TBase<putMailCampaignResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -3409,7 +2814,7 @@ public interface MailService {
                 this(other.getReturnValue());
             }
 
-            public putMailCampaignResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+            public putMailCampaignResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = new com.yogento.api.models.mail.campaign.MailCampaign(iprot);
             }
 
@@ -3418,17 +2823,7 @@ public interface MailService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final putMailCampaignResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<putMailCampaignResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -3445,21 +2840,11 @@ public interface MailService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final com.yogento.api.models.mail.campaign.MailCampaign getReturnValue() {
@@ -3474,21 +2859,6 @@ public interface MailService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", getReturnValue());
@@ -3496,30 +2866,30 @@ public interface MailService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID: {
+                    case org.thryft.protocol.TType.VOID: {
                         getReturnValue().write(oprot);
                         break;
                     }
 
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         getReturnValue().write(oprot);
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("putMailCampaignResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("putMailCampaignResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getReturnValue().write(oprot);
                         oprot.writeFieldEnd();
 

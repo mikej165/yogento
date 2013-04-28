@@ -200,7 +200,7 @@ class Template(object):
                     pass
             elif ifield_name == 'date_created':
                 try:
-                    init_kwds['date_created'] = iprot.readDateTime() if hasattr(iprot, 'readDateTime') else datetime.fromtimestamp(iprot.readI64() / 1000.0)
+                    init_kwds['date_created'] = iprot.readDateTime()
                 except (TypeError,):
                     pass
             elif ifield_name == 'edit_source':
@@ -247,7 +247,7 @@ class Template(object):
 
         if self.date_created is not None:
             oprot.writeFieldBegin('date_created', 12, -1)
-            oprot.writeDateTime(self.date_created) if hasattr(oprot, 'writeDateTime') else oprot.writeI64(long(mktime(self.date_created.timetuple())) * 1000l)
+            oprot.writeDateTime(self.date_created)
             oprot.writeFieldEnd()
 
         oprot.writeFieldBegin('edit_source', 2, -1)

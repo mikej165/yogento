@@ -454,7 +454,7 @@ class AccountContactDetails(object):
 
         if self.email is not None:
             oprot.writeFieldBegin('email', 12, -1)
-            oprot.writeEmailAddress(self.email) if hasattr(oprot, 'writeEmailAddress') else oprot.writeString(str(self.email))
+            oprot.writeEmailAddress(self.email)
             oprot.writeFieldEnd()
 
         if self.company is not None:
@@ -494,7 +494,7 @@ class AccountContactDetails(object):
 
         if self.url is not None:
             oprot.writeFieldBegin('url', 12, -1)
-            oprot.writeUrl(self.url) if hasattr(oprot, 'writeUrl') else oprot.writeString(str(self.url))
+            oprot.writeUrl(self.url)
             oprot.writeFieldEnd()
 
         if self.phone is not None:

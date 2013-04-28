@@ -377,12 +377,12 @@ class CampaignFilter(object):
                     pass
             elif ifield_name == 'sendtime_start':
                 try:
-                    init_kwds['sendtime_start'] = iprot.readDateTime() if hasattr(iprot, 'readDateTime') else datetime.fromtimestamp(iprot.readI64() / 1000.0)
+                    init_kwds['sendtime_start'] = iprot.readDateTime()
                 except (TypeError,):
                     pass
             elif ifield_name == 'sendtime_end':
                 try:
-                    init_kwds['sendtime_end'] = iprot.readDateTime() if hasattr(iprot, 'readDateTime') else datetime.fromtimestamp(iprot.readI64() / 1000.0)
+                    init_kwds['sendtime_end'] = iprot.readDateTime()
                 except (TypeError,):
                     pass
             elif ifield_name == 'uses_segment':
@@ -521,7 +521,7 @@ class CampaignFilter(object):
 
         if self.from_email is not None:
             oprot.writeFieldBegin('from_email', 12, -1)
-            oprot.writeEmailAddress(self.from_email) if hasattr(oprot, 'writeEmailAddress') else oprot.writeString(str(self.from_email))
+            oprot.writeEmailAddress(self.from_email)
             oprot.writeFieldEnd()
 
         if self.title is not None:
@@ -536,12 +536,12 @@ class CampaignFilter(object):
 
         if self.sendtime_start is not None:
             oprot.writeFieldBegin('sendtime_start', 12, -1)
-            oprot.writeDateTime(self.sendtime_start) if hasattr(oprot, 'writeDateTime') else oprot.writeI64(long(mktime(self.sendtime_start.timetuple())) * 1000l)
+            oprot.writeDateTime(self.sendtime_start)
             oprot.writeFieldEnd()
 
         if self.sendtime_end is not None:
             oprot.writeFieldBegin('sendtime_end', 12, -1)
-            oprot.writeDateTime(self.sendtime_end) if hasattr(oprot, 'writeDateTime') else oprot.writeI64(long(mktime(self.sendtime_end.timetuple())) * 1000l)
+            oprot.writeDateTime(self.sendtime_end)
             oprot.writeFieldEnd()
 
         if self.uses_segment is not None:

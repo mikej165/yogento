@@ -1,7 +1,7 @@
 package com.yogento.api.models.user_settings;
 
 @SuppressWarnings({"serial"})
-public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.apache.thrift.TFieldIdEnum> {
+public class UserSettings implements org.thryft.TBase<UserSettings> {
     public static class Builder {
         public Builder() {
         }
@@ -94,11 +94,11 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         this(other.getDisplayName(), other.getEmail(), other.getLogoImageUrl(), other.getMagentoStoreUrl(), other.getProductsMtime(), other.getProductSearchQueries(), other.isUseSampleData());
     }
 
-    public UserSettings(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-        this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+    public UserSettings(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+        this(iprot, org.thryft.protocol.TType.STRUCT);
     }
 
-    public UserSettings(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+    public UserSettings(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
         String displayName = null;
         org.thryft.native_.EmailAddress email = null;
         org.thryft.native_.Url logoImageUrl = null;
@@ -108,45 +108,45 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         Boolean useSampleData = null;
 
         switch (readAsTType) {
-            case org.apache.thrift.protocol.TType.LIST:
-                final org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+            case org.thryft.protocol.TType.LIST:
+                final org.thryft.protocol.TList __list = iprot.readListBegin();
                 if (__list.size > 0) {
                     displayName = iprot.readString();
                 }
                 if (__list.size > 1) {
-                    email = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readEmailAddress() : new org.thryft.native_.EmailAddress(iprot.readString());
+                    email = iprot.readEmailAddress();
                 }
                 if (__list.size > 2) {
                     try {
-                        logoImageUrl = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readUrl() : org.thryft.native_.Url.parse(iprot.readString());
+                        logoImageUrl = iprot.readUrl();
                     } catch (java.net.MalformedURLException e) {
                     }
                 }
                 if (__list.size > 3) {
                     try {
-                        magentoStoreUrl = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readUrl() : org.thryft.native_.Url.parse(iprot.readString());
+                        magentoStoreUrl = iprot.readUrl();
                     } catch (java.net.MalformedURLException e) {
                     }
                 }
                 if (__list.size > 4) {
                     try {
-                        productsMtime = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                        productsMtime = iprot.readDateTime();
                     } catch (IllegalArgumentException e) {
                     }
                 }
                 if (__list.size > 5) {
-                    productSearchQueries = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableList<String>>() {
+                    productSearchQueries = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableList<String>>() {
                         @Override
-                        public com.google.common.collect.ImmutableList<String> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                        public com.google.common.collect.ImmutableList<String> apply(final org.thryft.protocol.TProtocol iprot) {
                             try {
-                                final org.apache.thrift.protocol.TList sequenceBegin = iprot.readListBegin();
+                                final org.thryft.protocol.TList sequenceBegin = iprot.readListBegin();
                                 final java.util.List<String> sequence = new java.util.ArrayList<String>();
                                 for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                     sequence.add(iprot.readString());
                                 }
                                 iprot.readListEnd();
                                 return com.google.common.collect.ImmutableList.copyOf(sequence);
-                            } catch (final org.apache.thrift.TException e) {
+                            } catch (final java.io.IOException e) {
                                 return com.google.common.collect.ImmutableList.of();
                             }
                         }
@@ -158,45 +158,45 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                 iprot.readListEnd();
                 break;
 
-            case org.apache.thrift.protocol.TType.STRUCT:
+            case org.thryft.protocol.TType.STRUCT:
             default:
                 iprot.readStructBegin();
                 while (true) {
-                    final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                    if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                    final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                    if (ifield.type == org.thryft.protocol.TType.STOP) {
                         break;
                     } else if (ifield.name.equals("display_name")) {
                         displayName = iprot.readString();
                     } else if (ifield.name.equals("email")) {
-                        email = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readEmailAddress() : new org.thryft.native_.EmailAddress(iprot.readString());
+                        email = iprot.readEmailAddress();
                     } else if (ifield.name.equals("logo_image_url")) {
                         try {
-                            logoImageUrl = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readUrl() : org.thryft.native_.Url.parse(iprot.readString());
+                            logoImageUrl = iprot.readUrl();
                         } catch (java.net.MalformedURLException e) {
                         }
                     } else if (ifield.name.equals("magento_store_url")) {
                         try {
-                            magentoStoreUrl = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readUrl() : org.thryft.native_.Url.parse(iprot.readString());
+                            magentoStoreUrl = iprot.readUrl();
                         } catch (java.net.MalformedURLException e) {
                         }
                     } else if (ifield.name.equals("products_mtime")) {
                         try {
-                            productsMtime = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                            productsMtime = iprot.readDateTime();
                         } catch (IllegalArgumentException e) {
                         }
                     } else if (ifield.name.equals("product_search_queries")) {
-                        productSearchQueries = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableList<String>>() {
+                        productSearchQueries = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableList<String>>() {
                             @Override
-                            public com.google.common.collect.ImmutableList<String> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                            public com.google.common.collect.ImmutableList<String> apply(final org.thryft.protocol.TProtocol iprot) {
                                 try {
-                                    final org.apache.thrift.protocol.TList sequenceBegin = iprot.readListBegin();
+                                    final org.thryft.protocol.TList sequenceBegin = iprot.readListBegin();
                                     final java.util.List<String> sequence = new java.util.ArrayList<String>();
                                     for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                         sequence.add(iprot.readString());
                                     }
                                     iprot.readListEnd();
                                     return com.google.common.collect.ImmutableList.copyOf(sequence);
-                                } catch (final org.apache.thrift.TException e) {
+                                } catch (final java.io.IOException e) {
                                     return com.google.common.collect.ImmutableList.of();
                                 }
                             }
@@ -230,17 +230,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
     }
 
     @Override
-    public void clear() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public int compareTo(final UserSettings other) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public org.apache.thrift.TBase<UserSettings, org.apache.thrift.TFieldIdEnum> deepCopy() {
         throw new UnsupportedOperationException();
     }
 
@@ -277,11 +267,6 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
             isUseSampleData().equals(other.isUseSampleData())));
     }
 
-    @Override
-    public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-        throw new UnsupportedOperationException();
-    }
-
     public Object get(final String fieldName) {
         if (fieldName.equals("display_name")) {
             return getDisplayName();
@@ -313,11 +298,6 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
      */
     public final org.thryft.native_.EmailAddress getEmail() {
         return email;
-    }
-
-    @Override
-    public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-        throw new UnsupportedOperationException();
     }
 
     /**
@@ -369,23 +349,8 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
         return hashCode;
     }
 
-    @Override
-    public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-        throw new UnsupportedOperationException();
-    }
-
     public final Boolean isUseSampleData() {
         return useSampleData;
-    }
-
-    @Override
-    public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -416,102 +381,102 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
     }
 
     @Override
-    public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-        write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+    public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+        write(oprot, org.thryft.protocol.TType.STRUCT);
     }
 
-    public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+    public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
         switch (writeAsTType) {
-            case org.apache.thrift.protocol.TType.VOID:
-            case org.apache.thrift.protocol.TType.LIST:
-                oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 7));
+            case org.thryft.protocol.TType.VOID:
+            case org.thryft.protocol.TType.LIST:
+                oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 7));
 
                 if (getDisplayName() != null) {
                     oprot.writeString(getDisplayName());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getEmail() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeEmailAddress(getEmail()); } else { oprot.writeString(getEmail().toString()); }
+                    oprot.writeEmailAddress(getEmail());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getLogoImageUrl() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeUrl(getLogoImageUrl()); } else { oprot.writeString(getLogoImageUrl().toString()); }
+                    oprot.writeUrl(getLogoImageUrl());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getMagentoStoreUrl() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeUrl(getMagentoStoreUrl()); } else { oprot.writeString(getMagentoStoreUrl().toString()); }
+                    oprot.writeUrl(getMagentoStoreUrl());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getProductsMtime() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getProductsMtime()); } else { oprot.writeI64(getProductsMtime().getMillis()); }
+                    oprot.writeDateTime(getProductsMtime());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getProductSearchQueries() != null) {
-                    oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING, getProductSearchQueries().size()));
+                    oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.STRING, getProductSearchQueries().size()));
                     for (final String _iter0 : getProductSearchQueries()) {
                         oprot.writeString(_iter0);
                     }
                     oprot.writeListEnd();
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (isUseSampleData() != null) {
                     oprot.writeBool(isUseSampleData());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 oprot.writeListEnd();
                 break;
 
-            case org.apache.thrift.protocol.TType.STRUCT:
+            case org.thryft.protocol.TType.STRUCT:
             default:
-                oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("UserSettings"));
+                oprot.writeStructBegin(new org.thryft.protocol.TStruct("UserSettings"));
 
                 if (getDisplayName() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("display_name", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("display_name", org.thryft.protocol.TType.STRING, (short)-1));
                     oprot.writeString(getDisplayName());
                     oprot.writeFieldEnd();
                 }
 
                 if (getEmail() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("email", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeEmailAddress(getEmail()); } else { oprot.writeString(getEmail().toString()); }
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("email", org.thryft.protocol.TType.STRUCT, (short)-1));
+                    oprot.writeEmailAddress(getEmail());
                     oprot.writeFieldEnd();
                 }
 
                 if (getLogoImageUrl() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("logo_image_url", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeUrl(getLogoImageUrl()); } else { oprot.writeString(getLogoImageUrl().toString()); }
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("logo_image_url", org.thryft.protocol.TType.STRUCT, (short)-1));
+                    oprot.writeUrl(getLogoImageUrl());
                     oprot.writeFieldEnd();
                 }
 
                 if (getMagentoStoreUrl() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("magento_store_url", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeUrl(getMagentoStoreUrl()); } else { oprot.writeString(getMagentoStoreUrl().toString()); }
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("magento_store_url", org.thryft.protocol.TType.STRUCT, (short)-1));
+                    oprot.writeUrl(getMagentoStoreUrl());
                     oprot.writeFieldEnd();
                 }
 
                 if (getProductsMtime() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("products_mtime", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getProductsMtime()); } else { oprot.writeI64(getProductsMtime().getMillis()); }
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("products_mtime", org.thryft.protocol.TType.STRUCT, (short)-1));
+                    oprot.writeDateTime(getProductsMtime());
                     oprot.writeFieldEnd();
                 }
 
                 if (getProductSearchQueries() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("product_search_queries", org.apache.thrift.protocol.TType.LIST, (short)-1));
-                    oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.STRING, getProductSearchQueries().size()));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("product_search_queries", org.thryft.protocol.TType.LIST, (short)-1));
+                    oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.STRING, getProductSearchQueries().size()));
                     for (final String _iter0 : getProductSearchQueries()) {
                         oprot.writeString(_iter0);
                     }
@@ -520,7 +485,7 @@ public class UserSettings implements org.apache.thrift.TBase<UserSettings, org.a
                 }
 
                 if (isUseSampleData() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("use_sample_data", org.apache.thrift.protocol.TType.BOOL, (short)-1));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("use_sample_data", org.thryft.protocol.TType.BOOL, (short)-1));
                     oprot.writeBool(isUseSampleData());
                     oprot.writeFieldEnd();
                 }

@@ -437,7 +437,7 @@ class CampaignStats(object):
                 init_kwds['opens'] = iprot.readI32()
             elif ifield_name == 'last_open':
                 try:
-                    init_kwds['last_open'] = iprot.readDateTime() if hasattr(iprot, 'readDateTime') else datetime.fromtimestamp(iprot.readI64() / 1000.0)
+                    init_kwds['last_open'] = iprot.readDateTime()
                 except (TypeError,):
                     pass
             elif ifield_name == 'unique_opens':
@@ -448,7 +448,7 @@ class CampaignStats(object):
                 init_kwds['unique_clicks'] = iprot.readI32()
             elif ifield_name == 'last_click':
                 try:
-                    init_kwds['last_click'] = iprot.readDateTime() if hasattr(iprot, 'readDateTime') else datetime.fromtimestamp(iprot.readI64() / 1000.0)
+                    init_kwds['last_click'] = iprot.readDateTime()
                 except (TypeError,):
                     pass
             elif ifield_name == 'users_who_clicked':
@@ -574,7 +574,7 @@ class CampaignStats(object):
 
         if self.last_open is not None:
             oprot.writeFieldBegin('last_open', 12, -1)
-            oprot.writeDateTime(self.last_open) if hasattr(oprot, 'writeDateTime') else oprot.writeI64(long(mktime(self.last_open.timetuple())) * 1000l)
+            oprot.writeDateTime(self.last_open)
             oprot.writeFieldEnd()
 
         oprot.writeFieldBegin('unique_opens', 8, -1)
@@ -591,7 +591,7 @@ class CampaignStats(object):
 
         if self.last_click is not None:
             oprot.writeFieldBegin('last_click', 12, -1)
-            oprot.writeDateTime(self.last_click) if hasattr(oprot, 'writeDateTime') else oprot.writeI64(long(mktime(self.last_click.timetuple())) * 1000l)
+            oprot.writeDateTime(self.last_click)
             oprot.writeFieldEnd()
 
         oprot.writeFieldBegin('users_who_clicked', 8, -1)

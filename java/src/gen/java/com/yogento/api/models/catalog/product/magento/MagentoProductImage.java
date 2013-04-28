@@ -1,7 +1,7 @@
 package com.yogento.api.models.catalog.product.magento;
 
 @SuppressWarnings({"serial"})
-public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProductImage, org.apache.thrift.TFieldIdEnum> {
+public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage> {
     public static class Builder {
         public Builder() {
         }
@@ -65,11 +65,11 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
         this(other.isExclude(), other.getFile(), other.getLabel(), other.getPosition(), other.getTypes(), other.getUrl());
     }
 
-    public MagentoProductImage(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-        this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+    public MagentoProductImage(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+        this(iprot, org.thryft.protocol.TType.STRUCT);
     }
 
-    public MagentoProductImage(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+    public MagentoProductImage(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
         Boolean exclude = null;
         String file = null;
         String label = null;
@@ -78,8 +78,8 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
         String url = null;
 
         switch (readAsTType) {
-            case org.apache.thrift.protocol.TType.LIST:
-                final org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+            case org.thryft.protocol.TType.LIST:
+                final org.thryft.protocol.TList __list = iprot.readListBegin();
                 exclude = iprot.readBool();
                 file = iprot.readString();
                 if (__list.size > 2) {
@@ -92,18 +92,18 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
                     }
                 }
                 if (__list.size > 4) {
-                    types = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>>() {
+                    types = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>>() {
                         @Override
-                        public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                        public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> apply(final org.thryft.protocol.TProtocol iprot) {
                             try {
-                                final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                                final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
                                 final java.util.Set<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>();
                                 for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
-                                    sequence.add((iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductImageType.class) : com.yogento.api.models.catalog.product.magento.MagentoProductImageType.valueOf(iprot.readString().trim().toUpperCase()));
+                                    sequence.add(iprot.readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductImageType.class));
                                 }
                                 iprot.readSetEnd();
                                 return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                            } catch (final org.apache.thrift.TException e) {
+                            } catch (final java.io.IOException e) {
                                 return com.google.common.collect.ImmutableSet.of();
                             }
                         }
@@ -115,12 +115,12 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
                 iprot.readListEnd();
                 break;
 
-            case org.apache.thrift.protocol.TType.STRUCT:
+            case org.thryft.protocol.TType.STRUCT:
             default:
                 iprot.readStructBegin();
                 while (true) {
-                    final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                    if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                    final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                    if (ifield.type == org.thryft.protocol.TType.STOP) {
                         break;
                     } else if (ifield.name.equals("exclude")) {
                         exclude = iprot.readBool();
@@ -134,18 +134,18 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
                         } catch (NumberFormatException e) {
                         }
                     } else if (ifield.name.equals("types")) {
-                        types = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>>() {
+                        types = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>>() {
                             @Override
-                            public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                            public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> apply(final org.thryft.protocol.TProtocol iprot) {
                                 try {
-                                    final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                                    final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
                                     final java.util.Set<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>();
                                     for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
-                                        sequence.add((iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductImageType.class) : com.yogento.api.models.catalog.product.magento.MagentoProductImageType.valueOf(iprot.readString().trim().toUpperCase()));
+                                        sequence.add(iprot.readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductImageType.class));
                                     }
                                     iprot.readSetEnd();
                                     return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                                } catch (final org.apache.thrift.TException e) {
+                                } catch (final java.io.IOException e) {
                                     return com.google.common.collect.ImmutableSet.of();
                                 }
                             }
@@ -186,17 +186,7 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
     }
 
     @Override
-    public void clear() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public int compareTo(final MagentoProductImage other) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public org.apache.thrift.TBase<MagentoProductImage, org.apache.thrift.TFieldIdEnum> deepCopy() {
         throw new UnsupportedOperationException();
     }
 
@@ -228,11 +218,6 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
             getUrl().equals(other.getUrl())));
     }
 
-    @Override
-    public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-        throw new UnsupportedOperationException();
-    }
-
     public Object get(final String fieldName) {
         if (fieldName.equals("exclude")) {
             return isExclude();
@@ -248,11 +233,6 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
             return getUrl();
         }
         return null;
-    }
-
-    @Override
-    public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-        throw new UnsupportedOperationException();
     }
 
     public final String getFile() {
@@ -302,21 +282,6 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
     }
 
     @Override
-    public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public String toString() {
         final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
         if (isExclude() != null) {
@@ -339,20 +304,20 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
     }
 
     @Override
-    public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-        write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+    public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+        write(oprot, org.thryft.protocol.TType.STRUCT);
     }
 
-    public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+    public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
         switch (writeAsTType) {
-            case org.apache.thrift.protocol.TType.VOID:
-            case org.apache.thrift.protocol.TType.LIST:
-                oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 6));
+            case org.thryft.protocol.TType.VOID:
+            case org.thryft.protocol.TType.LIST:
+                oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 6));
 
                 if (isExclude() != null) {
                     oprot.writeBool(isExclude());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 oprot.writeString(getFile());
@@ -360,72 +325,72 @@ public class MagentoProductImage implements org.apache.thrift.TBase<MagentoProdu
                 if (getLabel() != null) {
                     oprot.writeString(getLabel());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getPosition() != null) {
                     oprot.writeI32(getPosition());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getTypes() != null) {
-                    oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, getTypes().size()));
+                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRING, getTypes().size()));
                     for (final com.yogento.api.models.catalog.product.magento.MagentoProductImageType _iter0 : getTypes()) {
-                        if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeEnum(_iter0); } else { oprot.writeString(_iter0.toString()); }
+                        oprot.writeEnum(_iter0);
                     }
                     oprot.writeSetEnd();
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getUrl() != null) {
                     oprot.writeString(getUrl());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 oprot.writeListEnd();
                 break;
 
-            case org.apache.thrift.protocol.TType.STRUCT:
+            case org.thryft.protocol.TType.STRUCT:
             default:
-                oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("MagentoProductImage"));
+                oprot.writeStructBegin(new org.thryft.protocol.TStruct("MagentoProductImage"));
 
                 if (isExclude() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("exclude", org.apache.thrift.protocol.TType.BOOL, (short)-1));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("exclude", org.thryft.protocol.TType.BOOL, (short)-1));
                     oprot.writeBool(isExclude());
                     oprot.writeFieldEnd();
                 }
 
-                oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("file", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                oprot.writeFieldBegin(new org.thryft.protocol.TField("file", org.thryft.protocol.TType.STRING, (short)-1));
                 oprot.writeString(getFile());
                 oprot.writeFieldEnd();
 
                 if (getLabel() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("label", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("label", org.thryft.protocol.TType.STRING, (short)-1));
                     oprot.writeString(getLabel());
                     oprot.writeFieldEnd();
                 }
 
                 if (getPosition() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("position", org.apache.thrift.protocol.TType.I32, (short)-1));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("position", org.thryft.protocol.TType.I32, (short)-1));
                     oprot.writeI32(getPosition());
                     oprot.writeFieldEnd();
                 }
 
                 if (getTypes() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("types", org.apache.thrift.protocol.TType.SET, (short)-1));
-                    oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, getTypes().size()));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("types", org.thryft.protocol.TType.SET, (short)-1));
+                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRING, getTypes().size()));
                     for (final com.yogento.api.models.catalog.product.magento.MagentoProductImageType _iter0 : getTypes()) {
-                        if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeEnum(_iter0); } else { oprot.writeString(_iter0.toString()); }
+                        oprot.writeEnum(_iter0);
                     }
                     oprot.writeSetEnd();
                     oprot.writeFieldEnd();
                 }
 
                 if (getUrl() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("url", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("url", org.thryft.protocol.TType.STRING, (short)-1));
                     oprot.writeString(getUrl());
                     oprot.writeFieldEnd();
                 }

@@ -259,12 +259,12 @@ class ListFilter(object):
                     pass
             elif ifield_name == 'created_before':
                 try:
-                    init_kwds['created_before'] = iprot.readDateTime() if hasattr(iprot, 'readDateTime') else datetime.fromtimestamp(iprot.readI64() / 1000.0)
+                    init_kwds['created_before'] = iprot.readDateTime()
                 except (TypeError,):
                     pass
             elif ifield_name == 'created_after':
                 try:
-                    init_kwds['created_after'] = iprot.readDateTime() if hasattr(iprot, 'readDateTime') else datetime.fromtimestamp(iprot.readI64() / 1000.0)
+                    init_kwds['created_after'] = iprot.readDateTime()
                 except (TypeError,):
                     pass
             elif ifield_name == 'exact':
@@ -319,7 +319,7 @@ class ListFilter(object):
 
         if self.from_email is not None:
             oprot.writeFieldBegin('from_email', 12, -1)
-            oprot.writeEmailAddress(self.from_email) if hasattr(oprot, 'writeEmailAddress') else oprot.writeString(str(self.from_email))
+            oprot.writeEmailAddress(self.from_email)
             oprot.writeFieldEnd()
 
         if self.from_subject is not None:
@@ -329,12 +329,12 @@ class ListFilter(object):
 
         if self.created_before is not None:
             oprot.writeFieldBegin('created_before', 12, -1)
-            oprot.writeDateTime(self.created_before) if hasattr(oprot, 'writeDateTime') else oprot.writeI64(long(mktime(self.created_before.timetuple())) * 1000l)
+            oprot.writeDateTime(self.created_before)
             oprot.writeFieldEnd()
 
         if self.created_after is not None:
             oprot.writeFieldBegin('created_after', 12, -1)
-            oprot.writeDateTime(self.created_after) if hasattr(oprot, 'writeDateTime') else oprot.writeI64(long(mktime(self.created_after.timetuple())) * 1000l)
+            oprot.writeDateTime(self.created_after)
             oprot.writeFieldEnd()
 
         if self.exact is not None:

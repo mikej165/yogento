@@ -647,7 +647,7 @@ class CampaignCreateOptions(object):
         oprot.writeFieldEnd()
 
         oprot.writeFieldBegin('from_email', 12, -1)
-        oprot.writeEmailAddress(self.from_email) if hasattr(oprot, 'writeEmailAddress') else oprot.writeString(str(self.from_email))
+        oprot.writeEmailAddress(self.from_email)
         oprot.writeFieldEnd()
 
         oprot.writeFieldBegin('from_name', 11, -1)

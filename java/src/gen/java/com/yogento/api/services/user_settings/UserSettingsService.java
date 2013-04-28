@@ -3,7 +3,7 @@ package com.yogento.api.services.user_settings;
 public interface UserSettingsService {
     public static class Messages {
         @SuppressWarnings({"serial"})
-        public final static class getCurrentUserSettingsRequest implements org.apache.thrift.TBase<getCurrentUserSettingsRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class getCurrentUserSettingsRequest implements org.thryft.TBase<getCurrentUserSettingsRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -26,23 +26,23 @@ public interface UserSettingsService {
             public getCurrentUserSettingsRequest(final getCurrentUserSettingsRequest other) {
             }
 
-            public getCurrentUserSettingsRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public getCurrentUserSettingsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getCurrentUserSettingsRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public getCurrentUserSettingsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
+                    case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             }
                             iprot.readFieldEnd();
@@ -53,17 +53,7 @@ public interface UserSettingsService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getCurrentUserSettingsRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getCurrentUserSettingsRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -78,18 +68,8 @@ public interface UserSettingsService {
                 return true;
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             @Override
@@ -99,42 +79,27 @@ public interface UserSettingsService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 return helper.toString();
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 0));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 0));
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getCurrentUserSettingsRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getCurrentUserSettingsRequest"));
 
                         oprot.writeFieldStop();
 
@@ -145,7 +110,7 @@ public interface UserSettingsService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getCurrentUserSettingsResponse implements org.apache.thrift.TBase<getCurrentUserSettingsResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class getCurrentUserSettingsResponse implements org.thryft.TBase<getCurrentUserSettingsResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -174,7 +139,7 @@ public interface UserSettingsService {
                 this(other.getReturnValue());
             }
 
-            public getCurrentUserSettingsResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+            public getCurrentUserSettingsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = new com.yogento.api.models.user_settings.UserSettings(iprot);
             }
 
@@ -183,17 +148,7 @@ public interface UserSettingsService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getCurrentUserSettingsResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getCurrentUserSettingsResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -210,21 +165,11 @@ public interface UserSettingsService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final com.yogento.api.models.user_settings.UserSettings getReturnValue() {
@@ -239,21 +184,6 @@ public interface UserSettingsService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", getReturnValue());
@@ -261,30 +191,30 @@ public interface UserSettingsService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID: {
+                    case org.thryft.protocol.TType.VOID: {
                         getReturnValue().write(oprot);
                         break;
                     }
 
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         getReturnValue().write(oprot);
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getCurrentUserSettingsResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getCurrentUserSettingsResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getReturnValue().write(oprot);
                         oprot.writeFieldEnd();
 
@@ -299,7 +229,7 @@ public interface UserSettingsService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class putCurrentUserSettingsRequest implements org.apache.thrift.TBase<putCurrentUserSettingsRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class putCurrentUserSettingsRequest implements org.thryft.TBase<putCurrentUserSettingsRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -328,26 +258,26 @@ public interface UserSettingsService {
                 this(other.getUserSettings());
             }
 
-            public putCurrentUserSettingsRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public putCurrentUserSettingsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public putCurrentUserSettingsRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public putCurrentUserSettingsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 com.yogento.api.models.user_settings.UserSettings userSettings = null;
 
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
+                    case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
                         userSettings = new com.yogento.api.models.user_settings.UserSettings(iprot);
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("user_settings")) {
                                 userSettings = new com.yogento.api.models.user_settings.UserSettings(iprot);
@@ -366,17 +296,7 @@ public interface UserSettingsService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final putCurrentUserSettingsRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<putCurrentUserSettingsRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -393,21 +313,11 @@ public interface UserSettingsService {
                     getUserSettings().equals(other.getUserSettings());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("user_settings")) {
                     return getUserSettings();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final com.yogento.api.models.user_settings.UserSettings getUserSettings() {
@@ -422,21 +332,6 @@ public interface UserSettingsService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("user_settings", getUserSettings());
@@ -444,30 +339,30 @@ public interface UserSettingsService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID: {
+                    case org.thryft.protocol.TType.VOID: {
                         getUserSettings().write(oprot);
                         break;
                     }
 
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         getUserSettings().write(oprot);
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("putCurrentUserSettingsRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("putCurrentUserSettingsRequest"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("user_settings", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("user_settings", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getUserSettings().write(oprot);
                         oprot.writeFieldEnd();
 
@@ -482,7 +377,7 @@ public interface UserSettingsService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class putCurrentUserSettingsResponse implements org.apache.thrift.TBase<putCurrentUserSettingsResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class putCurrentUserSettingsResponse implements org.thryft.TBase<putCurrentUserSettingsResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -505,21 +400,11 @@ public interface UserSettingsService {
             public putCurrentUserSettingsResponse(final putCurrentUserSettingsResponse other) {
             }
 
-            public putCurrentUserSettingsResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-            }
-
-            @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
+            public putCurrentUserSettingsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
             }
 
             @Override
             public int compareTo(final putCurrentUserSettingsResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<putCurrentUserSettingsResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -534,18 +419,8 @@ public interface UserSettingsService {
                 return true;
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             @Override
@@ -555,42 +430,27 @@ public interface UserSettingsService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 return helper.toString();
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 0));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 0));
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("putCurrentUserSettingsResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("putCurrentUserSettingsResponse"));
 
                         oprot.writeFieldStop();
 

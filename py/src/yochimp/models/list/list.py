@@ -395,7 +395,7 @@ class List(object):
                     pass
             elif ifield_name == 'date_created':
                 try:
-                    init_kwds['date_created'] = iprot.readDateTime() if hasattr(iprot, 'readDateTime') else datetime.fromtimestamp(iprot.readI64() / 1000.0)
+                    init_kwds['date_created'] = iprot.readDateTime()
                 except (TypeError,):
                     pass
             elif ifield_name == 'email_type_option':
@@ -522,7 +522,7 @@ class List(object):
 
         if self.date_created is not None:
             oprot.writeFieldBegin('date_created', 12, -1)
-            oprot.writeDateTime(self.date_created) if hasattr(oprot, 'writeDateTime') else oprot.writeI64(long(mktime(self.date_created.timetuple())) * 1000l)
+            oprot.writeDateTime(self.date_created)
             oprot.writeFieldEnd()
 
         if self.email_type_option is not None:
@@ -542,7 +542,7 @@ class List(object):
 
         if self.default_from_email is not None:
             oprot.writeFieldBegin('default_from_email', 12, -1)
-            oprot.writeEmailAddress(self.default_from_email) if hasattr(oprot, 'writeEmailAddress') else oprot.writeString(str(self.default_from_email))
+            oprot.writeEmailAddress(self.default_from_email)
             oprot.writeFieldEnd()
 
         if self.default_subject is not None:
@@ -562,12 +562,12 @@ class List(object):
 
         if self.subscribe_url_short is not None:
             oprot.writeFieldBegin('subscribe_url_short', 12, -1)
-            oprot.writeUrl(self.subscribe_url_short) if hasattr(oprot, 'writeUrl') else oprot.writeString(str(self.subscribe_url_short))
+            oprot.writeUrl(self.subscribe_url_short)
             oprot.writeFieldEnd()
 
         if self.subscribe_url_long is not None:
             oprot.writeFieldBegin('subscribe_url_long', 12, -1)
-            oprot.writeUrl(self.subscribe_url_long) if hasattr(oprot, 'writeUrl') else oprot.writeString(str(self.subscribe_url_long))
+            oprot.writeUrl(self.subscribe_url_long)
             oprot.writeFieldEnd()
 
         if self.beamer_address is not None:

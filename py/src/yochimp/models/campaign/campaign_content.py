@@ -221,7 +221,7 @@ class CampaignContent(object):
 
         if self.url is not None:
             oprot.writeFieldBegin('url', 12, -1)
-            oprot.writeUrl(self.url) if hasattr(oprot, 'writeUrl') else oprot.writeString(str(self.url))
+            oprot.writeUrl(self.url)
             oprot.writeFieldEnd()
 
         if self.archive is not None:

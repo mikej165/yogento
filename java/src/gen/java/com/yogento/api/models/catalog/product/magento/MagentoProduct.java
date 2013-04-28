@@ -1,7 +1,7 @@
 package com.yogento.api.models.catalog.product.magento;
 
 @SuppressWarnings({"serial"})
-public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, org.apache.thrift.TFieldIdEnum> {
+public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
     public static class Builder {
         public Builder() {
         }
@@ -318,11 +318,11 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         this(other.getActivationInformation(), other.getBackorders(), other.getChildren(), other.getCost(), other.getCreatedAt(), other.getDescription(), other.getImages(), other.isInStock(), other.isQtyDecimal(), other.isRecurring(), other.getLowStockDate(), other.getMaxSaleQty(), other.getMetaDescription(), other.getMetaKeyword(), other.getMetaTitle(), other.getMinimalPrice(), other.getMinQty(), other.getMinSaleQty(), other.getModel(), other.getName(), other.getNewsFromDate(), other.getNewsToDate(), other.getNotifyStockQty(), other.getPrice(), other.getQty(), other.getShippingPolicy(), other.getShortDescription(), other.getSku(), other.getSpecialFromDate(), other.getSpecialPrice(), other.getSpecialToDate(), other.getStore(), other.getStatus(), other.getTags(), other.getType(), other.getUpdatedAt(), other.getUrlKey(), other.getUrlPath(), other.getVisibility(), other.getWeight());
     }
 
-    public MagentoProduct(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-        this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+    public MagentoProduct(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+        this(iprot, org.thryft.protocol.TType.STRUCT);
     }
 
-    public MagentoProduct(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+    public MagentoProduct(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
         String activationInformation = null;
         Integer backorders = null;
         com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> children = null;
@@ -365,50 +365,50 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
         java.math.BigDecimal weight = null;
 
         switch (readAsTType) {
-            case org.apache.thrift.protocol.TType.LIST:
-                final org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+            case org.thryft.protocol.TType.LIST:
+                final org.thryft.protocol.TList __list = iprot.readListBegin();
                 activationInformation = iprot.readString();
                 try {
                     backorders = iprot.readI32();
                 } catch (NumberFormatException e) {
                 }
-                children = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct>>() {
+                children = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct>>() {
                     @Override
-                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> apply(final org.thryft.protocol.TProtocol iprot) {
                         try {
-                            final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                            final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
                             final java.util.Set<com.yogento.api.models.catalog.product.magento.MagentoProduct> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.magento.MagentoProduct>();
                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                 sequence.add(new com.yogento.api.models.catalog.product.magento.MagentoProduct(iprot));
                             }
                             iprot.readSetEnd();
                             return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                        } catch (final org.apache.thrift.TException e) {
+                        } catch (final java.io.IOException e) {
                             return com.google.common.collect.ImmutableSet.of();
                         }
                     }
                 }).apply(iprot);
                 try {
-                    cost = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDecimal() : new java.math.BigDecimal(iprot.readString());
+                    cost = iprot.readDecimal();
                 } catch (NumberFormatException e) {
                 }
                 try {
-                    createdAt = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                    createdAt = iprot.readDateTime();
                 } catch (IllegalArgumentException e) {
                 }
                 description = iprot.readString();
-                images = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>>() {
+                images = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>>() {
                     @Override
-                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> apply(final org.thryft.protocol.TProtocol iprot) {
                         try {
-                            final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                            final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
                             final java.util.Set<com.yogento.api.models.catalog.product.magento.MagentoProductImage> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>();
                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                 sequence.add(new com.yogento.api.models.catalog.product.magento.MagentoProductImage(iprot));
                             }
                             iprot.readSetEnd();
                             return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                        } catch (final org.apache.thrift.TException e) {
+                        } catch (final java.io.IOException e) {
                             return com.google.common.collect.ImmutableSet.of();
                         }
                     }
@@ -417,124 +417,124 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                 isQtyDecimal = iprot.readBool();
                 isRecurring = iprot.readBool();
                 try {
-                    lowStockDate = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                    lowStockDate = iprot.readDateTime();
                 } catch (IllegalArgumentException e) {
                 }
                 try {
-                    maxSaleQty = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDecimal() : new java.math.BigDecimal(iprot.readString());
+                    maxSaleQty = iprot.readDecimal();
                 } catch (NumberFormatException e) {
                 }
                 metaDescription = iprot.readString();
                 metaKeyword = iprot.readString();
                 metaTitle = iprot.readString();
                 try {
-                    minimalPrice = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDecimal() : new java.math.BigDecimal(iprot.readString());
+                    minimalPrice = iprot.readDecimal();
                 } catch (NumberFormatException e) {
                 }
                 try {
-                    minQty = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDecimal() : new java.math.BigDecimal(iprot.readString());
+                    minQty = iprot.readDecimal();
                 } catch (NumberFormatException e) {
                 }
                 try {
-                    minSaleQty = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDecimal() : new java.math.BigDecimal(iprot.readString());
+                    minSaleQty = iprot.readDecimal();
                 } catch (NumberFormatException e) {
                 }
                 model = iprot.readString();
                 name = iprot.readString();
                 try {
-                    newsFromDate = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                    newsFromDate = iprot.readDateTime();
                 } catch (IllegalArgumentException e) {
                 }
                 try {
-                    newsToDate = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                    newsToDate = iprot.readDateTime();
                 } catch (IllegalArgumentException e) {
                 }
                 try {
-                    notifyStockQty = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDecimal() : new java.math.BigDecimal(iprot.readString());
+                    notifyStockQty = iprot.readDecimal();
                 } catch (NumberFormatException e) {
                 }
                 try {
-                    price = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDecimal() : new java.math.BigDecimal(iprot.readString());
+                    price = iprot.readDecimal();
                 } catch (NumberFormatException e) {
                 }
                 try {
-                    qty = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDecimal() : new java.math.BigDecimal(iprot.readString());
+                    qty = iprot.readDecimal();
                 } catch (NumberFormatException e) {
                 }
                 shippingPolicy = iprot.readString();
                 shortDescription = iprot.readString();
                 sku = iprot.readString();
                 try {
-                    specialFromDate = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                    specialFromDate = iprot.readDateTime();
                 } catch (IllegalArgumentException e) {
                 }
                 try {
-                    specialPrice = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDecimal() : new java.math.BigDecimal(iprot.readString());
+                    specialPrice = iprot.readDecimal();
                 } catch (NumberFormatException e) {
                 }
                 try {
-                    specialToDate = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                    specialToDate = iprot.readDateTime();
                 } catch (IllegalArgumentException e) {
                 }
                 store = iprot.readString();
                 try {
-                    status = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductStatus.class) : com.yogento.api.models.catalog.product.magento.MagentoProductStatus.valueOf(iprot.readString().trim().toUpperCase());
+                    status = iprot.readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductStatus.class);
                 } catch (IllegalArgumentException e) {
                 }
-                tags = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
+                tags = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
                     @Override
-                    public com.google.common.collect.ImmutableSet<String> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                    public com.google.common.collect.ImmutableSet<String> apply(final org.thryft.protocol.TProtocol iprot) {
                         try {
-                            final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                            final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
                             final java.util.Set<String> sequence = new java.util.LinkedHashSet<String>();
                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                 sequence.add(iprot.readString());
                             }
                             iprot.readSetEnd();
                             return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                        } catch (final org.apache.thrift.TException e) {
+                        } catch (final java.io.IOException e) {
                             return com.google.common.collect.ImmutableSet.of();
                         }
                     }
                 }).apply(iprot);
                 type = iprot.readString();
                 try {
-                    updatedAt = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                    updatedAt = iprot.readDateTime();
                 } catch (IllegalArgumentException e) {
                 }
                 urlKey = iprot.readString();
                 urlPath = iprot.readString();
-                visibility = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
+                visibility = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
                     @Override
-                    public com.google.common.collect.ImmutableSet<String> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                    public com.google.common.collect.ImmutableSet<String> apply(final org.thryft.protocol.TProtocol iprot) {
                         try {
-                            final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                            final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
                             final java.util.Set<String> sequence = new java.util.LinkedHashSet<String>();
                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                 sequence.add(iprot.readString());
                             }
                             iprot.readSetEnd();
                             return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                        } catch (final org.apache.thrift.TException e) {
+                        } catch (final java.io.IOException e) {
                             return com.google.common.collect.ImmutableSet.of();
                         }
                     }
                 }).apply(iprot);
                 if (__list.size > 39) {
                     try {
-                        weight = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDecimal() : new java.math.BigDecimal(iprot.readString());
+                        weight = iprot.readDecimal();
                     } catch (NumberFormatException e) {
                     }
                 }
                 iprot.readListEnd();
                 break;
 
-            case org.apache.thrift.protocol.TType.STRUCT:
+            case org.thryft.protocol.TType.STRUCT:
             default:
                 iprot.readStructBegin();
                 while (true) {
-                    final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                    if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                    final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                    if (ifield.type == org.thryft.protocol.TType.STOP) {
                         break;
                     } else if (ifield.name.equals("activation_information")) {
                         activationInformation = iprot.readString();
@@ -544,47 +544,47 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                         } catch (NumberFormatException e) {
                         }
                     } else if (ifield.name.equals("children")) {
-                        children = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct>>() {
+                        children = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct>>() {
                             @Override
-                            public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                            public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> apply(final org.thryft.protocol.TProtocol iprot) {
                                 try {
-                                    final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                                    final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
                                     final java.util.Set<com.yogento.api.models.catalog.product.magento.MagentoProduct> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.magento.MagentoProduct>();
                                     for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                         sequence.add(new com.yogento.api.models.catalog.product.magento.MagentoProduct(iprot));
                                     }
                                     iprot.readSetEnd();
                                     return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                                } catch (final org.apache.thrift.TException e) {
+                                } catch (final java.io.IOException e) {
                                     return com.google.common.collect.ImmutableSet.of();
                                 }
                             }
                         }).apply(iprot);
                     } else if (ifield.name.equals("cost")) {
                         try {
-                            cost = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDecimal() : new java.math.BigDecimal(iprot.readString());
+                            cost = iprot.readDecimal();
                         } catch (NumberFormatException e) {
                         }
                     } else if (ifield.name.equals("created_at")) {
                         try {
-                            createdAt = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                            createdAt = iprot.readDateTime();
                         } catch (IllegalArgumentException e) {
                         }
                     } else if (ifield.name.equals("description")) {
                         description = iprot.readString();
                     } else if (ifield.name.equals("images")) {
-                        images = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>>() {
+                        images = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>>() {
                             @Override
-                            public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                            public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> apply(final org.thryft.protocol.TProtocol iprot) {
                                 try {
-                                    final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                                    final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
                                     final java.util.Set<com.yogento.api.models.catalog.product.magento.MagentoProductImage> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>();
                                     for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                         sequence.add(new com.yogento.api.models.catalog.product.magento.MagentoProductImage(iprot));
                                     }
                                     iprot.readSetEnd();
                                     return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                                } catch (final org.apache.thrift.TException e) {
+                                } catch (final java.io.IOException e) {
                                     return com.google.common.collect.ImmutableSet.of();
                                 }
                             }
@@ -597,12 +597,12 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                         isRecurring = iprot.readBool();
                     } else if (ifield.name.equals("low_stock_date")) {
                         try {
-                            lowStockDate = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                            lowStockDate = iprot.readDateTime();
                         } catch (IllegalArgumentException e) {
                         }
                     } else if (ifield.name.equals("max_sale_qty")) {
                         try {
-                            maxSaleQty = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDecimal() : new java.math.BigDecimal(iprot.readString());
+                            maxSaleQty = iprot.readDecimal();
                         } catch (NumberFormatException e) {
                         }
                     } else if (ifield.name.equals("meta_description")) {
@@ -613,17 +613,17 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                         metaTitle = iprot.readString();
                     } else if (ifield.name.equals("minimal_price")) {
                         try {
-                            minimalPrice = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDecimal() : new java.math.BigDecimal(iprot.readString());
+                            minimalPrice = iprot.readDecimal();
                         } catch (NumberFormatException e) {
                         }
                     } else if (ifield.name.equals("min_qty")) {
                         try {
-                            minQty = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDecimal() : new java.math.BigDecimal(iprot.readString());
+                            minQty = iprot.readDecimal();
                         } catch (NumberFormatException e) {
                         }
                     } else if (ifield.name.equals("min_sale_qty")) {
                         try {
-                            minSaleQty = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDecimal() : new java.math.BigDecimal(iprot.readString());
+                            minSaleQty = iprot.readDecimal();
                         } catch (NumberFormatException e) {
                         }
                     } else if (ifield.name.equals("model")) {
@@ -632,27 +632,27 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                         name = iprot.readString();
                     } else if (ifield.name.equals("news_from_date")) {
                         try {
-                            newsFromDate = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                            newsFromDate = iprot.readDateTime();
                         } catch (IllegalArgumentException e) {
                         }
                     } else if (ifield.name.equals("news_to_date")) {
                         try {
-                            newsToDate = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                            newsToDate = iprot.readDateTime();
                         } catch (IllegalArgumentException e) {
                         }
                     } else if (ifield.name.equals("notify_stock_qty")) {
                         try {
-                            notifyStockQty = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDecimal() : new java.math.BigDecimal(iprot.readString());
+                            notifyStockQty = iprot.readDecimal();
                         } catch (NumberFormatException e) {
                         }
                     } else if (ifield.name.equals("price")) {
                         try {
-                            price = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDecimal() : new java.math.BigDecimal(iprot.readString());
+                            price = iprot.readDecimal();
                         } catch (NumberFormatException e) {
                         }
                     } else if (ifield.name.equals("qty")) {
                         try {
-                            qty = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDecimal() : new java.math.BigDecimal(iprot.readString());
+                            qty = iprot.readDecimal();
                         } catch (NumberFormatException e) {
                         }
                     } else if (ifield.name.equals("shipping_policy")) {
@@ -663,39 +663,39 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                         sku = iprot.readString();
                     } else if (ifield.name.equals("special_from_date")) {
                         try {
-                            specialFromDate = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                            specialFromDate = iprot.readDateTime();
                         } catch (IllegalArgumentException e) {
                         }
                     } else if (ifield.name.equals("special_price")) {
                         try {
-                            specialPrice = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDecimal() : new java.math.BigDecimal(iprot.readString());
+                            specialPrice = iprot.readDecimal();
                         } catch (NumberFormatException e) {
                         }
                     } else if (ifield.name.equals("special_to_date")) {
                         try {
-                            specialToDate = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                            specialToDate = iprot.readDateTime();
                         } catch (IllegalArgumentException e) {
                         }
                     } else if (ifield.name.equals("store")) {
                         store = iprot.readString();
                     } else if (ifield.name.equals("status")) {
                         try {
-                            status = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductStatus.class) : com.yogento.api.models.catalog.product.magento.MagentoProductStatus.valueOf(iprot.readString().trim().toUpperCase());
+                            status = iprot.readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductStatus.class);
                         } catch (IllegalArgumentException e) {
                         }
                     } else if (ifield.name.equals("tags")) {
-                        tags = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
+                        tags = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
                             @Override
-                            public com.google.common.collect.ImmutableSet<String> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                            public com.google.common.collect.ImmutableSet<String> apply(final org.thryft.protocol.TProtocol iprot) {
                                 try {
-                                    final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                                    final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
                                     final java.util.Set<String> sequence = new java.util.LinkedHashSet<String>();
                                     for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                         sequence.add(iprot.readString());
                                     }
                                     iprot.readSetEnd();
                                     return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                                } catch (final org.apache.thrift.TException e) {
+                                } catch (final java.io.IOException e) {
                                     return com.google.common.collect.ImmutableSet.of();
                                 }
                             }
@@ -704,7 +704,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                         type = iprot.readString();
                     } else if (ifield.name.equals("updated_at")) {
                         try {
-                            updatedAt = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDateTime() : new org.joda.time.DateTime(iprot.readI64());
+                            updatedAt = iprot.readDateTime();
                         } catch (IllegalArgumentException e) {
                         }
                     } else if (ifield.name.equals("url_key")) {
@@ -712,25 +712,25 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                     } else if (ifield.name.equals("url_path")) {
                         urlPath = iprot.readString();
                     } else if (ifield.name.equals("visibility")) {
-                        visibility = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
+                        visibility = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
                             @Override
-                            public com.google.common.collect.ImmutableSet<String> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                            public com.google.common.collect.ImmutableSet<String> apply(final org.thryft.protocol.TProtocol iprot) {
                                 try {
-                                    final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                                    final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
                                     final java.util.Set<String> sequence = new java.util.LinkedHashSet<String>();
                                     for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                         sequence.add(iprot.readString());
                                     }
                                     iprot.readSetEnd();
                                     return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                                } catch (final org.apache.thrift.TException e) {
+                                } catch (final java.io.IOException e) {
                                     return com.google.common.collect.ImmutableSet.of();
                                 }
                             }
                         }).apply(iprot);
                     } else if (ifield.name.equals("weight")) {
                         try {
-                            weight = (iprot instanceof org.thryft.protocol.Protocol) ? ((org.thryft.protocol.Protocol)iprot).readDecimal() : new java.math.BigDecimal(iprot.readString());
+                            weight = iprot.readDecimal();
                         } catch (NumberFormatException e) {
                         }
                     }
@@ -869,17 +869,7 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
     }
 
     @Override
-    public void clear() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public int compareTo(final MagentoProduct other) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public org.apache.thrift.TBase<MagentoProduct, org.apache.thrift.TFieldIdEnum> deepCopy() {
         throw new UnsupportedOperationException();
     }
 
@@ -1003,11 +993,6 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
             getWeight().equals(other.getWeight())));
     }
 
-    @Override
-    public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-        throw new UnsupportedOperationException();
-    }
-
     public Object get(final String fieldName) {
         if (fieldName.equals("activation_information")) {
             return getActivationInformation();
@@ -1115,11 +1100,6 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
 
     public final String getDescription() {
         return description;
-    }
-
-    @Override
-    public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-        throw new UnsupportedOperationException();
     }
 
     public final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> getImages() {
@@ -1388,21 +1368,6 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
     }
 
     @Override
-    public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public String toString() {
         final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
         if (getActivationInformation() != null) {
@@ -1517,174 +1482,174 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
     }
 
     @Override
-    public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-        write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+    public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+        write(oprot, org.thryft.protocol.TType.STRUCT);
     }
 
-    public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+    public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
         switch (writeAsTType) {
-            case org.apache.thrift.protocol.TType.VOID:
-            case org.apache.thrift.protocol.TType.LIST:
-                oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 40));
+            case org.thryft.protocol.TType.VOID:
+            case org.thryft.protocol.TType.LIST:
+                oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 40));
 
                 if (getActivationInformation() != null) {
                     oprot.writeString(getActivationInformation());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getBackorders() != null) {
                     oprot.writeI32(getBackorders());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getChildren() != null) {
-                    oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getChildren().size()));
+                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getChildren().size()));
                     for (final com.yogento.api.models.catalog.product.magento.MagentoProduct _iter0 : getChildren()) {
                         _iter0.write(oprot);
                     }
                     oprot.writeSetEnd();
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getCost() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDecimal(getCost()); } else { oprot.writeString(getCost().toString()); }
+                    oprot.writeDecimal(getCost());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getCreatedAt() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getCreatedAt()); } else { oprot.writeI64(getCreatedAt().getMillis()); }
+                    oprot.writeDateTime(getCreatedAt());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getDescription() != null) {
                     oprot.writeString(getDescription());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getImages() != null) {
-                    oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getImages().size()));
+                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getImages().size()));
                     for (final com.yogento.api.models.catalog.product.magento.MagentoProductImage _iter0 : getImages()) {
                         _iter0.write(oprot);
                     }
                     oprot.writeSetEnd();
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (isInStock() != null) {
                     oprot.writeBool(isInStock());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (isQtyDecimal() != null) {
                     oprot.writeBool(isQtyDecimal());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (isRecurring() != null) {
                     oprot.writeBool(isRecurring());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getLowStockDate() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getLowStockDate()); } else { oprot.writeI64(getLowStockDate().getMillis()); }
+                    oprot.writeDateTime(getLowStockDate());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getMaxSaleQty() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDecimal(getMaxSaleQty()); } else { oprot.writeString(getMaxSaleQty().toString()); }
+                    oprot.writeDecimal(getMaxSaleQty());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getMetaDescription() != null) {
                     oprot.writeString(getMetaDescription());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getMetaKeyword() != null) {
                     oprot.writeString(getMetaKeyword());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getMetaTitle() != null) {
                     oprot.writeString(getMetaTitle());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getMinimalPrice() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDecimal(getMinimalPrice()); } else { oprot.writeString(getMinimalPrice().toString()); }
+                    oprot.writeDecimal(getMinimalPrice());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getMinQty() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDecimal(getMinQty()); } else { oprot.writeString(getMinQty().toString()); }
+                    oprot.writeDecimal(getMinQty());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getMinSaleQty() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDecimal(getMinSaleQty()); } else { oprot.writeString(getMinSaleQty().toString()); }
+                    oprot.writeDecimal(getMinSaleQty());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getModel() != null) {
                     oprot.writeString(getModel());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 oprot.writeString(getName());
 
                 if (getNewsFromDate() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getNewsFromDate()); } else { oprot.writeI64(getNewsFromDate().getMillis()); }
+                    oprot.writeDateTime(getNewsFromDate());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getNewsToDate() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getNewsToDate()); } else { oprot.writeI64(getNewsToDate().getMillis()); }
+                    oprot.writeDateTime(getNewsToDate());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getNotifyStockQty() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDecimal(getNotifyStockQty()); } else { oprot.writeString(getNotifyStockQty().toString()); }
+                    oprot.writeDecimal(getNotifyStockQty());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getPrice() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDecimal(getPrice()); } else { oprot.writeString(getPrice().toString()); }
+                    oprot.writeDecimal(getPrice());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getQty() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDecimal(getQty()); } else { oprot.writeString(getQty().toString()); }
+                    oprot.writeDecimal(getQty());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getShippingPolicy() != null) {
                     oprot.writeString(getShippingPolicy());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 oprot.writeString(getShortDescription());
@@ -1692,51 +1657,51 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                 oprot.writeString(getSku());
 
                 if (getSpecialFromDate() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getSpecialFromDate()); } else { oprot.writeI64(getSpecialFromDate().getMillis()); }
+                    oprot.writeDateTime(getSpecialFromDate());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getSpecialPrice() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDecimal(getSpecialPrice()); } else { oprot.writeString(getSpecialPrice().toString()); }
+                    oprot.writeDecimal(getSpecialPrice());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getSpecialToDate() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getSpecialToDate()); } else { oprot.writeI64(getSpecialToDate().getMillis()); }
+                    oprot.writeDateTime(getSpecialToDate());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 oprot.writeString(getStore());
 
                 if (getStatus() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeEnum(getStatus()); } else { oprot.writeString(getStatus().toString()); }
+                    oprot.writeEnum(getStatus());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getTags() != null) {
-                    oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, getTags().size()));
+                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRING, getTags().size()));
                     for (final String _iter0 : getTags()) {
                         oprot.writeString(_iter0);
                     }
                     oprot.writeSetEnd();
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getType() != null) {
                     oprot.writeString(getType());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 if (getUpdatedAt() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getUpdatedAt()); } else { oprot.writeI64(getUpdatedAt().getMillis()); }
+                    oprot.writeDateTime(getUpdatedAt());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 oprot.writeString(getUrlKey());
@@ -1744,43 +1709,43 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                 if (getUrlPath() != null) {
                     oprot.writeString(getUrlPath());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
-                oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, getVisibility().size()));
+                oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRING, getVisibility().size()));
                 for (final String _iter0 : getVisibility()) {
                     oprot.writeString(_iter0);
                 }
                 oprot.writeSetEnd();
 
                 if (getWeight() != null) {
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDecimal(getWeight()); } else { oprot.writeString(getWeight().toString()); }
+                    oprot.writeDecimal(getWeight());
                 } else {
-                    ((org.thryft.protocol.Protocol)oprot).writeNull();
+                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
                 }
 
                 oprot.writeListEnd();
                 break;
 
-            case org.apache.thrift.protocol.TType.STRUCT:
+            case org.thryft.protocol.TType.STRUCT:
             default:
-                oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("MagentoProduct"));
+                oprot.writeStructBegin(new org.thryft.protocol.TStruct("MagentoProduct"));
 
                 if (getActivationInformation() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("activation_information", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("activation_information", org.thryft.protocol.TType.STRING, (short)-1));
                     oprot.writeString(getActivationInformation());
                     oprot.writeFieldEnd();
                 }
 
                 if (getBackorders() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("backorders", org.apache.thrift.protocol.TType.I32, (short)-1));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("backorders", org.thryft.protocol.TType.I32, (short)-1));
                     oprot.writeI32(getBackorders());
                     oprot.writeFieldEnd();
                 }
 
                 if (getChildren() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("children", org.apache.thrift.protocol.TType.SET, (short)-1));
-                    oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getChildren().size()));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("children", org.thryft.protocol.TType.SET, (short)-1));
+                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getChildren().size()));
                     for (final com.yogento.api.models.catalog.product.magento.MagentoProduct _iter0 : getChildren()) {
                         _iter0.write(oprot);
                     }
@@ -1789,26 +1754,26 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                 }
 
                 if (getCost() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("cost", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDecimal(getCost()); } else { oprot.writeString(getCost().toString()); }
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("cost", org.thryft.protocol.TType.STRUCT, (short)-1));
+                    oprot.writeDecimal(getCost());
                     oprot.writeFieldEnd();
                 }
 
                 if (getCreatedAt() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("created_at", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getCreatedAt()); } else { oprot.writeI64(getCreatedAt().getMillis()); }
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("created_at", org.thryft.protocol.TType.STRUCT, (short)-1));
+                    oprot.writeDateTime(getCreatedAt());
                     oprot.writeFieldEnd();
                 }
 
                 if (getDescription() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("description", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("description", org.thryft.protocol.TType.STRING, (short)-1));
                     oprot.writeString(getDescription());
                     oprot.writeFieldEnd();
                 }
 
                 if (getImages() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("images", org.apache.thrift.protocol.TType.SET, (short)-1));
-                    oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getImages().size()));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("images", org.thryft.protocol.TType.SET, (short)-1));
+                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getImages().size()));
                     for (final com.yogento.api.models.catalog.product.magento.MagentoProductImage _iter0 : getImages()) {
                         _iter0.write(oprot);
                     }
@@ -1817,156 +1782,156 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                 }
 
                 if (isInStock() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("is_in_stock", org.apache.thrift.protocol.TType.BOOL, (short)-1));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("is_in_stock", org.thryft.protocol.TType.BOOL, (short)-1));
                     oprot.writeBool(isInStock());
                     oprot.writeFieldEnd();
                 }
 
                 if (isQtyDecimal() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("is_qty_decimal", org.apache.thrift.protocol.TType.BOOL, (short)-1));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("is_qty_decimal", org.thryft.protocol.TType.BOOL, (short)-1));
                     oprot.writeBool(isQtyDecimal());
                     oprot.writeFieldEnd();
                 }
 
                 if (isRecurring() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("is_recurring", org.apache.thrift.protocol.TType.BOOL, (short)-1));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("is_recurring", org.thryft.protocol.TType.BOOL, (short)-1));
                     oprot.writeBool(isRecurring());
                     oprot.writeFieldEnd();
                 }
 
                 if (getLowStockDate() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("low_stock_date", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getLowStockDate()); } else { oprot.writeI64(getLowStockDate().getMillis()); }
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("low_stock_date", org.thryft.protocol.TType.STRUCT, (short)-1));
+                    oprot.writeDateTime(getLowStockDate());
                     oprot.writeFieldEnd();
                 }
 
                 if (getMaxSaleQty() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("max_sale_qty", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDecimal(getMaxSaleQty()); } else { oprot.writeString(getMaxSaleQty().toString()); }
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("max_sale_qty", org.thryft.protocol.TType.STRUCT, (short)-1));
+                    oprot.writeDecimal(getMaxSaleQty());
                     oprot.writeFieldEnd();
                 }
 
                 if (getMetaDescription() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("meta_description", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("meta_description", org.thryft.protocol.TType.STRING, (short)-1));
                     oprot.writeString(getMetaDescription());
                     oprot.writeFieldEnd();
                 }
 
                 if (getMetaKeyword() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("meta_keyword", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("meta_keyword", org.thryft.protocol.TType.STRING, (short)-1));
                     oprot.writeString(getMetaKeyword());
                     oprot.writeFieldEnd();
                 }
 
                 if (getMetaTitle() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("meta_title", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("meta_title", org.thryft.protocol.TType.STRING, (short)-1));
                     oprot.writeString(getMetaTitle());
                     oprot.writeFieldEnd();
                 }
 
                 if (getMinimalPrice() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("minimal_price", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDecimal(getMinimalPrice()); } else { oprot.writeString(getMinimalPrice().toString()); }
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("minimal_price", org.thryft.protocol.TType.STRUCT, (short)-1));
+                    oprot.writeDecimal(getMinimalPrice());
                     oprot.writeFieldEnd();
                 }
 
                 if (getMinQty() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("min_qty", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDecimal(getMinQty()); } else { oprot.writeString(getMinQty().toString()); }
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("min_qty", org.thryft.protocol.TType.STRUCT, (short)-1));
+                    oprot.writeDecimal(getMinQty());
                     oprot.writeFieldEnd();
                 }
 
                 if (getMinSaleQty() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("min_sale_qty", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDecimal(getMinSaleQty()); } else { oprot.writeString(getMinSaleQty().toString()); }
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("min_sale_qty", org.thryft.protocol.TType.STRUCT, (short)-1));
+                    oprot.writeDecimal(getMinSaleQty());
                     oprot.writeFieldEnd();
                 }
 
                 if (getModel() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("model", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("model", org.thryft.protocol.TType.STRING, (short)-1));
                     oprot.writeString(getModel());
                     oprot.writeFieldEnd();
                 }
 
-                oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("name", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                oprot.writeFieldBegin(new org.thryft.protocol.TField("name", org.thryft.protocol.TType.STRING, (short)-1));
                 oprot.writeString(getName());
                 oprot.writeFieldEnd();
 
                 if (getNewsFromDate() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("news_from_date", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getNewsFromDate()); } else { oprot.writeI64(getNewsFromDate().getMillis()); }
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("news_from_date", org.thryft.protocol.TType.STRUCT, (short)-1));
+                    oprot.writeDateTime(getNewsFromDate());
                     oprot.writeFieldEnd();
                 }
 
                 if (getNewsToDate() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("news_to_date", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getNewsToDate()); } else { oprot.writeI64(getNewsToDate().getMillis()); }
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("news_to_date", org.thryft.protocol.TType.STRUCT, (short)-1));
+                    oprot.writeDateTime(getNewsToDate());
                     oprot.writeFieldEnd();
                 }
 
                 if (getNotifyStockQty() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("notify_stock_qty", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDecimal(getNotifyStockQty()); } else { oprot.writeString(getNotifyStockQty().toString()); }
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("notify_stock_qty", org.thryft.protocol.TType.STRUCT, (short)-1));
+                    oprot.writeDecimal(getNotifyStockQty());
                     oprot.writeFieldEnd();
                 }
 
                 if (getPrice() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("price", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDecimal(getPrice()); } else { oprot.writeString(getPrice().toString()); }
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("price", org.thryft.protocol.TType.STRUCT, (short)-1));
+                    oprot.writeDecimal(getPrice());
                     oprot.writeFieldEnd();
                 }
 
                 if (getQty() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("qty", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDecimal(getQty()); } else { oprot.writeString(getQty().toString()); }
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("qty", org.thryft.protocol.TType.STRUCT, (short)-1));
+                    oprot.writeDecimal(getQty());
                     oprot.writeFieldEnd();
                 }
 
                 if (getShippingPolicy() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("shipping_policy", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("shipping_policy", org.thryft.protocol.TType.STRING, (short)-1));
                     oprot.writeString(getShippingPolicy());
                     oprot.writeFieldEnd();
                 }
 
-                oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("short_description", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                oprot.writeFieldBegin(new org.thryft.protocol.TField("short_description", org.thryft.protocol.TType.STRING, (short)-1));
                 oprot.writeString(getShortDescription());
                 oprot.writeFieldEnd();
 
-                oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("sku", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                oprot.writeFieldBegin(new org.thryft.protocol.TField("sku", org.thryft.protocol.TType.STRING, (short)-1));
                 oprot.writeString(getSku());
                 oprot.writeFieldEnd();
 
                 if (getSpecialFromDate() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("special_from_date", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getSpecialFromDate()); } else { oprot.writeI64(getSpecialFromDate().getMillis()); }
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("special_from_date", org.thryft.protocol.TType.STRUCT, (short)-1));
+                    oprot.writeDateTime(getSpecialFromDate());
                     oprot.writeFieldEnd();
                 }
 
                 if (getSpecialPrice() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("special_price", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDecimal(getSpecialPrice()); } else { oprot.writeString(getSpecialPrice().toString()); }
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("special_price", org.thryft.protocol.TType.STRUCT, (short)-1));
+                    oprot.writeDecimal(getSpecialPrice());
                     oprot.writeFieldEnd();
                 }
 
                 if (getSpecialToDate() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("special_to_date", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getSpecialToDate()); } else { oprot.writeI64(getSpecialToDate().getMillis()); }
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("special_to_date", org.thryft.protocol.TType.STRUCT, (short)-1));
+                    oprot.writeDateTime(getSpecialToDate());
                     oprot.writeFieldEnd();
                 }
 
-                oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("store", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                oprot.writeFieldBegin(new org.thryft.protocol.TField("store", org.thryft.protocol.TType.STRING, (short)-1));
                 oprot.writeString(getStore());
                 oprot.writeFieldEnd();
 
                 if (getStatus() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("status", org.apache.thrift.protocol.TType.STRING, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeEnum(getStatus()); } else { oprot.writeString(getStatus().toString()); }
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("status", org.thryft.protocol.TType.STRING, (short)-1));
+                    oprot.writeEnum(getStatus());
                     oprot.writeFieldEnd();
                 }
 
                 if (getTags() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("tags", org.apache.thrift.protocol.TType.SET, (short)-1));
-                    oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, getTags().size()));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("tags", org.thryft.protocol.TType.SET, (short)-1));
+                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRING, getTags().size()));
                     for (final String _iter0 : getTags()) {
                         oprot.writeString(_iter0);
                     }
@@ -1975,29 +1940,29 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                 }
 
                 if (getType() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("type", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("type", org.thryft.protocol.TType.STRING, (short)-1));
                     oprot.writeString(getType());
                     oprot.writeFieldEnd();
                 }
 
                 if (getUpdatedAt() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("updated_at", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDateTime(getUpdatedAt()); } else { oprot.writeI64(getUpdatedAt().getMillis()); }
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("updated_at", org.thryft.protocol.TType.STRUCT, (short)-1));
+                    oprot.writeDateTime(getUpdatedAt());
                     oprot.writeFieldEnd();
                 }
 
-                oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("url_key", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                oprot.writeFieldBegin(new org.thryft.protocol.TField("url_key", org.thryft.protocol.TType.STRING, (short)-1));
                 oprot.writeString(getUrlKey());
                 oprot.writeFieldEnd();
 
                 if (getUrlPath() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("url_path", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("url_path", org.thryft.protocol.TType.STRING, (short)-1));
                     oprot.writeString(getUrlPath());
                     oprot.writeFieldEnd();
                 }
 
-                oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("visibility", org.apache.thrift.protocol.TType.SET, (short)-1));
-                oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, getVisibility().size()));
+                oprot.writeFieldBegin(new org.thryft.protocol.TField("visibility", org.thryft.protocol.TType.SET, (short)-1));
+                oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRING, getVisibility().size()));
                 for (final String _iter0 : getVisibility()) {
                     oprot.writeString(_iter0);
                 }
@@ -2005,8 +1970,8 @@ public class MagentoProduct implements org.apache.thrift.TBase<MagentoProduct, o
                 oprot.writeFieldEnd();
 
                 if (getWeight() != null) {
-                    oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("weight", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
-                    if (oprot instanceof org.thryft.protocol.Protocol) { ((org.thryft.protocol.Protocol)oprot).writeDecimal(getWeight()); } else { oprot.writeString(getWeight().toString()); }
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("weight", org.thryft.protocol.TType.STRUCT, (short)-1));
+                    oprot.writeDecimal(getWeight());
                     oprot.writeFieldEnd();
                 }
 

@@ -925,12 +925,12 @@ class MagentoProduct(object):
                 init_kwds['children'] = frozenset([yogento.api.models.catalog.product.magento.magento_product.MagentoProduct.read(iprot) for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
             elif ifield_name == 'cost':
                 try:
-                    init_kwds['cost'] = iprot.readDecimal() if hasattr(iprot, 'readDecimal') else decimal.Decimal(iprot.readString())
+                    init_kwds['cost'] = iprot.readDecimal()
                 except (decimal.InvalidOperation, TypeError,):
                     pass
             elif ifield_name == 'created_at':
                 try:
-                    init_kwds['created_at'] = iprot.readDateTime() if hasattr(iprot, 'readDateTime') else datetime.fromtimestamp(iprot.readI64() / 1000.0)
+                    init_kwds['created_at'] = iprot.readDateTime()
                 except (TypeError,):
                     pass
             elif ifield_name == 'description':
@@ -957,12 +957,12 @@ class MagentoProduct(object):
                     pass
             elif ifield_name == 'low_stock_date':
                 try:
-                    init_kwds['low_stock_date'] = iprot.readDateTime() if hasattr(iprot, 'readDateTime') else datetime.fromtimestamp(iprot.readI64() / 1000.0)
+                    init_kwds['low_stock_date'] = iprot.readDateTime()
                 except (TypeError,):
                     pass
             elif ifield_name == 'max_sale_qty':
                 try:
-                    init_kwds['max_sale_qty'] = iprot.readDecimal() if hasattr(iprot, 'readDecimal') else decimal.Decimal(iprot.readString())
+                    init_kwds['max_sale_qty'] = iprot.readDecimal()
                 except (decimal.InvalidOperation, TypeError,):
                     pass
             elif ifield_name == 'meta_description':
@@ -982,17 +982,17 @@ class MagentoProduct(object):
                     pass
             elif ifield_name == 'minimal_price':
                 try:
-                    init_kwds['minimal_price'] = iprot.readDecimal() if hasattr(iprot, 'readDecimal') else decimal.Decimal(iprot.readString())
+                    init_kwds['minimal_price'] = iprot.readDecimal()
                 except (decimal.InvalidOperation, TypeError,):
                     pass
             elif ifield_name == 'min_qty':
                 try:
-                    init_kwds['min_qty'] = iprot.readDecimal() if hasattr(iprot, 'readDecimal') else decimal.Decimal(iprot.readString())
+                    init_kwds['min_qty'] = iprot.readDecimal()
                 except (decimal.InvalidOperation, TypeError,):
                     pass
             elif ifield_name == 'min_sale_qty':
                 try:
-                    init_kwds['min_sale_qty'] = iprot.readDecimal() if hasattr(iprot, 'readDecimal') else decimal.Decimal(iprot.readString())
+                    init_kwds['min_sale_qty'] = iprot.readDecimal()
                 except (decimal.InvalidOperation, TypeError,):
                     pass
             elif ifield_name == 'model':
@@ -1004,27 +1004,27 @@ class MagentoProduct(object):
                 init_kwds['name'] = iprot.readString()
             elif ifield_name == 'news_from_date':
                 try:
-                    init_kwds['news_from_date'] = iprot.readDateTime() if hasattr(iprot, 'readDateTime') else datetime.fromtimestamp(iprot.readI64() / 1000.0)
+                    init_kwds['news_from_date'] = iprot.readDateTime()
                 except (TypeError,):
                     pass
             elif ifield_name == 'news_to_date':
                 try:
-                    init_kwds['news_to_date'] = iprot.readDateTime() if hasattr(iprot, 'readDateTime') else datetime.fromtimestamp(iprot.readI64() / 1000.0)
+                    init_kwds['news_to_date'] = iprot.readDateTime()
                 except (TypeError,):
                     pass
             elif ifield_name == 'notify_stock_qty':
                 try:
-                    init_kwds['notify_stock_qty'] = iprot.readDecimal() if hasattr(iprot, 'readDecimal') else decimal.Decimal(iprot.readString())
+                    init_kwds['notify_stock_qty'] = iprot.readDecimal()
                 except (decimal.InvalidOperation, TypeError,):
                     pass
             elif ifield_name == 'price':
                 try:
-                    init_kwds['price'] = iprot.readDecimal() if hasattr(iprot, 'readDecimal') else decimal.Decimal(iprot.readString())
+                    init_kwds['price'] = iprot.readDecimal()
                 except (decimal.InvalidOperation, TypeError,):
                     pass
             elif ifield_name == 'qty':
                 try:
-                    init_kwds['qty'] = iprot.readDecimal() if hasattr(iprot, 'readDecimal') else decimal.Decimal(iprot.readString())
+                    init_kwds['qty'] = iprot.readDecimal()
                 except (decimal.InvalidOperation, TypeError,):
                     pass
             elif ifield_name == 'shipping_policy':
@@ -1038,17 +1038,17 @@ class MagentoProduct(object):
                 init_kwds['sku'] = iprot.readString()
             elif ifield_name == 'special_from_date':
                 try:
-                    init_kwds['special_from_date'] = iprot.readDateTime() if hasattr(iprot, 'readDateTime') else datetime.fromtimestamp(iprot.readI64() / 1000.0)
+                    init_kwds['special_from_date'] = iprot.readDateTime()
                 except (TypeError,):
                     pass
             elif ifield_name == 'special_price':
                 try:
-                    init_kwds['special_price'] = iprot.readDecimal() if hasattr(iprot, 'readDecimal') else decimal.Decimal(iprot.readString())
+                    init_kwds['special_price'] = iprot.readDecimal()
                 except (decimal.InvalidOperation, TypeError,):
                     pass
             elif ifield_name == 'special_to_date':
                 try:
-                    init_kwds['special_to_date'] = iprot.readDateTime() if hasattr(iprot, 'readDateTime') else datetime.fromtimestamp(iprot.readI64() / 1000.0)
+                    init_kwds['special_to_date'] = iprot.readDateTime()
                 except (TypeError,):
                     pass
             elif ifield_name == 'store':
@@ -1067,7 +1067,7 @@ class MagentoProduct(object):
                     pass
             elif ifield_name == 'updated_at':
                 try:
-                    init_kwds['updated_at'] = iprot.readDateTime() if hasattr(iprot, 'readDateTime') else datetime.fromtimestamp(iprot.readI64() / 1000.0)
+                    init_kwds['updated_at'] = iprot.readDateTime()
                 except (TypeError,):
                     pass
             elif ifield_name == 'url_key':
@@ -1081,7 +1081,7 @@ class MagentoProduct(object):
                 init_kwds['visibility'] = frozenset([iprot.readString() for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
             elif ifield_name == 'weight':
                 try:
-                    init_kwds['weight'] = iprot.readDecimal() if hasattr(iprot, 'readDecimal') else decimal.Decimal(iprot.readString())
+                    init_kwds['weight'] = iprot.readDecimal()
                 except (decimal.InvalidOperation, TypeError,):
                     pass
             iprot.readFieldEnd()
@@ -1255,12 +1255,12 @@ class MagentoProduct(object):
 
         if self.cost is not None:
             oprot.writeFieldBegin('cost', 12, -1)
-            oprot.writeDecimal(self.cost) if hasattr(oprot, 'writeDecimal') else oprot.writeString(str(self.cost))
+            oprot.writeDecimal(self.cost)
             oprot.writeFieldEnd()
 
         if self.created_at is not None:
             oprot.writeFieldBegin('created_at', 12, -1)
-            oprot.writeDateTime(self.created_at) if hasattr(oprot, 'writeDateTime') else oprot.writeI64(long(mktime(self.created_at.timetuple())) * 1000l)
+            oprot.writeDateTime(self.created_at)
             oprot.writeFieldEnd()
 
         if self.description is not None:
@@ -1293,12 +1293,12 @@ class MagentoProduct(object):
 
         if self.low_stock_date is not None:
             oprot.writeFieldBegin('low_stock_date', 12, -1)
-            oprot.writeDateTime(self.low_stock_date) if hasattr(oprot, 'writeDateTime') else oprot.writeI64(long(mktime(self.low_stock_date.timetuple())) * 1000l)
+            oprot.writeDateTime(self.low_stock_date)
             oprot.writeFieldEnd()
 
         if self.max_sale_qty is not None:
             oprot.writeFieldBegin('max_sale_qty', 12, -1)
-            oprot.writeDecimal(self.max_sale_qty) if hasattr(oprot, 'writeDecimal') else oprot.writeString(str(self.max_sale_qty))
+            oprot.writeDecimal(self.max_sale_qty)
             oprot.writeFieldEnd()
 
         if self.meta_description is not None:
@@ -1318,17 +1318,17 @@ class MagentoProduct(object):
 
         if self.minimal_price is not None:
             oprot.writeFieldBegin('minimal_price', 12, -1)
-            oprot.writeDecimal(self.minimal_price) if hasattr(oprot, 'writeDecimal') else oprot.writeString(str(self.minimal_price))
+            oprot.writeDecimal(self.minimal_price)
             oprot.writeFieldEnd()
 
         if self.min_qty is not None:
             oprot.writeFieldBegin('min_qty', 12, -1)
-            oprot.writeDecimal(self.min_qty) if hasattr(oprot, 'writeDecimal') else oprot.writeString(str(self.min_qty))
+            oprot.writeDecimal(self.min_qty)
             oprot.writeFieldEnd()
 
         if self.min_sale_qty is not None:
             oprot.writeFieldBegin('min_sale_qty', 12, -1)
-            oprot.writeDecimal(self.min_sale_qty) if hasattr(oprot, 'writeDecimal') else oprot.writeString(str(self.min_sale_qty))
+            oprot.writeDecimal(self.min_sale_qty)
             oprot.writeFieldEnd()
 
         if self.model is not None:
@@ -1342,27 +1342,27 @@ class MagentoProduct(object):
 
         if self.news_from_date is not None:
             oprot.writeFieldBegin('news_from_date', 12, -1)
-            oprot.writeDateTime(self.news_from_date) if hasattr(oprot, 'writeDateTime') else oprot.writeI64(long(mktime(self.news_from_date.timetuple())) * 1000l)
+            oprot.writeDateTime(self.news_from_date)
             oprot.writeFieldEnd()
 
         if self.news_to_date is not None:
             oprot.writeFieldBegin('news_to_date', 12, -1)
-            oprot.writeDateTime(self.news_to_date) if hasattr(oprot, 'writeDateTime') else oprot.writeI64(long(mktime(self.news_to_date.timetuple())) * 1000l)
+            oprot.writeDateTime(self.news_to_date)
             oprot.writeFieldEnd()
 
         if self.notify_stock_qty is not None:
             oprot.writeFieldBegin('notify_stock_qty', 12, -1)
-            oprot.writeDecimal(self.notify_stock_qty) if hasattr(oprot, 'writeDecimal') else oprot.writeString(str(self.notify_stock_qty))
+            oprot.writeDecimal(self.notify_stock_qty)
             oprot.writeFieldEnd()
 
         if self.price is not None:
             oprot.writeFieldBegin('price', 12, -1)
-            oprot.writeDecimal(self.price) if hasattr(oprot, 'writeDecimal') else oprot.writeString(str(self.price))
+            oprot.writeDecimal(self.price)
             oprot.writeFieldEnd()
 
         if self.qty is not None:
             oprot.writeFieldBegin('qty', 12, -1)
-            oprot.writeDecimal(self.qty) if hasattr(oprot, 'writeDecimal') else oprot.writeString(str(self.qty))
+            oprot.writeDecimal(self.qty)
             oprot.writeFieldEnd()
 
         if self.shipping_policy is not None:
@@ -1380,17 +1380,17 @@ class MagentoProduct(object):
 
         if self.special_from_date is not None:
             oprot.writeFieldBegin('special_from_date', 12, -1)
-            oprot.writeDateTime(self.special_from_date) if hasattr(oprot, 'writeDateTime') else oprot.writeI64(long(mktime(self.special_from_date.timetuple())) * 1000l)
+            oprot.writeDateTime(self.special_from_date)
             oprot.writeFieldEnd()
 
         if self.special_price is not None:
             oprot.writeFieldBegin('special_price', 12, -1)
-            oprot.writeDecimal(self.special_price) if hasattr(oprot, 'writeDecimal') else oprot.writeString(str(self.special_price))
+            oprot.writeDecimal(self.special_price)
             oprot.writeFieldEnd()
 
         if self.special_to_date is not None:
             oprot.writeFieldBegin('special_to_date', 12, -1)
-            oprot.writeDateTime(self.special_to_date) if hasattr(oprot, 'writeDateTime') else oprot.writeI64(long(mktime(self.special_to_date.timetuple())) * 1000l)
+            oprot.writeDateTime(self.special_to_date)
             oprot.writeFieldEnd()
 
         oprot.writeFieldBegin('store', 11, -1)
@@ -1417,7 +1417,7 @@ class MagentoProduct(object):
 
         if self.updated_at is not None:
             oprot.writeFieldBegin('updated_at', 12, -1)
-            oprot.writeDateTime(self.updated_at) if hasattr(oprot, 'writeDateTime') else oprot.writeI64(long(mktime(self.updated_at.timetuple())) * 1000l)
+            oprot.writeDateTime(self.updated_at)
             oprot.writeFieldEnd()
 
         oprot.writeFieldBegin('url_key', 11, -1)
@@ -1438,7 +1438,7 @@ class MagentoProduct(object):
 
         if self.weight is not None:
             oprot.writeFieldBegin('weight', 12, -1)
-            oprot.writeDecimal(self.weight) if hasattr(oprot, 'writeDecimal') else oprot.writeString(str(self.weight))
+            oprot.writeDecimal(self.weight)
             oprot.writeFieldEnd()
 
         oprot.writeFieldStop()

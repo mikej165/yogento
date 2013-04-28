@@ -705,10 +705,10 @@ class Campaign(object):
             elif ifield_name == 'type':
                 init_kwds['type'] = yochimp.models.campaign.campaign_type.CampaignType.value_of(iprot.readString().strip().upper())
             elif ifield_name == 'create_time':
-                init_kwds['create_time'] = iprot.readDateTime() if hasattr(iprot, 'readDateTime') else datetime.fromtimestamp(iprot.readI64() / 1000.0)
+                init_kwds['create_time'] = iprot.readDateTime()
             elif ifield_name == 'send_time':
                 try:
-                    init_kwds['send_time'] = iprot.readDateTime() if hasattr(iprot, 'readDateTime') else datetime.fromtimestamp(iprot.readI64() / 1000.0)
+                    init_kwds['send_time'] = iprot.readDateTime()
                 except (TypeError,):
                     pass
             elif ifield_name == 'emails_sent':
@@ -784,7 +784,7 @@ class Campaign(object):
                     pass
             elif ifield_name == 'timewarp_schedule':
                 try:
-                    init_kwds['timewarp_schedule'] = iprot.readDateTime() if hasattr(iprot, 'readDateTime') else datetime.fromtimestamp(iprot.readI64() / 1000.0)
+                    init_kwds['timewarp_schedule'] = iprot.readDateTime()
                 except (TypeError,):
                     pass
             elif ifield_name == 'tracking':
@@ -949,12 +949,12 @@ class Campaign(object):
         oprot.writeFieldEnd()
 
         oprot.writeFieldBegin('create_time', 12, -1)
-        oprot.writeDateTime(self.create_time) if hasattr(oprot, 'writeDateTime') else oprot.writeI64(long(mktime(self.create_time.timetuple())) * 1000l)
+        oprot.writeDateTime(self.create_time)
         oprot.writeFieldEnd()
 
         if self.send_time is not None:
             oprot.writeFieldBegin('send_time', 12, -1)
-            oprot.writeDateTime(self.send_time) if hasattr(oprot, 'writeDateTime') else oprot.writeI64(long(mktime(self.send_time.timetuple())) * 1000l)
+            oprot.writeDateTime(self.send_time)
             oprot.writeFieldEnd()
 
         if self.emails_sent is not None:
@@ -974,7 +974,7 @@ class Campaign(object):
 
         if self.from_email is not None:
             oprot.writeFieldBegin('from_email', 12, -1)
-            oprot.writeEmailAddress(self.from_email) if hasattr(oprot, 'writeEmailAddress') else oprot.writeString(str(self.from_email))
+            oprot.writeEmailAddress(self.from_email)
             oprot.writeFieldEnd()
 
         if self.subject is not None:
@@ -989,7 +989,7 @@ class Campaign(object):
 
         if self.archive_url is not None:
             oprot.writeFieldBegin('archive_url', 12, -1)
-            oprot.writeUrl(self.archive_url) if hasattr(oprot, 'writeUrl') else oprot.writeString(str(self.archive_url))
+            oprot.writeUrl(self.archive_url)
             oprot.writeFieldEnd()
 
         if self.inline_css is not None:
@@ -1042,7 +1042,7 @@ class Campaign(object):
 
         if self.timewarp_schedule is not None:
             oprot.writeFieldBegin('timewarp_schedule', 12, -1)
-            oprot.writeDateTime(self.timewarp_schedule) if hasattr(oprot, 'writeDateTime') else oprot.writeI64(long(mktime(self.timewarp_schedule.timetuple())) * 1000l)
+            oprot.writeDateTime(self.timewarp_schedule)
             oprot.writeFieldEnd()
 
         if self.tracking is not None:

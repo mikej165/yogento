@@ -3,7 +3,7 @@ package com.yogento.api.services.image;
 public interface ImageService {
     public static class Messages {
         @SuppressWarnings({"serial"})
-        public final static class deleteImageThumbnailRequest implements org.apache.thrift.TBase<deleteImageThumbnailRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class deleteImageThumbnailRequest implements org.thryft.TBase<deleteImageThumbnailRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -39,28 +39,28 @@ public interface ImageService {
                 this(other.getImageUrl(), other.getThumbnailResolution());
             }
 
-            public deleteImageThumbnailRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public deleteImageThumbnailRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public deleteImageThumbnailRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public deleteImageThumbnailRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String imageUrl = null;
                 com.yogento.api.models.image.ImageResolution thumbnailResolution = null;
 
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
+                    case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
                         imageUrl = iprot.readString();
                         thumbnailResolution = new com.yogento.api.models.image.ImageResolution(iprot);
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("image_url")) {
                                 imageUrl = iprot.readString();
@@ -83,17 +83,7 @@ public interface ImageService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final deleteImageThumbnailRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<deleteImageThumbnailRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -111,11 +101,6 @@ public interface ImageService {
                     getThumbnailResolution().equals(other.getThumbnailResolution());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("image_url")) {
                     return getImageUrl();
@@ -123,11 +108,6 @@ public interface ImageService {
                     return getThumbnailResolution();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final String getImageUrl() {
@@ -147,21 +127,6 @@ public interface ImageService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("image_url", getImageUrl());
@@ -170,15 +135,15 @@ public interface ImageService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 2));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 2));
 
                         oprot.writeString(getImageUrl());
 
@@ -187,15 +152,15 @@ public interface ImageService {
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("deleteImageThumbnailRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("deleteImageThumbnailRequest"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("image_url", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("image_url", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getImageUrl());
                         oprot.writeFieldEnd();
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("thumbnail_resolution", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("thumbnail_resolution", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getThumbnailResolution().write(oprot);
                         oprot.writeFieldEnd();
 
@@ -212,7 +177,7 @@ public interface ImageService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class deleteImageThumbnailResponse implements org.apache.thrift.TBase<deleteImageThumbnailResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class deleteImageThumbnailResponse implements org.thryft.TBase<deleteImageThumbnailResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -241,7 +206,7 @@ public interface ImageService {
                 this(other.isReturnValue());
             }
 
-            public deleteImageThumbnailResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+            public deleteImageThumbnailResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = iprot.readBool();
             }
 
@@ -254,17 +219,7 @@ public interface ImageService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final deleteImageThumbnailResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<deleteImageThumbnailResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -281,21 +236,11 @@ public interface ImageService {
                     isReturnValue() == other.isReturnValue();
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return isReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             @Override
@@ -310,21 +255,6 @@ public interface ImageService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", isReturnValue());
@@ -332,26 +262,26 @@ public interface ImageService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         oprot.writeBool(isReturnValue());
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("deleteImageThumbnailResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("deleteImageThumbnailResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.BOOL, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.BOOL, (short)-1));
                         oprot.writeBool(isReturnValue());
                         oprot.writeFieldEnd();
 
@@ -366,7 +296,7 @@ public interface ImageService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getImageThumbnailUrlRequest implements org.apache.thrift.TBase<getImageThumbnailUrlRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class getImageThumbnailUrlRequest implements org.thryft.TBase<getImageThumbnailUrlRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -402,28 +332,28 @@ public interface ImageService {
                 this(other.getImageUrl(), other.getThumbnailResolution());
             }
 
-            public getImageThumbnailUrlRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public getImageThumbnailUrlRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getImageThumbnailUrlRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public getImageThumbnailUrlRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String imageUrl = null;
                 com.yogento.api.models.image.ImageResolution thumbnailResolution = null;
 
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
+                    case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
                         imageUrl = iprot.readString();
                         thumbnailResolution = new com.yogento.api.models.image.ImageResolution(iprot);
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("image_url")) {
                                 imageUrl = iprot.readString();
@@ -446,17 +376,7 @@ public interface ImageService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getImageThumbnailUrlRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getImageThumbnailUrlRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -474,11 +394,6 @@ public interface ImageService {
                     getThumbnailResolution().equals(other.getThumbnailResolution());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("image_url")) {
                     return getImageUrl();
@@ -486,11 +401,6 @@ public interface ImageService {
                     return getThumbnailResolution();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final String getImageUrl() {
@@ -510,21 +420,6 @@ public interface ImageService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("image_url", getImageUrl());
@@ -533,15 +428,15 @@ public interface ImageService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 2));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 2));
 
                         oprot.writeString(getImageUrl());
 
@@ -550,15 +445,15 @@ public interface ImageService {
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getImageThumbnailUrlRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getImageThumbnailUrlRequest"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("image_url", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("image_url", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getImageUrl());
                         oprot.writeFieldEnd();
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("thumbnail_resolution", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("thumbnail_resolution", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getThumbnailResolution().write(oprot);
                         oprot.writeFieldEnd();
 
@@ -575,7 +470,7 @@ public interface ImageService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getImageThumbnailUrlResponse implements org.apache.thrift.TBase<getImageThumbnailUrlResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class getImageThumbnailUrlResponse implements org.thryft.TBase<getImageThumbnailUrlResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -604,7 +499,7 @@ public interface ImageService {
                 this(other.getReturnValue());
             }
 
-            public getImageThumbnailUrlResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+            public getImageThumbnailUrlResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = iprot.readString();
             }
 
@@ -613,17 +508,7 @@ public interface ImageService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getImageThumbnailUrlResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getImageThumbnailUrlResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -640,21 +525,11 @@ public interface ImageService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final String getReturnValue() {
@@ -669,21 +544,6 @@ public interface ImageService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", getReturnValue());
@@ -691,26 +551,26 @@ public interface ImageService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         oprot.writeString(getReturnValue());
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getImageThumbnailUrlResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getImageThumbnailUrlResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getReturnValue());
                         oprot.writeFieldEnd();
 
@@ -725,7 +585,7 @@ public interface ImageService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class putImageRequest implements org.apache.thrift.TBase<putImageRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class putImageRequest implements org.thryft.TBase<putImageRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -735,7 +595,7 @@ public interface ImageService {
                     this.imageMimeSubtype = other.getImageMimeSubtype();
                 }
 
-                protected putImageRequest _build(final java.nio.ByteBuffer image, final String imageMimeSubtype) {
+                protected putImageRequest _build(final byte[] image, final String imageMimeSubtype) {
                     return new putImageRequest(image, imageMimeSubtype);
                 }
 
@@ -743,7 +603,7 @@ public interface ImageService {
                     return _build(image, imageMimeSubtype);
                 }
 
-                public Builder setImage(final java.nio.ByteBuffer image) {
+                public Builder setImage(final byte[] image) {
                     this.image = image;
                     return this;
                 }
@@ -753,7 +613,7 @@ public interface ImageService {
                     return this;
                 }
 
-                private java.nio.ByteBuffer image;
+                private byte[] image;
                 private String imageMimeSubtype;
             }
 
@@ -761,28 +621,28 @@ public interface ImageService {
                 this(other.getImage(), other.getImageMimeSubtype());
             }
 
-            public putImageRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public putImageRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public putImageRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
-                java.nio.ByteBuffer image = null;
+            public putImageRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+                byte[] image = null;
                 String imageMimeSubtype = null;
 
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
+                    case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
                         image = iprot.readBinary();
                         imageMimeSubtype = iprot.readString();
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("image")) {
                                 image = iprot.readBinary();
@@ -799,23 +659,13 @@ public interface ImageService {
                 this.imageMimeSubtype = com.google.common.base.Preconditions.checkNotNull(imageMimeSubtype, "com.yogento.api.services.image.putImageRequest: missing imageMimeSubtype");
             }
 
-            public putImageRequest(final java.nio.ByteBuffer image, final String imageMimeSubtype) {
+            public putImageRequest(final byte[] image, final String imageMimeSubtype) {
                 this.image = com.google.common.base.Preconditions.checkNotNull(image, "com.yogento.api.services.image.putImageRequest: missing image");
                 this.imageMimeSubtype = com.google.common.base.Preconditions.checkNotNull(imageMimeSubtype, "com.yogento.api.services.image.putImageRequest: missing imageMimeSubtype");
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final putImageRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<putImageRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -833,11 +683,6 @@ public interface ImageService {
                     getImageMimeSubtype().equals(other.getImageMimeSubtype());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("image")) {
                     return getImage();
@@ -847,12 +692,7 @@ public interface ImageService {
                 return null;
             }
 
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            public final java.nio.ByteBuffer getImage() {
+            public final byte[] getImage() {
                 return image;
             }
 
@@ -863,24 +703,9 @@ public interface ImageService {
             @Override
             public int hashCode() {
                 int hashCode = 17;
-                hashCode = 31 * hashCode + getImage().hashCode();
+                hashCode = 31 * hashCode + java.util.Arrays.hashCode(getImage());
                 hashCode = 31 * hashCode + getImageMimeSubtype().hashCode();
                 return hashCode;
-            }
-
-            @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
             }
 
             @Override
@@ -892,15 +717,15 @@ public interface ImageService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 2));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 2));
 
                         oprot.writeBinary(getImage());
 
@@ -909,15 +734,15 @@ public interface ImageService {
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("putImageRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("putImageRequest"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("image", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("image", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeBinary(getImage());
                         oprot.writeFieldEnd();
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("image_mime_subtype", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("image_mime_subtype", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getImageMimeSubtype());
                         oprot.writeFieldEnd();
 
@@ -928,13 +753,13 @@ public interface ImageService {
                 }
             }
 
-            private final java.nio.ByteBuffer image;
+            private final byte[] image;
 
             private final String imageMimeSubtype;
         }
 
         @SuppressWarnings({"serial"})
-        public final static class putImageResponse implements org.apache.thrift.TBase<putImageResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class putImageResponse implements org.thryft.TBase<putImageResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -963,7 +788,7 @@ public interface ImageService {
                 this(other.getReturnValue());
             }
 
-            public putImageResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+            public putImageResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = iprot.readString();
             }
 
@@ -972,17 +797,7 @@ public interface ImageService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final putImageResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<putImageResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -999,21 +814,11 @@ public interface ImageService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final String getReturnValue() {
@@ -1028,21 +833,6 @@ public interface ImageService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", getReturnValue());
@@ -1050,26 +840,26 @@ public interface ImageService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         oprot.writeString(getReturnValue());
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("putImageResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("putImageResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getReturnValue());
                         oprot.writeFieldEnd();
 
@@ -1088,5 +878,5 @@ public interface ImageService {
 
     public String getImageThumbnailUrl(String imageUrl, com.yogento.api.models.image.ImageResolution thumbnailResolution) throws com.yogento.api.services.image.ImageIoException;
 
-    public String putImage(java.nio.ByteBuffer image, String imageMimeSubtype) throws com.yogento.api.services.image.ImageIoException;
+    public String putImage(byte[] image, String imageMimeSubtype) throws com.yogento.api.services.image.ImageIoException;
 }

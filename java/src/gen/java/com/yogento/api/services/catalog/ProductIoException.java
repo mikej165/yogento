@@ -1,7 +1,7 @@
 package com.yogento.api.services.catalog;
 
 @SuppressWarnings({"serial"})
-public class ProductIoException extends java.lang.Exception implements org.apache.thrift.TBase<ProductIoException, org.apache.thrift.TFieldIdEnum> {
+public class ProductIoException extends java.lang.Exception implements org.thryft.TBase<ProductIoException> {
     public static class Builder {
         public Builder() {
         }
@@ -37,28 +37,28 @@ public class ProductIoException extends java.lang.Exception implements org.apach
         this(other.getCauseMessage(), other.getSku());
     }
 
-    public ProductIoException(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-        this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+    public ProductIoException(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+        this(iprot, org.thryft.protocol.TType.STRUCT);
     }
 
-    public ProductIoException(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+    public ProductIoException(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
         String causeMessage = null;
         String sku = null;
 
         switch (readAsTType) {
-            case org.apache.thrift.protocol.TType.LIST:
+            case org.thryft.protocol.TType.LIST:
                 iprot.readListBegin();
                 causeMessage = iprot.readString();
                 sku = iprot.readString();
                 iprot.readListEnd();
                 break;
 
-            case org.apache.thrift.protocol.TType.STRUCT:
+            case org.thryft.protocol.TType.STRUCT:
             default:
                 iprot.readStructBegin();
                 while (true) {
-                    final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                    if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                    final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                    if (ifield.type == org.thryft.protocol.TType.STOP) {
                         break;
                     } else if (ifield.name.equals("cause_message")) {
                         causeMessage = iprot.readString();
@@ -81,17 +81,7 @@ public class ProductIoException extends java.lang.Exception implements org.apach
     }
 
     @Override
-    public void clear() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public int compareTo(final ProductIoException other) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public org.apache.thrift.TBase<ProductIoException, org.apache.thrift.TFieldIdEnum> deepCopy() {
         throw new UnsupportedOperationException();
     }
 
@@ -109,11 +99,6 @@ public class ProductIoException extends java.lang.Exception implements org.apach
             getSku().equals(other.getSku());
     }
 
-    @Override
-    public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-        throw new UnsupportedOperationException();
-    }
-
     public Object get(final String fieldName) {
         if (fieldName.equals("cause_message")) {
             return getCauseMessage();
@@ -125,11 +110,6 @@ public class ProductIoException extends java.lang.Exception implements org.apach
 
     public final String getCauseMessage() {
         return causeMessage;
-    }
-
-    @Override
-    public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-        throw new UnsupportedOperationException();
     }
 
     @Override
@@ -150,21 +130,6 @@ public class ProductIoException extends java.lang.Exception implements org.apach
     }
 
     @Override
-    public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public String toString() {
         final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
         helper.add("cause_message", getCauseMessage());
@@ -173,15 +138,15 @@ public class ProductIoException extends java.lang.Exception implements org.apach
     }
 
     @Override
-    public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-        write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+    public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+        write(oprot, org.thryft.protocol.TType.STRUCT);
     }
 
-    public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+    public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
         switch (writeAsTType) {
-            case org.apache.thrift.protocol.TType.VOID:
-            case org.apache.thrift.protocol.TType.LIST:
-                oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 2));
+            case org.thryft.protocol.TType.VOID:
+            case org.thryft.protocol.TType.LIST:
+                oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 2));
 
                 oprot.writeString(getCauseMessage());
 
@@ -190,15 +155,15 @@ public class ProductIoException extends java.lang.Exception implements org.apach
                 oprot.writeListEnd();
                 break;
 
-            case org.apache.thrift.protocol.TType.STRUCT:
+            case org.thryft.protocol.TType.STRUCT:
             default:
-                oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("ProductIoException"));
+                oprot.writeStructBegin(new org.thryft.protocol.TStruct("ProductIoException"));
 
-                oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("cause_message", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                oprot.writeFieldBegin(new org.thryft.protocol.TField("cause_message", org.thryft.protocol.TType.STRING, (short)-1));
                 oprot.writeString(getCauseMessage());
                 oprot.writeFieldEnd();
 
-                oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("sku", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                oprot.writeFieldBegin(new org.thryft.protocol.TField("sku", org.thryft.protocol.TType.STRING, (short)-1));
                 oprot.writeString(getSku());
                 oprot.writeFieldEnd();
 

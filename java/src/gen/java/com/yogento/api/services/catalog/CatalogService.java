@@ -3,7 +3,7 @@ package com.yogento.api.services.catalog;
 public interface CatalogService {
     public static class Messages {
         @SuppressWarnings({"serial"})
-        public final static class deleteProductBySkuRequest implements org.apache.thrift.TBase<deleteProductBySkuRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class deleteProductBySkuRequest implements org.thryft.TBase<deleteProductBySkuRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -32,26 +32,26 @@ public interface CatalogService {
                 this(other.getSku());
             }
 
-            public deleteProductBySkuRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public deleteProductBySkuRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public deleteProductBySkuRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public deleteProductBySkuRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String sku = null;
 
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
+                    case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
                         sku = iprot.readString();
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("sku")) {
                                 sku = iprot.readString();
@@ -70,17 +70,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final deleteProductBySkuRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<deleteProductBySkuRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -97,21 +87,11 @@ public interface CatalogService {
                     getSku().equals(other.getSku());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("sku")) {
                     return getSku();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final String getSku() {
@@ -126,21 +106,6 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("sku", getSku());
@@ -148,26 +113,26 @@ public interface CatalogService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         oprot.writeString(getSku());
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("deleteProductBySkuRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("deleteProductBySkuRequest"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("sku", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("sku", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getSku());
                         oprot.writeFieldEnd();
 
@@ -182,7 +147,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class deleteProductBySkuResponse implements org.apache.thrift.TBase<deleteProductBySkuResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class deleteProductBySkuResponse implements org.thryft.TBase<deleteProductBySkuResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -211,7 +176,7 @@ public interface CatalogService {
                 this(other.isReturnValue());
             }
 
-            public deleteProductBySkuResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+            public deleteProductBySkuResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = iprot.readBool();
             }
 
@@ -224,17 +189,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final deleteProductBySkuResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<deleteProductBySkuResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -251,21 +206,11 @@ public interface CatalogService {
                     isReturnValue() == other.isReturnValue();
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return isReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             @Override
@@ -280,21 +225,6 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", isReturnValue());
@@ -302,26 +232,26 @@ public interface CatalogService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         oprot.writeBool(isReturnValue());
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("deleteProductBySkuResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("deleteProductBySkuResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.BOOL, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.BOOL, (short)-1));
                         oprot.writeBool(isReturnValue());
                         oprot.writeFieldEnd();
 
@@ -336,7 +266,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class deleteProductsRequest implements org.apache.thrift.TBase<deleteProductsRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class deleteProductsRequest implements org.thryft.TBase<deleteProductsRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -359,23 +289,23 @@ public interface CatalogService {
             public deleteProductsRequest(final deleteProductsRequest other) {
             }
 
-            public deleteProductsRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public deleteProductsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public deleteProductsRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public deleteProductsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
+                    case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             }
                             iprot.readFieldEnd();
@@ -386,17 +316,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final deleteProductsRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<deleteProductsRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -411,18 +331,8 @@ public interface CatalogService {
                 return true;
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             @Override
@@ -432,42 +342,27 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 return helper.toString();
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 0));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 0));
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("deleteProductsRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("deleteProductsRequest"));
 
                         oprot.writeFieldStop();
 
@@ -478,7 +373,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class deleteProductsResponse implements org.apache.thrift.TBase<deleteProductsResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class deleteProductsResponse implements org.thryft.TBase<deleteProductsResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -501,21 +396,11 @@ public interface CatalogService {
             public deleteProductsResponse(final deleteProductsResponse other) {
             }
 
-            public deleteProductsResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-            }
-
-            @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
+            public deleteProductsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
             }
 
             @Override
             public int compareTo(final deleteProductsResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<deleteProductsResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -530,18 +415,8 @@ public interface CatalogService {
                 return true;
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             @Override
@@ -551,42 +426,27 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 return helper.toString();
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 0));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 0));
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("deleteProductsResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("deleteProductsResponse"));
 
                         oprot.writeFieldStop();
 
@@ -597,7 +457,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductCountRequest implements org.apache.thrift.TBase<getProductCountRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class getProductCountRequest implements org.thryft.TBase<getProductCountRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -620,23 +480,23 @@ public interface CatalogService {
             public getProductCountRequest(final getProductCountRequest other) {
             }
 
-            public getProductCountRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public getProductCountRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getProductCountRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public getProductCountRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
+                    case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             }
                             iprot.readFieldEnd();
@@ -647,17 +507,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getProductCountRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getProductCountRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -672,18 +522,8 @@ public interface CatalogService {
                 return true;
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             @Override
@@ -693,42 +533,27 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 return helper.toString();
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 0));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 0));
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getProductCountRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductCountRequest"));
 
                         oprot.writeFieldStop();
 
@@ -739,7 +564,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductCountResponse implements org.apache.thrift.TBase<getProductCountResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class getProductCountResponse implements org.thryft.TBase<getProductCountResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -768,7 +593,7 @@ public interface CatalogService {
                 this(other.getReturnValue());
             }
 
-            public getProductCountResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+            public getProductCountResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = iprot.readI32();
             }
 
@@ -781,17 +606,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getProductCountResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getProductCountResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -808,21 +623,11 @@ public interface CatalogService {
                     getReturnValue() == other.getReturnValue();
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final int getReturnValue() {
@@ -837,21 +642,6 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", getReturnValue());
@@ -859,26 +649,26 @@ public interface CatalogService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         oprot.writeI32(getReturnValue());
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getProductCountResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductCountResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.I32, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.I32, (short)-1));
                         oprot.writeI32(getReturnValue());
                         oprot.writeFieldEnd();
 
@@ -893,7 +683,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductBySkuRequest implements org.apache.thrift.TBase<getProductBySkuRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class getProductBySkuRequest implements org.thryft.TBase<getProductBySkuRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -922,26 +712,26 @@ public interface CatalogService {
                 this(other.getSku());
             }
 
-            public getProductBySkuRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public getProductBySkuRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getProductBySkuRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public getProductBySkuRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String sku = null;
 
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
+                    case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
                         sku = iprot.readString();
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("sku")) {
                                 sku = iprot.readString();
@@ -960,17 +750,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getProductBySkuRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getProductBySkuRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -987,21 +767,11 @@ public interface CatalogService {
                     getSku().equals(other.getSku());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("sku")) {
                     return getSku();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final String getSku() {
@@ -1016,21 +786,6 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("sku", getSku());
@@ -1038,26 +793,26 @@ public interface CatalogService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         oprot.writeString(getSku());
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getProductBySkuRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductBySkuRequest"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("sku", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("sku", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getSku());
                         oprot.writeFieldEnd();
 
@@ -1072,7 +827,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductBySkuResponse implements org.apache.thrift.TBase<getProductBySkuResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class getProductBySkuResponse implements org.thryft.TBase<getProductBySkuResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -1101,7 +856,7 @@ public interface CatalogService {
                 this(other.getReturnValue());
             }
 
-            public getProductBySkuResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+            public getProductBySkuResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = new com.yogento.api.models.catalog.product.Product(iprot);
             }
 
@@ -1110,17 +865,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getProductBySkuResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getProductBySkuResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -1137,21 +882,11 @@ public interface CatalogService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final com.yogento.api.models.catalog.product.Product getReturnValue() {
@@ -1166,21 +901,6 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", getReturnValue());
@@ -1188,30 +908,30 @@ public interface CatalogService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID: {
+                    case org.thryft.protocol.TType.VOID: {
                         getReturnValue().write(oprot);
                         break;
                     }
 
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         getReturnValue().write(oprot);
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getProductBySkuResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductBySkuResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getReturnValue().write(oprot);
                         oprot.writeFieldEnd();
 
@@ -1226,7 +946,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductsRequest implements org.apache.thrift.TBase<getProductsRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class getProductsRequest implements org.thryft.TBase<getProductsRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -1267,17 +987,17 @@ public interface CatalogService {
                 this(other.isIncludeDisabled(), other.getQuery());
             }
 
-            public getProductsRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public getProductsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getProductsRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public getProductsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 Boolean includeDisabled = null;
                 String query = null;
 
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
-                        final org.apache.thrift.protocol.TList __list = iprot.readListBegin();
+                    case org.thryft.protocol.TType.LIST:
+                        final org.thryft.protocol.TList __list = iprot.readListBegin();
                         if (__list.size > 0) {
                             includeDisabled = iprot.readBool();
                         }
@@ -1287,12 +1007,12 @@ public interface CatalogService {
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("include_disabled")) {
                                 includeDisabled = iprot.readBool();
@@ -1315,17 +1035,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getProductsRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getProductsRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -1347,11 +1057,6 @@ public interface CatalogService {
                     getQuery().equals(other.getQuery())));
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("include_disabled")) {
                     return isIncludeDisabled();
@@ -1359,11 +1064,6 @@ public interface CatalogService {
                     return getQuery();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final String getQuery() {
@@ -1387,21 +1087,6 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 if (isIncludeDisabled() != null) {
@@ -1414,43 +1099,43 @@ public interface CatalogService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 2));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 2));
 
                         if (isIncludeDisabled() != null) {
                             oprot.writeBool(isIncludeDisabled());
                         } else {
-                            ((org.thryft.protocol.Protocol)oprot).writeNull();
+                            ((org.thryft.protocol.TProtocol)oprot).writeNull();
                         }
 
                         if (getQuery() != null) {
                             oprot.writeString(getQuery());
                         } else {
-                            ((org.thryft.protocol.Protocol)oprot).writeNull();
+                            ((org.thryft.protocol.TProtocol)oprot).writeNull();
                         }
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getProductsRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductsRequest"));
 
                         if (isIncludeDisabled() != null) {
-                            oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("include_disabled", org.apache.thrift.protocol.TType.BOOL, (short)-1));
+                            oprot.writeFieldBegin(new org.thryft.protocol.TField("include_disabled", org.thryft.protocol.TType.BOOL, (short)-1));
                             oprot.writeBool(isIncludeDisabled());
                             oprot.writeFieldEnd();
                         }
 
                         if (getQuery() != null) {
-                            oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("query", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                            oprot.writeFieldBegin(new org.thryft.protocol.TField("query", org.thryft.protocol.TType.STRING, (short)-1));
                             oprot.writeString(getQuery());
                             oprot.writeFieldEnd();
                         }
@@ -1468,7 +1153,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductsResponse implements org.apache.thrift.TBase<getProductsResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class getProductsResponse implements org.thryft.TBase<getProductsResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -1497,19 +1182,19 @@ public interface CatalogService {
                 this(other.getReturnValue());
             }
 
-            public getProductsResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                returnValue = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product>>() {
+            public getProductsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                returnValue = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product>>() {
                     @Override
-                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> apply(final org.thryft.protocol.TProtocol iprot) {
                         try {
-                            final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                            final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
                             final java.util.Set<com.yogento.api.models.catalog.product.Product> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.Product>();
                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                 sequence.add(new com.yogento.api.models.catalog.product.Product(iprot));
                             }
                             iprot.readSetEnd();
                             return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                        } catch (final org.apache.thrift.TException e) {
+                        } catch (final java.io.IOException e) {
                             return com.google.common.collect.ImmutableSet.of();
                         }
                     }
@@ -1521,17 +1206,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getProductsResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getProductsResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -1548,21 +1223,11 @@ public interface CatalogService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> getReturnValue() {
@@ -1577,21 +1242,6 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", getReturnValue());
@@ -1599,14 +1249,14 @@ public interface CatalogService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID: {
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getReturnValue().size()));
+                    case org.thryft.protocol.TType.VOID: {
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
                         for (final com.yogento.api.models.catalog.product.Product _iter0 : getReturnValue()) {
                             _iter0.write(oprot);
                         }
@@ -1614,10 +1264,10 @@ public interface CatalogService {
                         break;
                     }
 
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getReturnValue().size()));
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
                         for (final com.yogento.api.models.catalog.product.Product _iter0 : getReturnValue()) {
                             _iter0.write(oprot);
                         }
@@ -1626,12 +1276,12 @@ public interface CatalogService {
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getProductsResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductsResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.SET, (short)-1));
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getReturnValue().size()));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.SET, (short)-1));
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
                         for (final com.yogento.api.models.catalog.product.Product _iter0 : getReturnValue()) {
                             _iter0.write(oprot);
                         }
@@ -1649,7 +1299,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductSkusRequest implements org.apache.thrift.TBase<getProductSkusRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class getProductSkusRequest implements org.thryft.TBase<getProductSkusRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -1672,23 +1322,23 @@ public interface CatalogService {
             public getProductSkusRequest(final getProductSkusRequest other) {
             }
 
-            public getProductSkusRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public getProductSkusRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getProductSkusRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public getProductSkusRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
+                    case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             }
                             iprot.readFieldEnd();
@@ -1699,17 +1349,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getProductSkusRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getProductSkusRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -1724,18 +1364,8 @@ public interface CatalogService {
                 return true;
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             @Override
@@ -1745,42 +1375,27 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 return helper.toString();
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 0));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 0));
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getProductSkusRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductSkusRequest"));
 
                         oprot.writeFieldStop();
 
@@ -1791,7 +1406,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductSkusResponse implements org.apache.thrift.TBase<getProductSkusResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class getProductSkusResponse implements org.thryft.TBase<getProductSkusResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -1820,19 +1435,19 @@ public interface CatalogService {
                 this(other.getReturnValue());
             }
 
-            public getProductSkusResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                returnValue = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
+            public getProductSkusResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                returnValue = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
                     @Override
-                    public com.google.common.collect.ImmutableSet<String> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                    public com.google.common.collect.ImmutableSet<String> apply(final org.thryft.protocol.TProtocol iprot) {
                         try {
-                            final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                            final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
                             final java.util.Set<String> sequence = new java.util.LinkedHashSet<String>();
                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                 sequence.add(iprot.readString());
                             }
                             iprot.readSetEnd();
                             return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                        } catch (final org.apache.thrift.TException e) {
+                        } catch (final java.io.IOException e) {
                             return com.google.common.collect.ImmutableSet.of();
                         }
                     }
@@ -1844,17 +1459,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getProductSkusResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getProductSkusResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -1871,21 +1476,11 @@ public interface CatalogService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final com.google.common.collect.ImmutableSet<String> getReturnValue() {
@@ -1900,21 +1495,6 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", getReturnValue());
@@ -1922,14 +1502,14 @@ public interface CatalogService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID: {
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, getReturnValue().size()));
+                    case org.thryft.protocol.TType.VOID: {
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRING, getReturnValue().size()));
                         for (final String _iter0 : getReturnValue()) {
                             oprot.writeString(_iter0);
                         }
@@ -1937,10 +1517,10 @@ public interface CatalogService {
                         break;
                     }
 
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, getReturnValue().size()));
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRING, getReturnValue().size()));
                         for (final String _iter0 : getReturnValue()) {
                             oprot.writeString(_iter0);
                         }
@@ -1949,12 +1529,12 @@ public interface CatalogService {
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getProductSkusResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductSkusResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.SET, (short)-1));
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, getReturnValue().size()));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.SET, (short)-1));
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRING, getReturnValue().size()));
                         for (final String _iter0 : getReturnValue()) {
                             oprot.writeString(_iter0);
                         }
@@ -1972,7 +1552,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductsBySkusRequest implements org.apache.thrift.TBase<getProductsBySkusRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class getProductsBySkusRequest implements org.thryft.TBase<getProductsBySkusRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -2001,28 +1581,28 @@ public interface CatalogService {
                 this(other.getSkus());
             }
 
-            public getProductsBySkusRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public getProductsBySkusRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getProductsBySkusRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public getProductsBySkusRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 com.google.common.collect.ImmutableSet<String> skus = null;
 
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
+                    case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
-                        skus = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
+                        skus = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
                             @Override
-                            public com.google.common.collect.ImmutableSet<String> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                            public com.google.common.collect.ImmutableSet<String> apply(final org.thryft.protocol.TProtocol iprot) {
                                 try {
-                                    final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                                    final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
                                     final java.util.Set<String> sequence = new java.util.LinkedHashSet<String>();
                                     for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                         sequence.add(iprot.readString());
                                     }
                                     iprot.readSetEnd();
                                     return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                                } catch (final org.apache.thrift.TException e) {
+                                } catch (final java.io.IOException e) {
                                     return com.google.common.collect.ImmutableSet.of();
                                 }
                             }
@@ -2030,26 +1610,26 @@ public interface CatalogService {
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("skus")) {
-                                skus = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
+                                skus = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
                                     @Override
-                                    public com.google.common.collect.ImmutableSet<String> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                                    public com.google.common.collect.ImmutableSet<String> apply(final org.thryft.protocol.TProtocol iprot) {
                                         try {
-                                            final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                                            final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
                                             final java.util.Set<String> sequence = new java.util.LinkedHashSet<String>();
                                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                                 sequence.add(iprot.readString());
                                             }
                                             iprot.readSetEnd();
                                             return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                                        } catch (final org.apache.thrift.TException e) {
+                                        } catch (final java.io.IOException e) {
                                             return com.google.common.collect.ImmutableSet.of();
                                         }
                                     }
@@ -2069,17 +1649,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getProductsBySkusRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getProductsBySkusRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -2096,21 +1666,11 @@ public interface CatalogService {
                     getSkus().equals(other.getSkus());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("skus")) {
                     return getSkus();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final com.google.common.collect.ImmutableSet<String> getSkus() {
@@ -2125,21 +1685,6 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("skus", getSkus());
@@ -2147,14 +1692,14 @@ public interface CatalogService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID: {
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, getSkus().size()));
+                    case org.thryft.protocol.TType.VOID: {
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRING, getSkus().size()));
                         for (final String _iter0 : getSkus()) {
                             oprot.writeString(_iter0);
                         }
@@ -2162,10 +1707,10 @@ public interface CatalogService {
                         break;
                     }
 
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, getSkus().size()));
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRING, getSkus().size()));
                         for (final String _iter0 : getSkus()) {
                             oprot.writeString(_iter0);
                         }
@@ -2174,12 +1719,12 @@ public interface CatalogService {
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getProductsBySkusRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductsBySkusRequest"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("skus", org.apache.thrift.protocol.TType.SET, (short)-1));
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRING, getSkus().size()));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("skus", org.thryft.protocol.TType.SET, (short)-1));
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRING, getSkus().size()));
                         for (final String _iter0 : getSkus()) {
                             oprot.writeString(_iter0);
                         }
@@ -2197,7 +1742,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductsBySkusResponse implements org.apache.thrift.TBase<getProductsBySkusResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class getProductsBySkusResponse implements org.thryft.TBase<getProductsBySkusResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -2226,19 +1771,19 @@ public interface CatalogService {
                 this(other.getReturnValue());
             }
 
-            public getProductsBySkusResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                returnValue = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product>>() {
+            public getProductsBySkusResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                returnValue = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product>>() {
                     @Override
-                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> apply(final org.thryft.protocol.TProtocol iprot) {
                         try {
-                            final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                            final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
                             final java.util.Set<com.yogento.api.models.catalog.product.Product> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.Product>();
                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                 sequence.add(new com.yogento.api.models.catalog.product.Product(iprot));
                             }
                             iprot.readSetEnd();
                             return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                        } catch (final org.apache.thrift.TException e) {
+                        } catch (final java.io.IOException e) {
                             return com.google.common.collect.ImmutableSet.of();
                         }
                     }
@@ -2250,17 +1795,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getProductsBySkusResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getProductsBySkusResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -2277,21 +1812,11 @@ public interface CatalogService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> getReturnValue() {
@@ -2306,21 +1831,6 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", getReturnValue());
@@ -2328,14 +1838,14 @@ public interface CatalogService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID: {
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getReturnValue().size()));
+                    case org.thryft.protocol.TType.VOID: {
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
                         for (final com.yogento.api.models.catalog.product.Product _iter0 : getReturnValue()) {
                             _iter0.write(oprot);
                         }
@@ -2343,10 +1853,10 @@ public interface CatalogService {
                         break;
                     }
 
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getReturnValue().size()));
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
                         for (final com.yogento.api.models.catalog.product.Product _iter0 : getReturnValue()) {
                             _iter0.write(oprot);
                         }
@@ -2355,12 +1865,12 @@ public interface CatalogService {
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getProductsBySkusResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductsBySkusResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.SET, (short)-1));
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getReturnValue().size()));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.SET, (short)-1));
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
                         for (final com.yogento.api.models.catalog.product.Product _iter0 : getReturnValue()) {
                             _iter0.write(oprot);
                         }
@@ -2378,7 +1888,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductThumbnailUrlRequest implements org.apache.thrift.TBase<getProductThumbnailUrlRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class getProductThumbnailUrlRequest implements org.thryft.TBase<getProductThumbnailUrlRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -2414,28 +1924,28 @@ public interface CatalogService {
                 this(other.getSku(), other.getThumbnailResolution());
             }
 
-            public getProductThumbnailUrlRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public getProductThumbnailUrlRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getProductThumbnailUrlRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public getProductThumbnailUrlRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String sku = null;
                 com.yogento.api.models.image.ImageResolution thumbnailResolution = null;
 
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
+                    case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
                         sku = iprot.readString();
                         thumbnailResolution = new com.yogento.api.models.image.ImageResolution(iprot);
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("sku")) {
                                 sku = iprot.readString();
@@ -2458,17 +1968,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getProductThumbnailUrlRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getProductThumbnailUrlRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -2486,11 +1986,6 @@ public interface CatalogService {
                     getThumbnailResolution().equals(other.getThumbnailResolution());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("sku")) {
                     return getSku();
@@ -2498,11 +1993,6 @@ public interface CatalogService {
                     return getThumbnailResolution();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final String getSku() {
@@ -2522,21 +2012,6 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("sku", getSku());
@@ -2545,15 +2020,15 @@ public interface CatalogService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 2));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 2));
 
                         oprot.writeString(getSku());
 
@@ -2562,15 +2037,15 @@ public interface CatalogService {
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getProductThumbnailUrlRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductThumbnailUrlRequest"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("sku", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("sku", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getSku());
                         oprot.writeFieldEnd();
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("thumbnail_resolution", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("thumbnail_resolution", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getThumbnailResolution().write(oprot);
                         oprot.writeFieldEnd();
 
@@ -2587,7 +2062,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductThumbnailUrlResponse implements org.apache.thrift.TBase<getProductThumbnailUrlResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class getProductThumbnailUrlResponse implements org.thryft.TBase<getProductThumbnailUrlResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -2616,7 +2091,7 @@ public interface CatalogService {
                 this(other.getReturnValue());
             }
 
-            public getProductThumbnailUrlResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+            public getProductThumbnailUrlResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = iprot.readString();
             }
 
@@ -2625,17 +2100,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getProductThumbnailUrlResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getProductThumbnailUrlResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -2652,21 +2117,11 @@ public interface CatalogService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final String getReturnValue() {
@@ -2681,21 +2136,6 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", getReturnValue());
@@ -2703,26 +2143,26 @@ public interface CatalogService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         oprot.writeString(getReturnValue());
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getProductThumbnailUrlResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductThumbnailUrlResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getReturnValue());
                         oprot.writeFieldEnd();
 
@@ -2737,7 +2177,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getSampleProductThumbnailUrlRequest implements org.apache.thrift.TBase<getSampleProductThumbnailUrlRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class getSampleProductThumbnailUrlRequest implements org.thryft.TBase<getSampleProductThumbnailUrlRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -2773,28 +2213,28 @@ public interface CatalogService {
                 this(other.getSku(), other.getThumbnailResolution());
             }
 
-            public getSampleProductThumbnailUrlRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public getSampleProductThumbnailUrlRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getSampleProductThumbnailUrlRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public getSampleProductThumbnailUrlRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String sku = null;
                 com.yogento.api.models.image.ImageResolution thumbnailResolution = null;
 
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
+                    case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
                         sku = iprot.readString();
                         thumbnailResolution = new com.yogento.api.models.image.ImageResolution(iprot);
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("sku")) {
                                 sku = iprot.readString();
@@ -2817,17 +2257,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getSampleProductThumbnailUrlRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getSampleProductThumbnailUrlRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -2845,11 +2275,6 @@ public interface CatalogService {
                     getThumbnailResolution().equals(other.getThumbnailResolution());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("sku")) {
                     return getSku();
@@ -2857,11 +2282,6 @@ public interface CatalogService {
                     return getThumbnailResolution();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final String getSku() {
@@ -2881,21 +2301,6 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("sku", getSku());
@@ -2904,15 +2309,15 @@ public interface CatalogService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 2));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 2));
 
                         oprot.writeString(getSku());
 
@@ -2921,15 +2326,15 @@ public interface CatalogService {
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getSampleProductThumbnailUrlRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getSampleProductThumbnailUrlRequest"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("sku", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("sku", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getSku());
                         oprot.writeFieldEnd();
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("thumbnail_resolution", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("thumbnail_resolution", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getThumbnailResolution().write(oprot);
                         oprot.writeFieldEnd();
 
@@ -2946,7 +2351,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getSampleProductThumbnailUrlResponse implements org.apache.thrift.TBase<getSampleProductThumbnailUrlResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class getSampleProductThumbnailUrlResponse implements org.thryft.TBase<getSampleProductThumbnailUrlResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -2975,7 +2380,7 @@ public interface CatalogService {
                 this(other.getReturnValue());
             }
 
-            public getSampleProductThumbnailUrlResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+            public getSampleProductThumbnailUrlResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = iprot.readString();
             }
 
@@ -2984,17 +2389,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getSampleProductThumbnailUrlResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getSampleProductThumbnailUrlResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -3011,21 +2406,11 @@ public interface CatalogService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final String getReturnValue() {
@@ -3040,21 +2425,6 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", getReturnValue());
@@ -3062,26 +2432,26 @@ public interface CatalogService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         oprot.writeString(getReturnValue());
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getSampleProductThumbnailUrlResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getSampleProductThumbnailUrlResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getReturnValue());
                         oprot.writeFieldEnd();
 
@@ -3096,7 +2466,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getSampleProductBySkuRequest implements org.apache.thrift.TBase<getSampleProductBySkuRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class getSampleProductBySkuRequest implements org.thryft.TBase<getSampleProductBySkuRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -3125,26 +2495,26 @@ public interface CatalogService {
                 this(other.getSku());
             }
 
-            public getSampleProductBySkuRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public getSampleProductBySkuRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getSampleProductBySkuRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public getSampleProductBySkuRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String sku = null;
 
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
+                    case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
                         sku = iprot.readString();
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("sku")) {
                                 sku = iprot.readString();
@@ -3163,17 +2533,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getSampleProductBySkuRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getSampleProductBySkuRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -3190,21 +2550,11 @@ public interface CatalogService {
                     getSku().equals(other.getSku());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("sku")) {
                     return getSku();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final String getSku() {
@@ -3219,21 +2569,6 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("sku", getSku());
@@ -3241,26 +2576,26 @@ public interface CatalogService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         oprot.writeString(getSku());
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getSampleProductBySkuRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getSampleProductBySkuRequest"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("sku", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("sku", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getSku());
                         oprot.writeFieldEnd();
 
@@ -3275,7 +2610,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getSampleProductBySkuResponse implements org.apache.thrift.TBase<getSampleProductBySkuResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class getSampleProductBySkuResponse implements org.thryft.TBase<getSampleProductBySkuResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -3304,7 +2639,7 @@ public interface CatalogService {
                 this(other.getReturnValue());
             }
 
-            public getSampleProductBySkuResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+            public getSampleProductBySkuResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = new com.yogento.api.models.catalog.product.Product(iprot);
             }
 
@@ -3313,17 +2648,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getSampleProductBySkuResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getSampleProductBySkuResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -3340,21 +2665,11 @@ public interface CatalogService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final com.yogento.api.models.catalog.product.Product getReturnValue() {
@@ -3369,21 +2684,6 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", getReturnValue());
@@ -3391,30 +2691,30 @@ public interface CatalogService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID: {
+                    case org.thryft.protocol.TType.VOID: {
                         getReturnValue().write(oprot);
                         break;
                     }
 
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         getReturnValue().write(oprot);
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getSampleProductBySkuResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getSampleProductBySkuResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getReturnValue().write(oprot);
                         oprot.writeFieldEnd();
 
@@ -3429,7 +2729,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getSampleProductsRequest implements org.apache.thrift.TBase<getSampleProductsRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class getSampleProductsRequest implements org.thryft.TBase<getSampleProductsRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -3452,23 +2752,23 @@ public interface CatalogService {
             public getSampleProductsRequest(final getSampleProductsRequest other) {
             }
 
-            public getSampleProductsRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public getSampleProductsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getSampleProductsRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public getSampleProductsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
+                    case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             }
                             iprot.readFieldEnd();
@@ -3479,17 +2779,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getSampleProductsRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getSampleProductsRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -3504,18 +2794,8 @@ public interface CatalogService {
                 return true;
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             @Override
@@ -3525,42 +2805,27 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 return helper.toString();
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 0));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 0));
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getSampleProductsRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getSampleProductsRequest"));
 
                         oprot.writeFieldStop();
 
@@ -3571,7 +2836,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getSampleProductsResponse implements org.apache.thrift.TBase<getSampleProductsResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class getSampleProductsResponse implements org.thryft.TBase<getSampleProductsResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -3600,19 +2865,19 @@ public interface CatalogService {
                 this(other.getReturnValue());
             }
 
-            public getSampleProductsResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                returnValue = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product>>() {
+            public getSampleProductsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                returnValue = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product>>() {
                     @Override
-                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> apply(final org.thryft.protocol.TProtocol iprot) {
                         try {
-                            final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                            final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
                             final java.util.Set<com.yogento.api.models.catalog.product.Product> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.Product>();
                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                 sequence.add(new com.yogento.api.models.catalog.product.Product(iprot));
                             }
                             iprot.readSetEnd();
                             return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                        } catch (final org.apache.thrift.TException e) {
+                        } catch (final java.io.IOException e) {
                             return com.google.common.collect.ImmutableSet.of();
                         }
                     }
@@ -3624,17 +2889,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final getSampleProductsResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<getSampleProductsResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -3651,21 +2906,11 @@ public interface CatalogService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> getReturnValue() {
@@ -3680,21 +2925,6 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", getReturnValue());
@@ -3702,14 +2932,14 @@ public interface CatalogService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID: {
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getReturnValue().size()));
+                    case org.thryft.protocol.TType.VOID: {
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
                         for (final com.yogento.api.models.catalog.product.Product _iter0 : getReturnValue()) {
                             _iter0.write(oprot);
                         }
@@ -3717,10 +2947,10 @@ public interface CatalogService {
                         break;
                     }
 
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getReturnValue().size()));
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
                         for (final com.yogento.api.models.catalog.product.Product _iter0 : getReturnValue()) {
                             _iter0.write(oprot);
                         }
@@ -3729,12 +2959,12 @@ public interface CatalogService {
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("getSampleProductsResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getSampleProductsResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.SET, (short)-1));
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getReturnValue().size()));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.SET, (short)-1));
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
                         for (final com.yogento.api.models.catalog.product.Product _iter0 : getReturnValue()) {
                             _iter0.write(oprot);
                         }
@@ -3752,7 +2982,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class headProductBySkuRequest implements org.apache.thrift.TBase<headProductBySkuRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class headProductBySkuRequest implements org.thryft.TBase<headProductBySkuRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -3781,26 +3011,26 @@ public interface CatalogService {
                 this(other.getSku());
             }
 
-            public headProductBySkuRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public headProductBySkuRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public headProductBySkuRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public headProductBySkuRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String sku = null;
 
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
+                    case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
                         sku = iprot.readString();
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("sku")) {
                                 sku = iprot.readString();
@@ -3819,17 +3049,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final headProductBySkuRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<headProductBySkuRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -3846,21 +3066,11 @@ public interface CatalogService {
                     getSku().equals(other.getSku());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("sku")) {
                     return getSku();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final String getSku() {
@@ -3875,21 +3085,6 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("sku", getSku());
@@ -3897,26 +3092,26 @@ public interface CatalogService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         oprot.writeString(getSku());
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("headProductBySkuRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("headProductBySkuRequest"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("sku", org.apache.thrift.protocol.TType.STRING, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("sku", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getSku());
                         oprot.writeFieldEnd();
 
@@ -3931,7 +3126,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class headProductBySkuResponse implements org.apache.thrift.TBase<headProductBySkuResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class headProductBySkuResponse implements org.thryft.TBase<headProductBySkuResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -3960,7 +3155,7 @@ public interface CatalogService {
                 this(other.isReturnValue());
             }
 
-            public headProductBySkuResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
+            public headProductBySkuResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = iprot.readBool();
             }
 
@@ -3973,17 +3168,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final headProductBySkuResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<headProductBySkuResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -4000,21 +3185,11 @@ public interface CatalogService {
                     isReturnValue() == other.isReturnValue();
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return isReturnValue();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             @Override
@@ -4029,21 +3204,6 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("return_value", isReturnValue());
@@ -4051,26 +3211,26 @@ public interface CatalogService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         oprot.writeBool(isReturnValue());
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("headProductBySkuResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("headProductBySkuResponse"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("return_value", org.apache.thrift.protocol.TType.BOOL, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.BOOL, (short)-1));
                         oprot.writeBool(isReturnValue());
                         oprot.writeFieldEnd();
 
@@ -4085,7 +3245,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class putProductRequest implements org.apache.thrift.TBase<putProductRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class putProductRequest implements org.thryft.TBase<putProductRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -4114,26 +3274,26 @@ public interface CatalogService {
                 this(other.getProduct());
             }
 
-            public putProductRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public putProductRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public putProductRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public putProductRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 com.yogento.api.models.catalog.product.Product product = null;
 
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
+                    case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
                         product = new com.yogento.api.models.catalog.product.Product(iprot);
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("product")) {
                                 product = new com.yogento.api.models.catalog.product.Product(iprot);
@@ -4152,17 +3312,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final putProductRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<putProductRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -4179,21 +3329,11 @@ public interface CatalogService {
                     getProduct().equals(other.getProduct());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("product")) {
                     return getProduct();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final com.yogento.api.models.catalog.product.Product getProduct() {
@@ -4208,21 +3348,6 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("product", getProduct());
@@ -4230,30 +3355,30 @@ public interface CatalogService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID: {
+                    case org.thryft.protocol.TType.VOID: {
                         getProduct().write(oprot);
                         break;
                     }
 
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
                         getProduct().write(oprot);
 
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("putProductRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("putProductRequest"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("product", org.apache.thrift.protocol.TType.STRUCT, (short)-1));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("product", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getProduct().write(oprot);
                         oprot.writeFieldEnd();
 
@@ -4268,7 +3393,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class putProductResponse implements org.apache.thrift.TBase<putProductResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class putProductResponse implements org.thryft.TBase<putProductResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -4291,21 +3416,11 @@ public interface CatalogService {
             public putProductResponse(final putProductResponse other) {
             }
 
-            public putProductResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-            }
-
-            @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
+            public putProductResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
             }
 
             @Override
             public int compareTo(final putProductResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<putProductResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -4320,18 +3435,8 @@ public interface CatalogService {
                 return true;
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             @Override
@@ -4341,42 +3446,27 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 return helper.toString();
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 0));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 0));
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("putProductResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("putProductResponse"));
 
                         oprot.writeFieldStop();
 
@@ -4387,7 +3477,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class putProductsRequest implements org.apache.thrift.TBase<putProductsRequest, org.apache.thrift.TFieldIdEnum> {
+        public final static class putProductsRequest implements org.thryft.TBase<putProductsRequest> {
             public static class Builder {
                 public Builder() {
                 }
@@ -4416,28 +3506,28 @@ public interface CatalogService {
                 this(other.getProducts());
             }
 
-            public putProductsRequest(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                this(iprot, org.apache.thrift.protocol.TType.STRUCT);
+            public putProductsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+                this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public putProductsRequest(final org.apache.thrift.protocol.TProtocol iprot, final byte readAsTType) throws org.apache.thrift.TException {
+            public putProductsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> products = null;
 
                 switch (readAsTType) {
-                    case org.apache.thrift.protocol.TType.LIST:
+                    case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
-                        products = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product>>() {
+                        products = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product>>() {
                             @Override
-                            public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                            public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> apply(final org.thryft.protocol.TProtocol iprot) {
                                 try {
-                                    final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                                    final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
                                     final java.util.Set<com.yogento.api.models.catalog.product.Product> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.Product>();
                                     for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                         sequence.add(new com.yogento.api.models.catalog.product.Product(iprot));
                                     }
                                     iprot.readSetEnd();
                                     return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                                } catch (final org.apache.thrift.TException e) {
+                                } catch (final java.io.IOException e) {
                                     return com.google.common.collect.ImmutableSet.of();
                                 }
                             }
@@ -4445,26 +3535,26 @@ public interface CatalogService {
                         iprot.readListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
                         iprot.readStructBegin();
                         while (true) {
-                            final org.apache.thrift.protocol.TField ifield = iprot.readFieldBegin();
-                            if (ifield.type == org.apache.thrift.protocol.TType.STOP) {
+                            final org.thryft.protocol.TField ifield = iprot.readFieldBegin();
+                            if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("products")) {
-                                products = (new com.google.common.base.Function<org.apache.thrift.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product>>() {
+                                products = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product>>() {
                                     @Override
-                                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> apply(final org.apache.thrift.protocol.TProtocol iprot) {
+                                    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> apply(final org.thryft.protocol.TProtocol iprot) {
                                         try {
-                                            final org.apache.thrift.protocol.TSet sequenceBegin = iprot.readSetBegin();
+                                            final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
                                             final java.util.Set<com.yogento.api.models.catalog.product.Product> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.Product>();
                                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                                 sequence.add(new com.yogento.api.models.catalog.product.Product(iprot));
                                             }
                                             iprot.readSetEnd();
                                             return com.google.common.collect.ImmutableSet.copyOf(sequence);
-                                        } catch (final org.apache.thrift.TException e) {
+                                        } catch (final java.io.IOException e) {
                                             return com.google.common.collect.ImmutableSet.of();
                                         }
                                     }
@@ -4484,17 +3574,7 @@ public interface CatalogService {
             }
 
             @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public int compareTo(final putProductsRequest other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<putProductsRequest, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -4511,21 +3591,11 @@ public interface CatalogService {
                     getProducts().equals(other.getProducts());
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 if (fieldName.equals("products")) {
                     return getProducts();
                 }
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             public final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> getProducts() {
@@ -4540,21 +3610,6 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("products", getProducts());
@@ -4562,14 +3617,14 @@ public interface CatalogService {
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID: {
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getProducts().size()));
+                    case org.thryft.protocol.TType.VOID: {
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getProducts().size()));
                         for (final com.yogento.api.models.catalog.product.Product _iter0 : getProducts()) {
                             _iter0.write(oprot);
                         }
@@ -4577,10 +3632,10 @@ public interface CatalogService {
                         break;
                     }
 
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 1));
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getProducts().size()));
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getProducts().size()));
                         for (final com.yogento.api.models.catalog.product.Product _iter0 : getProducts()) {
                             _iter0.write(oprot);
                         }
@@ -4589,12 +3644,12 @@ public interface CatalogService {
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("putProductsRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("putProductsRequest"));
 
-                        oprot.writeFieldBegin(new org.apache.thrift.protocol.TField("products", org.apache.thrift.protocol.TType.SET, (short)-1));
-                        oprot.writeSetBegin(new org.apache.thrift.protocol.TSet(org.apache.thrift.protocol.TType.STRUCT, getProducts().size()));
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("products", org.thryft.protocol.TType.SET, (short)-1));
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getProducts().size()));
                         for (final com.yogento.api.models.catalog.product.Product _iter0 : getProducts()) {
                             _iter0.write(oprot);
                         }
@@ -4612,7 +3667,7 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class putProductsResponse implements org.apache.thrift.TBase<putProductsResponse, org.apache.thrift.TFieldIdEnum> {
+        public final static class putProductsResponse implements org.thryft.TBase<putProductsResponse> {
             public static class Builder {
                 public Builder() {
                 }
@@ -4635,21 +3690,11 @@ public interface CatalogService {
             public putProductsResponse(final putProductsResponse other) {
             }
 
-            public putProductsResponse(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-            }
-
-            @Override
-            public void clear() {
-                throw new UnsupportedOperationException();
+            public putProductsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
             }
 
             @Override
             public int compareTo(final putProductsResponse other) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public org.apache.thrift.TBase<putProductsResponse, org.apache.thrift.TFieldIdEnum> deepCopy() {
                 throw new UnsupportedOperationException();
             }
 
@@ -4664,18 +3709,8 @@ public interface CatalogService {
                 return true;
             }
 
-            @Override
-            public org.apache.thrift.TFieldIdEnum fieldForId(final int fieldId) {
-                throw new UnsupportedOperationException();
-            }
-
             public Object get(final String fieldName) {
                 return null;
-            }
-
-            @Override
-            public Object getFieldValue(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
             }
 
             @Override
@@ -4685,42 +3720,27 @@ public interface CatalogService {
             }
 
             @Override
-            public boolean isSet(final org.apache.thrift.TFieldIdEnum field) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void read(final org.apache.thrift.protocol.TProtocol iprot) throws org.apache.thrift.TException {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
-            public void setFieldValue(final org.apache.thrift.TFieldIdEnum field, final Object value) {
-                throw new UnsupportedOperationException();
-            }
-
-            @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 return helper.toString();
             }
 
             @Override
-            public void write(final org.apache.thrift.protocol.TProtocol oprot) throws org.apache.thrift.TException {
-                write(oprot, org.apache.thrift.protocol.TType.STRUCT);
+            public void write(final org.thryft.protocol.TProtocol oprot) throws java.io.IOException {
+                write(oprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public void write(final org.apache.thrift.protocol.TProtocol oprot, final byte writeAsTType) throws org.apache.thrift.TException {
+            public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.apache.thrift.protocol.TType.VOID:
-                    case org.apache.thrift.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.apache.thrift.protocol.TList(org.apache.thrift.protocol.TType.VOID, 0));
+                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.LIST:
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 0));
                         oprot.writeListEnd();
                         break;
 
-                    case org.apache.thrift.protocol.TType.STRUCT:
+                    case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.apache.thrift.protocol.TStruct("putProductsResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("putProductsResponse"));
 
                         oprot.writeFieldStop();
 

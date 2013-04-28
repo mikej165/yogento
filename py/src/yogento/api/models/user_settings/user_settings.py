@@ -224,7 +224,7 @@ class UserSettings(object):
                 init_kwds['magento_store_url'] = iprot.readString()
             elif ifield_name == 'products_mtime':
                 try:
-                    init_kwds['products_mtime'] = iprot.readDateTime() if hasattr(iprot, 'readDateTime') else datetime.fromtimestamp(iprot.readI64() / 1000.0)
+                    init_kwds['products_mtime'] = iprot.readDateTime()
                 except (TypeError,):
                     pass
             elif ifield_name == 'product_search_queries':
@@ -270,22 +270,22 @@ class UserSettings(object):
 
         if self.email is not None:
             oprot.writeFieldBegin('email', 12, -1)
-            oprot.writeEmailAddress(self.email) if hasattr(oprot, 'writeEmailAddress') else oprot.writeString(str(self.email))
+            oprot.writeEmailAddress(self.email)
             oprot.writeFieldEnd()
 
         if self.logo_image_url is not None:
             oprot.writeFieldBegin('logo_image_url', 12, -1)
-            oprot.writeUrl(self.logo_image_url) if hasattr(oprot, 'writeUrl') else oprot.writeString(str(self.logo_image_url))
+            oprot.writeUrl(self.logo_image_url)
             oprot.writeFieldEnd()
 
         if self.magento_store_url is not None:
             oprot.writeFieldBegin('magento_store_url', 12, -1)
-            oprot.writeUrl(self.magento_store_url) if hasattr(oprot, 'writeUrl') else oprot.writeString(str(self.magento_store_url))
+            oprot.writeUrl(self.magento_store_url)
             oprot.writeFieldEnd()
 
         if self.products_mtime is not None:
             oprot.writeFieldBegin('products_mtime', 12, -1)
-            oprot.writeDateTime(self.products_mtime) if hasattr(oprot, 'writeDateTime') else oprot.writeI64(long(mktime(self.products_mtime.timetuple())) * 1000l)
+            oprot.writeDateTime(self.products_mtime)
             oprot.writeFieldEnd()
 
         if self.product_search_queries is not None:
