@@ -31,7 +31,7 @@
 #-------------------------------------------------------------------------------
 
 from decimal import Decimal
-from thryft.core.protocol._protocol import _Protocol
+from thryft.protocol._protocol import _Protocol
 
 
 class BuiltinsProtocol(_Protocol):

@@ -1,12 +1,12 @@
 from itertools import ifilterfalse
-from thryft.core.protocol.builtins_protocol import BuiltinsProtocol
 from urlparse import urlparse
 import __builtin__
 import base64
 import json
 import logging
 import re
-import thryft.core.protocol.json_protocol
+import thryft.protocol.builtins_protocol
+import thryft.protocol.json_protocol
 import urllib2
 import yogento.api.models.catalog.product.product
 import yogento.api.models.image.image_resolution
@@ -89,7 +89,7 @@ class JsonrpcClientCatalogService(yogento.api.services.catalog.catalog_service.C
         request = {'jsonrpc': '2.0', 'method': method}
         request['id'] = id(request)
         params = {}
-        params_oprot = BuiltinsProtocol(params)
+        params_oprot = thryft.protocol.builtins_protocol.BuiltinsProtocol(params)
         for key, value in kwds.iteritems():
             if value is None:
                 continue
@@ -139,7 +139,7 @@ class JsonrpcClientCatalogService(yogento.api.services.catalog.catalog_service.C
                     raise RuntimeError("JSON-RPC: error: code=%(code)u, message='%(message)s'" % locals())
                 data = error.get('data')
                 if isinstance(data, dict):
-                    data_iprot = BuiltinsProtocol([data])
+                    data_iprot = thryft.protocol.builtins_protocol.BuiltinsProtocol([data])
                     exception_ = exception_class.read(data_iprot)
                     raise exception_
                 else:
@@ -156,7 +156,7 @@ class JsonrpcClientCatalogService(yogento.api.services.catalog.catalog_service.C
 
     def _get_product_by_sku(self, **kwds):
         return_value = self.__request('get_product_by_sku', **kwds)
-        iprot = thryft.core.protocol.json_protocol.JsonProtocol(return_value)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
         return yogento.api.models.catalog.product.product.Product.read(iprot)
 
     def _get_product_count(self, **kwds):
@@ -164,7 +164,7 @@ class JsonrpcClientCatalogService(yogento.api.services.catalog.catalog_service.C
 
     def _get_product_skus(self, **kwds):
         return_value = self.__request('get_product_skus', **kwds)
-        iprot = thryft.core.protocol.json_protocol.JsonProtocol(return_value)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
         return frozenset([iprot.readString() for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
 
     def _get_product_thumbnail_url(self, **kwds):
@@ -172,17 +172,17 @@ class JsonrpcClientCatalogService(yogento.api.services.catalog.catalog_service.C
 
     def _get_products(self, **kwds):
         return_value = self.__request('get_products', **kwds)
-        iprot = thryft.core.protocol.json_protocol.JsonProtocol(return_value)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
         return frozenset([yogento.api.models.catalog.product.product.Product.read(iprot) for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
 
     def _get_products_by_skus(self, **kwds):
         return_value = self.__request('get_products_by_skus', **kwds)
-        iprot = thryft.core.protocol.json_protocol.JsonProtocol(return_value)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
         return frozenset([yogento.api.models.catalog.product.product.Product.read(iprot) for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
 
     def _get_sample_product_by_sku(self, **kwds):
         return_value = self.__request('get_sample_product_by_sku', **kwds)
-        iprot = thryft.core.protocol.json_protocol.JsonProtocol(return_value)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
         return yogento.api.models.catalog.product.product.Product.read(iprot)
 
     def _get_sample_product_thumbnail_url(self, **kwds):
@@ -190,7 +190,7 @@ class JsonrpcClientCatalogService(yogento.api.services.catalog.catalog_service.C
 
     def _get_sample_products(self, **kwds):
         return_value = self.__request('get_sample_products', **kwds)
-        iprot = thryft.core.protocol.json_protocol.JsonProtocol(return_value)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
         return frozenset([yogento.api.models.catalog.product.product.Product.read(iprot) for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
 
     def _head_product_by_sku(self, **kwds):

@@ -1,11 +1,11 @@
-from thryft.core.protocol.builtins_protocol import BuiltinsProtocol
 from urlparse import urlparse
 import __builtin__
 import base64
 import json
 import logging
 import re
-import thryft.core.protocol.json_protocol
+import thryft.protocol.builtins_protocol
+import thryft.protocol.json_protocol
 import urllib2
 import yogento.api.models.image.image_resolution
 import yogento.api.services.image.image_service
@@ -87,7 +87,7 @@ class JsonrpcClientImageService(yogento.api.services.image.image_service.ImageSe
         request = {'jsonrpc': '2.0', 'method': method}
         request['id'] = id(request)
         params = {}
-        params_oprot = BuiltinsProtocol(params)
+        params_oprot = thryft.protocol.builtins_protocol.BuiltinsProtocol(params)
         for key, value in kwds.iteritems():
             if value is None:
                 continue
@@ -137,7 +137,7 @@ class JsonrpcClientImageService(yogento.api.services.image.image_service.ImageSe
                     raise RuntimeError("JSON-RPC: error: code=%(code)u, message='%(message)s'" % locals())
                 data = error.get('data')
                 if isinstance(data, dict):
-                    data_iprot = BuiltinsProtocol([data])
+                    data_iprot = thryft.protocol.builtins_protocol.BuiltinsProtocol([data])
                     exception_ = exception_class.read(data_iprot)
                     raise exception_
                 else:

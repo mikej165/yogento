@@ -1,6 +1,5 @@
 from datetime import datetime
 from itertools import ifilterfalse
-from thryft.core.protocol.builtins_protocol import BuiltinsProtocol
 from time import mktime
 from urlparse import urlparse
 import __builtin__
@@ -8,7 +7,8 @@ import base64
 import json
 import logging
 import re
-import thryft.core.protocol.json_protocol
+import thryft.protocol.builtins_protocol
+import thryft.protocol.json_protocol
 import urllib2
 import yogento.api.models.mail.campaign.mail_campaign
 import yogento.api.models.mail.campaign.mail_campaign_stats
@@ -95,7 +95,7 @@ class JsonrpcClientMailService(yogento.api.services.mail.mail_service.MailServic
         request = {'jsonrpc': '2.0', 'method': method}
         request['id'] = id(request)
         params = {}
-        params_oprot = BuiltinsProtocol(params)
+        params_oprot = thryft.protocol.builtins_protocol.BuiltinsProtocol(params)
         for key, value in kwds.iteritems():
             if value is None:
                 continue
@@ -145,7 +145,7 @@ class JsonrpcClientMailService(yogento.api.services.mail.mail_service.MailServic
                     raise RuntimeError("JSON-RPC: error: code=%(code)u, message='%(message)s'" % locals())
                 data = error.get('data')
                 if isinstance(data, dict):
-                    data_iprot = BuiltinsProtocol([data])
+                    data_iprot = thryft.protocol.builtins_protocol.BuiltinsProtocol([data])
                     exception_ = exception_class.read(data_iprot)
                     raise exception_
                 else:
@@ -159,41 +159,41 @@ class JsonrpcClientMailService(yogento.api.services.mail.mail_service.MailServic
 
     def _get_mail_campaign(self, **kwds):
         return_value = self.__request('get_mail_campaign', **kwds)
-        iprot = thryft.core.protocol.json_protocol.JsonProtocol(return_value)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
         return yogento.api.models.mail.campaign.mail_campaign.MailCampaign.read(iprot)
 
     def _get_mail_campaign_stats(self, **kwds):
         return_value = self.__request('get_mail_campaign_stats', **kwds)
-        iprot = thryft.core.protocol.json_protocol.JsonProtocol(return_value)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
         return yogento.api.models.mail.campaign.mail_campaign_stats.MailCampaignStats.read(iprot)
 
     def _get_mail_campaigns(self, **kwds):
         return_value = self.__request('get_mail_campaigns', **kwds)
-        iprot = thryft.core.protocol.json_protocol.JsonProtocol(return_value)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
         return frozenset([yogento.api.models.mail.campaign.mail_campaign.MailCampaign.read(iprot) for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
 
     def _get_mail_lists(self, **kwds):
         return_value = self.__request('get_mail_lists', **kwds)
-        iprot = thryft.core.protocol.json_protocol.JsonProtocol(return_value)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
         return frozenset([yogento.api.models.mail.list.mail_list.MailList.read(iprot) for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
 
     def _get_mail_template_info(self, **kwds):
         return_value = self.__request('get_mail_template_info', **kwds)
-        iprot = thryft.core.protocol.json_protocol.JsonProtocol(return_value)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
         return yogento.api.models.mail.template.mail_template_info.MailTemplateInfo.read(iprot)
 
     def _get_mail_templates(self, **kwds):
         return_value = self.__request('get_mail_templates', **kwds)
-        iprot = thryft.core.protocol.json_protocol.JsonProtocol(return_value)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
         return frozenset([yogento.api.models.mail.template.mail_template.MailTemplate.read(iprot) for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
 
     def _post_mail_campaign(self, **kwds):
         return_value = self.__request('post_mail_campaign', **kwds)
-        iprot = thryft.core.protocol.json_protocol.JsonProtocol(return_value)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
         return yogento.api.models.mail.campaign.mail_campaign.MailCampaign.read(iprot)
 
     def _put_mail_campaign(self, **kwds):
         return_value = self.__request('put_mail_campaign', **kwds)
-        iprot = thryft.core.protocol.json_protocol.JsonProtocol(return_value)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
         return yogento.api.models.mail.campaign.mail_campaign.MailCampaign.read(iprot)
 

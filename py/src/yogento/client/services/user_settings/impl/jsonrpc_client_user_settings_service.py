@@ -1,11 +1,11 @@
-from thryft.core.protocol.builtins_protocol import BuiltinsProtocol
 from urlparse import urlparse
 import __builtin__
 import base64
 import json
 import logging
 import re
-import thryft.core.protocol.json_protocol
+import thryft.protocol.builtins_protocol
+import thryft.protocol.json_protocol
 import urllib2
 import yogento.api.models.user_settings.user_settings
 import yogento.api.services.user_settings.user_settings_service
@@ -87,7 +87,7 @@ class JsonrpcClientUserSettingsService(yogento.api.services.user_settings.user_s
         request = {'jsonrpc': '2.0', 'method': method}
         request['id'] = id(request)
         params = {}
-        params_oprot = BuiltinsProtocol(params)
+        params_oprot = thryft.protocol.builtins_protocol.BuiltinsProtocol(params)
         for key, value in kwds.iteritems():
             if value is None:
                 continue
@@ -137,7 +137,7 @@ class JsonrpcClientUserSettingsService(yogento.api.services.user_settings.user_s
                     raise RuntimeError("JSON-RPC: error: code=%(code)u, message='%(message)s'" % locals())
                 data = error.get('data')
                 if isinstance(data, dict):
-                    data_iprot = BuiltinsProtocol([data])
+                    data_iprot = thryft.protocol.builtins_protocol.BuiltinsProtocol([data])
                     exception_ = exception_class.read(data_iprot)
                     raise exception_
                 else:
@@ -148,7 +148,7 @@ class JsonrpcClientUserSettingsService(yogento.api.services.user_settings.user_s
 
     def _get_current_user_settings(self, **kwds):
         return_value = self.__request('get_current_user_settings', **kwds)
-        iprot = thryft.core.protocol.json_protocol.JsonProtocol(return_value)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
         return yogento.api.models.user_settings.user_settings.UserSettings.read(iprot)
 
     def _put_current_user_settings(self, **kwds):

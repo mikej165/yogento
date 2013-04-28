@@ -1,19 +1,19 @@
 #-------------------------------------------------------------------------------
 # Copyright (c) 2013, Minor Gordon
 # All rights reserved.
-# 
+#
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions
 # are met:
-# 
+#
 #     * Redistributions of source code must retain the above copyright
 #       notice, this list of conditions and the following disclaimer.
-# 
+#
 #     * Redistributions in binary form must reproduce the above copyright
 #       notice, this list of conditions and the following disclaimer in
 #       the documentation and/or other materials provided with the
 #       distribution.
-# 
+#
 # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
 # CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
 # INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
@@ -29,16 +29,44 @@
 # OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY
 # OF SUCH DAMAGE.
 #-------------------------------------------------------------------------------
+from decimal import Decimal
+from time import mktime
+from datetime import datetime
+
 
 class _Protocol(object):
     def readByte(self):
         return self.readI16()
 
+    def readDateTime(self):
+        return datetime.fromtimestamp(self.readI64() / 1000.0)
+
+    def readDecimal(self):
+        return Decimal(self.readString())
+
+    def readEmailAddress(self):
+        return self.readString()
+
     def readI16(self):
         return self.readI32()
 
+    def readUrl(self):
+        return self.readString()
+
     def writeByte(self, byte):
         self.writeI16(byte)
+        return self
+
+    def writeDateTime(self, date_time):
+        self.writeI64(long(mktime(date_time.timetuple())) * 1000l)
+        return self
+
+    def writeDecimal(self, decimal):
+        self.writeString(str(decimal))
+        return self
+
+    def writeEmailAddress(self, email_address):
+        self.writeString(email_address)
         return self
 
     def writeI16(self, i16):
@@ -76,4 +104,8 @@ class _Protocol(object):
             object_.write(self)
         else:
             raise TypeError(type(object_))
+        return self
+
+    def writeUrl(self, url):
+        self.writeString(url)
         return self

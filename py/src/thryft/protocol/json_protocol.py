@@ -35,7 +35,7 @@ try:
     import json
 except ImportError:
     import simplejson as json  # @UnusedImport
-from thryft.core.protocol.builtins_protocol import BuiltinsProtocol
+from thryft.protocol.builtins_protocol import BuiltinsProtocol
 
 
 class JsonProtocol(BuiltinsProtocol):
