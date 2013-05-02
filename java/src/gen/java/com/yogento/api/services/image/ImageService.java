@@ -679,7 +679,7 @@ public interface ImageService {
 
                 final putImageRequest other = (putImageRequest)otherObject;
                 return
-                    getImage().equals(other.getImage()) &&
+                    java.util.Arrays.equals(getImage(), other.getImage()) &&
                     getImageMimeSubtype().equals(other.getImageMimeSubtype());
             }
 
