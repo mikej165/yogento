@@ -9,10 +9,10 @@ public interface AgentService {
                 }
 
                 public Builder(final getAgentMagentoProductsRequest other) {
-                    this.sync = other.isSync();
+                    this.sync = other.getSync();
                 }
 
-                protected getAgentMagentoProductsRequest _build(final Boolean sync) {
+                protected getAgentMagentoProductsRequest _build(final com.google.common.base.Optional<Boolean> sync) {
                     return new getAgentMagentoProductsRequest(sync);
                 }
 
@@ -20,20 +20,25 @@ public interface AgentService {
                     return _build(sync);
                 }
 
-                public Builder setSync(final Boolean sync) {
+                public Builder setSync(final com.google.common.base.Optional<Boolean> sync) {
                     this.sync = sync;
                     return this;
                 }
 
-                private Boolean sync;
+                public Builder setSync(final boolean sync) {
+                    this.sync = com.google.common.base.Optional.of(sync);
+                    return this;
+                }
+
+                private com.google.common.base.Optional<Boolean> sync = com.google.common.base.Optional.absent();
             }
 
             public getAgentMagentoProductsRequest() {
-                sync = null;
+                sync = com.google.common.base.Optional.absent();
             }
 
             public getAgentMagentoProductsRequest(final getAgentMagentoProductsRequest other) {
-                this(other.isSync());
+                this(other.getSync());
             }
 
             public getAgentMagentoProductsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
@@ -41,13 +46,13 @@ public interface AgentService {
             }
 
             public getAgentMagentoProductsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
-                Boolean sync = null;
+                com.google.common.base.Optional<Boolean> sync = com.google.common.base.Optional.absent();
 
                 switch (readAsTType) {
                     case org.thryft.protocol.TType.LIST:
                         final org.thryft.protocol.TList __list = iprot.readListBegin();
                         if (__list.size > 0) {
-                            sync = iprot.readBool();
+                            sync = com.google.common.base.Optional.of(iprot.readBool());
                         }
                         iprot.readListEnd();
                         break;
@@ -60,7 +65,7 @@ public interface AgentService {
                             if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("sync")) {
-                                sync = iprot.readBool();
+                                sync = com.google.common.base.Optional.of(iprot.readBool());
                             }
                             iprot.readFieldEnd();
                         }
@@ -71,7 +76,7 @@ public interface AgentService {
                 this.sync = sync;
             }
 
-            public getAgentMagentoProductsRequest(final Boolean sync) {
+            public getAgentMagentoProductsRequest(final com.google.common.base.Optional<Boolean> sync) {
                 this.sync = sync;
             }
 
@@ -90,36 +95,34 @@ public interface AgentService {
 
                 final getAgentMagentoProductsRequest other = (getAgentMagentoProductsRequest)otherObject;
                 return
-                    ((isSync() == null && other.isSync() == null) ||
-                    (isSync() != null && other.isSync() != null &&
-                    isSync().equals(other.isSync())));
+                    getSync().equals(other.getSync());
             }
 
             public Object get(final String fieldName) {
                 if (fieldName.equals("sync")) {
-                    return isSync();
+                    return getSync();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
+            }
+
+            public final com.google.common.base.Optional<Boolean> getSync() {
+                return sync;
             }
 
             @Override
             public int hashCode() {
                 int hashCode = 17;
-                if (isSync() != null) {
-                    hashCode = 31 * hashCode + (isSync() ? 1 : 0);
+                if (getSync().isPresent()) {
+                    hashCode = 31 * hashCode + (getSync().get() ? 1 : 0);
                 }
                 return hashCode;
-            }
-
-            public final Boolean isSync() {
-                return sync;
             }
 
             @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
-                if (isSync() != null) {
-                    helper.add("sync", isSync());
+                if (getSync().isPresent()) {
+                    helper.add("sync", getSync());
                 }
                 return helper.toString();
             }
@@ -135,10 +138,10 @@ public interface AgentService {
                     case org.thryft.protocol.TType.LIST:
                         oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
-                        if (isSync() != null) {
-                            oprot.writeBool(isSync());
+                        if (getSync().isPresent()) {
+                            oprot.writeBool(getSync().get());
                         } else {
-                            ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                            oprot.writeNull();
                         }
 
                         oprot.writeListEnd();
@@ -148,9 +151,9 @@ public interface AgentService {
                     default:
                         oprot.writeStructBegin(new org.thryft.protocol.TStruct("getAgentMagentoProductsRequest"));
 
-                        if (isSync() != null) {
+                        if (getSync().isPresent()) {
                             oprot.writeFieldBegin(new org.thryft.protocol.TField("sync", org.thryft.protocol.TType.BOOL, (short)-1));
-                            oprot.writeBool(isSync());
+                            oprot.writeBool(getSync().get());
                             oprot.writeFieldEnd();
                         }
 
@@ -161,7 +164,7 @@ public interface AgentService {
                 }
             }
 
-            private final Boolean sync;
+            private final com.google.common.base.Optional<Boolean> sync;
         }
 
         @SuppressWarnings({"serial"})
@@ -239,7 +242,7 @@ public interface AgentService {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> getReturnValue() {
@@ -399,7 +402,7 @@ public interface AgentService {
                 if (fieldName.equals("magento_store_url")) {
                     return getMagentoStoreUrl();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final String getMagentoStoreUrl() {
@@ -518,7 +521,7 @@ public interface AgentService {
                 if (fieldName.equals("return_value")) {
                     return isReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             @Override
@@ -694,7 +697,7 @@ public interface AgentService {
                 } else if (fieldName.equals("username")) {
                     return getUsername();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final String getMagentoProductsJson() {
@@ -821,7 +824,7 @@ public interface AgentService {
             }
 
             public Object get(final String fieldName) {
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             @Override
@@ -862,9 +865,9 @@ public interface AgentService {
         }
     }
 
-    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> getAgentMagentoProducts(Boolean sync) throws com.yogento.api.services.agent.AgentException;
+    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> getAgentMagentoProducts(final com.google.common.base.Optional<Boolean> sync) throws com.yogento.api.services.agent.AgentException;
 
-    public boolean headMagentoStore(String magentoStoreUrl);
+    public boolean headMagentoStore(final String magentoStoreUrl);
 
-    public void putAgentMagentoProducts(String magentoProductsJson, String ticket, String username);
+    public void putAgentMagentoProducts(final String magentoProductsJson, final String ticket, final String username);
 }

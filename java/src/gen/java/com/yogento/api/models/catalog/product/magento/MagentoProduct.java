@@ -14,9 +14,9 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
             this.createdAt = other.getCreatedAt();
             this.description = other.getDescription();
             this.images = other.getImages();
-            this.isInStock = other.isInStock();
-            this.isQtyDecimal = other.isQtyDecimal();
-            this.isRecurring = other.isRecurring();
+            this.isInStock = other.getIsInStock();
+            this.isQtyDecimal = other.getIsQtyDecimal();
+            this.isRecurring = other.getIsRecurring();
             this.lowStockDate = other.getLowStockDate();
             this.maxSaleQty = other.getMaxSaleQty();
             this.metaDescription = other.getMetaDescription();
@@ -49,7 +49,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
             this.weight = other.getWeight();
         }
 
-        protected MagentoProduct _build(final String activationInformation, final Integer backorders, final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> children, final java.math.BigDecimal cost, final org.joda.time.DateTime createdAt, final String description, final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> images, final Boolean isInStock, final Boolean isQtyDecimal, final Boolean isRecurring, final org.joda.time.DateTime lowStockDate, final java.math.BigDecimal maxSaleQty, final String metaDescription, final String metaKeyword, final String metaTitle, final java.math.BigDecimal minimalPrice, final java.math.BigDecimal minQty, final java.math.BigDecimal minSaleQty, final String model, final String name, final org.joda.time.DateTime newsFromDate, final org.joda.time.DateTime newsToDate, final java.math.BigDecimal notifyStockQty, final java.math.BigDecimal price, final java.math.BigDecimal qty, final String shippingPolicy, final String shortDescription, final String sku, final org.joda.time.DateTime specialFromDate, final java.math.BigDecimal specialPrice, final org.joda.time.DateTime specialToDate, final String store, final com.yogento.api.models.catalog.product.magento.MagentoProductStatus status, final com.google.common.collect.ImmutableSet<String> tags, final String type, final org.joda.time.DateTime updatedAt, final String urlKey, final String urlPath, final com.google.common.collect.ImmutableSet<String> visibility, final java.math.BigDecimal weight) {
+        protected MagentoProduct _build(final com.google.common.base.Optional<String> activationInformation, final com.google.common.base.Optional<Integer> backorders, final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct>> children, final com.google.common.base.Optional<java.math.BigDecimal> cost, final com.google.common.base.Optional<org.joda.time.DateTime> createdAt, final com.google.common.base.Optional<String> description, final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>> images, final com.google.common.base.Optional<Boolean> isInStock, final com.google.common.base.Optional<Boolean> isQtyDecimal, final com.google.common.base.Optional<Boolean> isRecurring, final com.google.common.base.Optional<org.joda.time.DateTime> lowStockDate, final com.google.common.base.Optional<java.math.BigDecimal> maxSaleQty, final com.google.common.base.Optional<String> metaDescription, final com.google.common.base.Optional<String> metaKeyword, final com.google.common.base.Optional<String> metaTitle, final com.google.common.base.Optional<java.math.BigDecimal> minimalPrice, final com.google.common.base.Optional<java.math.BigDecimal> minQty, final com.google.common.base.Optional<java.math.BigDecimal> minSaleQty, final com.google.common.base.Optional<String> model, final String name, final com.google.common.base.Optional<org.joda.time.DateTime> newsFromDate, final com.google.common.base.Optional<org.joda.time.DateTime> newsToDate, final com.google.common.base.Optional<java.math.BigDecimal> notifyStockQty, final com.google.common.base.Optional<java.math.BigDecimal> price, final com.google.common.base.Optional<java.math.BigDecimal> qty, final com.google.common.base.Optional<String> shippingPolicy, final String shortDescription, final String sku, final com.google.common.base.Optional<org.joda.time.DateTime> specialFromDate, final com.google.common.base.Optional<java.math.BigDecimal> specialPrice, final com.google.common.base.Optional<org.joda.time.DateTime> specialToDate, final String store, final com.google.common.base.Optional<com.yogento.api.models.catalog.product.magento.MagentoProductStatus> status, final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<String>> tags, final com.google.common.base.Optional<String> type, final com.google.common.base.Optional<org.joda.time.DateTime> updatedAt, final String urlKey, final com.google.common.base.Optional<String> urlPath, final com.google.common.collect.ImmutableSet<String> visibility, final com.google.common.base.Optional<java.math.BigDecimal> weight) {
             return new MagentoProduct(activationInformation, backorders, children, cost, createdAt, description, images, isInStock, isQtyDecimal, isRecurring, lowStockDate, maxSaleQty, metaDescription, metaKeyword, metaTitle, minimalPrice, minQty, minSaleQty, model, name, newsFromDate, newsToDate, notifyStockQty, price, qty, shippingPolicy, shortDescription, sku, specialFromDate, specialPrice, specialToDate, store, status, tags, type, updatedAt, urlKey, urlPath, visibility, weight);
         }
 
@@ -57,98 +57,193 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
             return _build(activationInformation, backorders, children, cost, createdAt, description, images, isInStock, isQtyDecimal, isRecurring, lowStockDate, maxSaleQty, metaDescription, metaKeyword, metaTitle, minimalPrice, minQty, minSaleQty, model, name, newsFromDate, newsToDate, notifyStockQty, price, qty, shippingPolicy, shortDescription, sku, specialFromDate, specialPrice, specialToDate, store, status, tags, type, updatedAt, urlKey, urlPath, visibility, weight);
         }
 
-        public Builder setActivationInformation(final String activationInformation) {
+        public Builder setActivationInformation(final com.google.common.base.Optional<String> activationInformation) {
             this.activationInformation = activationInformation;
             return this;
         }
 
-        public Builder setBackorders(final Integer backorders) {
+        public Builder setActivationInformation(final String activationInformation) {
+            this.activationInformation = com.google.common.base.Optional.of(activationInformation);
+            return this;
+        }
+
+        public Builder setBackorders(final com.google.common.base.Optional<Integer> backorders) {
             this.backorders = backorders;
             return this;
         }
 
-        public Builder setChildren(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> children) {
+        public Builder setBackorders(final int backorders) {
+            this.backorders = com.google.common.base.Optional.of(backorders);
+            return this;
+        }
+
+        public Builder setChildren(final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct>> children) {
             this.children = children;
             return this;
         }
 
-        public Builder setCost(final java.math.BigDecimal cost) {
+        public Builder setChildren(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> children) {
+            this.children = com.google.common.base.Optional.of(children);
+            return this;
+        }
+
+        public Builder setCost(final com.google.common.base.Optional<java.math.BigDecimal> cost) {
             this.cost = cost;
             return this;
         }
 
-        public Builder setCreatedAt(final org.joda.time.DateTime createdAt) {
+        public Builder setCost(final java.math.BigDecimal cost) {
+            this.cost = com.google.common.base.Optional.of(cost);
+            return this;
+        }
+
+        public Builder setCreatedAt(final com.google.common.base.Optional<org.joda.time.DateTime> createdAt) {
             this.createdAt = createdAt;
             return this;
         }
 
-        public Builder setDescription(final String description) {
+        public Builder setCreatedAt(final org.joda.time.DateTime createdAt) {
+            this.createdAt = com.google.common.base.Optional.of(createdAt);
+            return this;
+        }
+
+        public Builder setDescription(final com.google.common.base.Optional<String> description) {
             this.description = description;
             return this;
         }
 
-        public Builder setImages(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> images) {
+        public Builder setDescription(final String description) {
+            this.description = com.google.common.base.Optional.of(description);
+            return this;
+        }
+
+        public Builder setImages(final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>> images) {
             this.images = images;
             return this;
         }
 
-        public Builder setIsInStock(final Boolean isInStock) {
+        public Builder setImages(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> images) {
+            this.images = com.google.common.base.Optional.of(images);
+            return this;
+        }
+
+        public Builder setIsInStock(final com.google.common.base.Optional<Boolean> isInStock) {
             this.isInStock = isInStock;
             return this;
         }
 
-        public Builder setIsQtyDecimal(final Boolean isQtyDecimal) {
+        public Builder setIsInStock(final boolean isInStock) {
+            this.isInStock = com.google.common.base.Optional.of(isInStock);
+            return this;
+        }
+
+        public Builder setIsQtyDecimal(final com.google.common.base.Optional<Boolean> isQtyDecimal) {
             this.isQtyDecimal = isQtyDecimal;
             return this;
         }
 
-        public Builder setIsRecurring(final Boolean isRecurring) {
+        public Builder setIsQtyDecimal(final boolean isQtyDecimal) {
+            this.isQtyDecimal = com.google.common.base.Optional.of(isQtyDecimal);
+            return this;
+        }
+
+        public Builder setIsRecurring(final com.google.common.base.Optional<Boolean> isRecurring) {
             this.isRecurring = isRecurring;
             return this;
         }
 
-        public Builder setLowStockDate(final org.joda.time.DateTime lowStockDate) {
+        public Builder setIsRecurring(final boolean isRecurring) {
+            this.isRecurring = com.google.common.base.Optional.of(isRecurring);
+            return this;
+        }
+
+        public Builder setLowStockDate(final com.google.common.base.Optional<org.joda.time.DateTime> lowStockDate) {
             this.lowStockDate = lowStockDate;
             return this;
         }
 
-        public Builder setMaxSaleQty(final java.math.BigDecimal maxSaleQty) {
+        public Builder setLowStockDate(final org.joda.time.DateTime lowStockDate) {
+            this.lowStockDate = com.google.common.base.Optional.of(lowStockDate);
+            return this;
+        }
+
+        public Builder setMaxSaleQty(final com.google.common.base.Optional<java.math.BigDecimal> maxSaleQty) {
             this.maxSaleQty = maxSaleQty;
             return this;
         }
 
-        public Builder setMetaDescription(final String metaDescription) {
+        public Builder setMaxSaleQty(final java.math.BigDecimal maxSaleQty) {
+            this.maxSaleQty = com.google.common.base.Optional.of(maxSaleQty);
+            return this;
+        }
+
+        public Builder setMetaDescription(final com.google.common.base.Optional<String> metaDescription) {
             this.metaDescription = metaDescription;
             return this;
         }
 
-        public Builder setMetaKeyword(final String metaKeyword) {
+        public Builder setMetaDescription(final String metaDescription) {
+            this.metaDescription = com.google.common.base.Optional.of(metaDescription);
+            return this;
+        }
+
+        public Builder setMetaKeyword(final com.google.common.base.Optional<String> metaKeyword) {
             this.metaKeyword = metaKeyword;
             return this;
         }
 
-        public Builder setMetaTitle(final String metaTitle) {
+        public Builder setMetaKeyword(final String metaKeyword) {
+            this.metaKeyword = com.google.common.base.Optional.of(metaKeyword);
+            return this;
+        }
+
+        public Builder setMetaTitle(final com.google.common.base.Optional<String> metaTitle) {
             this.metaTitle = metaTitle;
             return this;
         }
 
-        public Builder setMinQty(final java.math.BigDecimal minQty) {
+        public Builder setMetaTitle(final String metaTitle) {
+            this.metaTitle = com.google.common.base.Optional.of(metaTitle);
+            return this;
+        }
+
+        public Builder setMinQty(final com.google.common.base.Optional<java.math.BigDecimal> minQty) {
             this.minQty = minQty;
             return this;
         }
 
-        public Builder setMinSaleQty(final java.math.BigDecimal minSaleQty) {
+        public Builder setMinQty(final java.math.BigDecimal minQty) {
+            this.minQty = com.google.common.base.Optional.of(minQty);
+            return this;
+        }
+
+        public Builder setMinSaleQty(final com.google.common.base.Optional<java.math.BigDecimal> minSaleQty) {
             this.minSaleQty = minSaleQty;
             return this;
         }
 
-        public Builder setMinimalPrice(final java.math.BigDecimal minimalPrice) {
+        public Builder setMinSaleQty(final java.math.BigDecimal minSaleQty) {
+            this.minSaleQty = com.google.common.base.Optional.of(minSaleQty);
+            return this;
+        }
+
+        public Builder setMinimalPrice(final com.google.common.base.Optional<java.math.BigDecimal> minimalPrice) {
             this.minimalPrice = minimalPrice;
             return this;
         }
 
-        public Builder setModel(final String model) {
+        public Builder setMinimalPrice(final java.math.BigDecimal minimalPrice) {
+            this.minimalPrice = com.google.common.base.Optional.of(minimalPrice);
+            return this;
+        }
+
+        public Builder setModel(final com.google.common.base.Optional<String> model) {
             this.model = model;
+            return this;
+        }
+
+        public Builder setModel(final String model) {
+            this.model = com.google.common.base.Optional.of(model);
             return this;
         }
 
@@ -157,33 +252,63 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
             return this;
         }
 
-        public Builder setNewsFromDate(final org.joda.time.DateTime newsFromDate) {
+        public Builder setNewsFromDate(final com.google.common.base.Optional<org.joda.time.DateTime> newsFromDate) {
             this.newsFromDate = newsFromDate;
             return this;
         }
 
-        public Builder setNewsToDate(final org.joda.time.DateTime newsToDate) {
+        public Builder setNewsFromDate(final org.joda.time.DateTime newsFromDate) {
+            this.newsFromDate = com.google.common.base.Optional.of(newsFromDate);
+            return this;
+        }
+
+        public Builder setNewsToDate(final com.google.common.base.Optional<org.joda.time.DateTime> newsToDate) {
             this.newsToDate = newsToDate;
             return this;
         }
 
-        public Builder setNotifyStockQty(final java.math.BigDecimal notifyStockQty) {
+        public Builder setNewsToDate(final org.joda.time.DateTime newsToDate) {
+            this.newsToDate = com.google.common.base.Optional.of(newsToDate);
+            return this;
+        }
+
+        public Builder setNotifyStockQty(final com.google.common.base.Optional<java.math.BigDecimal> notifyStockQty) {
             this.notifyStockQty = notifyStockQty;
             return this;
         }
 
-        public Builder setPrice(final java.math.BigDecimal price) {
+        public Builder setNotifyStockQty(final java.math.BigDecimal notifyStockQty) {
+            this.notifyStockQty = com.google.common.base.Optional.of(notifyStockQty);
+            return this;
+        }
+
+        public Builder setPrice(final com.google.common.base.Optional<java.math.BigDecimal> price) {
             this.price = price;
             return this;
         }
 
-        public Builder setQty(final java.math.BigDecimal qty) {
+        public Builder setPrice(final java.math.BigDecimal price) {
+            this.price = com.google.common.base.Optional.of(price);
+            return this;
+        }
+
+        public Builder setQty(final com.google.common.base.Optional<java.math.BigDecimal> qty) {
             this.qty = qty;
             return this;
         }
 
-        public Builder setShippingPolicy(final String shippingPolicy) {
+        public Builder setQty(final java.math.BigDecimal qty) {
+            this.qty = com.google.common.base.Optional.of(qty);
+            return this;
+        }
+
+        public Builder setShippingPolicy(final com.google.common.base.Optional<String> shippingPolicy) {
             this.shippingPolicy = shippingPolicy;
+            return this;
+        }
+
+        public Builder setShippingPolicy(final String shippingPolicy) {
+            this.shippingPolicy = com.google.common.base.Optional.of(shippingPolicy);
             return this;
         }
 
@@ -197,23 +322,43 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
             return this;
         }
 
-        public Builder setSpecialFromDate(final org.joda.time.DateTime specialFromDate) {
+        public Builder setSpecialFromDate(final com.google.common.base.Optional<org.joda.time.DateTime> specialFromDate) {
             this.specialFromDate = specialFromDate;
             return this;
         }
 
-        public Builder setSpecialPrice(final java.math.BigDecimal specialPrice) {
+        public Builder setSpecialFromDate(final org.joda.time.DateTime specialFromDate) {
+            this.specialFromDate = com.google.common.base.Optional.of(specialFromDate);
+            return this;
+        }
+
+        public Builder setSpecialPrice(final com.google.common.base.Optional<java.math.BigDecimal> specialPrice) {
             this.specialPrice = specialPrice;
             return this;
         }
 
-        public Builder setSpecialToDate(final org.joda.time.DateTime specialToDate) {
+        public Builder setSpecialPrice(final java.math.BigDecimal specialPrice) {
+            this.specialPrice = com.google.common.base.Optional.of(specialPrice);
+            return this;
+        }
+
+        public Builder setSpecialToDate(final com.google.common.base.Optional<org.joda.time.DateTime> specialToDate) {
             this.specialToDate = specialToDate;
             return this;
         }
 
-        public Builder setStatus(final com.yogento.api.models.catalog.product.magento.MagentoProductStatus status) {
+        public Builder setSpecialToDate(final org.joda.time.DateTime specialToDate) {
+            this.specialToDate = com.google.common.base.Optional.of(specialToDate);
+            return this;
+        }
+
+        public Builder setStatus(final com.google.common.base.Optional<com.yogento.api.models.catalog.product.magento.MagentoProductStatus> status) {
             this.status = status;
+            return this;
+        }
+
+        public Builder setStatus(final com.yogento.api.models.catalog.product.magento.MagentoProductStatus status) {
+            this.status = com.google.common.base.Optional.of(status);
             return this;
         }
 
@@ -222,18 +367,33 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
             return this;
         }
 
-        public Builder setTags(final com.google.common.collect.ImmutableSet<String> tags) {
+        public Builder setTags(final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<String>> tags) {
             this.tags = tags;
             return this;
         }
 
-        public Builder setType(final String type) {
+        public Builder setTags(final com.google.common.collect.ImmutableSet<String> tags) {
+            this.tags = com.google.common.base.Optional.of(tags);
+            return this;
+        }
+
+        public Builder setType(final com.google.common.base.Optional<String> type) {
             this.type = type;
             return this;
         }
 
-        public Builder setUpdatedAt(final org.joda.time.DateTime updatedAt) {
+        public Builder setType(final String type) {
+            this.type = com.google.common.base.Optional.of(type);
+            return this;
+        }
+
+        public Builder setUpdatedAt(final com.google.common.base.Optional<org.joda.time.DateTime> updatedAt) {
             this.updatedAt = updatedAt;
+            return this;
+        }
+
+        public Builder setUpdatedAt(final org.joda.time.DateTime updatedAt) {
+            this.updatedAt = com.google.common.base.Optional.of(updatedAt);
             return this;
         }
 
@@ -242,8 +402,13 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
             return this;
         }
 
-        public Builder setUrlPath(final String urlPath) {
+        public Builder setUrlPath(final com.google.common.base.Optional<String> urlPath) {
             this.urlPath = urlPath;
+            return this;
+        }
+
+        public Builder setUrlPath(final String urlPath) {
+            this.urlPath = com.google.common.base.Optional.of(urlPath);
             return this;
         }
 
@@ -252,70 +417,75 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
             return this;
         }
 
-        public Builder setWeight(final java.math.BigDecimal weight) {
+        public Builder setWeight(final com.google.common.base.Optional<java.math.BigDecimal> weight) {
             this.weight = weight;
             return this;
         }
 
-        private String activationInformation;
-        private Integer backorders;
-        private com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> children;
-        private java.math.BigDecimal cost;
-        private org.joda.time.DateTime createdAt;
-        private String description;
-        private com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> images;
-        private Boolean isInStock;
-        private Boolean isQtyDecimal;
-        private Boolean isRecurring;
-        private org.joda.time.DateTime lowStockDate;
-        private java.math.BigDecimal maxSaleQty;
-        private String metaDescription;
-        private String metaKeyword;
-        private String metaTitle;
-        private java.math.BigDecimal minimalPrice;
-        private java.math.BigDecimal minQty;
-        private java.math.BigDecimal minSaleQty;
-        private String model;
+        public Builder setWeight(final java.math.BigDecimal weight) {
+            this.weight = com.google.common.base.Optional.of(weight);
+            return this;
+        }
+
+        private com.google.common.base.Optional<String> activationInformation = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<Integer> backorders = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct>> children = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<java.math.BigDecimal> cost = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<org.joda.time.DateTime> createdAt = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<String> description = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>> images = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<Boolean> isInStock = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<Boolean> isQtyDecimal = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<Boolean> isRecurring = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<org.joda.time.DateTime> lowStockDate = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<java.math.BigDecimal> maxSaleQty = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<String> metaDescription = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<String> metaKeyword = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<String> metaTitle = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<java.math.BigDecimal> minimalPrice = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<java.math.BigDecimal> minQty = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<java.math.BigDecimal> minSaleQty = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<String> model = com.google.common.base.Optional.absent();
         private String name;
-        private org.joda.time.DateTime newsFromDate;
-        private org.joda.time.DateTime newsToDate;
-        private java.math.BigDecimal notifyStockQty;
+        private com.google.common.base.Optional<org.joda.time.DateTime> newsFromDate = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<org.joda.time.DateTime> newsToDate = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<java.math.BigDecimal> notifyStockQty = com.google.common.base.Optional.absent();
         /**
          * Optional in 1.3
          */
-        private java.math.BigDecimal price;
-        private java.math.BigDecimal qty;
-        private String shippingPolicy;
+        private com.google.common.base.Optional<java.math.BigDecimal> price = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<java.math.BigDecimal> qty = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<String> shippingPolicy = com.google.common.base.Optional.absent();
         private String shortDescription;
         private String sku;
-        private org.joda.time.DateTime specialFromDate;
-        private java.math.BigDecimal specialPrice;
-        private org.joda.time.DateTime specialToDate;
+        private com.google.common.base.Optional<org.joda.time.DateTime> specialFromDate = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<java.math.BigDecimal> specialPrice = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<org.joda.time.DateTime> specialToDate = com.google.common.base.Optional.absent();
         private String store;
         /**
          * Optional in 1.3
          */
-        private com.yogento.api.models.catalog.product.magento.MagentoProductStatus status;
-        private com.google.common.collect.ImmutableSet<String> tags;
+        private com.google.common.base.Optional<com.yogento.api.models.catalog.product.magento.MagentoProductStatus> status = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<com.google.common.collect.ImmutableSet<String>> tags = com.google.common.base.Optional.absent();
         /**
          * Optional in 1.3
          */
-        private String type;
-        private org.joda.time.DateTime updatedAt;
+        private com.google.common.base.Optional<String> type = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<org.joda.time.DateTime> updatedAt = com.google.common.base.Optional.absent();
         private String urlKey;
         /**
          * Optional in 1.3
          */
-        private String urlPath;
+        private com.google.common.base.Optional<String> urlPath = com.google.common.base.Optional.absent();
         /**
          * Formerly an enum; the strings differ between Magento versions
          */
         private com.google.common.collect.ImmutableSet<String> visibility;
-        private java.math.BigDecimal weight;
+        private com.google.common.base.Optional<java.math.BigDecimal> weight = com.google.common.base.Optional.absent();
     }
 
     public MagentoProduct(final MagentoProduct other) {
-        this(other.getActivationInformation(), other.getBackorders(), other.getChildren(), other.getCost(), other.getCreatedAt(), other.getDescription(), other.getImages(), other.isInStock(), other.isQtyDecimal(), other.isRecurring(), other.getLowStockDate(), other.getMaxSaleQty(), other.getMetaDescription(), other.getMetaKeyword(), other.getMetaTitle(), other.getMinimalPrice(), other.getMinQty(), other.getMinSaleQty(), other.getModel(), other.getName(), other.getNewsFromDate(), other.getNewsToDate(), other.getNotifyStockQty(), other.getPrice(), other.getQty(), other.getShippingPolicy(), other.getShortDescription(), other.getSku(), other.getSpecialFromDate(), other.getSpecialPrice(), other.getSpecialToDate(), other.getStore(), other.getStatus(), other.getTags(), other.getType(), other.getUpdatedAt(), other.getUrlKey(), other.getUrlPath(), other.getVisibility(), other.getWeight());
+        this(other.getActivationInformation(), other.getBackorders(), other.getChildren(), other.getCost(), other.getCreatedAt(), other.getDescription(), other.getImages(), other.getIsInStock(), other.getIsQtyDecimal(), other.getIsRecurring(), other.getLowStockDate(), other.getMaxSaleQty(), other.getMetaDescription(), other.getMetaKeyword(), other.getMetaTitle(), other.getMinimalPrice(), other.getMinQty(), other.getMinSaleQty(), other.getModel(), other.getName(), other.getNewsFromDate(), other.getNewsToDate(), other.getNotifyStockQty(), other.getPrice(), other.getQty(), other.getShippingPolicy(), other.getShortDescription(), other.getSku(), other.getSpecialFromDate(), other.getSpecialPrice(), other.getSpecialToDate(), other.getStore(), other.getStatus(), other.getTags(), other.getType(), other.getUpdatedAt(), other.getUrlKey(), other.getUrlPath(), other.getVisibility(), other.getWeight());
     }
 
     public MagentoProduct(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
@@ -323,56 +493,56 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
     }
 
     public MagentoProduct(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
-        String activationInformation = null;
-        Integer backorders = null;
-        com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> children = null;
-        java.math.BigDecimal cost = null;
-        org.joda.time.DateTime createdAt = null;
-        String description = null;
-        com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> images = null;
-        Boolean isInStock = null;
-        Boolean isQtyDecimal = null;
-        Boolean isRecurring = null;
-        org.joda.time.DateTime lowStockDate = null;
-        java.math.BigDecimal maxSaleQty = null;
-        String metaDescription = null;
-        String metaKeyword = null;
-        String metaTitle = null;
-        java.math.BigDecimal minimalPrice = null;
-        java.math.BigDecimal minQty = null;
-        java.math.BigDecimal minSaleQty = null;
-        String model = null;
+        com.google.common.base.Optional<String> activationInformation = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<Integer> backorders = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct>> children = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<java.math.BigDecimal> cost = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<org.joda.time.DateTime> createdAt = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<String> description = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>> images = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<Boolean> isInStock = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<Boolean> isQtyDecimal = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<Boolean> isRecurring = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<org.joda.time.DateTime> lowStockDate = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<java.math.BigDecimal> maxSaleQty = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<String> metaDescription = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<String> metaKeyword = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<String> metaTitle = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<java.math.BigDecimal> minimalPrice = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<java.math.BigDecimal> minQty = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<java.math.BigDecimal> minSaleQty = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<String> model = com.google.common.base.Optional.absent();
         String name = null;
-        org.joda.time.DateTime newsFromDate = null;
-        org.joda.time.DateTime newsToDate = null;
-        java.math.BigDecimal notifyStockQty = null;
-        java.math.BigDecimal price = null;
-        java.math.BigDecimal qty = null;
-        String shippingPolicy = null;
+        com.google.common.base.Optional<org.joda.time.DateTime> newsFromDate = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<org.joda.time.DateTime> newsToDate = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<java.math.BigDecimal> notifyStockQty = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<java.math.BigDecimal> price = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<java.math.BigDecimal> qty = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<String> shippingPolicy = com.google.common.base.Optional.absent();
         String shortDescription = null;
         String sku = null;
-        org.joda.time.DateTime specialFromDate = null;
-        java.math.BigDecimal specialPrice = null;
-        org.joda.time.DateTime specialToDate = null;
+        com.google.common.base.Optional<org.joda.time.DateTime> specialFromDate = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<java.math.BigDecimal> specialPrice = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<org.joda.time.DateTime> specialToDate = com.google.common.base.Optional.absent();
         String store = null;
-        com.yogento.api.models.catalog.product.magento.MagentoProductStatus status = null;
-        com.google.common.collect.ImmutableSet<String> tags = null;
-        String type = null;
-        org.joda.time.DateTime updatedAt = null;
+        com.google.common.base.Optional<com.yogento.api.models.catalog.product.magento.MagentoProductStatus> status = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<com.google.common.collect.ImmutableSet<String>> tags = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<String> type = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<org.joda.time.DateTime> updatedAt = com.google.common.base.Optional.absent();
         String urlKey = null;
-        String urlPath = null;
+        com.google.common.base.Optional<String> urlPath = com.google.common.base.Optional.absent();
         com.google.common.collect.ImmutableSet<String> visibility = null;
-        java.math.BigDecimal weight = null;
+        com.google.common.base.Optional<java.math.BigDecimal> weight = com.google.common.base.Optional.absent();
 
         switch (readAsTType) {
             case org.thryft.protocol.TType.LIST:
                 final org.thryft.protocol.TList __list = iprot.readListBegin();
-                activationInformation = iprot.readString();
+                activationInformation = com.google.common.base.Optional.of(iprot.readString());
                 try {
-                    backorders = iprot.readI32();
+                    backorders = com.google.common.base.Optional.of(iprot.readI32());
                 } catch (NumberFormatException e) {
                 }
-                children = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct>>() {
+                children = com.google.common.base.Optional.of((new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct>>() {
                     @Override
                     public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> apply(final org.thryft.protocol.TProtocol iprot) {
                         try {
@@ -387,17 +557,17 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
                             return com.google.common.collect.ImmutableSet.of();
                         }
                     }
-                }).apply(iprot);
+                }).apply(iprot));
                 try {
-                    cost = iprot.readDecimal();
+                    cost = com.google.common.base.Optional.of(iprot.readDecimal());
                 } catch (NumberFormatException e) {
                 }
                 try {
-                    createdAt = iprot.readDateTime();
+                    createdAt = com.google.common.base.Optional.of(iprot.readDateTime());
                 } catch (IllegalArgumentException e) {
                 }
-                description = iprot.readString();
-                images = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>>() {
+                description = com.google.common.base.Optional.of(iprot.readString());
+                images = com.google.common.base.Optional.of((new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>>() {
                     @Override
                     public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> apply(final org.thryft.protocol.TProtocol iprot) {
                         try {
@@ -412,76 +582,76 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
                             return com.google.common.collect.ImmutableSet.of();
                         }
                     }
-                }).apply(iprot);
-                isInStock = iprot.readBool();
-                isQtyDecimal = iprot.readBool();
-                isRecurring = iprot.readBool();
+                }).apply(iprot));
+                isInStock = com.google.common.base.Optional.of(iprot.readBool());
+                isQtyDecimal = com.google.common.base.Optional.of(iprot.readBool());
+                isRecurring = com.google.common.base.Optional.of(iprot.readBool());
                 try {
-                    lowStockDate = iprot.readDateTime();
+                    lowStockDate = com.google.common.base.Optional.of(iprot.readDateTime());
                 } catch (IllegalArgumentException e) {
                 }
                 try {
-                    maxSaleQty = iprot.readDecimal();
+                    maxSaleQty = com.google.common.base.Optional.of(iprot.readDecimal());
                 } catch (NumberFormatException e) {
                 }
-                metaDescription = iprot.readString();
-                metaKeyword = iprot.readString();
-                metaTitle = iprot.readString();
+                metaDescription = com.google.common.base.Optional.of(iprot.readString());
+                metaKeyword = com.google.common.base.Optional.of(iprot.readString());
+                metaTitle = com.google.common.base.Optional.of(iprot.readString());
                 try {
-                    minimalPrice = iprot.readDecimal();
-                } catch (NumberFormatException e) {
-                }
-                try {
-                    minQty = iprot.readDecimal();
+                    minimalPrice = com.google.common.base.Optional.of(iprot.readDecimal());
                 } catch (NumberFormatException e) {
                 }
                 try {
-                    minSaleQty = iprot.readDecimal();
+                    minQty = com.google.common.base.Optional.of(iprot.readDecimal());
                 } catch (NumberFormatException e) {
                 }
-                model = iprot.readString();
+                try {
+                    minSaleQty = com.google.common.base.Optional.of(iprot.readDecimal());
+                } catch (NumberFormatException e) {
+                }
+                model = com.google.common.base.Optional.of(iprot.readString());
                 name = iprot.readString();
                 try {
-                    newsFromDate = iprot.readDateTime();
+                    newsFromDate = com.google.common.base.Optional.of(iprot.readDateTime());
                 } catch (IllegalArgumentException e) {
                 }
                 try {
-                    newsToDate = iprot.readDateTime();
+                    newsToDate = com.google.common.base.Optional.of(iprot.readDateTime());
                 } catch (IllegalArgumentException e) {
                 }
                 try {
-                    notifyStockQty = iprot.readDecimal();
+                    notifyStockQty = com.google.common.base.Optional.of(iprot.readDecimal());
                 } catch (NumberFormatException e) {
                 }
                 try {
-                    price = iprot.readDecimal();
+                    price = com.google.common.base.Optional.of(iprot.readDecimal());
                 } catch (NumberFormatException e) {
                 }
                 try {
-                    qty = iprot.readDecimal();
+                    qty = com.google.common.base.Optional.of(iprot.readDecimal());
                 } catch (NumberFormatException e) {
                 }
-                shippingPolicy = iprot.readString();
+                shippingPolicy = com.google.common.base.Optional.of(iprot.readString());
                 shortDescription = iprot.readString();
                 sku = iprot.readString();
                 try {
-                    specialFromDate = iprot.readDateTime();
+                    specialFromDate = com.google.common.base.Optional.of(iprot.readDateTime());
                 } catch (IllegalArgumentException e) {
                 }
                 try {
-                    specialPrice = iprot.readDecimal();
+                    specialPrice = com.google.common.base.Optional.of(iprot.readDecimal());
                 } catch (NumberFormatException e) {
                 }
                 try {
-                    specialToDate = iprot.readDateTime();
+                    specialToDate = com.google.common.base.Optional.of(iprot.readDateTime());
                 } catch (IllegalArgumentException e) {
                 }
                 store = iprot.readString();
                 try {
-                    status = iprot.readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductStatus.class);
+                    status = com.google.common.base.Optional.of(iprot.readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductStatus.class));
                 } catch (IllegalArgumentException e) {
                 }
-                tags = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
+                tags = com.google.common.base.Optional.of((new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
                     @Override
                     public com.google.common.collect.ImmutableSet<String> apply(final org.thryft.protocol.TProtocol iprot) {
                         try {
@@ -496,14 +666,14 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
                             return com.google.common.collect.ImmutableSet.of();
                         }
                     }
-                }).apply(iprot);
-                type = iprot.readString();
+                }).apply(iprot));
+                type = com.google.common.base.Optional.of(iprot.readString());
                 try {
-                    updatedAt = iprot.readDateTime();
+                    updatedAt = com.google.common.base.Optional.of(iprot.readDateTime());
                 } catch (IllegalArgumentException e) {
                 }
                 urlKey = iprot.readString();
-                urlPath = iprot.readString();
+                urlPath = com.google.common.base.Optional.of(iprot.readString());
                 visibility = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
                     @Override
                     public com.google.common.collect.ImmutableSet<String> apply(final org.thryft.protocol.TProtocol iprot) {
@@ -522,7 +692,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
                 }).apply(iprot);
                 if (__list.size > 39) {
                     try {
-                        weight = iprot.readDecimal();
+                        weight = com.google.common.base.Optional.of(iprot.readDecimal());
                     } catch (NumberFormatException e) {
                     }
                 }
@@ -537,14 +707,14 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
                     if (ifield.type == org.thryft.protocol.TType.STOP) {
                         break;
                     } else if (ifield.name.equals("activation_information")) {
-                        activationInformation = iprot.readString();
+                        activationInformation = com.google.common.base.Optional.of(iprot.readString());
                     } else if (ifield.name.equals("backorders")) {
                         try {
-                            backorders = iprot.readI32();
+                            backorders = com.google.common.base.Optional.of(iprot.readI32());
                         } catch (NumberFormatException e) {
                         }
                     } else if (ifield.name.equals("children")) {
-                        children = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct>>() {
+                        children = com.google.common.base.Optional.of((new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct>>() {
                             @Override
                             public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> apply(final org.thryft.protocol.TProtocol iprot) {
                                 try {
@@ -559,21 +729,21 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
                                     return com.google.common.collect.ImmutableSet.of();
                                 }
                             }
-                        }).apply(iprot);
+                        }).apply(iprot));
                     } else if (ifield.name.equals("cost")) {
                         try {
-                            cost = iprot.readDecimal();
+                            cost = com.google.common.base.Optional.of(iprot.readDecimal());
                         } catch (NumberFormatException e) {
                         }
                     } else if (ifield.name.equals("created_at")) {
                         try {
-                            createdAt = iprot.readDateTime();
+                            createdAt = com.google.common.base.Optional.of(iprot.readDateTime());
                         } catch (IllegalArgumentException e) {
                         }
                     } else if (ifield.name.equals("description")) {
-                        description = iprot.readString();
+                        description = com.google.common.base.Optional.of(iprot.readString());
                     } else if (ifield.name.equals("images")) {
-                        images = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>>() {
+                        images = com.google.common.base.Optional.of((new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>>() {
                             @Override
                             public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> apply(final org.thryft.protocol.TProtocol iprot) {
                                 try {
@@ -588,103 +758,103 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
                                     return com.google.common.collect.ImmutableSet.of();
                                 }
                             }
-                        }).apply(iprot);
+                        }).apply(iprot));
                     } else if (ifield.name.equals("is_in_stock")) {
-                        isInStock = iprot.readBool();
+                        isInStock = com.google.common.base.Optional.of(iprot.readBool());
                     } else if (ifield.name.equals("is_qty_decimal")) {
-                        isQtyDecimal = iprot.readBool();
+                        isQtyDecimal = com.google.common.base.Optional.of(iprot.readBool());
                     } else if (ifield.name.equals("is_recurring")) {
-                        isRecurring = iprot.readBool();
+                        isRecurring = com.google.common.base.Optional.of(iprot.readBool());
                     } else if (ifield.name.equals("low_stock_date")) {
                         try {
-                            lowStockDate = iprot.readDateTime();
+                            lowStockDate = com.google.common.base.Optional.of(iprot.readDateTime());
                         } catch (IllegalArgumentException e) {
                         }
                     } else if (ifield.name.equals("max_sale_qty")) {
                         try {
-                            maxSaleQty = iprot.readDecimal();
+                            maxSaleQty = com.google.common.base.Optional.of(iprot.readDecimal());
                         } catch (NumberFormatException e) {
                         }
                     } else if (ifield.name.equals("meta_description")) {
-                        metaDescription = iprot.readString();
+                        metaDescription = com.google.common.base.Optional.of(iprot.readString());
                     } else if (ifield.name.equals("meta_keyword")) {
-                        metaKeyword = iprot.readString();
+                        metaKeyword = com.google.common.base.Optional.of(iprot.readString());
                     } else if (ifield.name.equals("meta_title")) {
-                        metaTitle = iprot.readString();
+                        metaTitle = com.google.common.base.Optional.of(iprot.readString());
                     } else if (ifield.name.equals("minimal_price")) {
                         try {
-                            minimalPrice = iprot.readDecimal();
+                            minimalPrice = com.google.common.base.Optional.of(iprot.readDecimal());
                         } catch (NumberFormatException e) {
                         }
                     } else if (ifield.name.equals("min_qty")) {
                         try {
-                            minQty = iprot.readDecimal();
+                            minQty = com.google.common.base.Optional.of(iprot.readDecimal());
                         } catch (NumberFormatException e) {
                         }
                     } else if (ifield.name.equals("min_sale_qty")) {
                         try {
-                            minSaleQty = iprot.readDecimal();
+                            minSaleQty = com.google.common.base.Optional.of(iprot.readDecimal());
                         } catch (NumberFormatException e) {
                         }
                     } else if (ifield.name.equals("model")) {
-                        model = iprot.readString();
+                        model = com.google.common.base.Optional.of(iprot.readString());
                     } else if (ifield.name.equals("name")) {
                         name = iprot.readString();
                     } else if (ifield.name.equals("news_from_date")) {
                         try {
-                            newsFromDate = iprot.readDateTime();
+                            newsFromDate = com.google.common.base.Optional.of(iprot.readDateTime());
                         } catch (IllegalArgumentException e) {
                         }
                     } else if (ifield.name.equals("news_to_date")) {
                         try {
-                            newsToDate = iprot.readDateTime();
+                            newsToDate = com.google.common.base.Optional.of(iprot.readDateTime());
                         } catch (IllegalArgumentException e) {
                         }
                     } else if (ifield.name.equals("notify_stock_qty")) {
                         try {
-                            notifyStockQty = iprot.readDecimal();
+                            notifyStockQty = com.google.common.base.Optional.of(iprot.readDecimal());
                         } catch (NumberFormatException e) {
                         }
                     } else if (ifield.name.equals("price")) {
                         try {
-                            price = iprot.readDecimal();
+                            price = com.google.common.base.Optional.of(iprot.readDecimal());
                         } catch (NumberFormatException e) {
                         }
                     } else if (ifield.name.equals("qty")) {
                         try {
-                            qty = iprot.readDecimal();
+                            qty = com.google.common.base.Optional.of(iprot.readDecimal());
                         } catch (NumberFormatException e) {
                         }
                     } else if (ifield.name.equals("shipping_policy")) {
-                        shippingPolicy = iprot.readString();
+                        shippingPolicy = com.google.common.base.Optional.of(iprot.readString());
                     } else if (ifield.name.equals("short_description")) {
                         shortDescription = iprot.readString();
                     } else if (ifield.name.equals("sku")) {
                         sku = iprot.readString();
                     } else if (ifield.name.equals("special_from_date")) {
                         try {
-                            specialFromDate = iprot.readDateTime();
+                            specialFromDate = com.google.common.base.Optional.of(iprot.readDateTime());
                         } catch (IllegalArgumentException e) {
                         }
                     } else if (ifield.name.equals("special_price")) {
                         try {
-                            specialPrice = iprot.readDecimal();
+                            specialPrice = com.google.common.base.Optional.of(iprot.readDecimal());
                         } catch (NumberFormatException e) {
                         }
                     } else if (ifield.name.equals("special_to_date")) {
                         try {
-                            specialToDate = iprot.readDateTime();
+                            specialToDate = com.google.common.base.Optional.of(iprot.readDateTime());
                         } catch (IllegalArgumentException e) {
                         }
                     } else if (ifield.name.equals("store")) {
                         store = iprot.readString();
                     } else if (ifield.name.equals("status")) {
                         try {
-                            status = iprot.readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductStatus.class);
+                            status = com.google.common.base.Optional.of(iprot.readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductStatus.class));
                         } catch (IllegalArgumentException e) {
                         }
                     } else if (ifield.name.equals("tags")) {
-                        tags = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
+                        tags = com.google.common.base.Optional.of((new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
                             @Override
                             public com.google.common.collect.ImmutableSet<String> apply(final org.thryft.protocol.TProtocol iprot) {
                                 try {
@@ -699,18 +869,18 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
                                     return com.google.common.collect.ImmutableSet.of();
                                 }
                             }
-                        }).apply(iprot);
+                        }).apply(iprot));
                     } else if (ifield.name.equals("type")) {
-                        type = iprot.readString();
+                        type = com.google.common.base.Optional.of(iprot.readString());
                     } else if (ifield.name.equals("updated_at")) {
                         try {
-                            updatedAt = iprot.readDateTime();
+                            updatedAt = com.google.common.base.Optional.of(iprot.readDateTime());
                         } catch (IllegalArgumentException e) {
                         }
                     } else if (ifield.name.equals("url_key")) {
                         urlKey = iprot.readString();
                     } else if (ifield.name.equals("url_path")) {
-                        urlPath = iprot.readString();
+                        urlPath = com.google.common.base.Optional.of(iprot.readString());
                     } else if (ifield.name.equals("visibility")) {
                         visibility = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
                             @Override
@@ -730,7 +900,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
                         }).apply(iprot);
                     } else if (ifield.name.equals("weight")) {
                         try {
-                            weight = iprot.readDecimal();
+                            weight = com.google.common.base.Optional.of(iprot.readDecimal());
                         } catch (NumberFormatException e) {
                         }
                     }
@@ -783,89 +953,89 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
     }
 
     public MagentoProduct(final String name, final String shortDescription, final String sku, final String store, final String urlKey, final com.google.common.collect.ImmutableSet<String> visibility) {
-        this.activationInformation = null;
-        this.backorders = null;
-        this.children = null;
-        this.cost = null;
-        this.createdAt = null;
-        this.description = null;
-        this.images = null;
-        this.isInStock = null;
-        this.isQtyDecimal = null;
-        this.isRecurring = null;
-        this.lowStockDate = null;
-        this.maxSaleQty = null;
-        this.metaDescription = null;
-        this.metaKeyword = null;
-        this.metaTitle = null;
-        this.minimalPrice = null;
-        this.minQty = null;
-        this.minSaleQty = null;
-        this.model = null;
+        this.activationInformation = com.google.common.base.Optional.absent();
+        this.backorders = com.google.common.base.Optional.absent();
+        this.children = com.google.common.base.Optional.absent();
+        this.cost = com.google.common.base.Optional.absent();
+        this.createdAt = com.google.common.base.Optional.absent();
+        this.description = com.google.common.base.Optional.absent();
+        this.images = com.google.common.base.Optional.absent();
+        this.isInStock = com.google.common.base.Optional.absent();
+        this.isQtyDecimal = com.google.common.base.Optional.absent();
+        this.isRecurring = com.google.common.base.Optional.absent();
+        this.lowStockDate = com.google.common.base.Optional.absent();
+        this.maxSaleQty = com.google.common.base.Optional.absent();
+        this.metaDescription = com.google.common.base.Optional.absent();
+        this.metaKeyword = com.google.common.base.Optional.absent();
+        this.metaTitle = com.google.common.base.Optional.absent();
+        this.minimalPrice = com.google.common.base.Optional.absent();
+        this.minQty = com.google.common.base.Optional.absent();
+        this.minSaleQty = com.google.common.base.Optional.absent();
+        this.model = com.google.common.base.Optional.absent();
         this.name = com.google.common.base.Preconditions.checkNotNull(name, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing name");
-        this.newsFromDate = null;
-        this.newsToDate = null;
-        this.notifyStockQty = null;
-        this.price = null;
-        this.qty = null;
-        this.shippingPolicy = null;
+        this.newsFromDate = com.google.common.base.Optional.absent();
+        this.newsToDate = com.google.common.base.Optional.absent();
+        this.notifyStockQty = com.google.common.base.Optional.absent();
+        this.price = com.google.common.base.Optional.absent();
+        this.qty = com.google.common.base.Optional.absent();
+        this.shippingPolicy = com.google.common.base.Optional.absent();
         this.shortDescription = com.google.common.base.Preconditions.checkNotNull(shortDescription, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing shortDescription");
         this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing sku");
-        this.specialFromDate = null;
-        this.specialPrice = null;
-        this.specialToDate = null;
+        this.specialFromDate = com.google.common.base.Optional.absent();
+        this.specialPrice = com.google.common.base.Optional.absent();
+        this.specialToDate = com.google.common.base.Optional.absent();
         this.store = com.google.common.base.Preconditions.checkNotNull(store, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing store");
-        this.status = null;
-        this.tags = null;
-        this.type = null;
-        this.updatedAt = null;
+        this.status = com.google.common.base.Optional.absent();
+        this.tags = com.google.common.base.Optional.absent();
+        this.type = com.google.common.base.Optional.absent();
+        this.updatedAt = com.google.common.base.Optional.absent();
         this.urlKey = com.google.common.base.Preconditions.checkNotNull(urlKey, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing urlKey");
-        this.urlPath = null;
+        this.urlPath = com.google.common.base.Optional.absent();
         this.visibility = com.google.common.base.Preconditions.checkNotNull(visibility, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing visibility");
-        this.weight = null;
+        this.weight = com.google.common.base.Optional.absent();
     }
 
-    public MagentoProduct(final String activationInformation, final Integer backorders, final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> children, final java.math.BigDecimal cost, final org.joda.time.DateTime createdAt, final String description, final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> images, final Boolean isInStock, final Boolean isQtyDecimal, final Boolean isRecurring, final org.joda.time.DateTime lowStockDate, final java.math.BigDecimal maxSaleQty, final String metaDescription, final String metaKeyword, final String metaTitle, final java.math.BigDecimal minimalPrice, final java.math.BigDecimal minQty, final java.math.BigDecimal minSaleQty, final String model, final String name, final org.joda.time.DateTime newsFromDate, final org.joda.time.DateTime newsToDate, final java.math.BigDecimal notifyStockQty, final java.math.BigDecimal price, final java.math.BigDecimal qty, final String shippingPolicy, final String shortDescription, final String sku, final org.joda.time.DateTime specialFromDate, final java.math.BigDecimal specialPrice, final org.joda.time.DateTime specialToDate, final String store, final com.yogento.api.models.catalog.product.magento.MagentoProductStatus status, final com.google.common.collect.ImmutableSet<String> tags, final String type, final org.joda.time.DateTime updatedAt, final String urlKey, final String urlPath, final com.google.common.collect.ImmutableSet<String> visibility, final java.math.BigDecimal weight) {
-        this.activationInformation = activationInformation;
+    public MagentoProduct(final com.google.common.base.Optional<String> activationInformation, final com.google.common.base.Optional<Integer> backorders, final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct>> children, final com.google.common.base.Optional<java.math.BigDecimal> cost, final com.google.common.base.Optional<org.joda.time.DateTime> createdAt, final com.google.common.base.Optional<String> description, final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>> images, final com.google.common.base.Optional<Boolean> isInStock, final com.google.common.base.Optional<Boolean> isQtyDecimal, final com.google.common.base.Optional<Boolean> isRecurring, final com.google.common.base.Optional<org.joda.time.DateTime> lowStockDate, final com.google.common.base.Optional<java.math.BigDecimal> maxSaleQty, final com.google.common.base.Optional<String> metaDescription, final com.google.common.base.Optional<String> metaKeyword, final com.google.common.base.Optional<String> metaTitle, final com.google.common.base.Optional<java.math.BigDecimal> minimalPrice, final com.google.common.base.Optional<java.math.BigDecimal> minQty, final com.google.common.base.Optional<java.math.BigDecimal> minSaleQty, final com.google.common.base.Optional<String> model, final String name, final com.google.common.base.Optional<org.joda.time.DateTime> newsFromDate, final com.google.common.base.Optional<org.joda.time.DateTime> newsToDate, final com.google.common.base.Optional<java.math.BigDecimal> notifyStockQty, final com.google.common.base.Optional<java.math.BigDecimal> price, final com.google.common.base.Optional<java.math.BigDecimal> qty, final com.google.common.base.Optional<String> shippingPolicy, final String shortDescription, final String sku, final com.google.common.base.Optional<org.joda.time.DateTime> specialFromDate, final com.google.common.base.Optional<java.math.BigDecimal> specialPrice, final com.google.common.base.Optional<org.joda.time.DateTime> specialToDate, final String store, final com.google.common.base.Optional<com.yogento.api.models.catalog.product.magento.MagentoProductStatus> status, final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<String>> tags, final com.google.common.base.Optional<String> type, final com.google.common.base.Optional<org.joda.time.DateTime> updatedAt, final String urlKey, final com.google.common.base.Optional<String> urlPath, final com.google.common.collect.ImmutableSet<String> visibility, final com.google.common.base.Optional<java.math.BigDecimal> weight) {
+        this.activationInformation = com.google.common.base.Preconditions.checkNotNull(activationInformation, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing activationInformation");
         this.backorders = backorders;
-        this.children = children;
-        this.cost = cost;
-        this.createdAt = createdAt;
-        this.description = description;
-        this.images = images;
+        this.children = com.google.common.base.Preconditions.checkNotNull(children, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing children");
+        this.cost = com.google.common.base.Preconditions.checkNotNull(cost, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing cost");
+        this.createdAt = com.google.common.base.Preconditions.checkNotNull(createdAt, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing createdAt");
+        this.description = com.google.common.base.Preconditions.checkNotNull(description, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing description");
+        this.images = com.google.common.base.Preconditions.checkNotNull(images, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing images");
         this.isInStock = isInStock;
         this.isQtyDecimal = isQtyDecimal;
         this.isRecurring = isRecurring;
-        this.lowStockDate = lowStockDate;
-        this.maxSaleQty = maxSaleQty;
-        this.metaDescription = metaDescription;
-        this.metaKeyword = metaKeyword;
-        this.metaTitle = metaTitle;
-        this.minimalPrice = minimalPrice;
-        this.minQty = minQty;
-        this.minSaleQty = minSaleQty;
-        this.model = model;
+        this.lowStockDate = com.google.common.base.Preconditions.checkNotNull(lowStockDate, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing lowStockDate");
+        this.maxSaleQty = com.google.common.base.Preconditions.checkNotNull(maxSaleQty, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing maxSaleQty");
+        this.metaDescription = com.google.common.base.Preconditions.checkNotNull(metaDescription, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing metaDescription");
+        this.metaKeyword = com.google.common.base.Preconditions.checkNotNull(metaKeyword, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing metaKeyword");
+        this.metaTitle = com.google.common.base.Preconditions.checkNotNull(metaTitle, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing metaTitle");
+        this.minimalPrice = com.google.common.base.Preconditions.checkNotNull(minimalPrice, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing minimalPrice");
+        this.minQty = com.google.common.base.Preconditions.checkNotNull(minQty, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing minQty");
+        this.minSaleQty = com.google.common.base.Preconditions.checkNotNull(minSaleQty, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing minSaleQty");
+        this.model = com.google.common.base.Preconditions.checkNotNull(model, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing model");
         this.name = com.google.common.base.Preconditions.checkNotNull(name, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing name");
-        this.newsFromDate = newsFromDate;
-        this.newsToDate = newsToDate;
-        this.notifyStockQty = notifyStockQty;
-        this.price = price;
-        this.qty = qty;
-        this.shippingPolicy = shippingPolicy;
+        this.newsFromDate = com.google.common.base.Preconditions.checkNotNull(newsFromDate, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing newsFromDate");
+        this.newsToDate = com.google.common.base.Preconditions.checkNotNull(newsToDate, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing newsToDate");
+        this.notifyStockQty = com.google.common.base.Preconditions.checkNotNull(notifyStockQty, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing notifyStockQty");
+        this.price = com.google.common.base.Preconditions.checkNotNull(price, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing price");
+        this.qty = com.google.common.base.Preconditions.checkNotNull(qty, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing qty");
+        this.shippingPolicy = com.google.common.base.Preconditions.checkNotNull(shippingPolicy, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing shippingPolicy");
         this.shortDescription = com.google.common.base.Preconditions.checkNotNull(shortDescription, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing shortDescription");
         this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing sku");
-        this.specialFromDate = specialFromDate;
-        this.specialPrice = specialPrice;
-        this.specialToDate = specialToDate;
+        this.specialFromDate = com.google.common.base.Preconditions.checkNotNull(specialFromDate, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing specialFromDate");
+        this.specialPrice = com.google.common.base.Preconditions.checkNotNull(specialPrice, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing specialPrice");
+        this.specialToDate = com.google.common.base.Preconditions.checkNotNull(specialToDate, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing specialToDate");
         this.store = com.google.common.base.Preconditions.checkNotNull(store, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing store");
-        this.status = status;
-        this.tags = tags;
-        this.type = type;
-        this.updatedAt = updatedAt;
+        this.status = com.google.common.base.Preconditions.checkNotNull(status, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing status");
+        this.tags = com.google.common.base.Preconditions.checkNotNull(tags, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing tags");
+        this.type = com.google.common.base.Preconditions.checkNotNull(type, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing type");
+        this.updatedAt = com.google.common.base.Preconditions.checkNotNull(updatedAt, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing updatedAt");
         this.urlKey = com.google.common.base.Preconditions.checkNotNull(urlKey, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing urlKey");
-        this.urlPath = urlPath;
+        this.urlPath = com.google.common.base.Preconditions.checkNotNull(urlPath, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing urlPath");
         this.visibility = com.google.common.base.Preconditions.checkNotNull(visibility, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing visibility");
-        this.weight = weight;
+        this.weight = com.google.common.base.Preconditions.checkNotNull(weight, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing weight");
     }
 
     @Override
@@ -883,114 +1053,46 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
 
         final MagentoProduct other = (MagentoProduct)otherObject;
         return
-            ((getActivationInformation() == null && other.getActivationInformation() == null) ||
-            (getActivationInformation() != null && other.getActivationInformation() != null &&
-            getActivationInformation().equals(other.getActivationInformation()))) &&
-            ((getBackorders() == null && other.getBackorders() == null) ||
-            (getBackorders() != null && other.getBackorders() != null &&
-            getBackorders().equals(other.getBackorders()))) &&
-            ((getChildren() == null && other.getChildren() == null) ||
-            (getChildren() != null && other.getChildren() != null &&
-            getChildren().equals(other.getChildren()))) &&
-            ((getCost() == null && other.getCost() == null) ||
-            (getCost() != null && other.getCost() != null &&
-            getCost().equals(other.getCost()))) &&
-            ((getCreatedAt() == null && other.getCreatedAt() == null) ||
-            (getCreatedAt() != null && other.getCreatedAt() != null &&
-            getCreatedAt().equals(other.getCreatedAt()))) &&
-            ((getDescription() == null && other.getDescription() == null) ||
-            (getDescription() != null && other.getDescription() != null &&
-            getDescription().equals(other.getDescription()))) &&
-            ((getImages() == null && other.getImages() == null) ||
-            (getImages() != null && other.getImages() != null &&
-            getImages().equals(other.getImages()))) &&
-            ((isInStock() == null && other.isInStock() == null) ||
-            (isInStock() != null && other.isInStock() != null &&
-            isInStock().equals(other.isInStock()))) &&
-            ((isQtyDecimal() == null && other.isQtyDecimal() == null) ||
-            (isQtyDecimal() != null && other.isQtyDecimal() != null &&
-            isQtyDecimal().equals(other.isQtyDecimal()))) &&
-            ((isRecurring() == null && other.isRecurring() == null) ||
-            (isRecurring() != null && other.isRecurring() != null &&
-            isRecurring().equals(other.isRecurring()))) &&
-            ((getLowStockDate() == null && other.getLowStockDate() == null) ||
-            (getLowStockDate() != null && other.getLowStockDate() != null &&
-            getLowStockDate().equals(other.getLowStockDate()))) &&
-            ((getMaxSaleQty() == null && other.getMaxSaleQty() == null) ||
-            (getMaxSaleQty() != null && other.getMaxSaleQty() != null &&
-            getMaxSaleQty().equals(other.getMaxSaleQty()))) &&
-            ((getMetaDescription() == null && other.getMetaDescription() == null) ||
-            (getMetaDescription() != null && other.getMetaDescription() != null &&
-            getMetaDescription().equals(other.getMetaDescription()))) &&
-            ((getMetaKeyword() == null && other.getMetaKeyword() == null) ||
-            (getMetaKeyword() != null && other.getMetaKeyword() != null &&
-            getMetaKeyword().equals(other.getMetaKeyword()))) &&
-            ((getMetaTitle() == null && other.getMetaTitle() == null) ||
-            (getMetaTitle() != null && other.getMetaTitle() != null &&
-            getMetaTitle().equals(other.getMetaTitle()))) &&
-            ((getMinimalPrice() == null && other.getMinimalPrice() == null) ||
-            (getMinimalPrice() != null && other.getMinimalPrice() != null &&
-            getMinimalPrice().equals(other.getMinimalPrice()))) &&
-            ((getMinQty() == null && other.getMinQty() == null) ||
-            (getMinQty() != null && other.getMinQty() != null &&
-            getMinQty().equals(other.getMinQty()))) &&
-            ((getMinSaleQty() == null && other.getMinSaleQty() == null) ||
-            (getMinSaleQty() != null && other.getMinSaleQty() != null &&
-            getMinSaleQty().equals(other.getMinSaleQty()))) &&
-            ((getModel() == null && other.getModel() == null) ||
-            (getModel() != null && other.getModel() != null &&
-            getModel().equals(other.getModel()))) &&
+            getActivationInformation().equals(other.getActivationInformation()) &&
+            getBackorders().equals(other.getBackorders()) &&
+            getChildren().equals(other.getChildren()) &&
+            getCost().equals(other.getCost()) &&
+            getCreatedAt().equals(other.getCreatedAt()) &&
+            getDescription().equals(other.getDescription()) &&
+            getImages().equals(other.getImages()) &&
+            getIsInStock().equals(other.getIsInStock()) &&
+            getIsQtyDecimal().equals(other.getIsQtyDecimal()) &&
+            getIsRecurring().equals(other.getIsRecurring()) &&
+            getLowStockDate().equals(other.getLowStockDate()) &&
+            getMaxSaleQty().equals(other.getMaxSaleQty()) &&
+            getMetaDescription().equals(other.getMetaDescription()) &&
+            getMetaKeyword().equals(other.getMetaKeyword()) &&
+            getMetaTitle().equals(other.getMetaTitle()) &&
+            getMinimalPrice().equals(other.getMinimalPrice()) &&
+            getMinQty().equals(other.getMinQty()) &&
+            getMinSaleQty().equals(other.getMinSaleQty()) &&
+            getModel().equals(other.getModel()) &&
             getName().equals(other.getName()) &&
-            ((getNewsFromDate() == null && other.getNewsFromDate() == null) ||
-            (getNewsFromDate() != null && other.getNewsFromDate() != null &&
-            getNewsFromDate().equals(other.getNewsFromDate()))) &&
-            ((getNewsToDate() == null && other.getNewsToDate() == null) ||
-            (getNewsToDate() != null && other.getNewsToDate() != null &&
-            getNewsToDate().equals(other.getNewsToDate()))) &&
-            ((getNotifyStockQty() == null && other.getNotifyStockQty() == null) ||
-            (getNotifyStockQty() != null && other.getNotifyStockQty() != null &&
-            getNotifyStockQty().equals(other.getNotifyStockQty()))) &&
-            ((getPrice() == null && other.getPrice() == null) ||
-            (getPrice() != null && other.getPrice() != null &&
-            getPrice().equals(other.getPrice()))) &&
-            ((getQty() == null && other.getQty() == null) ||
-            (getQty() != null && other.getQty() != null &&
-            getQty().equals(other.getQty()))) &&
-            ((getShippingPolicy() == null && other.getShippingPolicy() == null) ||
-            (getShippingPolicy() != null && other.getShippingPolicy() != null &&
-            getShippingPolicy().equals(other.getShippingPolicy()))) &&
+            getNewsFromDate().equals(other.getNewsFromDate()) &&
+            getNewsToDate().equals(other.getNewsToDate()) &&
+            getNotifyStockQty().equals(other.getNotifyStockQty()) &&
+            getPrice().equals(other.getPrice()) &&
+            getQty().equals(other.getQty()) &&
+            getShippingPolicy().equals(other.getShippingPolicy()) &&
             getShortDescription().equals(other.getShortDescription()) &&
             getSku().equals(other.getSku()) &&
-            ((getSpecialFromDate() == null && other.getSpecialFromDate() == null) ||
-            (getSpecialFromDate() != null && other.getSpecialFromDate() != null &&
-            getSpecialFromDate().equals(other.getSpecialFromDate()))) &&
-            ((getSpecialPrice() == null && other.getSpecialPrice() == null) ||
-            (getSpecialPrice() != null && other.getSpecialPrice() != null &&
-            getSpecialPrice().equals(other.getSpecialPrice()))) &&
-            ((getSpecialToDate() == null && other.getSpecialToDate() == null) ||
-            (getSpecialToDate() != null && other.getSpecialToDate() != null &&
-            getSpecialToDate().equals(other.getSpecialToDate()))) &&
+            getSpecialFromDate().equals(other.getSpecialFromDate()) &&
+            getSpecialPrice().equals(other.getSpecialPrice()) &&
+            getSpecialToDate().equals(other.getSpecialToDate()) &&
             getStore().equals(other.getStore()) &&
-            ((getStatus() == null && other.getStatus() == null) ||
-            (getStatus() != null && other.getStatus() != null &&
-            getStatus().equals(other.getStatus()))) &&
-            ((getTags() == null && other.getTags() == null) ||
-            (getTags() != null && other.getTags() != null &&
-            getTags().equals(other.getTags()))) &&
-            ((getType() == null && other.getType() == null) ||
-            (getType() != null && other.getType() != null &&
-            getType().equals(other.getType()))) &&
-            ((getUpdatedAt() == null && other.getUpdatedAt() == null) ||
-            (getUpdatedAt() != null && other.getUpdatedAt() != null &&
-            getUpdatedAt().equals(other.getUpdatedAt()))) &&
+            getStatus().equals(other.getStatus()) &&
+            getTags().equals(other.getTags()) &&
+            getType().equals(other.getType()) &&
+            getUpdatedAt().equals(other.getUpdatedAt()) &&
             getUrlKey().equals(other.getUrlKey()) &&
-            ((getUrlPath() == null && other.getUrlPath() == null) ||
-            (getUrlPath() != null && other.getUrlPath() != null &&
-            getUrlPath().equals(other.getUrlPath()))) &&
+            getUrlPath().equals(other.getUrlPath()) &&
             getVisibility().equals(other.getVisibility()) &&
-            ((getWeight() == null && other.getWeight() == null) ||
-            (getWeight() != null && other.getWeight() != null &&
-            getWeight().equals(other.getWeight())));
+            getWeight().equals(other.getWeight());
     }
 
     public Object get(final String fieldName) {
@@ -1009,11 +1111,11 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         } else if (fieldName.equals("images")) {
             return getImages();
         } else if (fieldName.equals("is_in_stock")) {
-            return isInStock();
+            return getIsInStock();
         } else if (fieldName.equals("is_qty_decimal")) {
-            return isQtyDecimal();
+            return getIsQtyDecimal();
         } else if (fieldName.equals("is_recurring")) {
-            return isRecurring();
+            return getIsRecurring();
         } else if (fieldName.equals("low_stock_date")) {
             return getLowStockDate();
         } else if (fieldName.equals("max_sale_qty")) {
@@ -1075,70 +1177,82 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         } else if (fieldName.equals("weight")) {
             return getWeight();
         }
-        return null;
+        throw new IllegalArgumentException(fieldName);
     }
 
-    public final String getActivationInformation() {
+    public final com.google.common.base.Optional<String> getActivationInformation() {
         return activationInformation;
     }
 
-    public final Integer getBackorders() {
+    public final com.google.common.base.Optional<Integer> getBackorders() {
         return backorders;
     }
 
-    public final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> getChildren() {
+    public final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct>> getChildren() {
         return children;
     }
 
-    public final java.math.BigDecimal getCost() {
+    public final com.google.common.base.Optional<java.math.BigDecimal> getCost() {
         return cost;
     }
 
-    public final org.joda.time.DateTime getCreatedAt() {
+    public final com.google.common.base.Optional<org.joda.time.DateTime> getCreatedAt() {
         return createdAt;
     }
 
-    public final String getDescription() {
+    public final com.google.common.base.Optional<String> getDescription() {
         return description;
     }
 
-    public final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> getImages() {
+    public final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>> getImages() {
         return images;
     }
 
-    public final org.joda.time.DateTime getLowStockDate() {
+    public final com.google.common.base.Optional<Boolean> getIsInStock() {
+        return isInStock;
+    }
+
+    public final com.google.common.base.Optional<Boolean> getIsQtyDecimal() {
+        return isQtyDecimal;
+    }
+
+    public final com.google.common.base.Optional<Boolean> getIsRecurring() {
+        return isRecurring;
+    }
+
+    public final com.google.common.base.Optional<org.joda.time.DateTime> getLowStockDate() {
         return lowStockDate;
     }
 
-    public final java.math.BigDecimal getMaxSaleQty() {
+    public final com.google.common.base.Optional<java.math.BigDecimal> getMaxSaleQty() {
         return maxSaleQty;
     }
 
-    public final String getMetaDescription() {
+    public final com.google.common.base.Optional<String> getMetaDescription() {
         return metaDescription;
     }
 
-    public final String getMetaKeyword() {
+    public final com.google.common.base.Optional<String> getMetaKeyword() {
         return metaKeyword;
     }
 
-    public final String getMetaTitle() {
+    public final com.google.common.base.Optional<String> getMetaTitle() {
         return metaTitle;
     }
 
-    public final java.math.BigDecimal getMinQty() {
+    public final com.google.common.base.Optional<java.math.BigDecimal> getMinQty() {
         return minQty;
     }
 
-    public final java.math.BigDecimal getMinSaleQty() {
+    public final com.google.common.base.Optional<java.math.BigDecimal> getMinSaleQty() {
         return minSaleQty;
     }
 
-    public final java.math.BigDecimal getMinimalPrice() {
+    public final com.google.common.base.Optional<java.math.BigDecimal> getMinimalPrice() {
         return minimalPrice;
     }
 
-    public final String getModel() {
+    public final com.google.common.base.Optional<String> getModel() {
         return model;
     }
 
@@ -1146,30 +1260,30 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         return name;
     }
 
-    public final org.joda.time.DateTime getNewsFromDate() {
+    public final com.google.common.base.Optional<org.joda.time.DateTime> getNewsFromDate() {
         return newsFromDate;
     }
 
-    public final org.joda.time.DateTime getNewsToDate() {
+    public final com.google.common.base.Optional<org.joda.time.DateTime> getNewsToDate() {
         return newsToDate;
     }
 
-    public final java.math.BigDecimal getNotifyStockQty() {
+    public final com.google.common.base.Optional<java.math.BigDecimal> getNotifyStockQty() {
         return notifyStockQty;
     }
 
     /**
      * Optional in 1.3
      */
-    public final java.math.BigDecimal getPrice() {
+    public final com.google.common.base.Optional<java.math.BigDecimal> getPrice() {
         return price;
     }
 
-    public final java.math.BigDecimal getQty() {
+    public final com.google.common.base.Optional<java.math.BigDecimal> getQty() {
         return qty;
     }
 
-    public final String getShippingPolicy() {
+    public final com.google.common.base.Optional<String> getShippingPolicy() {
         return shippingPolicy;
     }
 
@@ -1181,22 +1295,22 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         return sku;
     }
 
-    public final org.joda.time.DateTime getSpecialFromDate() {
+    public final com.google.common.base.Optional<org.joda.time.DateTime> getSpecialFromDate() {
         return specialFromDate;
     }
 
-    public final java.math.BigDecimal getSpecialPrice() {
+    public final com.google.common.base.Optional<java.math.BigDecimal> getSpecialPrice() {
         return specialPrice;
     }
 
-    public final org.joda.time.DateTime getSpecialToDate() {
+    public final com.google.common.base.Optional<org.joda.time.DateTime> getSpecialToDate() {
         return specialToDate;
     }
 
     /**
      * Optional in 1.3
      */
-    public final com.yogento.api.models.catalog.product.magento.MagentoProductStatus getStatus() {
+    public final com.google.common.base.Optional<com.yogento.api.models.catalog.product.magento.MagentoProductStatus> getStatus() {
         return status;
     }
 
@@ -1204,18 +1318,18 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         return store;
     }
 
-    public final com.google.common.collect.ImmutableSet<String> getTags() {
+    public final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<String>> getTags() {
         return tags;
     }
 
     /**
      * Optional in 1.3
      */
-    public final String getType() {
+    public final com.google.common.base.Optional<String> getType() {
         return type;
     }
 
-    public final org.joda.time.DateTime getUpdatedAt() {
+    public final com.google.common.base.Optional<org.joda.time.DateTime> getUpdatedAt() {
         return updatedAt;
     }
 
@@ -1226,7 +1340,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
     /**
      * Optional in 1.3
      */
-    public final String getUrlPath() {
+    public final com.google.common.base.Optional<String> getUrlPath() {
         return urlPath;
     }
 
@@ -1237,245 +1351,233 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         return visibility;
     }
 
-    public final java.math.BigDecimal getWeight() {
+    public final com.google.common.base.Optional<java.math.BigDecimal> getWeight() {
         return weight;
     }
 
     @Override
     public int hashCode() {
         int hashCode = 17;
-        if (getActivationInformation() != null) {
-            hashCode = 31 * hashCode + getActivationInformation().hashCode();
+        if (getActivationInformation().isPresent()) {
+            hashCode = 31 * hashCode + getActivationInformation().get().hashCode();
         }
-        if (getBackorders() != null) {
-            hashCode = 31 * hashCode + ((int)getBackorders());
+        if (getBackorders().isPresent()) {
+            hashCode = 31 * hashCode + ((int)getBackorders().get());
         }
-        if (getChildren() != null) {
-            hashCode = 31 * hashCode + getChildren().hashCode();
+        if (getChildren().isPresent()) {
+            hashCode = 31 * hashCode + getChildren().get().hashCode();
         }
-        if (getCost() != null) {
-            hashCode = 31 * hashCode + getCost().hashCode();
+        if (getCost().isPresent()) {
+            hashCode = 31 * hashCode + getCost().get().hashCode();
         }
-        if (getCreatedAt() != null) {
-            hashCode = 31 * hashCode + getCreatedAt().hashCode();
+        if (getCreatedAt().isPresent()) {
+            hashCode = 31 * hashCode + getCreatedAt().get().hashCode();
         }
-        if (getDescription() != null) {
-            hashCode = 31 * hashCode + getDescription().hashCode();
+        if (getDescription().isPresent()) {
+            hashCode = 31 * hashCode + getDescription().get().hashCode();
         }
-        if (getImages() != null) {
-            hashCode = 31 * hashCode + getImages().hashCode();
+        if (getImages().isPresent()) {
+            hashCode = 31 * hashCode + getImages().get().hashCode();
         }
-        if (isInStock() != null) {
-            hashCode = 31 * hashCode + (isInStock() ? 1 : 0);
+        if (getIsInStock().isPresent()) {
+            hashCode = 31 * hashCode + (getIsInStock().get() ? 1 : 0);
         }
-        if (isQtyDecimal() != null) {
-            hashCode = 31 * hashCode + (isQtyDecimal() ? 1 : 0);
+        if (getIsQtyDecimal().isPresent()) {
+            hashCode = 31 * hashCode + (getIsQtyDecimal().get() ? 1 : 0);
         }
-        if (isRecurring() != null) {
-            hashCode = 31 * hashCode + (isRecurring() ? 1 : 0);
+        if (getIsRecurring().isPresent()) {
+            hashCode = 31 * hashCode + (getIsRecurring().get() ? 1 : 0);
         }
-        if (getLowStockDate() != null) {
-            hashCode = 31 * hashCode + getLowStockDate().hashCode();
+        if (getLowStockDate().isPresent()) {
+            hashCode = 31 * hashCode + getLowStockDate().get().hashCode();
         }
-        if (getMaxSaleQty() != null) {
-            hashCode = 31 * hashCode + getMaxSaleQty().hashCode();
+        if (getMaxSaleQty().isPresent()) {
+            hashCode = 31 * hashCode + getMaxSaleQty().get().hashCode();
         }
-        if (getMetaDescription() != null) {
-            hashCode = 31 * hashCode + getMetaDescription().hashCode();
+        if (getMetaDescription().isPresent()) {
+            hashCode = 31 * hashCode + getMetaDescription().get().hashCode();
         }
-        if (getMetaKeyword() != null) {
-            hashCode = 31 * hashCode + getMetaKeyword().hashCode();
+        if (getMetaKeyword().isPresent()) {
+            hashCode = 31 * hashCode + getMetaKeyword().get().hashCode();
         }
-        if (getMetaTitle() != null) {
-            hashCode = 31 * hashCode + getMetaTitle().hashCode();
+        if (getMetaTitle().isPresent()) {
+            hashCode = 31 * hashCode + getMetaTitle().get().hashCode();
         }
-        if (getMinimalPrice() != null) {
-            hashCode = 31 * hashCode + getMinimalPrice().hashCode();
+        if (getMinimalPrice().isPresent()) {
+            hashCode = 31 * hashCode + getMinimalPrice().get().hashCode();
         }
-        if (getMinQty() != null) {
-            hashCode = 31 * hashCode + getMinQty().hashCode();
+        if (getMinQty().isPresent()) {
+            hashCode = 31 * hashCode + getMinQty().get().hashCode();
         }
-        if (getMinSaleQty() != null) {
-            hashCode = 31 * hashCode + getMinSaleQty().hashCode();
+        if (getMinSaleQty().isPresent()) {
+            hashCode = 31 * hashCode + getMinSaleQty().get().hashCode();
         }
-        if (getModel() != null) {
-            hashCode = 31 * hashCode + getModel().hashCode();
+        if (getModel().isPresent()) {
+            hashCode = 31 * hashCode + getModel().get().hashCode();
         }
         hashCode = 31 * hashCode + getName().hashCode();
-        if (getNewsFromDate() != null) {
-            hashCode = 31 * hashCode + getNewsFromDate().hashCode();
+        if (getNewsFromDate().isPresent()) {
+            hashCode = 31 * hashCode + getNewsFromDate().get().hashCode();
         }
-        if (getNewsToDate() != null) {
-            hashCode = 31 * hashCode + getNewsToDate().hashCode();
+        if (getNewsToDate().isPresent()) {
+            hashCode = 31 * hashCode + getNewsToDate().get().hashCode();
         }
-        if (getNotifyStockQty() != null) {
-            hashCode = 31 * hashCode + getNotifyStockQty().hashCode();
+        if (getNotifyStockQty().isPresent()) {
+            hashCode = 31 * hashCode + getNotifyStockQty().get().hashCode();
         }
-        if (getPrice() != null) {
-            hashCode = 31 * hashCode + getPrice().hashCode();
+        if (getPrice().isPresent()) {
+            hashCode = 31 * hashCode + getPrice().get().hashCode();
         }
-        if (getQty() != null) {
-            hashCode = 31 * hashCode + getQty().hashCode();
+        if (getQty().isPresent()) {
+            hashCode = 31 * hashCode + getQty().get().hashCode();
         }
-        if (getShippingPolicy() != null) {
-            hashCode = 31 * hashCode + getShippingPolicy().hashCode();
+        if (getShippingPolicy().isPresent()) {
+            hashCode = 31 * hashCode + getShippingPolicy().get().hashCode();
         }
         hashCode = 31 * hashCode + getShortDescription().hashCode();
         hashCode = 31 * hashCode + getSku().hashCode();
-        if (getSpecialFromDate() != null) {
-            hashCode = 31 * hashCode + getSpecialFromDate().hashCode();
+        if (getSpecialFromDate().isPresent()) {
+            hashCode = 31 * hashCode + getSpecialFromDate().get().hashCode();
         }
-        if (getSpecialPrice() != null) {
-            hashCode = 31 * hashCode + getSpecialPrice().hashCode();
+        if (getSpecialPrice().isPresent()) {
+            hashCode = 31 * hashCode + getSpecialPrice().get().hashCode();
         }
-        if (getSpecialToDate() != null) {
-            hashCode = 31 * hashCode + getSpecialToDate().hashCode();
+        if (getSpecialToDate().isPresent()) {
+            hashCode = 31 * hashCode + getSpecialToDate().get().hashCode();
         }
         hashCode = 31 * hashCode + getStore().hashCode();
-        if (getStatus() != null) {
-            hashCode = 31 * hashCode + getStatus().ordinal();
+        if (getStatus().isPresent()) {
+            hashCode = 31 * hashCode + getStatus().get().ordinal();
         }
-        if (getTags() != null) {
-            hashCode = 31 * hashCode + getTags().hashCode();
+        if (getTags().isPresent()) {
+            hashCode = 31 * hashCode + getTags().get().hashCode();
         }
-        if (getType() != null) {
-            hashCode = 31 * hashCode + getType().hashCode();
+        if (getType().isPresent()) {
+            hashCode = 31 * hashCode + getType().get().hashCode();
         }
-        if (getUpdatedAt() != null) {
-            hashCode = 31 * hashCode + getUpdatedAt().hashCode();
+        if (getUpdatedAt().isPresent()) {
+            hashCode = 31 * hashCode + getUpdatedAt().get().hashCode();
         }
         hashCode = 31 * hashCode + getUrlKey().hashCode();
-        if (getUrlPath() != null) {
-            hashCode = 31 * hashCode + getUrlPath().hashCode();
+        if (getUrlPath().isPresent()) {
+            hashCode = 31 * hashCode + getUrlPath().get().hashCode();
         }
         hashCode = 31 * hashCode + getVisibility().hashCode();
-        if (getWeight() != null) {
-            hashCode = 31 * hashCode + getWeight().hashCode();
+        if (getWeight().isPresent()) {
+            hashCode = 31 * hashCode + getWeight().get().hashCode();
         }
         return hashCode;
-    }
-
-    public final Boolean isInStock() {
-        return isInStock;
-    }
-
-    public final Boolean isQtyDecimal() {
-        return isQtyDecimal;
-    }
-
-    public final Boolean isRecurring() {
-        return isRecurring;
     }
 
     @Override
     public String toString() {
         final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
-        if (getActivationInformation() != null) {
+        if (getActivationInformation().isPresent()) {
             helper.add("activation_information", getActivationInformation());
         }
-        if (getBackorders() != null) {
+        if (getBackorders().isPresent()) {
             helper.add("backorders", getBackorders());
         }
-        if (getChildren() != null) {
+        if (getChildren().isPresent()) {
             helper.add("children", getChildren());
         }
-        if (getCost() != null) {
+        if (getCost().isPresent()) {
             helper.add("cost", getCost());
         }
-        if (getCreatedAt() != null) {
+        if (getCreatedAt().isPresent()) {
             helper.add("created_at", getCreatedAt());
         }
-        if (getDescription() != null) {
+        if (getDescription().isPresent()) {
             helper.add("description", getDescription());
         }
-        if (getImages() != null) {
+        if (getImages().isPresent()) {
             helper.add("images", getImages());
         }
-        if (isInStock() != null) {
-            helper.add("is_in_stock", isInStock());
+        if (getIsInStock().isPresent()) {
+            helper.add("is_in_stock", getIsInStock());
         }
-        if (isQtyDecimal() != null) {
-            helper.add("is_qty_decimal", isQtyDecimal());
+        if (getIsQtyDecimal().isPresent()) {
+            helper.add("is_qty_decimal", getIsQtyDecimal());
         }
-        if (isRecurring() != null) {
-            helper.add("is_recurring", isRecurring());
+        if (getIsRecurring().isPresent()) {
+            helper.add("is_recurring", getIsRecurring());
         }
-        if (getLowStockDate() != null) {
+        if (getLowStockDate().isPresent()) {
             helper.add("low_stock_date", getLowStockDate());
         }
-        if (getMaxSaleQty() != null) {
+        if (getMaxSaleQty().isPresent()) {
             helper.add("max_sale_qty", getMaxSaleQty());
         }
-        if (getMetaDescription() != null) {
+        if (getMetaDescription().isPresent()) {
             helper.add("meta_description", getMetaDescription());
         }
-        if (getMetaKeyword() != null) {
+        if (getMetaKeyword().isPresent()) {
             helper.add("meta_keyword", getMetaKeyword());
         }
-        if (getMetaTitle() != null) {
+        if (getMetaTitle().isPresent()) {
             helper.add("meta_title", getMetaTitle());
         }
-        if (getMinimalPrice() != null) {
+        if (getMinimalPrice().isPresent()) {
             helper.add("minimal_price", getMinimalPrice());
         }
-        if (getMinQty() != null) {
+        if (getMinQty().isPresent()) {
             helper.add("min_qty", getMinQty());
         }
-        if (getMinSaleQty() != null) {
+        if (getMinSaleQty().isPresent()) {
             helper.add("min_sale_qty", getMinSaleQty());
         }
-        if (getModel() != null) {
+        if (getModel().isPresent()) {
             helper.add("model", getModel());
         }
         helper.add("name", getName());
-        if (getNewsFromDate() != null) {
+        if (getNewsFromDate().isPresent()) {
             helper.add("news_from_date", getNewsFromDate());
         }
-        if (getNewsToDate() != null) {
+        if (getNewsToDate().isPresent()) {
             helper.add("news_to_date", getNewsToDate());
         }
-        if (getNotifyStockQty() != null) {
+        if (getNotifyStockQty().isPresent()) {
             helper.add("notify_stock_qty", getNotifyStockQty());
         }
-        if (getPrice() != null) {
+        if (getPrice().isPresent()) {
             helper.add("price", getPrice());
         }
-        if (getQty() != null) {
+        if (getQty().isPresent()) {
             helper.add("qty", getQty());
         }
-        if (getShippingPolicy() != null) {
+        if (getShippingPolicy().isPresent()) {
             helper.add("shipping_policy", getShippingPolicy());
         }
         helper.add("short_description", getShortDescription());
         helper.add("sku", getSku());
-        if (getSpecialFromDate() != null) {
+        if (getSpecialFromDate().isPresent()) {
             helper.add("special_from_date", getSpecialFromDate());
         }
-        if (getSpecialPrice() != null) {
+        if (getSpecialPrice().isPresent()) {
             helper.add("special_price", getSpecialPrice());
         }
-        if (getSpecialToDate() != null) {
+        if (getSpecialToDate().isPresent()) {
             helper.add("special_to_date", getSpecialToDate());
         }
         helper.add("store", getStore());
-        if (getStatus() != null) {
+        if (getStatus().isPresent()) {
             helper.add("status", getStatus());
         }
-        if (getTags() != null) {
+        if (getTags().isPresent()) {
             helper.add("tags", getTags());
         }
-        if (getType() != null) {
+        if (getType().isPresent()) {
             helper.add("type", getType());
         }
-        if (getUpdatedAt() != null) {
+        if (getUpdatedAt().isPresent()) {
             helper.add("updated_at", getUpdatedAt());
         }
         helper.add("url_key", getUrlKey());
-        if (getUrlPath() != null) {
+        if (getUrlPath().isPresent()) {
             helper.add("url_path", getUrlPath());
         }
         helper.add("visibility", getVisibility());
-        if (getWeight() != null) {
+        if (getWeight().isPresent()) {
             helper.add("weight", getWeight());
         }
         return helper.toString();
@@ -1492,224 +1594,224 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
             case org.thryft.protocol.TType.LIST:
                 oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 40));
 
-                if (getActivationInformation() != null) {
-                    oprot.writeString(getActivationInformation());
+                if (getActivationInformation().isPresent()) {
+                    oprot.writeString(getActivationInformation().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getBackorders() != null) {
-                    oprot.writeI32(getBackorders());
+                if (getBackorders().isPresent()) {
+                    oprot.writeI32(getBackorders().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getChildren() != null) {
-                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getChildren().size()));
-                    for (final com.yogento.api.models.catalog.product.magento.MagentoProduct _iter0 : getChildren()) {
+                if (getChildren().isPresent()) {
+                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getChildren().get().size()));
+                    for (final com.yogento.api.models.catalog.product.magento.MagentoProduct _iter0 : getChildren().get()) {
                         _iter0.write(oprot);
                     }
                     oprot.writeSetEnd();
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getCost() != null) {
-                    oprot.writeDecimal(getCost());
+                if (getCost().isPresent()) {
+                    oprot.writeDecimal(getCost().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getCreatedAt() != null) {
-                    oprot.writeDateTime(getCreatedAt());
+                if (getCreatedAt().isPresent()) {
+                    oprot.writeDateTime(getCreatedAt().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getDescription() != null) {
-                    oprot.writeString(getDescription());
+                if (getDescription().isPresent()) {
+                    oprot.writeString(getDescription().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getImages() != null) {
-                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getImages().size()));
-                    for (final com.yogento.api.models.catalog.product.magento.MagentoProductImage _iter0 : getImages()) {
+                if (getImages().isPresent()) {
+                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getImages().get().size()));
+                    for (final com.yogento.api.models.catalog.product.magento.MagentoProductImage _iter0 : getImages().get()) {
                         _iter0.write(oprot);
                     }
                     oprot.writeSetEnd();
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (isInStock() != null) {
-                    oprot.writeBool(isInStock());
+                if (getIsInStock().isPresent()) {
+                    oprot.writeBool(getIsInStock().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (isQtyDecimal() != null) {
-                    oprot.writeBool(isQtyDecimal());
+                if (getIsQtyDecimal().isPresent()) {
+                    oprot.writeBool(getIsQtyDecimal().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (isRecurring() != null) {
-                    oprot.writeBool(isRecurring());
+                if (getIsRecurring().isPresent()) {
+                    oprot.writeBool(getIsRecurring().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getLowStockDate() != null) {
-                    oprot.writeDateTime(getLowStockDate());
+                if (getLowStockDate().isPresent()) {
+                    oprot.writeDateTime(getLowStockDate().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getMaxSaleQty() != null) {
-                    oprot.writeDecimal(getMaxSaleQty());
+                if (getMaxSaleQty().isPresent()) {
+                    oprot.writeDecimal(getMaxSaleQty().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getMetaDescription() != null) {
-                    oprot.writeString(getMetaDescription());
+                if (getMetaDescription().isPresent()) {
+                    oprot.writeString(getMetaDescription().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getMetaKeyword() != null) {
-                    oprot.writeString(getMetaKeyword());
+                if (getMetaKeyword().isPresent()) {
+                    oprot.writeString(getMetaKeyword().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getMetaTitle() != null) {
-                    oprot.writeString(getMetaTitle());
+                if (getMetaTitle().isPresent()) {
+                    oprot.writeString(getMetaTitle().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getMinimalPrice() != null) {
-                    oprot.writeDecimal(getMinimalPrice());
+                if (getMinimalPrice().isPresent()) {
+                    oprot.writeDecimal(getMinimalPrice().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getMinQty() != null) {
-                    oprot.writeDecimal(getMinQty());
+                if (getMinQty().isPresent()) {
+                    oprot.writeDecimal(getMinQty().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getMinSaleQty() != null) {
-                    oprot.writeDecimal(getMinSaleQty());
+                if (getMinSaleQty().isPresent()) {
+                    oprot.writeDecimal(getMinSaleQty().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getModel() != null) {
-                    oprot.writeString(getModel());
+                if (getModel().isPresent()) {
+                    oprot.writeString(getModel().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
                 oprot.writeString(getName());
 
-                if (getNewsFromDate() != null) {
-                    oprot.writeDateTime(getNewsFromDate());
+                if (getNewsFromDate().isPresent()) {
+                    oprot.writeDateTime(getNewsFromDate().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getNewsToDate() != null) {
-                    oprot.writeDateTime(getNewsToDate());
+                if (getNewsToDate().isPresent()) {
+                    oprot.writeDateTime(getNewsToDate().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getNotifyStockQty() != null) {
-                    oprot.writeDecimal(getNotifyStockQty());
+                if (getNotifyStockQty().isPresent()) {
+                    oprot.writeDecimal(getNotifyStockQty().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getPrice() != null) {
-                    oprot.writeDecimal(getPrice());
+                if (getPrice().isPresent()) {
+                    oprot.writeDecimal(getPrice().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getQty() != null) {
-                    oprot.writeDecimal(getQty());
+                if (getQty().isPresent()) {
+                    oprot.writeDecimal(getQty().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getShippingPolicy() != null) {
-                    oprot.writeString(getShippingPolicy());
+                if (getShippingPolicy().isPresent()) {
+                    oprot.writeString(getShippingPolicy().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
                 oprot.writeString(getShortDescription());
 
                 oprot.writeString(getSku());
 
-                if (getSpecialFromDate() != null) {
-                    oprot.writeDateTime(getSpecialFromDate());
+                if (getSpecialFromDate().isPresent()) {
+                    oprot.writeDateTime(getSpecialFromDate().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getSpecialPrice() != null) {
-                    oprot.writeDecimal(getSpecialPrice());
+                if (getSpecialPrice().isPresent()) {
+                    oprot.writeDecimal(getSpecialPrice().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getSpecialToDate() != null) {
-                    oprot.writeDateTime(getSpecialToDate());
+                if (getSpecialToDate().isPresent()) {
+                    oprot.writeDateTime(getSpecialToDate().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
                 oprot.writeString(getStore());
 
-                if (getStatus() != null) {
-                    oprot.writeEnum(getStatus());
+                if (getStatus().isPresent()) {
+                    oprot.writeEnum(getStatus().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getTags() != null) {
-                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRING, getTags().size()));
-                    for (final String _iter0 : getTags()) {
+                if (getTags().isPresent()) {
+                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRING, getTags().get().size()));
+                    for (final String _iter0 : getTags().get()) {
                         oprot.writeString(_iter0);
                     }
                     oprot.writeSetEnd();
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getType() != null) {
-                    oprot.writeString(getType());
+                if (getType().isPresent()) {
+                    oprot.writeString(getType().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getUpdatedAt() != null) {
-                    oprot.writeDateTime(getUpdatedAt());
+                if (getUpdatedAt().isPresent()) {
+                    oprot.writeDateTime(getUpdatedAt().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
                 oprot.writeString(getUrlKey());
 
-                if (getUrlPath() != null) {
-                    oprot.writeString(getUrlPath());
+                if (getUrlPath().isPresent()) {
+                    oprot.writeString(getUrlPath().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
                 oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRING, getVisibility().size()));
@@ -1718,10 +1820,10 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
                 }
                 oprot.writeSetEnd();
 
-                if (getWeight() != null) {
-                    oprot.writeDecimal(getWeight());
+                if (getWeight().isPresent()) {
+                    oprot.writeDecimal(getWeight().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
                 oprot.writeListEnd();
@@ -1731,125 +1833,125 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
             default:
                 oprot.writeStructBegin(new org.thryft.protocol.TStruct("MagentoProduct"));
 
-                if (getActivationInformation() != null) {
+                if (getActivationInformation().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("activation_information", org.thryft.protocol.TType.STRING, (short)-1));
-                    oprot.writeString(getActivationInformation());
+                    oprot.writeString(getActivationInformation().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getBackorders() != null) {
+                if (getBackorders().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("backorders", org.thryft.protocol.TType.I32, (short)-1));
-                    oprot.writeI32(getBackorders());
+                    oprot.writeI32(getBackorders().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getChildren() != null) {
+                if (getChildren().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("children", org.thryft.protocol.TType.SET, (short)-1));
-                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getChildren().size()));
-                    for (final com.yogento.api.models.catalog.product.magento.MagentoProduct _iter0 : getChildren()) {
+                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getChildren().get().size()));
+                    for (final com.yogento.api.models.catalog.product.magento.MagentoProduct _iter0 : getChildren().get()) {
                         _iter0.write(oprot);
                     }
                     oprot.writeSetEnd();
                     oprot.writeFieldEnd();
                 }
 
-                if (getCost() != null) {
+                if (getCost().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("cost", org.thryft.protocol.TType.STRUCT, (short)-1));
-                    oprot.writeDecimal(getCost());
+                    oprot.writeDecimal(getCost().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getCreatedAt() != null) {
+                if (getCreatedAt().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("created_at", org.thryft.protocol.TType.STRUCT, (short)-1));
-                    oprot.writeDateTime(getCreatedAt());
+                    oprot.writeDateTime(getCreatedAt().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getDescription() != null) {
+                if (getDescription().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("description", org.thryft.protocol.TType.STRING, (short)-1));
-                    oprot.writeString(getDescription());
+                    oprot.writeString(getDescription().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getImages() != null) {
+                if (getImages().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("images", org.thryft.protocol.TType.SET, (short)-1));
-                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getImages().size()));
-                    for (final com.yogento.api.models.catalog.product.magento.MagentoProductImage _iter0 : getImages()) {
+                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getImages().get().size()));
+                    for (final com.yogento.api.models.catalog.product.magento.MagentoProductImage _iter0 : getImages().get()) {
                         _iter0.write(oprot);
                     }
                     oprot.writeSetEnd();
                     oprot.writeFieldEnd();
                 }
 
-                if (isInStock() != null) {
+                if (getIsInStock().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("is_in_stock", org.thryft.protocol.TType.BOOL, (short)-1));
-                    oprot.writeBool(isInStock());
+                    oprot.writeBool(getIsInStock().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (isQtyDecimal() != null) {
+                if (getIsQtyDecimal().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("is_qty_decimal", org.thryft.protocol.TType.BOOL, (short)-1));
-                    oprot.writeBool(isQtyDecimal());
+                    oprot.writeBool(getIsQtyDecimal().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (isRecurring() != null) {
+                if (getIsRecurring().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("is_recurring", org.thryft.protocol.TType.BOOL, (short)-1));
-                    oprot.writeBool(isRecurring());
+                    oprot.writeBool(getIsRecurring().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getLowStockDate() != null) {
+                if (getLowStockDate().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("low_stock_date", org.thryft.protocol.TType.STRUCT, (short)-1));
-                    oprot.writeDateTime(getLowStockDate());
+                    oprot.writeDateTime(getLowStockDate().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getMaxSaleQty() != null) {
+                if (getMaxSaleQty().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("max_sale_qty", org.thryft.protocol.TType.STRUCT, (short)-1));
-                    oprot.writeDecimal(getMaxSaleQty());
+                    oprot.writeDecimal(getMaxSaleQty().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getMetaDescription() != null) {
+                if (getMetaDescription().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("meta_description", org.thryft.protocol.TType.STRING, (short)-1));
-                    oprot.writeString(getMetaDescription());
+                    oprot.writeString(getMetaDescription().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getMetaKeyword() != null) {
+                if (getMetaKeyword().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("meta_keyword", org.thryft.protocol.TType.STRING, (short)-1));
-                    oprot.writeString(getMetaKeyword());
+                    oprot.writeString(getMetaKeyword().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getMetaTitle() != null) {
+                if (getMetaTitle().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("meta_title", org.thryft.protocol.TType.STRING, (short)-1));
-                    oprot.writeString(getMetaTitle());
+                    oprot.writeString(getMetaTitle().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getMinimalPrice() != null) {
+                if (getMinimalPrice().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("minimal_price", org.thryft.protocol.TType.STRUCT, (short)-1));
-                    oprot.writeDecimal(getMinimalPrice());
+                    oprot.writeDecimal(getMinimalPrice().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getMinQty() != null) {
+                if (getMinQty().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("min_qty", org.thryft.protocol.TType.STRUCT, (short)-1));
-                    oprot.writeDecimal(getMinQty());
+                    oprot.writeDecimal(getMinQty().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getMinSaleQty() != null) {
+                if (getMinSaleQty().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("min_sale_qty", org.thryft.protocol.TType.STRUCT, (short)-1));
-                    oprot.writeDecimal(getMinSaleQty());
+                    oprot.writeDecimal(getMinSaleQty().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getModel() != null) {
+                if (getModel().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("model", org.thryft.protocol.TType.STRING, (short)-1));
-                    oprot.writeString(getModel());
+                    oprot.writeString(getModel().get());
                     oprot.writeFieldEnd();
                 }
 
@@ -1857,39 +1959,39 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
                 oprot.writeString(getName());
                 oprot.writeFieldEnd();
 
-                if (getNewsFromDate() != null) {
+                if (getNewsFromDate().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("news_from_date", org.thryft.protocol.TType.STRUCT, (short)-1));
-                    oprot.writeDateTime(getNewsFromDate());
+                    oprot.writeDateTime(getNewsFromDate().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getNewsToDate() != null) {
+                if (getNewsToDate().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("news_to_date", org.thryft.protocol.TType.STRUCT, (short)-1));
-                    oprot.writeDateTime(getNewsToDate());
+                    oprot.writeDateTime(getNewsToDate().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getNotifyStockQty() != null) {
+                if (getNotifyStockQty().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("notify_stock_qty", org.thryft.protocol.TType.STRUCT, (short)-1));
-                    oprot.writeDecimal(getNotifyStockQty());
+                    oprot.writeDecimal(getNotifyStockQty().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getPrice() != null) {
+                if (getPrice().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("price", org.thryft.protocol.TType.STRUCT, (short)-1));
-                    oprot.writeDecimal(getPrice());
+                    oprot.writeDecimal(getPrice().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getQty() != null) {
+                if (getQty().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("qty", org.thryft.protocol.TType.STRUCT, (short)-1));
-                    oprot.writeDecimal(getQty());
+                    oprot.writeDecimal(getQty().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getShippingPolicy() != null) {
+                if (getShippingPolicy().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("shipping_policy", org.thryft.protocol.TType.STRING, (short)-1));
-                    oprot.writeString(getShippingPolicy());
+                    oprot.writeString(getShippingPolicy().get());
                     oprot.writeFieldEnd();
                 }
 
@@ -1901,21 +2003,21 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
                 oprot.writeString(getSku());
                 oprot.writeFieldEnd();
 
-                if (getSpecialFromDate() != null) {
+                if (getSpecialFromDate().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("special_from_date", org.thryft.protocol.TType.STRUCT, (short)-1));
-                    oprot.writeDateTime(getSpecialFromDate());
+                    oprot.writeDateTime(getSpecialFromDate().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getSpecialPrice() != null) {
+                if (getSpecialPrice().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("special_price", org.thryft.protocol.TType.STRUCT, (short)-1));
-                    oprot.writeDecimal(getSpecialPrice());
+                    oprot.writeDecimal(getSpecialPrice().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getSpecialToDate() != null) {
+                if (getSpecialToDate().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("special_to_date", org.thryft.protocol.TType.STRUCT, (short)-1));
-                    oprot.writeDateTime(getSpecialToDate());
+                    oprot.writeDateTime(getSpecialToDate().get());
                     oprot.writeFieldEnd();
                 }
 
@@ -1923,31 +2025,31 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
                 oprot.writeString(getStore());
                 oprot.writeFieldEnd();
 
-                if (getStatus() != null) {
+                if (getStatus().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("status", org.thryft.protocol.TType.STRING, (short)-1));
-                    oprot.writeEnum(getStatus());
+                    oprot.writeEnum(getStatus().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getTags() != null) {
+                if (getTags().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("tags", org.thryft.protocol.TType.SET, (short)-1));
-                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRING, getTags().size()));
-                    for (final String _iter0 : getTags()) {
+                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRING, getTags().get().size()));
+                    for (final String _iter0 : getTags().get()) {
                         oprot.writeString(_iter0);
                     }
                     oprot.writeSetEnd();
                     oprot.writeFieldEnd();
                 }
 
-                if (getType() != null) {
+                if (getType().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("type", org.thryft.protocol.TType.STRING, (short)-1));
-                    oprot.writeString(getType());
+                    oprot.writeString(getType().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getUpdatedAt() != null) {
+                if (getUpdatedAt().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("updated_at", org.thryft.protocol.TType.STRUCT, (short)-1));
-                    oprot.writeDateTime(getUpdatedAt());
+                    oprot.writeDateTime(getUpdatedAt().get());
                     oprot.writeFieldEnd();
                 }
 
@@ -1955,9 +2057,9 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
                 oprot.writeString(getUrlKey());
                 oprot.writeFieldEnd();
 
-                if (getUrlPath() != null) {
+                if (getUrlPath().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("url_path", org.thryft.protocol.TType.STRING, (short)-1));
-                    oprot.writeString(getUrlPath());
+                    oprot.writeString(getUrlPath().get());
                     oprot.writeFieldEnd();
                 }
 
@@ -1969,9 +2071,9 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
                 oprot.writeSetEnd();
                 oprot.writeFieldEnd();
 
-                if (getWeight() != null) {
+                if (getWeight().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("weight", org.thryft.protocol.TType.STRUCT, (short)-1));
-                    oprot.writeDecimal(getWeight());
+                    oprot.writeDecimal(getWeight().get());
                     oprot.writeFieldEnd();
                 }
 
@@ -1982,98 +2084,98 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
     }
 
-    private final String activationInformation;
+    private final com.google.common.base.Optional<String> activationInformation;
 
-    private final Integer backorders;
+    private final com.google.common.base.Optional<Integer> backorders;
 
-    private final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> children;
+    private final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct>> children;
 
-    private final java.math.BigDecimal cost;
+    private final com.google.common.base.Optional<java.math.BigDecimal> cost;
 
-    private final org.joda.time.DateTime createdAt;
+    private final com.google.common.base.Optional<org.joda.time.DateTime> createdAt;
 
-    private final String description;
+    private final com.google.common.base.Optional<String> description;
 
-    private final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> images;
+    private final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>> images;
 
-    private final Boolean isInStock;
+    private final com.google.common.base.Optional<Boolean> isInStock;
 
-    private final Boolean isQtyDecimal;
+    private final com.google.common.base.Optional<Boolean> isQtyDecimal;
 
-    private final Boolean isRecurring;
+    private final com.google.common.base.Optional<Boolean> isRecurring;
 
-    private final org.joda.time.DateTime lowStockDate;
+    private final com.google.common.base.Optional<org.joda.time.DateTime> lowStockDate;
 
-    private final java.math.BigDecimal maxSaleQty;
+    private final com.google.common.base.Optional<java.math.BigDecimal> maxSaleQty;
 
-    private final String metaDescription;
+    private final com.google.common.base.Optional<String> metaDescription;
 
-    private final String metaKeyword;
+    private final com.google.common.base.Optional<String> metaKeyword;
 
-    private final String metaTitle;
+    private final com.google.common.base.Optional<String> metaTitle;
 
-    private final java.math.BigDecimal minimalPrice;
+    private final com.google.common.base.Optional<java.math.BigDecimal> minimalPrice;
 
-    private final java.math.BigDecimal minQty;
+    private final com.google.common.base.Optional<java.math.BigDecimal> minQty;
 
-    private final java.math.BigDecimal minSaleQty;
+    private final com.google.common.base.Optional<java.math.BigDecimal> minSaleQty;
 
-    private final String model;
+    private final com.google.common.base.Optional<String> model;
 
     private final String name;
 
-    private final org.joda.time.DateTime newsFromDate;
+    private final com.google.common.base.Optional<org.joda.time.DateTime> newsFromDate;
 
-    private final org.joda.time.DateTime newsToDate;
+    private final com.google.common.base.Optional<org.joda.time.DateTime> newsToDate;
 
-    private final java.math.BigDecimal notifyStockQty;
+    private final com.google.common.base.Optional<java.math.BigDecimal> notifyStockQty;
 
     /**
      * Optional in 1.3
      */
-    private final java.math.BigDecimal price;
+    private final com.google.common.base.Optional<java.math.BigDecimal> price;
 
-    private final java.math.BigDecimal qty;
+    private final com.google.common.base.Optional<java.math.BigDecimal> qty;
 
-    private final String shippingPolicy;
+    private final com.google.common.base.Optional<String> shippingPolicy;
 
     private final String shortDescription;
 
     private final String sku;
 
-    private final org.joda.time.DateTime specialFromDate;
+    private final com.google.common.base.Optional<org.joda.time.DateTime> specialFromDate;
 
-    private final java.math.BigDecimal specialPrice;
+    private final com.google.common.base.Optional<java.math.BigDecimal> specialPrice;
 
-    private final org.joda.time.DateTime specialToDate;
+    private final com.google.common.base.Optional<org.joda.time.DateTime> specialToDate;
 
     private final String store;
 
     /**
      * Optional in 1.3
      */
-    private final com.yogento.api.models.catalog.product.magento.MagentoProductStatus status;
+    private final com.google.common.base.Optional<com.yogento.api.models.catalog.product.magento.MagentoProductStatus> status;
 
-    private final com.google.common.collect.ImmutableSet<String> tags;
+    private final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<String>> tags;
 
     /**
      * Optional in 1.3
      */
-    private final String type;
+    private final com.google.common.base.Optional<String> type;
 
-    private final org.joda.time.DateTime updatedAt;
+    private final com.google.common.base.Optional<org.joda.time.DateTime> updatedAt;
 
     private final String urlKey;
 
     /**
      * Optional in 1.3
      */
-    private final String urlPath;
+    private final com.google.common.base.Optional<String> urlPath;
 
     /**
      * Formerly an enum; the strings differ between Magento versions
      */
     private final com.google.common.collect.ImmutableSet<String> visibility;
 
-    private final java.math.BigDecimal weight;
+    private final com.google.common.base.Optional<java.math.BigDecimal> weight;
 }

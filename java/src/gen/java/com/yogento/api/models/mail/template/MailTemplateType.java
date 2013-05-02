@@ -89,7 +89,7 @@ public class MailTemplateType implements org.thryft.TBase<MailTemplateType> {
         if (fieldName.equals("mail_chimp_template_type")) {
             return getMailChimpTemplateType();
         }
-        return null;
+        throw new IllegalArgumentException(fieldName);
     }
 
     public final com.yochimp.models.template.TemplateType getMailChimpTemplateType() {

@@ -67,7 +67,7 @@ public class NoSuchUserSettingsException extends java.lang.Exception implements 
     }
 
     public Object get(final String fieldName) {
-        return null;
+        throw new IllegalArgumentException(fieldName);
     }
 
     @Override

@@ -89,7 +89,7 @@ public class NoSuchProductException extends java.lang.Exception implements org.t
         if (fieldName.equals("sku")) {
             return getSku();
         }
-        return null;
+        throw new IllegalArgumentException(fieldName);
     }
 
     @Override

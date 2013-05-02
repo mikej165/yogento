@@ -110,7 +110,7 @@ public class ImageResolution implements org.thryft.TBase<ImageResolution> {
         } else if (fieldName.equals("width_px")) {
             return getWidthPx();
         }
-        return null;
+        throw new IllegalArgumentException(fieldName);
     }
 
     public final int getHeightPx() {

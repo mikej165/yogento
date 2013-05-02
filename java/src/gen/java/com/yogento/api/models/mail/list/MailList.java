@@ -89,7 +89,7 @@ public class MailList implements org.thryft.TBase<MailList> {
         if (fieldName.equals("mail_chimp_list")) {
             return getMailChimpList();
         }
-        return null;
+        throw new IllegalArgumentException(fieldName);
     }
 
     public final com.yochimp.models.list.List getMailChimpList() {

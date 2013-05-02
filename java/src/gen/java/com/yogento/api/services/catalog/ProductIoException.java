@@ -105,7 +105,7 @@ public class ProductIoException extends java.lang.Exception implements org.thryf
         } else if (fieldName.equals("sku")) {
             return getSku();
         }
-        return null;
+        throw new IllegalArgumentException(fieldName);
     }
 
     public final String getCauseMessage() {

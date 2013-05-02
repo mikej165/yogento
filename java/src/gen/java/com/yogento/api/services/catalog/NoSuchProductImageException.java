@@ -105,7 +105,7 @@ public class NoSuchProductImageException extends java.lang.Exception implements 
         } else if (fieldName.equals("sku")) {
             return getSku();
         }
-        return null;
+        throw new IllegalArgumentException(fieldName);
     }
 
     public final String getCauseMessage() {

@@ -11,7 +11,7 @@ public class AgentException extends java.lang.Exception implements org.thryft.TB
             this.url = other.getUrl();
         }
 
-        protected AgentException _build(final String causeMessage, final String url) {
+        protected AgentException _build(final String causeMessage, final com.google.common.base.Optional<String> url) {
             return new AgentException(causeMessage, url);
         }
 
@@ -24,13 +24,18 @@ public class AgentException extends java.lang.Exception implements org.thryft.TB
             return this;
         }
 
-        public Builder setUrl(final String url) {
+        public Builder setUrl(final com.google.common.base.Optional<String> url) {
             this.url = url;
             return this;
         }
 
+        public Builder setUrl(final String url) {
+            this.url = com.google.common.base.Optional.of(url);
+            return this;
+        }
+
         private String causeMessage;
-        private String url;
+        private com.google.common.base.Optional<String> url = com.google.common.base.Optional.absent();
     }
 
     public AgentException(final AgentException other) {
@@ -43,14 +48,14 @@ public class AgentException extends java.lang.Exception implements org.thryft.TB
 
     public AgentException(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
         String causeMessage = null;
-        String url = null;
+        com.google.common.base.Optional<String> url = com.google.common.base.Optional.absent();
 
         switch (readAsTType) {
             case org.thryft.protocol.TType.LIST:
                 final org.thryft.protocol.TList __list = iprot.readListBegin();
                 causeMessage = iprot.readString();
                 if (__list.size > 1) {
-                    url = iprot.readString();
+                    url = com.google.common.base.Optional.of(iprot.readString());
                 }
                 iprot.readListEnd();
                 break;
@@ -65,7 +70,7 @@ public class AgentException extends java.lang.Exception implements org.thryft.TB
                     } else if (ifield.name.equals("cause_message")) {
                         causeMessage = iprot.readString();
                     } else if (ifield.name.equals("url")) {
-                        url = iprot.readString();
+                        url = com.google.common.base.Optional.of(iprot.readString());
                     }
                     iprot.readFieldEnd();
                 }
@@ -79,12 +84,12 @@ public class AgentException extends java.lang.Exception implements org.thryft.TB
 
     public AgentException(final String causeMessage) {
         this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage, "com.yogento.api.services.agent.AgentException: missing causeMessage");
-        this.url = null;
+        this.url = com.google.common.base.Optional.absent();
     }
 
-    public AgentException(final String causeMessage, final String url) {
+    public AgentException(final String causeMessage, final com.google.common.base.Optional<String> url) {
         this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage, "com.yogento.api.services.agent.AgentException: missing causeMessage");
-        this.url = url;
+        this.url = com.google.common.base.Preconditions.checkNotNull(url, "com.yogento.api.services.agent.AgentException: missing url");
     }
 
     @Override
@@ -103,9 +108,7 @@ public class AgentException extends java.lang.Exception implements org.thryft.TB
         final AgentException other = (AgentException)otherObject;
         return
             getCauseMessage().equals(other.getCauseMessage()) &&
-            ((getUrl() == null && other.getUrl() == null) ||
-            (getUrl() != null && other.getUrl() != null &&
-            getUrl().equals(other.getUrl())));
+            getUrl().equals(other.getUrl());
     }
 
     public Object get(final String fieldName) {
@@ -114,7 +117,7 @@ public class AgentException extends java.lang.Exception implements org.thryft.TB
         } else if (fieldName.equals("url")) {
             return getUrl();
         }
-        return null;
+        throw new IllegalArgumentException(fieldName);
     }
 
     public final String getCauseMessage() {
@@ -126,7 +129,7 @@ public class AgentException extends java.lang.Exception implements org.thryft.TB
         return toString();
     }
 
-    public final String getUrl() {
+    public final com.google.common.base.Optional<String> getUrl() {
         return url;
     }
 
@@ -134,8 +137,8 @@ public class AgentException extends java.lang.Exception implements org.thryft.TB
     public int hashCode() {
         int hashCode = 17;
         hashCode = 31 * hashCode + getCauseMessage().hashCode();
-        if (getUrl() != null) {
-            hashCode = 31 * hashCode + getUrl().hashCode();
+        if (getUrl().isPresent()) {
+            hashCode = 31 * hashCode + getUrl().get().hashCode();
         }
         return hashCode;
     }
@@ -144,7 +147,7 @@ public class AgentException extends java.lang.Exception implements org.thryft.TB
     public String toString() {
         final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
         helper.add("cause_message", getCauseMessage());
-        if (getUrl() != null) {
+        if (getUrl().isPresent()) {
             helper.add("url", getUrl());
         }
         return helper.toString();
@@ -163,10 +166,10 @@ public class AgentException extends java.lang.Exception implements org.thryft.TB
 
                 oprot.writeString(getCauseMessage());
 
-                if (getUrl() != null) {
-                    oprot.writeString(getUrl());
+                if (getUrl().isPresent()) {
+                    oprot.writeString(getUrl().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
                 oprot.writeListEnd();
@@ -180,9 +183,9 @@ public class AgentException extends java.lang.Exception implements org.thryft.TB
                 oprot.writeString(getCauseMessage());
                 oprot.writeFieldEnd();
 
-                if (getUrl() != null) {
+                if (getUrl().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("url", org.thryft.protocol.TType.STRING, (short)-1));
-                    oprot.writeString(getUrl());
+                    oprot.writeString(getUrl().get());
                     oprot.writeFieldEnd();
                 }
 
@@ -195,5 +198,5 @@ public class AgentException extends java.lang.Exception implements org.thryft.TB
 
     private final String causeMessage;
 
-    private final String url;
+    private final com.google.common.base.Optional<String> url;
 }

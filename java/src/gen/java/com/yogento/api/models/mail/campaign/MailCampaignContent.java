@@ -89,7 +89,7 @@ public class MailCampaignContent implements org.thryft.TBase<MailCampaignContent
         if (fieldName.equals("mail_chimp_campaign_content")) {
             return getMailChimpCampaignContent();
         }
-        return null;
+        throw new IllegalArgumentException(fieldName);
     }
 
     public final com.yochimp.models.campaign.CampaignContent getMailChimpCampaignContent() {

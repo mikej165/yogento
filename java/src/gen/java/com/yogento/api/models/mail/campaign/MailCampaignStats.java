@@ -89,7 +89,7 @@ public class MailCampaignStats implements org.thryft.TBase<MailCampaignStats> {
         if (fieldName.equals("mail_chimp_campaign_stats")) {
             return getMailChimpCampaignStats();
         }
-        return null;
+        throw new IllegalArgumentException(fieldName);
     }
 
     public final com.yochimp.models.campaign.CampaignStats getMailChimpCampaignStats() {

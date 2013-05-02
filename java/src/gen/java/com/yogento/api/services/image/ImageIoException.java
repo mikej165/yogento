@@ -11,7 +11,7 @@ public class ImageIoException extends java.lang.Exception implements org.thryft.
             this.imageUrl = other.getImageUrl();
         }
 
-        protected ImageIoException _build(final String causeMessage, final String imageUrl) {
+        protected ImageIoException _build(final String causeMessage, final com.google.common.base.Optional<String> imageUrl) {
             return new ImageIoException(causeMessage, imageUrl);
         }
 
@@ -24,13 +24,18 @@ public class ImageIoException extends java.lang.Exception implements org.thryft.
             return this;
         }
 
-        public Builder setImageUrl(final String imageUrl) {
+        public Builder setImageUrl(final com.google.common.base.Optional<String> imageUrl) {
             this.imageUrl = imageUrl;
             return this;
         }
 
+        public Builder setImageUrl(final String imageUrl) {
+            this.imageUrl = com.google.common.base.Optional.of(imageUrl);
+            return this;
+        }
+
         private String causeMessage;
-        private String imageUrl;
+        private com.google.common.base.Optional<String> imageUrl = com.google.common.base.Optional.absent();
     }
 
     public ImageIoException(final ImageIoException other) {
@@ -43,14 +48,14 @@ public class ImageIoException extends java.lang.Exception implements org.thryft.
 
     public ImageIoException(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
         String causeMessage = null;
-        String imageUrl = null;
+        com.google.common.base.Optional<String> imageUrl = com.google.common.base.Optional.absent();
 
         switch (readAsTType) {
             case org.thryft.protocol.TType.LIST:
                 final org.thryft.protocol.TList __list = iprot.readListBegin();
                 causeMessage = iprot.readString();
                 if (__list.size > 1) {
-                    imageUrl = iprot.readString();
+                    imageUrl = com.google.common.base.Optional.of(iprot.readString());
                 }
                 iprot.readListEnd();
                 break;
@@ -65,7 +70,7 @@ public class ImageIoException extends java.lang.Exception implements org.thryft.
                     } else if (ifield.name.equals("cause_message")) {
                         causeMessage = iprot.readString();
                     } else if (ifield.name.equals("image_url")) {
-                        imageUrl = iprot.readString();
+                        imageUrl = com.google.common.base.Optional.of(iprot.readString());
                     }
                     iprot.readFieldEnd();
                 }
@@ -79,12 +84,12 @@ public class ImageIoException extends java.lang.Exception implements org.thryft.
 
     public ImageIoException(final String causeMessage) {
         this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage, "com.yogento.api.services.image.ImageIoException: missing causeMessage");
-        this.imageUrl = null;
+        this.imageUrl = com.google.common.base.Optional.absent();
     }
 
-    public ImageIoException(final String causeMessage, final String imageUrl) {
+    public ImageIoException(final String causeMessage, final com.google.common.base.Optional<String> imageUrl) {
         this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage, "com.yogento.api.services.image.ImageIoException: missing causeMessage");
-        this.imageUrl = imageUrl;
+        this.imageUrl = com.google.common.base.Preconditions.checkNotNull(imageUrl, "com.yogento.api.services.image.ImageIoException: missing imageUrl");
     }
 
     @Override
@@ -103,9 +108,7 @@ public class ImageIoException extends java.lang.Exception implements org.thryft.
         final ImageIoException other = (ImageIoException)otherObject;
         return
             getCauseMessage().equals(other.getCauseMessage()) &&
-            ((getImageUrl() == null && other.getImageUrl() == null) ||
-            (getImageUrl() != null && other.getImageUrl() != null &&
-            getImageUrl().equals(other.getImageUrl())));
+            getImageUrl().equals(other.getImageUrl());
     }
 
     public Object get(final String fieldName) {
@@ -114,14 +117,14 @@ public class ImageIoException extends java.lang.Exception implements org.thryft.
         } else if (fieldName.equals("image_url")) {
             return getImageUrl();
         }
-        return null;
+        throw new IllegalArgumentException(fieldName);
     }
 
     public final String getCauseMessage() {
         return causeMessage;
     }
 
-    public final String getImageUrl() {
+    public final com.google.common.base.Optional<String> getImageUrl() {
         return imageUrl;
     }
 
@@ -134,8 +137,8 @@ public class ImageIoException extends java.lang.Exception implements org.thryft.
     public int hashCode() {
         int hashCode = 17;
         hashCode = 31 * hashCode + getCauseMessage().hashCode();
-        if (getImageUrl() != null) {
-            hashCode = 31 * hashCode + getImageUrl().hashCode();
+        if (getImageUrl().isPresent()) {
+            hashCode = 31 * hashCode + getImageUrl().get().hashCode();
         }
         return hashCode;
     }
@@ -144,7 +147,7 @@ public class ImageIoException extends java.lang.Exception implements org.thryft.
     public String toString() {
         final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
         helper.add("cause_message", getCauseMessage());
-        if (getImageUrl() != null) {
+        if (getImageUrl().isPresent()) {
             helper.add("image_url", getImageUrl());
         }
         return helper.toString();
@@ -163,10 +166,10 @@ public class ImageIoException extends java.lang.Exception implements org.thryft.
 
                 oprot.writeString(getCauseMessage());
 
-                if (getImageUrl() != null) {
-                    oprot.writeString(getImageUrl());
+                if (getImageUrl().isPresent()) {
+                    oprot.writeString(getImageUrl().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
                 oprot.writeListEnd();
@@ -180,9 +183,9 @@ public class ImageIoException extends java.lang.Exception implements org.thryft.
                 oprot.writeString(getCauseMessage());
                 oprot.writeFieldEnd();
 
-                if (getImageUrl() != null) {
+                if (getImageUrl().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("image_url", org.thryft.protocol.TType.STRING, (short)-1));
-                    oprot.writeString(getImageUrl());
+                    oprot.writeString(getImageUrl().get());
                     oprot.writeFieldEnd();
                 }
 
@@ -195,5 +198,5 @@ public class ImageIoException extends java.lang.Exception implements org.thryft.
 
     private final String causeMessage;
 
-    private final String imageUrl;
+    private final com.google.common.base.Optional<String> imageUrl;
 }

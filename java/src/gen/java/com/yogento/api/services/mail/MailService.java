@@ -10,10 +10,10 @@ public interface MailService {
 
                 public Builder(final deleteMailCampaignRequest other) {
                     this.cid = other.getCid();
-                    this.writeThrough = other.isWriteThrough();
+                    this.writeThrough = other.getWriteThrough();
                 }
 
-                protected deleteMailCampaignRequest _build(final String cid, final Boolean writeThrough) {
+                protected deleteMailCampaignRequest _build(final String cid, final com.google.common.base.Optional<Boolean> writeThrough) {
                     return new deleteMailCampaignRequest(cid, writeThrough);
                 }
 
@@ -26,17 +26,22 @@ public interface MailService {
                     return this;
                 }
 
-                public Builder setWriteThrough(final Boolean writeThrough) {
+                public Builder setWriteThrough(final com.google.common.base.Optional<Boolean> writeThrough) {
                     this.writeThrough = writeThrough;
                     return this;
                 }
 
+                public Builder setWriteThrough(final boolean writeThrough) {
+                    this.writeThrough = com.google.common.base.Optional.of(writeThrough);
+                    return this;
+                }
+
                 private String cid;
-                private Boolean writeThrough;
+                private com.google.common.base.Optional<Boolean> writeThrough = com.google.common.base.Optional.absent();
             }
 
             public deleteMailCampaignRequest(final deleteMailCampaignRequest other) {
-                this(other.getCid(), other.isWriteThrough());
+                this(other.getCid(), other.getWriteThrough());
             }
 
             public deleteMailCampaignRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
@@ -45,14 +50,14 @@ public interface MailService {
 
             public deleteMailCampaignRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String cid = null;
-                Boolean writeThrough = null;
+                com.google.common.base.Optional<Boolean> writeThrough = com.google.common.base.Optional.absent();
 
                 switch (readAsTType) {
                     case org.thryft.protocol.TType.LIST:
                         final org.thryft.protocol.TList __list = iprot.readListBegin();
                         cid = iprot.readString();
                         if (__list.size > 1) {
-                            writeThrough = iprot.readBool();
+                            writeThrough = com.google.common.base.Optional.of(iprot.readBool());
                         }
                         iprot.readListEnd();
                         break;
@@ -67,7 +72,7 @@ public interface MailService {
                             } else if (ifield.name.equals("cid")) {
                                 cid = iprot.readString();
                             } else if (ifield.name.equals("write_through")) {
-                                writeThrough = iprot.readBool();
+                                writeThrough = com.google.common.base.Optional.of(iprot.readBool());
                             }
                             iprot.readFieldEnd();
                         }
@@ -81,10 +86,10 @@ public interface MailService {
 
             public deleteMailCampaignRequest(final String cid) {
                 this.cid = com.google.common.base.Preconditions.checkNotNull(cid, "com.yogento.api.services.mail.deleteMailCampaignRequest: missing cid");
-                this.writeThrough = null;
+                this.writeThrough = com.google.common.base.Optional.absent();
             }
 
-            public deleteMailCampaignRequest(final String cid, final Boolean writeThrough) {
+            public deleteMailCampaignRequest(final String cid, final com.google.common.base.Optional<Boolean> writeThrough) {
                 this.cid = com.google.common.base.Preconditions.checkNotNull(cid, "com.yogento.api.services.mail.deleteMailCampaignRequest: missing cid");
                 this.writeThrough = writeThrough;
             }
@@ -105,44 +110,42 @@ public interface MailService {
                 final deleteMailCampaignRequest other = (deleteMailCampaignRequest)otherObject;
                 return
                     getCid().equals(other.getCid()) &&
-                    ((isWriteThrough() == null && other.isWriteThrough() == null) ||
-                    (isWriteThrough() != null && other.isWriteThrough() != null &&
-                    isWriteThrough().equals(other.isWriteThrough())));
+                    getWriteThrough().equals(other.getWriteThrough());
             }
 
             public Object get(final String fieldName) {
                 if (fieldName.equals("cid")) {
                     return getCid();
                 } else if (fieldName.equals("write_through")) {
-                    return isWriteThrough();
+                    return getWriteThrough();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final String getCid() {
                 return cid;
             }
 
+            public final com.google.common.base.Optional<Boolean> getWriteThrough() {
+                return writeThrough;
+            }
+
             @Override
             public int hashCode() {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getCid().hashCode();
-                if (isWriteThrough() != null) {
-                    hashCode = 31 * hashCode + (isWriteThrough() ? 1 : 0);
+                if (getWriteThrough().isPresent()) {
+                    hashCode = 31 * hashCode + (getWriteThrough().get() ? 1 : 0);
                 }
                 return hashCode;
-            }
-
-            public final Boolean isWriteThrough() {
-                return writeThrough;
             }
 
             @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("cid", getCid());
-                if (isWriteThrough() != null) {
-                    helper.add("write_through", isWriteThrough());
+                if (getWriteThrough().isPresent()) {
+                    helper.add("write_through", getWriteThrough());
                 }
                 return helper.toString();
             }
@@ -160,10 +163,10 @@ public interface MailService {
 
                         oprot.writeString(getCid());
 
-                        if (isWriteThrough() != null) {
-                            oprot.writeBool(isWriteThrough());
+                        if (getWriteThrough().isPresent()) {
+                            oprot.writeBool(getWriteThrough().get());
                         } else {
-                            ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                            oprot.writeNull();
                         }
 
                         oprot.writeListEnd();
@@ -177,9 +180,9 @@ public interface MailService {
                         oprot.writeString(getCid());
                         oprot.writeFieldEnd();
 
-                        if (isWriteThrough() != null) {
+                        if (getWriteThrough().isPresent()) {
                             oprot.writeFieldBegin(new org.thryft.protocol.TField("write_through", org.thryft.protocol.TType.BOOL, (short)-1));
-                            oprot.writeBool(isWriteThrough());
+                            oprot.writeBool(getWriteThrough().get());
                             oprot.writeFieldEnd();
                         }
 
@@ -192,7 +195,7 @@ public interface MailService {
 
             private final String cid;
 
-            private final Boolean writeThrough;
+            private final com.google.common.base.Optional<Boolean> writeThrough;
         }
 
         @SuppressWarnings({"serial"})
@@ -259,7 +262,7 @@ public interface MailService {
                 if (fieldName.equals("return_value")) {
                     return isReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             @Override
@@ -322,10 +325,10 @@ public interface MailService {
 
                 public Builder(final getMailCampaignRequest other) {
                     this.cid = other.getCid();
-                    this.includeContent = other.isIncludeContent();
+                    this.includeContent = other.getIncludeContent();
                 }
 
-                protected getMailCampaignRequest _build(final String cid, final Boolean includeContent) {
+                protected getMailCampaignRequest _build(final String cid, final com.google.common.base.Optional<Boolean> includeContent) {
                     return new getMailCampaignRequest(cid, includeContent);
                 }
 
@@ -338,17 +341,22 @@ public interface MailService {
                     return this;
                 }
 
-                public Builder setIncludeContent(final Boolean includeContent) {
+                public Builder setIncludeContent(final com.google.common.base.Optional<Boolean> includeContent) {
                     this.includeContent = includeContent;
                     return this;
                 }
 
+                public Builder setIncludeContent(final boolean includeContent) {
+                    this.includeContent = com.google.common.base.Optional.of(includeContent);
+                    return this;
+                }
+
                 private String cid;
-                private Boolean includeContent;
+                private com.google.common.base.Optional<Boolean> includeContent = com.google.common.base.Optional.absent();
             }
 
             public getMailCampaignRequest(final getMailCampaignRequest other) {
-                this(other.getCid(), other.isIncludeContent());
+                this(other.getCid(), other.getIncludeContent());
             }
 
             public getMailCampaignRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
@@ -357,14 +365,14 @@ public interface MailService {
 
             public getMailCampaignRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String cid = null;
-                Boolean includeContent = null;
+                com.google.common.base.Optional<Boolean> includeContent = com.google.common.base.Optional.absent();
 
                 switch (readAsTType) {
                     case org.thryft.protocol.TType.LIST:
                         final org.thryft.protocol.TList __list = iprot.readListBegin();
                         cid = iprot.readString();
                         if (__list.size > 1) {
-                            includeContent = iprot.readBool();
+                            includeContent = com.google.common.base.Optional.of(iprot.readBool());
                         }
                         iprot.readListEnd();
                         break;
@@ -379,7 +387,7 @@ public interface MailService {
                             } else if (ifield.name.equals("cid")) {
                                 cid = iprot.readString();
                             } else if (ifield.name.equals("include_content")) {
-                                includeContent = iprot.readBool();
+                                includeContent = com.google.common.base.Optional.of(iprot.readBool());
                             }
                             iprot.readFieldEnd();
                         }
@@ -393,10 +401,10 @@ public interface MailService {
 
             public getMailCampaignRequest(final String cid) {
                 this.cid = com.google.common.base.Preconditions.checkNotNull(cid, "com.yogento.api.services.mail.getMailCampaignRequest: missing cid");
-                this.includeContent = null;
+                this.includeContent = com.google.common.base.Optional.absent();
             }
 
-            public getMailCampaignRequest(final String cid, final Boolean includeContent) {
+            public getMailCampaignRequest(final String cid, final com.google.common.base.Optional<Boolean> includeContent) {
                 this.cid = com.google.common.base.Preconditions.checkNotNull(cid, "com.yogento.api.services.mail.getMailCampaignRequest: missing cid");
                 this.includeContent = includeContent;
             }
@@ -417,44 +425,42 @@ public interface MailService {
                 final getMailCampaignRequest other = (getMailCampaignRequest)otherObject;
                 return
                     getCid().equals(other.getCid()) &&
-                    ((isIncludeContent() == null && other.isIncludeContent() == null) ||
-                    (isIncludeContent() != null && other.isIncludeContent() != null &&
-                    isIncludeContent().equals(other.isIncludeContent())));
+                    getIncludeContent().equals(other.getIncludeContent());
             }
 
             public Object get(final String fieldName) {
                 if (fieldName.equals("cid")) {
                     return getCid();
                 } else if (fieldName.equals("include_content")) {
-                    return isIncludeContent();
+                    return getIncludeContent();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final String getCid() {
                 return cid;
             }
 
+            public final com.google.common.base.Optional<Boolean> getIncludeContent() {
+                return includeContent;
+            }
+
             @Override
             public int hashCode() {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getCid().hashCode();
-                if (isIncludeContent() != null) {
-                    hashCode = 31 * hashCode + (isIncludeContent() ? 1 : 0);
+                if (getIncludeContent().isPresent()) {
+                    hashCode = 31 * hashCode + (getIncludeContent().get() ? 1 : 0);
                 }
                 return hashCode;
-            }
-
-            public final Boolean isIncludeContent() {
-                return includeContent;
             }
 
             @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("cid", getCid());
-                if (isIncludeContent() != null) {
-                    helper.add("include_content", isIncludeContent());
+                if (getIncludeContent().isPresent()) {
+                    helper.add("include_content", getIncludeContent());
                 }
                 return helper.toString();
             }
@@ -472,10 +478,10 @@ public interface MailService {
 
                         oprot.writeString(getCid());
 
-                        if (isIncludeContent() != null) {
-                            oprot.writeBool(isIncludeContent());
+                        if (getIncludeContent().isPresent()) {
+                            oprot.writeBool(getIncludeContent().get());
                         } else {
-                            ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                            oprot.writeNull();
                         }
 
                         oprot.writeListEnd();
@@ -489,9 +495,9 @@ public interface MailService {
                         oprot.writeString(getCid());
                         oprot.writeFieldEnd();
 
-                        if (isIncludeContent() != null) {
+                        if (getIncludeContent().isPresent()) {
                             oprot.writeFieldBegin(new org.thryft.protocol.TField("include_content", org.thryft.protocol.TType.BOOL, (short)-1));
-                            oprot.writeBool(isIncludeContent());
+                            oprot.writeBool(getIncludeContent().get());
                             oprot.writeFieldEnd();
                         }
 
@@ -504,7 +510,7 @@ public interface MailService {
 
             private final String cid;
 
-            private final Boolean includeContent;
+            private final com.google.common.base.Optional<Boolean> includeContent;
         }
 
         @SuppressWarnings({"serial"})
@@ -567,7 +573,7 @@ public interface MailService {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final com.yogento.api.models.mail.campaign.MailCampaign getReturnValue() {
@@ -633,10 +639,10 @@ public interface MailService {
                 }
 
                 public Builder(final getMailCampaignsRequest other) {
-                    this.includeContent = other.isIncludeContent();
+                    this.includeContent = other.getIncludeContent();
                 }
 
-                protected getMailCampaignsRequest _build(final Boolean includeContent) {
+                protected getMailCampaignsRequest _build(final com.google.common.base.Optional<Boolean> includeContent) {
                     return new getMailCampaignsRequest(includeContent);
                 }
 
@@ -644,20 +650,25 @@ public interface MailService {
                     return _build(includeContent);
                 }
 
-                public Builder setIncludeContent(final Boolean includeContent) {
+                public Builder setIncludeContent(final com.google.common.base.Optional<Boolean> includeContent) {
                     this.includeContent = includeContent;
                     return this;
                 }
 
-                private Boolean includeContent;
+                public Builder setIncludeContent(final boolean includeContent) {
+                    this.includeContent = com.google.common.base.Optional.of(includeContent);
+                    return this;
+                }
+
+                private com.google.common.base.Optional<Boolean> includeContent = com.google.common.base.Optional.absent();
             }
 
             public getMailCampaignsRequest() {
-                includeContent = null;
+                includeContent = com.google.common.base.Optional.absent();
             }
 
             public getMailCampaignsRequest(final getMailCampaignsRequest other) {
-                this(other.isIncludeContent());
+                this(other.getIncludeContent());
             }
 
             public getMailCampaignsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
@@ -665,13 +676,13 @@ public interface MailService {
             }
 
             public getMailCampaignsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
-                Boolean includeContent = null;
+                com.google.common.base.Optional<Boolean> includeContent = com.google.common.base.Optional.absent();
 
                 switch (readAsTType) {
                     case org.thryft.protocol.TType.LIST:
                         final org.thryft.protocol.TList __list = iprot.readListBegin();
                         if (__list.size > 0) {
-                            includeContent = iprot.readBool();
+                            includeContent = com.google.common.base.Optional.of(iprot.readBool());
                         }
                         iprot.readListEnd();
                         break;
@@ -684,7 +695,7 @@ public interface MailService {
                             if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("include_content")) {
-                                includeContent = iprot.readBool();
+                                includeContent = com.google.common.base.Optional.of(iprot.readBool());
                             }
                             iprot.readFieldEnd();
                         }
@@ -695,7 +706,7 @@ public interface MailService {
                 this.includeContent = includeContent;
             }
 
-            public getMailCampaignsRequest(final Boolean includeContent) {
+            public getMailCampaignsRequest(final com.google.common.base.Optional<Boolean> includeContent) {
                 this.includeContent = includeContent;
             }
 
@@ -714,36 +725,34 @@ public interface MailService {
 
                 final getMailCampaignsRequest other = (getMailCampaignsRequest)otherObject;
                 return
-                    ((isIncludeContent() == null && other.isIncludeContent() == null) ||
-                    (isIncludeContent() != null && other.isIncludeContent() != null &&
-                    isIncludeContent().equals(other.isIncludeContent())));
+                    getIncludeContent().equals(other.getIncludeContent());
             }
 
             public Object get(final String fieldName) {
                 if (fieldName.equals("include_content")) {
-                    return isIncludeContent();
+                    return getIncludeContent();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
+            }
+
+            public final com.google.common.base.Optional<Boolean> getIncludeContent() {
+                return includeContent;
             }
 
             @Override
             public int hashCode() {
                 int hashCode = 17;
-                if (isIncludeContent() != null) {
-                    hashCode = 31 * hashCode + (isIncludeContent() ? 1 : 0);
+                if (getIncludeContent().isPresent()) {
+                    hashCode = 31 * hashCode + (getIncludeContent().get() ? 1 : 0);
                 }
                 return hashCode;
-            }
-
-            public final Boolean isIncludeContent() {
-                return includeContent;
             }
 
             @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
-                if (isIncludeContent() != null) {
-                    helper.add("include_content", isIncludeContent());
+                if (getIncludeContent().isPresent()) {
+                    helper.add("include_content", getIncludeContent());
                 }
                 return helper.toString();
             }
@@ -759,10 +768,10 @@ public interface MailService {
                     case org.thryft.protocol.TType.LIST:
                         oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
-                        if (isIncludeContent() != null) {
-                            oprot.writeBool(isIncludeContent());
+                        if (getIncludeContent().isPresent()) {
+                            oprot.writeBool(getIncludeContent().get());
                         } else {
-                            ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                            oprot.writeNull();
                         }
 
                         oprot.writeListEnd();
@@ -772,9 +781,9 @@ public interface MailService {
                     default:
                         oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailCampaignsRequest"));
 
-                        if (isIncludeContent() != null) {
+                        if (getIncludeContent().isPresent()) {
                             oprot.writeFieldBegin(new org.thryft.protocol.TField("include_content", org.thryft.protocol.TType.BOOL, (short)-1));
-                            oprot.writeBool(isIncludeContent());
+                            oprot.writeBool(getIncludeContent().get());
                             oprot.writeFieldEnd();
                         }
 
@@ -785,7 +794,7 @@ public interface MailService {
                 }
             }
 
-            private final Boolean includeContent;
+            private final com.google.common.base.Optional<Boolean> includeContent;
         }
 
         @SuppressWarnings({"serial"})
@@ -863,7 +872,7 @@ public interface MailService {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.campaign.MailCampaign> getReturnValue() {
@@ -1023,7 +1032,7 @@ public interface MailService {
                 if (fieldName.equals("cid")) {
                     return getCid();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final String getCid() {
@@ -1138,7 +1147,7 @@ public interface MailService {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final com.yogento.api.models.mail.campaign.MailCampaignStats getReturnValue() {
@@ -1264,7 +1273,7 @@ public interface MailService {
             }
 
             public Object get(final String fieldName) {
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             @Override
@@ -1379,7 +1388,7 @@ public interface MailService {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.list.MailList> getReturnValue() {
@@ -1460,7 +1469,7 @@ public interface MailService {
                     this.types = other.getTypes();
                 }
 
-                protected getMailTemplatesRequest _build(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> types) {
+                protected getMailTemplatesRequest _build(final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType>> types) {
                     return new getMailTemplatesRequest(types);
                 }
 
@@ -1468,19 +1477,24 @@ public interface MailService {
                     return _build(types);
                 }
 
-                public Builder setTypes(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> types) {
+                public Builder setTypes(final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType>> types) {
                     this.types = types;
+                    return this;
+                }
+
+                public Builder setTypes(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> types) {
+                    this.types = com.google.common.base.Optional.of(types);
                     return this;
                 }
 
                 /**
                  * types of mail templates to include
                  */
-                private com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> types;
+                private com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType>> types = com.google.common.base.Optional.absent();
             }
 
             public getMailTemplatesRequest() {
-                types = null;
+                types = com.google.common.base.Optional.absent();
             }
 
             public getMailTemplatesRequest(final getMailTemplatesRequest other) {
@@ -1492,13 +1506,13 @@ public interface MailService {
             }
 
             public getMailTemplatesRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
-                com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> types = null;
+                com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType>> types = com.google.common.base.Optional.absent();
 
                 switch (readAsTType) {
                     case org.thryft.protocol.TType.LIST:
                         final org.thryft.protocol.TList __list = iprot.readListBegin();
                         if (__list.size > 0) {
-                            types = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType>>() {
+                            types = com.google.common.base.Optional.of((new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType>>() {
                                 @Override
                                 public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> apply(final org.thryft.protocol.TProtocol iprot) {
                                     try {
@@ -1513,7 +1527,7 @@ public interface MailService {
                                         return com.google.common.collect.ImmutableSet.of();
                                     }
                                 }
-                            }).apply(iprot);
+                            }).apply(iprot));
                         }
                         iprot.readListEnd();
                         break;
@@ -1526,7 +1540,7 @@ public interface MailService {
                             if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("types")) {
-                                types = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType>>() {
+                                types = com.google.common.base.Optional.of((new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType>>() {
                                     @Override
                                     public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> apply(final org.thryft.protocol.TProtocol iprot) {
                                         try {
@@ -1541,7 +1555,7 @@ public interface MailService {
                                             return com.google.common.collect.ImmutableSet.of();
                                         }
                                     }
-                                }).apply(iprot);
+                                }).apply(iprot));
                             }
                             iprot.readFieldEnd();
                         }
@@ -1552,8 +1566,8 @@ public interface MailService {
                 this.types = types;
             }
 
-            public getMailTemplatesRequest(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> types) {
-                this.types = types;
+            public getMailTemplatesRequest(final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType>> types) {
+                this.types = com.google.common.base.Preconditions.checkNotNull(types, "com.yogento.api.services.mail.getMailTemplatesRequest: missing types");
             }
 
             @Override
@@ -1571,30 +1585,28 @@ public interface MailService {
 
                 final getMailTemplatesRequest other = (getMailTemplatesRequest)otherObject;
                 return
-                    ((getTypes() == null && other.getTypes() == null) ||
-                    (getTypes() != null && other.getTypes() != null &&
-                    getTypes().equals(other.getTypes())));
+                    getTypes().equals(other.getTypes());
             }
 
             public Object get(final String fieldName) {
                 if (fieldName.equals("types")) {
                     return getTypes();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             /**
              * types of mail templates to include
              */
-            public final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> getTypes() {
+            public final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType>> getTypes() {
                 return types;
             }
 
             @Override
             public int hashCode() {
                 int hashCode = 17;
-                if (getTypes() != null) {
-                    hashCode = 31 * hashCode + getTypes().hashCode();
+                if (getTypes().isPresent()) {
+                    hashCode = 31 * hashCode + getTypes().get().hashCode();
                 }
                 return hashCode;
             }
@@ -1602,7 +1614,7 @@ public interface MailService {
             @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
-                if (getTypes() != null) {
+                if (getTypes().isPresent()) {
                     helper.add("types", getTypes());
                 }
                 return helper.toString();
@@ -1616,8 +1628,8 @@ public interface MailService {
             public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
                     case org.thryft.protocol.TType.VOID: {
-                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getTypes().size()));
-                        for (final com.yogento.api.models.mail.template.MailTemplateType _iter0 : getTypes()) {
+                        oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getTypes().get().size()));
+                        for (final com.yogento.api.models.mail.template.MailTemplateType _iter0 : getTypes().get()) {
                             _iter0.write(oprot);
                         }
                         oprot.writeSetEnd();
@@ -1627,14 +1639,14 @@ public interface MailService {
                     case org.thryft.protocol.TType.LIST:
                         oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
-                        if (getTypes() != null) {
-                            oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getTypes().size()));
-                            for (final com.yogento.api.models.mail.template.MailTemplateType _iter0 : getTypes()) {
+                        if (getTypes().isPresent()) {
+                            oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getTypes().get().size()));
+                            for (final com.yogento.api.models.mail.template.MailTemplateType _iter0 : getTypes().get()) {
                                 _iter0.write(oprot);
                             }
                             oprot.writeSetEnd();
                         } else {
-                            ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                            oprot.writeNull();
                         }
 
                         oprot.writeListEnd();
@@ -1644,10 +1656,10 @@ public interface MailService {
                     default:
                         oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailTemplatesRequest"));
 
-                        if (getTypes() != null) {
+                        if (getTypes().isPresent()) {
                             oprot.writeFieldBegin(new org.thryft.protocol.TField("types", org.thryft.protocol.TType.SET, (short)-1));
-                            oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getTypes().size()));
-                            for (final com.yogento.api.models.mail.template.MailTemplateType _iter0 : getTypes()) {
+                            oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getTypes().get().size()));
+                            for (final com.yogento.api.models.mail.template.MailTemplateType _iter0 : getTypes().get()) {
                                 _iter0.write(oprot);
                             }
                             oprot.writeSetEnd();
@@ -1664,7 +1676,7 @@ public interface MailService {
             /**
              * types of mail templates to include
              */
-            private final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> types;
+            private final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType>> types;
         }
 
         @SuppressWarnings({"serial"})
@@ -1745,7 +1757,7 @@ public interface MailService {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             /**
@@ -1833,7 +1845,7 @@ public interface MailService {
                     this.type = other.getType();
                 }
 
-                protected getMailTemplateInfoRequest _build(final int tid, final com.yogento.api.models.mail.template.MailTemplateType type) {
+                protected getMailTemplateInfoRequest _build(final int tid, final com.google.common.base.Optional<com.yogento.api.models.mail.template.MailTemplateType> type) {
                     return new getMailTemplateInfoRequest(tid, type);
                 }
 
@@ -1846,13 +1858,18 @@ public interface MailService {
                     return this;
                 }
 
-                public Builder setType(final com.yogento.api.models.mail.template.MailTemplateType type) {
+                public Builder setType(final com.google.common.base.Optional<com.yogento.api.models.mail.template.MailTemplateType> type) {
                     this.type = type;
                     return this;
                 }
 
+                public Builder setType(final com.yogento.api.models.mail.template.MailTemplateType type) {
+                    this.type = com.google.common.base.Optional.of(type);
+                    return this;
+                }
+
                 private Integer tid;
-                private com.yogento.api.models.mail.template.MailTemplateType type;
+                private com.google.common.base.Optional<com.yogento.api.models.mail.template.MailTemplateType> type = com.google.common.base.Optional.absent();
             }
 
             public getMailTemplateInfoRequest(final getMailTemplateInfoRequest other) {
@@ -1865,14 +1882,14 @@ public interface MailService {
 
             public getMailTemplateInfoRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 int tid = 0;
-                com.yogento.api.models.mail.template.MailTemplateType type = null;
+                com.google.common.base.Optional<com.yogento.api.models.mail.template.MailTemplateType> type = com.google.common.base.Optional.absent();
 
                 switch (readAsTType) {
                     case org.thryft.protocol.TType.LIST:
                         final org.thryft.protocol.TList __list = iprot.readListBegin();
                         tid = iprot.readI32();
                         if (__list.size > 1) {
-                            type = new com.yogento.api.models.mail.template.MailTemplateType(iprot);
+                            type = com.google.common.base.Optional.of(new com.yogento.api.models.mail.template.MailTemplateType(iprot));
                         }
                         iprot.readListEnd();
                         break;
@@ -1887,7 +1904,7 @@ public interface MailService {
                             } else if (ifield.name.equals("tid")) {
                                 tid = iprot.readI32();
                             } else if (ifield.name.equals("type")) {
-                                type = new com.yogento.api.models.mail.template.MailTemplateType(iprot);
+                                type = com.google.common.base.Optional.of(new com.yogento.api.models.mail.template.MailTemplateType(iprot));
                             }
                             iprot.readFieldEnd();
                         }
@@ -1901,17 +1918,17 @@ public interface MailService {
 
             public getMailTemplateInfoRequest(final int tid) {
                 this.tid = tid;
-                this.type = null;
+                this.type = com.google.common.base.Optional.absent();
             }
 
-            public getMailTemplateInfoRequest(final int tid, final com.yogento.api.models.mail.template.MailTemplateType type) {
+            public getMailTemplateInfoRequest(final int tid, final com.google.common.base.Optional<com.yogento.api.models.mail.template.MailTemplateType> type) {
                 this.tid = tid;
-                this.type = type;
+                this.type = com.google.common.base.Preconditions.checkNotNull(type, "com.yogento.api.services.mail.getMailTemplateInfoRequest: missing type");
             }
 
-            public getMailTemplateInfoRequest(final Integer tid, final com.yogento.api.models.mail.template.MailTemplateType type) {
+            public getMailTemplateInfoRequest(final Integer tid, final com.google.common.base.Optional<com.yogento.api.models.mail.template.MailTemplateType> type) {
                 this.tid = tid;
-                this.type = type;
+                this.type = com.google.common.base.Preconditions.checkNotNull(type, "com.yogento.api.services.mail.getMailTemplateInfoRequest: missing type");
             }
 
             @Override
@@ -1930,9 +1947,7 @@ public interface MailService {
                 final getMailTemplateInfoRequest other = (getMailTemplateInfoRequest)otherObject;
                 return
                     getTid() == other.getTid() &&
-                    ((getType() == null && other.getType() == null) ||
-                    (getType() != null && other.getType() != null &&
-                    getType().equals(other.getType())));
+                    getType().equals(other.getType());
             }
 
             public Object get(final String fieldName) {
@@ -1941,14 +1956,14 @@ public interface MailService {
                 } else if (fieldName.equals("type")) {
                     return getType();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final int getTid() {
                 return tid;
             }
 
-            public final com.yogento.api.models.mail.template.MailTemplateType getType() {
+            public final com.google.common.base.Optional<com.yogento.api.models.mail.template.MailTemplateType> getType() {
                 return type;
             }
 
@@ -1956,8 +1971,8 @@ public interface MailService {
             public int hashCode() {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + ((int)getTid());
-                if (getType() != null) {
-                    hashCode = 31 * hashCode + getType().hashCode();
+                if (getType().isPresent()) {
+                    hashCode = 31 * hashCode + getType().get().hashCode();
                 }
                 return hashCode;
             }
@@ -1966,7 +1981,7 @@ public interface MailService {
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("tid", getTid());
-                if (getType() != null) {
+                if (getType().isPresent()) {
                     helper.add("type", getType());
                 }
                 return helper.toString();
@@ -1985,10 +2000,10 @@ public interface MailService {
 
                         oprot.writeI32(getTid());
 
-                        if (getType() != null) {
-                            getType().write(oprot);
+                        if (getType().isPresent()) {
+                            getType().get().write(oprot);
                         } else {
-                            ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                            oprot.writeNull();
                         }
 
                         oprot.writeListEnd();
@@ -2002,9 +2017,9 @@ public interface MailService {
                         oprot.writeI32(getTid());
                         oprot.writeFieldEnd();
 
-                        if (getType() != null) {
+                        if (getType().isPresent()) {
                             oprot.writeFieldBegin(new org.thryft.protocol.TField("type", org.thryft.protocol.TType.STRUCT, (short)-1));
-                            getType().write(oprot);
+                            getType().get().write(oprot);
                             oprot.writeFieldEnd();
                         }
 
@@ -2017,7 +2032,7 @@ public interface MailService {
 
             private final int tid;
 
-            private final com.yogento.api.models.mail.template.MailTemplateType type;
+            private final com.google.common.base.Optional<com.yogento.api.models.mail.template.MailTemplateType> type;
         }
 
         @SuppressWarnings({"serial"})
@@ -2080,7 +2095,7 @@ public interface MailService {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final com.yogento.api.models.mail.template.MailTemplateInfo getReturnValue() {
@@ -2152,7 +2167,7 @@ public interface MailService {
                     this.testEmails = other.getTestEmails();
                 }
 
-                protected postMailCampaignRequest _build(final com.yogento.api.models.mail.campaign.MailCampaign campaign, final org.joda.time.DateTime scheduleTime, final org.joda.time.DateTime scheduleTimeB, final com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> testEmails) {
+                protected postMailCampaignRequest _build(final com.yogento.api.models.mail.campaign.MailCampaign campaign, final com.google.common.base.Optional<org.joda.time.DateTime> scheduleTime, final com.google.common.base.Optional<org.joda.time.DateTime> scheduleTimeB, final com.google.common.base.Optional<com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>> testEmails) {
                     return new postMailCampaignRequest(campaign, scheduleTime, scheduleTimeB, testEmails);
                 }
 
@@ -2165,25 +2180,40 @@ public interface MailService {
                     return this;
                 }
 
-                public Builder setScheduleTime(final org.joda.time.DateTime scheduleTime) {
+                public Builder setScheduleTime(final com.google.common.base.Optional<org.joda.time.DateTime> scheduleTime) {
                     this.scheduleTime = scheduleTime;
                     return this;
                 }
 
-                public Builder setScheduleTimeB(final org.joda.time.DateTime scheduleTimeB) {
+                public Builder setScheduleTime(final org.joda.time.DateTime scheduleTime) {
+                    this.scheduleTime = com.google.common.base.Optional.of(scheduleTime);
+                    return this;
+                }
+
+                public Builder setScheduleTimeB(final com.google.common.base.Optional<org.joda.time.DateTime> scheduleTimeB) {
                     this.scheduleTimeB = scheduleTimeB;
                     return this;
                 }
 
-                public Builder setTestEmails(final com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> testEmails) {
+                public Builder setScheduleTimeB(final org.joda.time.DateTime scheduleTimeB) {
+                    this.scheduleTimeB = com.google.common.base.Optional.of(scheduleTimeB);
+                    return this;
+                }
+
+                public Builder setTestEmails(final com.google.common.base.Optional<com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>> testEmails) {
                     this.testEmails = testEmails;
                     return this;
                 }
 
+                public Builder setTestEmails(final com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> testEmails) {
+                    this.testEmails = com.google.common.base.Optional.of(testEmails);
+                    return this;
+                }
+
                 private com.yogento.api.models.mail.campaign.MailCampaign campaign;
-                private org.joda.time.DateTime scheduleTime;
-                private org.joda.time.DateTime scheduleTimeB;
-                private com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> testEmails;
+                private com.google.common.base.Optional<org.joda.time.DateTime> scheduleTime = com.google.common.base.Optional.absent();
+                private com.google.common.base.Optional<org.joda.time.DateTime> scheduleTimeB = com.google.common.base.Optional.absent();
+                private com.google.common.base.Optional<com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>> testEmails = com.google.common.base.Optional.absent();
             }
 
             public postMailCampaignRequest(final postMailCampaignRequest other) {
@@ -2196,9 +2226,9 @@ public interface MailService {
 
             public postMailCampaignRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 com.yogento.api.models.mail.campaign.MailCampaign campaign = null;
-                org.joda.time.DateTime scheduleTime = null;
-                org.joda.time.DateTime scheduleTimeB = null;
-                com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> testEmails = null;
+                com.google.common.base.Optional<org.joda.time.DateTime> scheduleTime = com.google.common.base.Optional.absent();
+                com.google.common.base.Optional<org.joda.time.DateTime> scheduleTimeB = com.google.common.base.Optional.absent();
+                com.google.common.base.Optional<com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>> testEmails = com.google.common.base.Optional.absent();
 
                 switch (readAsTType) {
                     case org.thryft.protocol.TType.LIST:
@@ -2206,18 +2236,18 @@ public interface MailService {
                         campaign = new com.yogento.api.models.mail.campaign.MailCampaign(iprot);
                         if (__list.size > 1) {
                             try {
-                                scheduleTime = iprot.readDateTime();
+                                scheduleTime = com.google.common.base.Optional.of(iprot.readDateTime());
                             } catch (IllegalArgumentException e) {
                             }
                         }
                         if (__list.size > 2) {
                             try {
-                                scheduleTimeB = iprot.readDateTime();
+                                scheduleTimeB = com.google.common.base.Optional.of(iprot.readDateTime());
                             } catch (IllegalArgumentException e) {
                             }
                         }
                         if (__list.size > 3) {
-                            testEmails = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>>() {
+                            testEmails = com.google.common.base.Optional.of((new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>>() {
                                 @Override
                                 public com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> apply(final org.thryft.protocol.TProtocol iprot) {
                                     try {
@@ -2232,7 +2262,7 @@ public interface MailService {
                                         return com.google.common.collect.ImmutableList.of();
                                     }
                                 }
-                            }).apply(iprot);
+                            }).apply(iprot));
                         }
                         iprot.readListEnd();
                         break;
@@ -2248,16 +2278,16 @@ public interface MailService {
                                 campaign = new com.yogento.api.models.mail.campaign.MailCampaign(iprot);
                             } else if (ifield.name.equals("schedule_time")) {
                                 try {
-                                    scheduleTime = iprot.readDateTime();
+                                    scheduleTime = com.google.common.base.Optional.of(iprot.readDateTime());
                                 } catch (IllegalArgumentException e) {
                                 }
                             } else if (ifield.name.equals("schedule_time_b")) {
                                 try {
-                                    scheduleTimeB = iprot.readDateTime();
+                                    scheduleTimeB = com.google.common.base.Optional.of(iprot.readDateTime());
                                 } catch (IllegalArgumentException e) {
                                 }
                             } else if (ifield.name.equals("test_emails")) {
-                                testEmails = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>>() {
+                                testEmails = com.google.common.base.Optional.of((new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>>() {
                                     @Override
                                     public com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> apply(final org.thryft.protocol.TProtocol iprot) {
                                         try {
@@ -2272,7 +2302,7 @@ public interface MailService {
                                             return com.google.common.collect.ImmutableList.of();
                                         }
                                     }
-                                }).apply(iprot);
+                                }).apply(iprot));
                             }
                             iprot.readFieldEnd();
                         }
@@ -2288,16 +2318,16 @@ public interface MailService {
 
             public postMailCampaignRequest(final com.yogento.api.models.mail.campaign.MailCampaign campaign) {
                 this.campaign = com.google.common.base.Preconditions.checkNotNull(campaign, "com.yogento.api.services.mail.postMailCampaignRequest: missing campaign");
-                this.scheduleTime = null;
-                this.scheduleTimeB = null;
-                this.testEmails = null;
+                this.scheduleTime = com.google.common.base.Optional.absent();
+                this.scheduleTimeB = com.google.common.base.Optional.absent();
+                this.testEmails = com.google.common.base.Optional.absent();
             }
 
-            public postMailCampaignRequest(final com.yogento.api.models.mail.campaign.MailCampaign campaign, final org.joda.time.DateTime scheduleTime, final org.joda.time.DateTime scheduleTimeB, final com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> testEmails) {
+            public postMailCampaignRequest(final com.yogento.api.models.mail.campaign.MailCampaign campaign, final com.google.common.base.Optional<org.joda.time.DateTime> scheduleTime, final com.google.common.base.Optional<org.joda.time.DateTime> scheduleTimeB, final com.google.common.base.Optional<com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>> testEmails) {
                 this.campaign = com.google.common.base.Preconditions.checkNotNull(campaign, "com.yogento.api.services.mail.postMailCampaignRequest: missing campaign");
-                this.scheduleTime = scheduleTime;
-                this.scheduleTimeB = scheduleTimeB;
-                this.testEmails = testEmails;
+                this.scheduleTime = com.google.common.base.Preconditions.checkNotNull(scheduleTime, "com.yogento.api.services.mail.postMailCampaignRequest: missing scheduleTime");
+                this.scheduleTimeB = com.google.common.base.Preconditions.checkNotNull(scheduleTimeB, "com.yogento.api.services.mail.postMailCampaignRequest: missing scheduleTimeB");
+                this.testEmails = com.google.common.base.Preconditions.checkNotNull(testEmails, "com.yogento.api.services.mail.postMailCampaignRequest: missing testEmails");
             }
 
             @Override
@@ -2316,15 +2346,9 @@ public interface MailService {
                 final postMailCampaignRequest other = (postMailCampaignRequest)otherObject;
                 return
                     getCampaign().equals(other.getCampaign()) &&
-                    ((getScheduleTime() == null && other.getScheduleTime() == null) ||
-                    (getScheduleTime() != null && other.getScheduleTime() != null &&
-                    getScheduleTime().equals(other.getScheduleTime()))) &&
-                    ((getScheduleTimeB() == null && other.getScheduleTimeB() == null) ||
-                    (getScheduleTimeB() != null && other.getScheduleTimeB() != null &&
-                    getScheduleTimeB().equals(other.getScheduleTimeB()))) &&
-                    ((getTestEmails() == null && other.getTestEmails() == null) ||
-                    (getTestEmails() != null && other.getTestEmails() != null &&
-                    getTestEmails().equals(other.getTestEmails())));
+                    getScheduleTime().equals(other.getScheduleTime()) &&
+                    getScheduleTimeB().equals(other.getScheduleTimeB()) &&
+                    getTestEmails().equals(other.getTestEmails());
             }
 
             public Object get(final String fieldName) {
@@ -2337,22 +2361,22 @@ public interface MailService {
                 } else if (fieldName.equals("test_emails")) {
                     return getTestEmails();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final com.yogento.api.models.mail.campaign.MailCampaign getCampaign() {
                 return campaign;
             }
 
-            public final org.joda.time.DateTime getScheduleTime() {
+            public final com.google.common.base.Optional<org.joda.time.DateTime> getScheduleTime() {
                 return scheduleTime;
             }
 
-            public final org.joda.time.DateTime getScheduleTimeB() {
+            public final com.google.common.base.Optional<org.joda.time.DateTime> getScheduleTimeB() {
                 return scheduleTimeB;
             }
 
-            public final com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> getTestEmails() {
+            public final com.google.common.base.Optional<com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>> getTestEmails() {
                 return testEmails;
             }
 
@@ -2360,14 +2384,14 @@ public interface MailService {
             public int hashCode() {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getCampaign().hashCode();
-                if (getScheduleTime() != null) {
-                    hashCode = 31 * hashCode + getScheduleTime().hashCode();
+                if (getScheduleTime().isPresent()) {
+                    hashCode = 31 * hashCode + getScheduleTime().get().hashCode();
                 }
-                if (getScheduleTimeB() != null) {
-                    hashCode = 31 * hashCode + getScheduleTimeB().hashCode();
+                if (getScheduleTimeB().isPresent()) {
+                    hashCode = 31 * hashCode + getScheduleTimeB().get().hashCode();
                 }
-                if (getTestEmails() != null) {
-                    hashCode = 31 * hashCode + getTestEmails().hashCode();
+                if (getTestEmails().isPresent()) {
+                    hashCode = 31 * hashCode + getTestEmails().get().hashCode();
                 }
                 return hashCode;
             }
@@ -2376,13 +2400,13 @@ public interface MailService {
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("campaign", getCampaign());
-                if (getScheduleTime() != null) {
+                if (getScheduleTime().isPresent()) {
                     helper.add("schedule_time", getScheduleTime());
                 }
-                if (getScheduleTimeB() != null) {
+                if (getScheduleTimeB().isPresent()) {
                     helper.add("schedule_time_b", getScheduleTimeB());
                 }
-                if (getTestEmails() != null) {
+                if (getTestEmails().isPresent()) {
                     helper.add("test_emails", getTestEmails());
                 }
                 return helper.toString();
@@ -2401,26 +2425,26 @@ public interface MailService {
 
                         getCampaign().write(oprot);
 
-                        if (getScheduleTime() != null) {
-                            oprot.writeDateTime(getScheduleTime());
+                        if (getScheduleTime().isPresent()) {
+                            oprot.writeDateTime(getScheduleTime().get());
                         } else {
-                            ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                            oprot.writeNull();
                         }
 
-                        if (getScheduleTimeB() != null) {
-                            oprot.writeDateTime(getScheduleTimeB());
+                        if (getScheduleTimeB().isPresent()) {
+                            oprot.writeDateTime(getScheduleTimeB().get());
                         } else {
-                            ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                            oprot.writeNull();
                         }
 
-                        if (getTestEmails() != null) {
-                            oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.STRUCT, getTestEmails().size()));
-                            for (final org.thryft.native_.EmailAddress _iter0 : getTestEmails()) {
+                        if (getTestEmails().isPresent()) {
+                            oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.STRUCT, getTestEmails().get().size()));
+                            for (final org.thryft.native_.EmailAddress _iter0 : getTestEmails().get()) {
                                 oprot.writeEmailAddress(_iter0);
                             }
                             oprot.writeListEnd();
                         } else {
-                            ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                            oprot.writeNull();
                         }
 
                         oprot.writeListEnd();
@@ -2434,22 +2458,22 @@ public interface MailService {
                         getCampaign().write(oprot);
                         oprot.writeFieldEnd();
 
-                        if (getScheduleTime() != null) {
+                        if (getScheduleTime().isPresent()) {
                             oprot.writeFieldBegin(new org.thryft.protocol.TField("schedule_time", org.thryft.protocol.TType.STRUCT, (short)-1));
-                            oprot.writeDateTime(getScheduleTime());
+                            oprot.writeDateTime(getScheduleTime().get());
                             oprot.writeFieldEnd();
                         }
 
-                        if (getScheduleTimeB() != null) {
+                        if (getScheduleTimeB().isPresent()) {
                             oprot.writeFieldBegin(new org.thryft.protocol.TField("schedule_time_b", org.thryft.protocol.TType.STRUCT, (short)-1));
-                            oprot.writeDateTime(getScheduleTimeB());
+                            oprot.writeDateTime(getScheduleTimeB().get());
                             oprot.writeFieldEnd();
                         }
 
-                        if (getTestEmails() != null) {
+                        if (getTestEmails().isPresent()) {
                             oprot.writeFieldBegin(new org.thryft.protocol.TField("test_emails", org.thryft.protocol.TType.LIST, (short)-1));
-                            oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.STRUCT, getTestEmails().size()));
-                            for (final org.thryft.native_.EmailAddress _iter0 : getTestEmails()) {
+                            oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.STRUCT, getTestEmails().get().size()));
+                            for (final org.thryft.native_.EmailAddress _iter0 : getTestEmails().get()) {
                                 oprot.writeEmailAddress(_iter0);
                             }
                             oprot.writeListEnd();
@@ -2465,11 +2489,11 @@ public interface MailService {
 
             private final com.yogento.api.models.mail.campaign.MailCampaign campaign;
 
-            private final org.joda.time.DateTime scheduleTime;
+            private final com.google.common.base.Optional<org.joda.time.DateTime> scheduleTime;
 
-            private final org.joda.time.DateTime scheduleTimeB;
+            private final com.google.common.base.Optional<org.joda.time.DateTime> scheduleTimeB;
 
-            private final com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> testEmails;
+            private final com.google.common.base.Optional<com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>> testEmails;
         }
 
         @SuppressWarnings({"serial"})
@@ -2532,7 +2556,7 @@ public interface MailService {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final com.yogento.api.models.mail.campaign.MailCampaign getReturnValue() {
@@ -2599,10 +2623,10 @@ public interface MailService {
 
                 public Builder(final putMailCampaignRequest other) {
                     this.campaign = other.getCampaign();
-                    this.writeThrough = other.isWriteThrough();
+                    this.writeThrough = other.getWriteThrough();
                 }
 
-                protected putMailCampaignRequest _build(final com.yogento.api.models.mail.campaign.MailCampaign campaign, final Boolean writeThrough) {
+                protected putMailCampaignRequest _build(final com.yogento.api.models.mail.campaign.MailCampaign campaign, final com.google.common.base.Optional<Boolean> writeThrough) {
                     return new putMailCampaignRequest(campaign, writeThrough);
                 }
 
@@ -2615,17 +2639,22 @@ public interface MailService {
                     return this;
                 }
 
-                public Builder setWriteThrough(final Boolean writeThrough) {
+                public Builder setWriteThrough(final com.google.common.base.Optional<Boolean> writeThrough) {
                     this.writeThrough = writeThrough;
                     return this;
                 }
 
+                public Builder setWriteThrough(final boolean writeThrough) {
+                    this.writeThrough = com.google.common.base.Optional.of(writeThrough);
+                    return this;
+                }
+
                 private com.yogento.api.models.mail.campaign.MailCampaign campaign;
-                private Boolean writeThrough;
+                private com.google.common.base.Optional<Boolean> writeThrough = com.google.common.base.Optional.absent();
             }
 
             public putMailCampaignRequest(final putMailCampaignRequest other) {
-                this(other.getCampaign(), other.isWriteThrough());
+                this(other.getCampaign(), other.getWriteThrough());
             }
 
             public putMailCampaignRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
@@ -2634,14 +2663,14 @@ public interface MailService {
 
             public putMailCampaignRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 com.yogento.api.models.mail.campaign.MailCampaign campaign = null;
-                Boolean writeThrough = null;
+                com.google.common.base.Optional<Boolean> writeThrough = com.google.common.base.Optional.absent();
 
                 switch (readAsTType) {
                     case org.thryft.protocol.TType.LIST:
                         final org.thryft.protocol.TList __list = iprot.readListBegin();
                         campaign = new com.yogento.api.models.mail.campaign.MailCampaign(iprot);
                         if (__list.size > 1) {
-                            writeThrough = iprot.readBool();
+                            writeThrough = com.google.common.base.Optional.of(iprot.readBool());
                         }
                         iprot.readListEnd();
                         break;
@@ -2656,7 +2685,7 @@ public interface MailService {
                             } else if (ifield.name.equals("campaign")) {
                                 campaign = new com.yogento.api.models.mail.campaign.MailCampaign(iprot);
                             } else if (ifield.name.equals("write_through")) {
-                                writeThrough = iprot.readBool();
+                                writeThrough = com.google.common.base.Optional.of(iprot.readBool());
                             }
                             iprot.readFieldEnd();
                         }
@@ -2670,10 +2699,10 @@ public interface MailService {
 
             public putMailCampaignRequest(final com.yogento.api.models.mail.campaign.MailCampaign campaign) {
                 this.campaign = com.google.common.base.Preconditions.checkNotNull(campaign, "com.yogento.api.services.mail.putMailCampaignRequest: missing campaign");
-                this.writeThrough = null;
+                this.writeThrough = com.google.common.base.Optional.absent();
             }
 
-            public putMailCampaignRequest(final com.yogento.api.models.mail.campaign.MailCampaign campaign, final Boolean writeThrough) {
+            public putMailCampaignRequest(final com.yogento.api.models.mail.campaign.MailCampaign campaign, final com.google.common.base.Optional<Boolean> writeThrough) {
                 this.campaign = com.google.common.base.Preconditions.checkNotNull(campaign, "com.yogento.api.services.mail.putMailCampaignRequest: missing campaign");
                 this.writeThrough = writeThrough;
             }
@@ -2694,44 +2723,42 @@ public interface MailService {
                 final putMailCampaignRequest other = (putMailCampaignRequest)otherObject;
                 return
                     getCampaign().equals(other.getCampaign()) &&
-                    ((isWriteThrough() == null && other.isWriteThrough() == null) ||
-                    (isWriteThrough() != null && other.isWriteThrough() != null &&
-                    isWriteThrough().equals(other.isWriteThrough())));
+                    getWriteThrough().equals(other.getWriteThrough());
             }
 
             public Object get(final String fieldName) {
                 if (fieldName.equals("campaign")) {
                     return getCampaign();
                 } else if (fieldName.equals("write_through")) {
-                    return isWriteThrough();
+                    return getWriteThrough();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final com.yogento.api.models.mail.campaign.MailCampaign getCampaign() {
                 return campaign;
             }
 
+            public final com.google.common.base.Optional<Boolean> getWriteThrough() {
+                return writeThrough;
+            }
+
             @Override
             public int hashCode() {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getCampaign().hashCode();
-                if (isWriteThrough() != null) {
-                    hashCode = 31 * hashCode + (isWriteThrough() ? 1 : 0);
+                if (getWriteThrough().isPresent()) {
+                    hashCode = 31 * hashCode + (getWriteThrough().get() ? 1 : 0);
                 }
                 return hashCode;
-            }
-
-            public final Boolean isWriteThrough() {
-                return writeThrough;
             }
 
             @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("campaign", getCampaign());
-                if (isWriteThrough() != null) {
-                    helper.add("write_through", isWriteThrough());
+                if (getWriteThrough().isPresent()) {
+                    helper.add("write_through", getWriteThrough());
                 }
                 return helper.toString();
             }
@@ -2749,10 +2776,10 @@ public interface MailService {
 
                         getCampaign().write(oprot);
 
-                        if (isWriteThrough() != null) {
-                            oprot.writeBool(isWriteThrough());
+                        if (getWriteThrough().isPresent()) {
+                            oprot.writeBool(getWriteThrough().get());
                         } else {
-                            ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                            oprot.writeNull();
                         }
 
                         oprot.writeListEnd();
@@ -2766,9 +2793,9 @@ public interface MailService {
                         getCampaign().write(oprot);
                         oprot.writeFieldEnd();
 
-                        if (isWriteThrough() != null) {
+                        if (getWriteThrough().isPresent()) {
                             oprot.writeFieldBegin(new org.thryft.protocol.TField("write_through", org.thryft.protocol.TType.BOOL, (short)-1));
-                            oprot.writeBool(isWriteThrough());
+                            oprot.writeBool(getWriteThrough().get());
                             oprot.writeFieldEnd();
                         }
 
@@ -2781,7 +2808,7 @@ public interface MailService {
 
             private final com.yogento.api.models.mail.campaign.MailCampaign campaign;
 
-            private final Boolean writeThrough;
+            private final com.google.common.base.Optional<Boolean> writeThrough;
         }
 
         @SuppressWarnings({"serial"})
@@ -2844,7 +2871,7 @@ public interface MailService {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final com.yogento.api.models.mail.campaign.MailCampaign getReturnValue() {
@@ -2910,7 +2937,7 @@ public interface MailService {
      * mail service provider if the campaign has been sent.
      *
      */
-    public boolean deleteMailCampaign(String cid, Boolean writeThrough) throws com.yogento.api.services.mail.MailException;
+    public boolean deleteMailCampaign(final String cid, final com.google.common.base.Optional<Boolean> writeThrough) throws com.yogento.api.services.mail.MailException;
 
     /**
      * Get a locally-stored campaign.
@@ -2919,20 +2946,20 @@ public interface MailService {
      * Never calls the mail service provider.
      *
      */
-    public com.yogento.api.models.mail.campaign.MailCampaign getMailCampaign(String cid, Boolean includeContent) throws com.yogento.api.services.mail.MailException;
+    public com.yogento.api.models.mail.campaign.MailCampaign getMailCampaign(final String cid, final com.google.common.base.Optional<Boolean> includeContent) throws com.yogento.api.services.mail.MailException;
 
     /**
      * Get all locally-stored campaigns, sans content.
      *
      */
-    public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.campaign.MailCampaign> getMailCampaigns(Boolean includeContent) throws com.yogento.api.services.mail.MailException;
+    public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.campaign.MailCampaign> getMailCampaigns(final com.google.common.base.Optional<Boolean> includeContent) throws com.yogento.api.services.mail.MailException;
 
     /**
      * Get the campaign statistics kept by the mail service provider.
      * Always calls the mail service provider, stores nothing locally.
      *
      */
-    public com.yogento.api.models.mail.campaign.MailCampaignStats getMailCampaignStats(String cid) throws com.yogento.api.services.mail.MailException;
+    public com.yogento.api.models.mail.campaign.MailCampaignStats getMailCampaignStats(final String cid) throws com.yogento.api.services.mail.MailException;
 
     /**
      * Get the lists of subscribers kept by the mail service provider.
@@ -2949,14 +2976,14 @@ public interface MailService {
      * @return set of matching mail templates
      * @throws com.yogento.api.services.mail.MailException generic MailException on any error
      */
-    public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplate> getMailTemplates(com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> types) throws com.yogento.api.services.mail.MailException;
+    public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplate> getMailTemplates(final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType>> types) throws com.yogento.api.services.mail.MailException;
 
     /**
      * Get information about a template from the mail service provider.
      * Always calls the mail service provider, stores nothing locally.
      *
      */
-    public com.yogento.api.models.mail.template.MailTemplateInfo getMailTemplateInfo(int tid, com.yogento.api.models.mail.template.MailTemplateType type) throws com.yogento.api.services.mail.MailException;
+    public com.yogento.api.models.mail.template.MailTemplateInfo getMailTemplateInfo(final int tid, final com.google.common.base.Optional<com.yogento.api.models.mail.template.MailTemplateType> type) throws com.yogento.api.services.mail.MailException;
 
     /**
      * Send a mail campaign to the mail service provider.
@@ -2965,7 +2992,7 @@ public interface MailService {
      * Returns an updated copy of the campaign with e.g., new IDs.
      *
      */
-    public com.yogento.api.models.mail.campaign.MailCampaign postMailCampaign(com.yogento.api.models.mail.campaign.MailCampaign campaign, org.joda.time.DateTime scheduleTime, org.joda.time.DateTime scheduleTimeB, com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> testEmails) throws com.yogento.api.services.mail.MailException;
+    public com.yogento.api.models.mail.campaign.MailCampaign postMailCampaign(final com.yogento.api.models.mail.campaign.MailCampaign campaign, final com.google.common.base.Optional<org.joda.time.DateTime> scheduleTime, final com.google.common.base.Optional<org.joda.time.DateTime> scheduleTimeB, final com.google.common.base.Optional<com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>> testEmails) throws com.yogento.api.services.mail.MailException;
 
     /**
      * Overwrite the mail campaign.
@@ -2974,5 +3001,5 @@ public interface MailService {
      * Returns an updated copy of the campaign with e.g., new IDs.
      *
      */
-    public com.yogento.api.models.mail.campaign.MailCampaign putMailCampaign(com.yogento.api.models.mail.campaign.MailCampaign campaign, Boolean writeThrough) throws com.yogento.api.services.mail.MailException;
+    public com.yogento.api.models.mail.campaign.MailCampaign putMailCampaign(final com.yogento.api.models.mail.campaign.MailCampaign campaign, final com.google.common.base.Optional<Boolean> writeThrough) throws com.yogento.api.services.mail.MailException;
 }

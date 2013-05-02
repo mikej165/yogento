@@ -7,7 +7,7 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
         }
 
         public Builder(final MagentoProductImage other) {
-            this.exclude = other.isExclude();
+            this.exclude = other.getExclude();
             this.file = other.getFile();
             this.label = other.getLabel();
             this.position = other.getPosition();
@@ -15,7 +15,7 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
             this.url = other.getUrl();
         }
 
-        protected MagentoProductImage _build(final Boolean exclude, final String file, final String label, final Integer position, final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> types, final String url) {
+        protected MagentoProductImage _build(final com.google.common.base.Optional<Boolean> exclude, final String file, final com.google.common.base.Optional<String> label, final com.google.common.base.Optional<Integer> position, final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>> types, final com.google.common.base.Optional<String> url) {
             return new MagentoProductImage(exclude, file, label, position, types, url);
         }
 
@@ -23,8 +23,13 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
             return _build(exclude, file, label, position, types, url);
         }
 
-        public Builder setExclude(final Boolean exclude) {
+        public Builder setExclude(final com.google.common.base.Optional<Boolean> exclude) {
             this.exclude = exclude;
+            return this;
+        }
+
+        public Builder setExclude(final boolean exclude) {
+            this.exclude = com.google.common.base.Optional.of(exclude);
             return this;
         }
 
@@ -33,36 +38,56 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
             return this;
         }
 
-        public Builder setLabel(final String label) {
+        public Builder setLabel(final com.google.common.base.Optional<String> label) {
             this.label = label;
             return this;
         }
 
-        public Builder setPosition(final Integer position) {
+        public Builder setLabel(final String label) {
+            this.label = com.google.common.base.Optional.of(label);
+            return this;
+        }
+
+        public Builder setPosition(final com.google.common.base.Optional<Integer> position) {
             this.position = position;
             return this;
         }
 
-        public Builder setTypes(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> types) {
+        public Builder setPosition(final int position) {
+            this.position = com.google.common.base.Optional.of(position);
+            return this;
+        }
+
+        public Builder setTypes(final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>> types) {
             this.types = types;
             return this;
         }
 
-        public Builder setUrl(final String url) {
+        public Builder setTypes(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> types) {
+            this.types = com.google.common.base.Optional.of(types);
+            return this;
+        }
+
+        public Builder setUrl(final com.google.common.base.Optional<String> url) {
             this.url = url;
             return this;
         }
 
-        private Boolean exclude;
+        public Builder setUrl(final String url) {
+            this.url = com.google.common.base.Optional.of(url);
+            return this;
+        }
+
+        private com.google.common.base.Optional<Boolean> exclude = com.google.common.base.Optional.absent();
         private String file;
-        private String label;
-        private Integer position;
-        private com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> types;
-        private String url;
+        private com.google.common.base.Optional<String> label = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<Integer> position = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>> types = com.google.common.base.Optional.absent();
+        private com.google.common.base.Optional<String> url = com.google.common.base.Optional.absent();
     }
 
     public MagentoProductImage(final MagentoProductImage other) {
-        this(other.isExclude(), other.getFile(), other.getLabel(), other.getPosition(), other.getTypes(), other.getUrl());
+        this(other.getExclude(), other.getFile(), other.getLabel(), other.getPosition(), other.getTypes(), other.getUrl());
     }
 
     public MagentoProductImage(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
@@ -70,29 +95,29 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
     }
 
     public MagentoProductImage(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
-        Boolean exclude = null;
+        com.google.common.base.Optional<Boolean> exclude = com.google.common.base.Optional.absent();
         String file = null;
-        String label = null;
-        Integer position = null;
-        com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> types = null;
-        String url = null;
+        com.google.common.base.Optional<String> label = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<Integer> position = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>> types = com.google.common.base.Optional.absent();
+        com.google.common.base.Optional<String> url = com.google.common.base.Optional.absent();
 
         switch (readAsTType) {
             case org.thryft.protocol.TType.LIST:
                 final org.thryft.protocol.TList __list = iprot.readListBegin();
-                exclude = iprot.readBool();
+                exclude = com.google.common.base.Optional.of(iprot.readBool());
                 file = iprot.readString();
                 if (__list.size > 2) {
-                    label = iprot.readString();
+                    label = com.google.common.base.Optional.of(iprot.readString());
                 }
                 if (__list.size > 3) {
                     try {
-                        position = iprot.readI32();
+                        position = com.google.common.base.Optional.of(iprot.readI32());
                     } catch (NumberFormatException e) {
                     }
                 }
                 if (__list.size > 4) {
-                    types = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>>() {
+                    types = com.google.common.base.Optional.of((new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>>() {
                         @Override
                         public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> apply(final org.thryft.protocol.TProtocol iprot) {
                             try {
@@ -107,10 +132,10 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
                                 return com.google.common.collect.ImmutableSet.of();
                             }
                         }
-                    }).apply(iprot);
+                    }).apply(iprot));
                 }
                 if (__list.size > 5) {
-                    url = iprot.readString();
+                    url = com.google.common.base.Optional.of(iprot.readString());
                 }
                 iprot.readListEnd();
                 break;
@@ -123,18 +148,18 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
                     if (ifield.type == org.thryft.protocol.TType.STOP) {
                         break;
                     } else if (ifield.name.equals("exclude")) {
-                        exclude = iprot.readBool();
+                        exclude = com.google.common.base.Optional.of(iprot.readBool());
                     } else if (ifield.name.equals("file")) {
                         file = iprot.readString();
                     } else if (ifield.name.equals("label")) {
-                        label = iprot.readString();
+                        label = com.google.common.base.Optional.of(iprot.readString());
                     } else if (ifield.name.equals("position")) {
                         try {
-                            position = iprot.readI32();
+                            position = com.google.common.base.Optional.of(iprot.readI32());
                         } catch (NumberFormatException e) {
                         }
                     } else if (ifield.name.equals("types")) {
-                        types = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>>() {
+                        types = com.google.common.base.Optional.of((new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>>() {
                             @Override
                             public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> apply(final org.thryft.protocol.TProtocol iprot) {
                                 try {
@@ -149,9 +174,9 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
                                     return com.google.common.collect.ImmutableSet.of();
                                 }
                             }
-                        }).apply(iprot);
+                        }).apply(iprot));
                     } else if (ifield.name.equals("url")) {
-                        url = iprot.readString();
+                        url = com.google.common.base.Optional.of(iprot.readString());
                     }
                     iprot.readFieldEnd();
                 }
@@ -168,21 +193,21 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
     }
 
     public MagentoProductImage(final String file) {
-        this.exclude = null;
+        this.exclude = com.google.common.base.Optional.absent();
         this.file = com.google.common.base.Preconditions.checkNotNull(file, "com.yogento.api.models.catalog.product.magento.MagentoProductImage: missing file");
-        this.label = null;
-        this.position = null;
-        this.types = null;
-        this.url = null;
+        this.label = com.google.common.base.Optional.absent();
+        this.position = com.google.common.base.Optional.absent();
+        this.types = com.google.common.base.Optional.absent();
+        this.url = com.google.common.base.Optional.absent();
     }
 
-    public MagentoProductImage(final Boolean exclude, final String file, final String label, final Integer position, final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> types, final String url) {
+    public MagentoProductImage(final com.google.common.base.Optional<Boolean> exclude, final String file, final com.google.common.base.Optional<String> label, final com.google.common.base.Optional<Integer> position, final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>> types, final com.google.common.base.Optional<String> url) {
         this.exclude = exclude;
         this.file = com.google.common.base.Preconditions.checkNotNull(file, "com.yogento.api.models.catalog.product.magento.MagentoProductImage: missing file");
-        this.label = label;
+        this.label = com.google.common.base.Preconditions.checkNotNull(label, "com.yogento.api.models.catalog.product.magento.MagentoProductImage: missing label");
         this.position = position;
-        this.types = types;
-        this.url = url;
+        this.types = com.google.common.base.Preconditions.checkNotNull(types, "com.yogento.api.models.catalog.product.magento.MagentoProductImage: missing types");
+        this.url = com.google.common.base.Preconditions.checkNotNull(url, "com.yogento.api.models.catalog.product.magento.MagentoProductImage: missing url");
     }
 
     @Override
@@ -200,27 +225,17 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
 
         final MagentoProductImage other = (MagentoProductImage)otherObject;
         return
-            ((isExclude() == null && other.isExclude() == null) ||
-            (isExclude() != null && other.isExclude() != null &&
-            isExclude().equals(other.isExclude()))) &&
+            getExclude().equals(other.getExclude()) &&
             getFile().equals(other.getFile()) &&
-            ((getLabel() == null && other.getLabel() == null) ||
-            (getLabel() != null && other.getLabel() != null &&
-            getLabel().equals(other.getLabel()))) &&
-            ((getPosition() == null && other.getPosition() == null) ||
-            (getPosition() != null && other.getPosition() != null &&
-            getPosition().equals(other.getPosition()))) &&
-            ((getTypes() == null && other.getTypes() == null) ||
-            (getTypes() != null && other.getTypes() != null &&
-            getTypes().equals(other.getTypes()))) &&
-            ((getUrl() == null && other.getUrl() == null) ||
-            (getUrl() != null && other.getUrl() != null &&
-            getUrl().equals(other.getUrl())));
+            getLabel().equals(other.getLabel()) &&
+            getPosition().equals(other.getPosition()) &&
+            getTypes().equals(other.getTypes()) &&
+            getUrl().equals(other.getUrl());
     }
 
     public Object get(final String fieldName) {
         if (fieldName.equals("exclude")) {
-            return isExclude();
+            return getExclude();
         } else if (fieldName.equals("file")) {
             return getFile();
         } else if (fieldName.equals("label")) {
@@ -232,72 +247,72 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
         } else if (fieldName.equals("url")) {
             return getUrl();
         }
-        return null;
+        throw new IllegalArgumentException(fieldName);
+    }
+
+    public final com.google.common.base.Optional<Boolean> getExclude() {
+        return exclude;
     }
 
     public final String getFile() {
         return file;
     }
 
-    public final String getLabel() {
+    public final com.google.common.base.Optional<String> getLabel() {
         return label;
     }
 
-    public final Integer getPosition() {
+    public final com.google.common.base.Optional<Integer> getPosition() {
         return position;
     }
 
-    public final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> getTypes() {
+    public final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>> getTypes() {
         return types;
     }
 
-    public final String getUrl() {
+    public final com.google.common.base.Optional<String> getUrl() {
         return url;
     }
 
     @Override
     public int hashCode() {
         int hashCode = 17;
-        if (isExclude() != null) {
-            hashCode = 31 * hashCode + (isExclude() ? 1 : 0);
+        if (getExclude().isPresent()) {
+            hashCode = 31 * hashCode + (getExclude().get() ? 1 : 0);
         }
         hashCode = 31 * hashCode + getFile().hashCode();
-        if (getLabel() != null) {
-            hashCode = 31 * hashCode + getLabel().hashCode();
+        if (getLabel().isPresent()) {
+            hashCode = 31 * hashCode + getLabel().get().hashCode();
         }
-        if (getPosition() != null) {
-            hashCode = 31 * hashCode + ((int)getPosition());
+        if (getPosition().isPresent()) {
+            hashCode = 31 * hashCode + ((int)getPosition().get());
         }
-        if (getTypes() != null) {
-            hashCode = 31 * hashCode + getTypes().hashCode();
+        if (getTypes().isPresent()) {
+            hashCode = 31 * hashCode + getTypes().get().hashCode();
         }
-        if (getUrl() != null) {
-            hashCode = 31 * hashCode + getUrl().hashCode();
+        if (getUrl().isPresent()) {
+            hashCode = 31 * hashCode + getUrl().get().hashCode();
         }
         return hashCode;
-    }
-
-    public final Boolean isExclude() {
-        return exclude;
     }
 
     @Override
     public String toString() {
         final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
-        if (isExclude() != null) {
-            helper.add("exclude", isExclude());
+        if (getExclude().isPresent()) {
+            helper.add("exclude", getExclude());
         }
         helper.add("file", getFile());
-        if (getLabel() != null) {
+        if (getLabel().isPresent()) {
             helper.add("label", getLabel());
         }
-        if (getPosition() != null) {
+        if (getPosition().isPresent()) {
             helper.add("position", getPosition());
         }
-        if (getTypes() != null) {
+        if (getTypes().isPresent()) {
             helper.add("types", getTypes());
         }
-        if (getUrl() != null) {
+        if (getUrl().isPresent()) {
             helper.add("url", getUrl());
         }
         return helper.toString();
@@ -314,40 +329,40 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
             case org.thryft.protocol.TType.LIST:
                 oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 6));
 
-                if (isExclude() != null) {
-                    oprot.writeBool(isExclude());
+                if (getExclude().isPresent()) {
+                    oprot.writeBool(getExclude().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
                 oprot.writeString(getFile());
 
-                if (getLabel() != null) {
-                    oprot.writeString(getLabel());
+                if (getLabel().isPresent()) {
+                    oprot.writeString(getLabel().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getPosition() != null) {
-                    oprot.writeI32(getPosition());
+                if (getPosition().isPresent()) {
+                    oprot.writeI32(getPosition().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getTypes() != null) {
-                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRING, getTypes().size()));
-                    for (final com.yogento.api.models.catalog.product.magento.MagentoProductImageType _iter0 : getTypes()) {
+                if (getTypes().isPresent()) {
+                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRING, getTypes().get().size()));
+                    for (final com.yogento.api.models.catalog.product.magento.MagentoProductImageType _iter0 : getTypes().get()) {
                         oprot.writeEnum(_iter0);
                     }
                     oprot.writeSetEnd();
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
-                if (getUrl() != null) {
-                    oprot.writeString(getUrl());
+                if (getUrl().isPresent()) {
+                    oprot.writeString(getUrl().get());
                 } else {
-                    ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                    oprot.writeNull();
                 }
 
                 oprot.writeListEnd();
@@ -357,9 +372,9 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
             default:
                 oprot.writeStructBegin(new org.thryft.protocol.TStruct("MagentoProductImage"));
 
-                if (isExclude() != null) {
+                if (getExclude().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("exclude", org.thryft.protocol.TType.BOOL, (short)-1));
-                    oprot.writeBool(isExclude());
+                    oprot.writeBool(getExclude().get());
                     oprot.writeFieldEnd();
                 }
 
@@ -367,31 +382,31 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
                 oprot.writeString(getFile());
                 oprot.writeFieldEnd();
 
-                if (getLabel() != null) {
+                if (getLabel().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("label", org.thryft.protocol.TType.STRING, (short)-1));
-                    oprot.writeString(getLabel());
+                    oprot.writeString(getLabel().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getPosition() != null) {
+                if (getPosition().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("position", org.thryft.protocol.TType.I32, (short)-1));
-                    oprot.writeI32(getPosition());
+                    oprot.writeI32(getPosition().get());
                     oprot.writeFieldEnd();
                 }
 
-                if (getTypes() != null) {
+                if (getTypes().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("types", org.thryft.protocol.TType.SET, (short)-1));
-                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRING, getTypes().size()));
-                    for (final com.yogento.api.models.catalog.product.magento.MagentoProductImageType _iter0 : getTypes()) {
+                    oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRING, getTypes().get().size()));
+                    for (final com.yogento.api.models.catalog.product.magento.MagentoProductImageType _iter0 : getTypes().get()) {
                         oprot.writeEnum(_iter0);
                     }
                     oprot.writeSetEnd();
                     oprot.writeFieldEnd();
                 }
 
-                if (getUrl() != null) {
+                if (getUrl().isPresent()) {
                     oprot.writeFieldBegin(new org.thryft.protocol.TField("url", org.thryft.protocol.TType.STRING, (short)-1));
-                    oprot.writeString(getUrl());
+                    oprot.writeString(getUrl().get());
                     oprot.writeFieldEnd();
                 }
 
@@ -402,15 +417,15 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
         }
     }
 
-    private final Boolean exclude;
+    private final com.google.common.base.Optional<Boolean> exclude;
 
     private final String file;
 
-    private final String label;
+    private final com.google.common.base.Optional<String> label;
 
-    private final Integer position;
+    private final com.google.common.base.Optional<Integer> position;
 
-    private final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> types;
+    private final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>> types;
 
-    private final String url;
+    private final com.google.common.base.Optional<String> url;
 }

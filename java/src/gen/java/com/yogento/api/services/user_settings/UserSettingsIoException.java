@@ -89,7 +89,7 @@ public class UserSettingsIoException extends java.lang.Exception implements org.
         if (fieldName.equals("cause_message")) {
             return getCauseMessage();
         }
-        return null;
+        throw new IllegalArgumentException(fieldName);
     }
 
     public final String getCauseMessage() {

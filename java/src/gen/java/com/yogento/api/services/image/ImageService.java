@@ -107,7 +107,7 @@ public interface ImageService {
                 } else if (fieldName.equals("thumbnail_resolution")) {
                     return getThumbnailResolution();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final String getImageUrl() {
@@ -240,7 +240,7 @@ public interface ImageService {
                 if (fieldName.equals("return_value")) {
                     return isReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             @Override
@@ -400,7 +400,7 @@ public interface ImageService {
                 } else if (fieldName.equals("thumbnail_resolution")) {
                     return getThumbnailResolution();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final String getImageUrl() {
@@ -529,7 +529,7 @@ public interface ImageService {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final String getReturnValue() {
@@ -689,7 +689,7 @@ public interface ImageService {
                 } else if (fieldName.equals("image_mime_subtype")) {
                     return getImageMimeSubtype();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final byte[] getImage() {
@@ -818,7 +818,7 @@ public interface ImageService {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final String getReturnValue() {
@@ -874,9 +874,9 @@ public interface ImageService {
         }
     }
 
-    public boolean deleteImageThumbnail(String imageUrl, com.yogento.api.models.image.ImageResolution thumbnailResolution);
+    public boolean deleteImageThumbnail(final String imageUrl, final com.yogento.api.models.image.ImageResolution thumbnailResolution);
 
-    public String getImageThumbnailUrl(String imageUrl, com.yogento.api.models.image.ImageResolution thumbnailResolution) throws com.yogento.api.services.image.ImageIoException;
+    public String getImageThumbnailUrl(final String imageUrl, final com.yogento.api.models.image.ImageResolution thumbnailResolution) throws com.yogento.api.services.image.ImageIoException;
 
-    public String putImage(byte[] image, String imageMimeSubtype) throws com.yogento.api.services.image.ImageIoException;
+    public String putImage(final byte[] image, final String imageMimeSubtype) throws com.yogento.api.services.image.ImageIoException;
 }

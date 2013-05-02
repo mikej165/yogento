@@ -89,7 +89,7 @@ public class Product implements org.thryft.TBase<Product> {
         if (fieldName.equals("magento_product")) {
             return getMagentoProduct();
         }
-        return null;
+        throw new IllegalArgumentException(fieldName);
     }
 
     public final com.yogento.api.models.catalog.product.magento.MagentoProduct getMagentoProduct() {

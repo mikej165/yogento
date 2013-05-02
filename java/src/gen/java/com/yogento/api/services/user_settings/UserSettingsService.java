@@ -69,7 +69,7 @@ public interface UserSettingsService {
             }
 
             public Object get(final String fieldName) {
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             @Override
@@ -169,7 +169,7 @@ public interface UserSettingsService {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final com.yogento.api.models.user_settings.UserSettings getReturnValue() {
@@ -317,7 +317,7 @@ public interface UserSettingsService {
                 if (fieldName.equals("user_settings")) {
                     return getUserSettings();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final com.yogento.api.models.user_settings.UserSettings getUserSettings() {
@@ -420,7 +420,7 @@ public interface UserSettingsService {
             }
 
             public Object get(final String fieldName) {
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             @Override
@@ -463,5 +463,5 @@ public interface UserSettingsService {
 
     public com.yogento.api.models.user_settings.UserSettings getCurrentUserSettings() throws com.yogento.api.services.user_settings.NoSuchUserSettingsException;
 
-    public void putCurrentUserSettings(com.yogento.api.models.user_settings.UserSettings userSettings) throws com.yogento.api.services.user_settings.UserSettingsIoException;
+    public void putCurrentUserSettings(final com.yogento.api.models.user_settings.UserSettings userSettings) throws com.yogento.api.services.user_settings.UserSettingsIoException;
 }

@@ -110,7 +110,7 @@ public class MailException extends java.lang.Exception implements org.thryft.TBa
         } else if (fieldName.equals("error")) {
             return getError();
         }
-        return null;
+        throw new IllegalArgumentException(fieldName);
     }
 
     public final int getCode() {

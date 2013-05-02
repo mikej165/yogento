@@ -91,7 +91,7 @@ public interface CatalogService {
                 if (fieldName.equals("sku")) {
                     return getSku();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final String getSku() {
@@ -210,7 +210,7 @@ public interface CatalogService {
                 if (fieldName.equals("return_value")) {
                     return isReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             @Override
@@ -332,7 +332,7 @@ public interface CatalogService {
             }
 
             public Object get(final String fieldName) {
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             @Override
@@ -416,7 +416,7 @@ public interface CatalogService {
             }
 
             public Object get(final String fieldName) {
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             @Override
@@ -523,7 +523,7 @@ public interface CatalogService {
             }
 
             public Object get(final String fieldName) {
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             @Override
@@ -627,7 +627,7 @@ public interface CatalogService {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final int getReturnValue() {
@@ -771,7 +771,7 @@ public interface CatalogService {
                 if (fieldName.equals("sku")) {
                     return getSku();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final String getSku() {
@@ -886,7 +886,7 @@ public interface CatalogService {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final com.yogento.api.models.catalog.product.Product getReturnValue() {
@@ -952,11 +952,11 @@ public interface CatalogService {
                 }
 
                 public Builder(final getProductsRequest other) {
-                    this.includeDisabled = other.isIncludeDisabled();
+                    this.includeDisabled = other.getIncludeDisabled();
                     this.query = other.getQuery();
                 }
 
-                protected getProductsRequest _build(final Boolean includeDisabled, final String query) {
+                protected getProductsRequest _build(final com.google.common.base.Optional<Boolean> includeDisabled, final com.google.common.base.Optional<String> query) {
                     return new getProductsRequest(includeDisabled, query);
                 }
 
@@ -964,27 +964,37 @@ public interface CatalogService {
                     return _build(includeDisabled, query);
                 }
 
-                public Builder setIncludeDisabled(final Boolean includeDisabled) {
+                public Builder setIncludeDisabled(final com.google.common.base.Optional<Boolean> includeDisabled) {
                     this.includeDisabled = includeDisabled;
                     return this;
                 }
 
-                public Builder setQuery(final String query) {
+                public Builder setIncludeDisabled(final boolean includeDisabled) {
+                    this.includeDisabled = com.google.common.base.Optional.of(includeDisabled);
+                    return this;
+                }
+
+                public Builder setQuery(final com.google.common.base.Optional<String> query) {
                     this.query = query;
                     return this;
                 }
 
-                private Boolean includeDisabled;
-                private String query;
+                public Builder setQuery(final String query) {
+                    this.query = com.google.common.base.Optional.of(query);
+                    return this;
+                }
+
+                private com.google.common.base.Optional<Boolean> includeDisabled = com.google.common.base.Optional.absent();
+                private com.google.common.base.Optional<String> query = com.google.common.base.Optional.absent();
             }
 
             public getProductsRequest() {
-                includeDisabled = null;
-                query = null;
+                includeDisabled = com.google.common.base.Optional.absent();
+                query = com.google.common.base.Optional.absent();
             }
 
             public getProductsRequest(final getProductsRequest other) {
-                this(other.isIncludeDisabled(), other.getQuery());
+                this(other.getIncludeDisabled(), other.getQuery());
             }
 
             public getProductsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
@@ -992,17 +1002,17 @@ public interface CatalogService {
             }
 
             public getProductsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
-                Boolean includeDisabled = null;
-                String query = null;
+                com.google.common.base.Optional<Boolean> includeDisabled = com.google.common.base.Optional.absent();
+                com.google.common.base.Optional<String> query = com.google.common.base.Optional.absent();
 
                 switch (readAsTType) {
                     case org.thryft.protocol.TType.LIST:
                         final org.thryft.protocol.TList __list = iprot.readListBegin();
                         if (__list.size > 0) {
-                            includeDisabled = iprot.readBool();
+                            includeDisabled = com.google.common.base.Optional.of(iprot.readBool());
                         }
                         if (__list.size > 1) {
-                            query = iprot.readString();
+                            query = com.google.common.base.Optional.of(iprot.readString());
                         }
                         iprot.readListEnd();
                         break;
@@ -1015,9 +1025,9 @@ public interface CatalogService {
                             if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("include_disabled")) {
-                                includeDisabled = iprot.readBool();
+                                includeDisabled = com.google.common.base.Optional.of(iprot.readBool());
                             } else if (ifield.name.equals("query")) {
-                                query = iprot.readString();
+                                query = com.google.common.base.Optional.of(iprot.readString());
                             }
                             iprot.readFieldEnd();
                         }
@@ -1029,9 +1039,9 @@ public interface CatalogService {
                 this.query = query;
             }
 
-            public getProductsRequest(final Boolean includeDisabled, final String query) {
+            public getProductsRequest(final com.google.common.base.Optional<Boolean> includeDisabled, final com.google.common.base.Optional<String> query) {
                 this.includeDisabled = includeDisabled;
-                this.query = query;
+                this.query = com.google.common.base.Preconditions.checkNotNull(query, "com.yogento.api.services.catalog.getProductsRequest: missing query");
             }
 
             @Override
@@ -1049,50 +1059,46 @@ public interface CatalogService {
 
                 final getProductsRequest other = (getProductsRequest)otherObject;
                 return
-                    ((isIncludeDisabled() == null && other.isIncludeDisabled() == null) ||
-                    (isIncludeDisabled() != null && other.isIncludeDisabled() != null &&
-                    isIncludeDisabled().equals(other.isIncludeDisabled()))) &&
-                    ((getQuery() == null && other.getQuery() == null) ||
-                    (getQuery() != null && other.getQuery() != null &&
-                    getQuery().equals(other.getQuery())));
+                    getIncludeDisabled().equals(other.getIncludeDisabled()) &&
+                    getQuery().equals(other.getQuery());
             }
 
             public Object get(final String fieldName) {
                 if (fieldName.equals("include_disabled")) {
-                    return isIncludeDisabled();
+                    return getIncludeDisabled();
                 } else if (fieldName.equals("query")) {
                     return getQuery();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
-            public final String getQuery() {
+            public final com.google.common.base.Optional<Boolean> getIncludeDisabled() {
+                return includeDisabled;
+            }
+
+            public final com.google.common.base.Optional<String> getQuery() {
                 return query;
             }
 
             @Override
             public int hashCode() {
                 int hashCode = 17;
-                if (isIncludeDisabled() != null) {
-                    hashCode = 31 * hashCode + (isIncludeDisabled() ? 1 : 0);
+                if (getIncludeDisabled().isPresent()) {
+                    hashCode = 31 * hashCode + (getIncludeDisabled().get() ? 1 : 0);
                 }
-                if (getQuery() != null) {
-                    hashCode = 31 * hashCode + getQuery().hashCode();
+                if (getQuery().isPresent()) {
+                    hashCode = 31 * hashCode + getQuery().get().hashCode();
                 }
                 return hashCode;
-            }
-
-            public final Boolean isIncludeDisabled() {
-                return includeDisabled;
             }
 
             @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
-                if (isIncludeDisabled() != null) {
-                    helper.add("include_disabled", isIncludeDisabled());
+                if (getIncludeDisabled().isPresent()) {
+                    helper.add("include_disabled", getIncludeDisabled());
                 }
-                if (getQuery() != null) {
+                if (getQuery().isPresent()) {
                     helper.add("query", getQuery());
                 }
                 return helper.toString();
@@ -1109,16 +1115,16 @@ public interface CatalogService {
                     case org.thryft.protocol.TType.LIST:
                         oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 2));
 
-                        if (isIncludeDisabled() != null) {
-                            oprot.writeBool(isIncludeDisabled());
+                        if (getIncludeDisabled().isPresent()) {
+                            oprot.writeBool(getIncludeDisabled().get());
                         } else {
-                            ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                            oprot.writeNull();
                         }
 
-                        if (getQuery() != null) {
-                            oprot.writeString(getQuery());
+                        if (getQuery().isPresent()) {
+                            oprot.writeString(getQuery().get());
                         } else {
-                            ((org.thryft.protocol.TProtocol)oprot).writeNull();
+                            oprot.writeNull();
                         }
 
                         oprot.writeListEnd();
@@ -1128,15 +1134,15 @@ public interface CatalogService {
                     default:
                         oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductsRequest"));
 
-                        if (isIncludeDisabled() != null) {
+                        if (getIncludeDisabled().isPresent()) {
                             oprot.writeFieldBegin(new org.thryft.protocol.TField("include_disabled", org.thryft.protocol.TType.BOOL, (short)-1));
-                            oprot.writeBool(isIncludeDisabled());
+                            oprot.writeBool(getIncludeDisabled().get());
                             oprot.writeFieldEnd();
                         }
 
-                        if (getQuery() != null) {
+                        if (getQuery().isPresent()) {
                             oprot.writeFieldBegin(new org.thryft.protocol.TField("query", org.thryft.protocol.TType.STRING, (short)-1));
-                            oprot.writeString(getQuery());
+                            oprot.writeString(getQuery().get());
                             oprot.writeFieldEnd();
                         }
 
@@ -1147,9 +1153,9 @@ public interface CatalogService {
                 }
             }
 
-            private final Boolean includeDisabled;
+            private final com.google.common.base.Optional<Boolean> includeDisabled;
 
-            private final String query;
+            private final com.google.common.base.Optional<String> query;
         }
 
         @SuppressWarnings({"serial"})
@@ -1227,7 +1233,7 @@ public interface CatalogService {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> getReturnValue() {
@@ -1365,7 +1371,7 @@ public interface CatalogService {
             }
 
             public Object get(final String fieldName) {
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             @Override
@@ -1480,7 +1486,7 @@ public interface CatalogService {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final com.google.common.collect.ImmutableSet<String> getReturnValue() {
@@ -1670,7 +1676,7 @@ public interface CatalogService {
                 if (fieldName.equals("skus")) {
                     return getSkus();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final com.google.common.collect.ImmutableSet<String> getSkus() {
@@ -1816,7 +1822,7 @@ public interface CatalogService {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> getReturnValue() {
@@ -1992,7 +1998,7 @@ public interface CatalogService {
                 } else if (fieldName.equals("thumbnail_resolution")) {
                     return getThumbnailResolution();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final String getSku() {
@@ -2121,7 +2127,7 @@ public interface CatalogService {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final String getReturnValue() {
@@ -2281,7 +2287,7 @@ public interface CatalogService {
                 } else if (fieldName.equals("thumbnail_resolution")) {
                     return getThumbnailResolution();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final String getSku() {
@@ -2410,7 +2416,7 @@ public interface CatalogService {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final String getReturnValue() {
@@ -2554,7 +2560,7 @@ public interface CatalogService {
                 if (fieldName.equals("sku")) {
                     return getSku();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final String getSku() {
@@ -2669,7 +2675,7 @@ public interface CatalogService {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final com.yogento.api.models.catalog.product.Product getReturnValue() {
@@ -2795,7 +2801,7 @@ public interface CatalogService {
             }
 
             public Object get(final String fieldName) {
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             @Override
@@ -2910,7 +2916,7 @@ public interface CatalogService {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> getReturnValue() {
@@ -3070,7 +3076,7 @@ public interface CatalogService {
                 if (fieldName.equals("sku")) {
                     return getSku();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final String getSku() {
@@ -3189,7 +3195,7 @@ public interface CatalogService {
                 if (fieldName.equals("return_value")) {
                     return isReturnValue();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             @Override
@@ -3333,7 +3339,7 @@ public interface CatalogService {
                 if (fieldName.equals("product")) {
                     return getProduct();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final com.yogento.api.models.catalog.product.Product getProduct() {
@@ -3436,7 +3442,7 @@ public interface CatalogService {
             }
 
             public Object get(final String fieldName) {
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             @Override
@@ -3595,7 +3601,7 @@ public interface CatalogService {
                 if (fieldName.equals("products")) {
                     return getProducts();
                 }
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             public final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> getProducts() {
@@ -3710,7 +3716,7 @@ public interface CatalogService {
             }
 
             public Object get(final String fieldName) {
-                return null;
+                throw new IllegalArgumentException(fieldName);
             }
 
             @Override
@@ -3751,31 +3757,31 @@ public interface CatalogService {
         }
     }
 
-    public boolean deleteProductBySku(String sku);
+    public boolean deleteProductBySku(final String sku);
 
     public void deleteProducts();
 
     public int getProductCount();
 
-    public com.yogento.api.models.catalog.product.Product getProductBySku(String sku) throws com.yogento.api.services.catalog.NoSuchProductException;
+    public com.yogento.api.models.catalog.product.Product getProductBySku(final String sku) throws com.yogento.api.services.catalog.NoSuchProductException;
 
-    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> getProducts(Boolean includeDisabled, String query);
+    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> getProducts(final com.google.common.base.Optional<Boolean> includeDisabled, final com.google.common.base.Optional<String> query);
 
     public com.google.common.collect.ImmutableSet<String> getProductSkus();
 
-    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> getProductsBySkus(com.google.common.collect.ImmutableSet<String> skus) throws com.yogento.api.services.catalog.NoSuchProductException;
+    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> getProductsBySkus(final com.google.common.collect.ImmutableSet<String> skus) throws com.yogento.api.services.catalog.NoSuchProductException;
 
-    public String getProductThumbnailUrl(String sku, com.yogento.api.models.image.ImageResolution thumbnailResolution) throws com.yogento.api.services.catalog.NoSuchProductException, com.yogento.api.services.catalog.NoSuchProductImageException;
+    public String getProductThumbnailUrl(final String sku, final com.yogento.api.models.image.ImageResolution thumbnailResolution) throws com.yogento.api.services.catalog.NoSuchProductException, com.yogento.api.services.catalog.NoSuchProductImageException;
 
-    public String getSampleProductThumbnailUrl(String sku, com.yogento.api.models.image.ImageResolution thumbnailResolution) throws com.yogento.api.services.catalog.NoSuchProductException, com.yogento.api.services.catalog.NoSuchProductImageException;
+    public String getSampleProductThumbnailUrl(final String sku, final com.yogento.api.models.image.ImageResolution thumbnailResolution) throws com.yogento.api.services.catalog.NoSuchProductException, com.yogento.api.services.catalog.NoSuchProductImageException;
 
-    public com.yogento.api.models.catalog.product.Product getSampleProductBySku(String sku) throws com.yogento.api.services.catalog.NoSuchProductException;
+    public com.yogento.api.models.catalog.product.Product getSampleProductBySku(final String sku) throws com.yogento.api.services.catalog.NoSuchProductException;
 
     public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> getSampleProducts();
 
-    public boolean headProductBySku(String sku);
+    public boolean headProductBySku(final String sku);
 
-    public void putProduct(com.yogento.api.models.catalog.product.Product product) throws com.yogento.api.services.catalog.ProductIoException;
+    public void putProduct(final com.yogento.api.models.catalog.product.Product product) throws com.yogento.api.services.catalog.ProductIoException;
 
-    public void putProducts(com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> products) throws com.yogento.api.services.catalog.ProductIoException;
+    public void putProducts(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> products) throws com.yogento.api.services.catalog.ProductIoException;
 }
