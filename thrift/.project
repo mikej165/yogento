@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>yogento-ext-thrift</name>
+	<name>yogento-thrift</name>
 	<comment></comment>
 	<projects>
 		<project>thryft-compiler</project>
