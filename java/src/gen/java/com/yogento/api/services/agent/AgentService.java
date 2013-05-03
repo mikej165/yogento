@@ -3,20 +3,20 @@ package com.yogento.api.services.agent;
 public interface AgentService {
     public static class Messages {
         @SuppressWarnings({"serial"})
-        public final static class getAgentMagentoProductsRequest implements org.thryft.TBase<getAgentMagentoProductsRequest> {
+        public final static class GetAgentMagentoProductsRequest implements org.thryft.TBase<GetAgentMagentoProductsRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getAgentMagentoProductsRequest other) {
+                public Builder(final GetAgentMagentoProductsRequest other) {
                     this.sync = other.getSync();
                 }
 
-                protected getAgentMagentoProductsRequest _build(final com.google.common.base.Optional<Boolean> sync) {
-                    return new getAgentMagentoProductsRequest(sync);
+                protected GetAgentMagentoProductsRequest _build(final com.google.common.base.Optional<Boolean> sync) {
+                    return new GetAgentMagentoProductsRequest(sync);
                 }
 
-                public getAgentMagentoProductsRequest build() {
+                public GetAgentMagentoProductsRequest build() {
                     return _build(sync);
                 }
 
@@ -33,19 +33,19 @@ public interface AgentService {
                 private com.google.common.base.Optional<Boolean> sync = com.google.common.base.Optional.absent();
             }
 
-            public getAgentMagentoProductsRequest() {
+            public GetAgentMagentoProductsRequest() {
                 sync = com.google.common.base.Optional.absent();
             }
 
-            public getAgentMagentoProductsRequest(final getAgentMagentoProductsRequest other) {
+            public GetAgentMagentoProductsRequest(final GetAgentMagentoProductsRequest other) {
                 this(other.getSync());
             }
 
-            public getAgentMagentoProductsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetAgentMagentoProductsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getAgentMagentoProductsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public GetAgentMagentoProductsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 com.google.common.base.Optional<Boolean> sync = com.google.common.base.Optional.absent();
 
                 switch (readAsTType) {
@@ -76,12 +76,12 @@ public interface AgentService {
                 this.sync = sync;
             }
 
-            public getAgentMagentoProductsRequest(final com.google.common.base.Optional<Boolean> sync) {
+            public GetAgentMagentoProductsRequest(final com.google.common.base.Optional<Boolean> sync) {
                 this.sync = sync;
             }
 
             @Override
-            public int compareTo(final getAgentMagentoProductsRequest other) {
+            public int compareTo(final GetAgentMagentoProductsRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -89,11 +89,11 @@ public interface AgentService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getAgentMagentoProductsRequest)) {
+                } else if (!(otherObject instanceof GetAgentMagentoProductsRequest)) {
                     return false;
                 }
 
-                final getAgentMagentoProductsRequest other = (getAgentMagentoProductsRequest)otherObject;
+                final GetAgentMagentoProductsRequest other = (GetAgentMagentoProductsRequest)otherObject;
                 return
                     getSync().equals(other.getSync());
             }
@@ -149,7 +149,7 @@ public interface AgentService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getAgentMagentoProductsRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetAgentMagentoProductsRequest"));
 
                         if (getSync().isPresent()) {
                             oprot.writeFieldBegin(new org.thryft.protocol.TField("sync", org.thryft.protocol.TType.BOOL, (short)-1));
@@ -168,20 +168,20 @@ public interface AgentService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getAgentMagentoProductsResponse implements org.thryft.TBase<getAgentMagentoProductsResponse> {
+        public final static class GetAgentMagentoProductsResponse implements org.thryft.TBase<GetAgentMagentoProductsResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getAgentMagentoProductsResponse other) {
+                public Builder(final GetAgentMagentoProductsResponse other) {
                     this.returnValue = other.getReturnValue();
                 }
 
-                protected getAgentMagentoProductsResponse _build(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> returnValue) {
-                    return new getAgentMagentoProductsResponse(returnValue);
+                protected GetAgentMagentoProductsResponse _build(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> returnValue) {
+                    return new GetAgentMagentoProductsResponse(returnValue);
                 }
 
-                public getAgentMagentoProductsResponse build() {
+                public GetAgentMagentoProductsResponse build() {
                     return _build(returnValue);
                 }
 
@@ -193,11 +193,11 @@ public interface AgentService {
                 private com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> returnValue;
             }
 
-            public getAgentMagentoProductsResponse(final getAgentMagentoProductsResponse other) {
+            public GetAgentMagentoProductsResponse(final GetAgentMagentoProductsResponse other) {
                 this(other.getReturnValue());
             }
 
-            public getAgentMagentoProductsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetAgentMagentoProductsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct>>() {
                     @Override
                     public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> apply(final org.thryft.protocol.TProtocol iprot) {
@@ -216,12 +216,12 @@ public interface AgentService {
                 }).apply(iprot);
             }
 
-            public getAgentMagentoProductsResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> returnValue) {
+            public GetAgentMagentoProductsResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> returnValue) {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.agent.AgentService.getAgentMagentoProducts: missing returnValue");
             }
 
             @Override
-            public int compareTo(final getAgentMagentoProductsResponse other) {
+            public int compareTo(final GetAgentMagentoProductsResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -229,11 +229,11 @@ public interface AgentService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getAgentMagentoProductsResponse)) {
+                } else if (!(otherObject instanceof GetAgentMagentoProductsResponse)) {
                     return false;
                 }
 
-                final getAgentMagentoProductsResponse other = (getAgentMagentoProductsResponse)otherObject;
+                final GetAgentMagentoProductsResponse other = (GetAgentMagentoProductsResponse)otherObject;
                 return
                     getReturnValue().equals(other.getReturnValue());
             }
@@ -293,7 +293,7 @@ public interface AgentService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getAgentMagentoProductsResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetAgentMagentoProductsResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.SET, (short)-1));
                         oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
@@ -314,20 +314,20 @@ public interface AgentService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class headMagentoStoreRequest implements org.thryft.TBase<headMagentoStoreRequest> {
+        public final static class HeadMagentoStoreRequest implements org.thryft.TBase<HeadMagentoStoreRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final headMagentoStoreRequest other) {
+                public Builder(final HeadMagentoStoreRequest other) {
                     this.magentoStoreUrl = other.getMagentoStoreUrl();
                 }
 
-                protected headMagentoStoreRequest _build(final String magentoStoreUrl) {
-                    return new headMagentoStoreRequest(magentoStoreUrl);
+                protected HeadMagentoStoreRequest _build(final String magentoStoreUrl) {
+                    return new HeadMagentoStoreRequest(magentoStoreUrl);
                 }
 
-                public headMagentoStoreRequest build() {
+                public HeadMagentoStoreRequest build() {
                     return _build(magentoStoreUrl);
                 }
 
@@ -339,15 +339,15 @@ public interface AgentService {
                 private String magentoStoreUrl;
             }
 
-            public headMagentoStoreRequest(final headMagentoStoreRequest other) {
+            public HeadMagentoStoreRequest(final HeadMagentoStoreRequest other) {
                 this(other.getMagentoStoreUrl());
             }
 
-            public headMagentoStoreRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public HeadMagentoStoreRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public headMagentoStoreRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public HeadMagentoStoreRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String magentoStoreUrl = null;
 
                 switch (readAsTType) {
@@ -373,15 +373,15 @@ public interface AgentService {
                         break;
                 }
 
-                this.magentoStoreUrl = com.google.common.base.Preconditions.checkNotNull(magentoStoreUrl, "com.yogento.api.services.agent.headMagentoStoreRequest: missing magentoStoreUrl");
+                this.magentoStoreUrl = com.google.common.base.Preconditions.checkNotNull(magentoStoreUrl, "com.yogento.api.services.agent.HeadMagentoStoreRequest: missing magentoStoreUrl");
             }
 
-            public headMagentoStoreRequest(final String magentoStoreUrl) {
-                this.magentoStoreUrl = com.google.common.base.Preconditions.checkNotNull(magentoStoreUrl, "com.yogento.api.services.agent.headMagentoStoreRequest: missing magentoStoreUrl");
+            public HeadMagentoStoreRequest(final String magentoStoreUrl) {
+                this.magentoStoreUrl = com.google.common.base.Preconditions.checkNotNull(magentoStoreUrl, "com.yogento.api.services.agent.HeadMagentoStoreRequest: missing magentoStoreUrl");
             }
 
             @Override
-            public int compareTo(final headMagentoStoreRequest other) {
+            public int compareTo(final HeadMagentoStoreRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -389,11 +389,11 @@ public interface AgentService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof headMagentoStoreRequest)) {
+                } else if (!(otherObject instanceof HeadMagentoStoreRequest)) {
                     return false;
                 }
 
-                final headMagentoStoreRequest other = (headMagentoStoreRequest)otherObject;
+                final HeadMagentoStoreRequest other = (HeadMagentoStoreRequest)otherObject;
                 return
                     getMagentoStoreUrl().equals(other.getMagentoStoreUrl());
             }
@@ -441,7 +441,7 @@ public interface AgentService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("headMagentoStoreRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("HeadMagentoStoreRequest"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("magento_store_url", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getMagentoStoreUrl());
@@ -458,20 +458,20 @@ public interface AgentService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class headMagentoStoreResponse implements org.thryft.TBase<headMagentoStoreResponse> {
+        public final static class HeadMagentoStoreResponse implements org.thryft.TBase<HeadMagentoStoreResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final headMagentoStoreResponse other) {
+                public Builder(final HeadMagentoStoreResponse other) {
                     this.returnValue = other.isReturnValue();
                 }
 
-                protected headMagentoStoreResponse _build(final boolean returnValue) {
-                    return new headMagentoStoreResponse(returnValue);
+                protected HeadMagentoStoreResponse _build(final boolean returnValue) {
+                    return new HeadMagentoStoreResponse(returnValue);
                 }
 
-                public headMagentoStoreResponse build() {
+                public HeadMagentoStoreResponse build() {
                     return _build(returnValue);
                 }
 
@@ -483,24 +483,24 @@ public interface AgentService {
                 private Boolean returnValue;
             }
 
-            public headMagentoStoreResponse(final headMagentoStoreResponse other) {
+            public HeadMagentoStoreResponse(final HeadMagentoStoreResponse other) {
                 this(other.isReturnValue());
             }
 
-            public headMagentoStoreResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public HeadMagentoStoreResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = iprot.readBool();
             }
 
-            public headMagentoStoreResponse(final boolean returnValue) {
+            public HeadMagentoStoreResponse(final boolean returnValue) {
                 this.returnValue = returnValue;
             }
 
-            public headMagentoStoreResponse(final Boolean returnValue) {
+            public HeadMagentoStoreResponse(final Boolean returnValue) {
                 this.returnValue = returnValue;
             }
 
             @Override
-            public int compareTo(final headMagentoStoreResponse other) {
+            public int compareTo(final HeadMagentoStoreResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -508,11 +508,11 @@ public interface AgentService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof headMagentoStoreResponse)) {
+                } else if (!(otherObject instanceof HeadMagentoStoreResponse)) {
                     return false;
                 }
 
-                final headMagentoStoreResponse other = (headMagentoStoreResponse)otherObject;
+                final HeadMagentoStoreResponse other = (HeadMagentoStoreResponse)otherObject;
                 return
                     isReturnValue() == other.isReturnValue();
             }
@@ -560,7 +560,7 @@ public interface AgentService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("headMagentoStoreResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("HeadMagentoStoreResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.BOOL, (short)-1));
                         oprot.writeBool(isReturnValue());
@@ -577,22 +577,22 @@ public interface AgentService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class putAgentMagentoProductsRequest implements org.thryft.TBase<putAgentMagentoProductsRequest> {
+        public final static class PutAgentMagentoProductsRequest implements org.thryft.TBase<PutAgentMagentoProductsRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final putAgentMagentoProductsRequest other) {
+                public Builder(final PutAgentMagentoProductsRequest other) {
                     this.magentoProductsJson = other.getMagentoProductsJson();
                     this.ticket = other.getTicket();
                     this.username = other.getUsername();
                 }
 
-                protected putAgentMagentoProductsRequest _build(final String magentoProductsJson, final String ticket, final String username) {
-                    return new putAgentMagentoProductsRequest(magentoProductsJson, ticket, username);
+                protected PutAgentMagentoProductsRequest _build(final String magentoProductsJson, final String ticket, final String username) {
+                    return new PutAgentMagentoProductsRequest(magentoProductsJson, ticket, username);
                 }
 
-                public putAgentMagentoProductsRequest build() {
+                public PutAgentMagentoProductsRequest build() {
                     return _build(magentoProductsJson, ticket, username);
                 }
 
@@ -616,15 +616,15 @@ public interface AgentService {
                 private String username;
             }
 
-            public putAgentMagentoProductsRequest(final putAgentMagentoProductsRequest other) {
+            public PutAgentMagentoProductsRequest(final PutAgentMagentoProductsRequest other) {
                 this(other.getMagentoProductsJson(), other.getTicket(), other.getUsername());
             }
 
-            public putAgentMagentoProductsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public PutAgentMagentoProductsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public putAgentMagentoProductsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public PutAgentMagentoProductsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String magentoProductsJson = null;
                 String ticket = null;
                 String username = null;
@@ -658,19 +658,19 @@ public interface AgentService {
                         break;
                 }
 
-                this.magentoProductsJson = com.google.common.base.Preconditions.checkNotNull(magentoProductsJson, "com.yogento.api.services.agent.putAgentMagentoProductsRequest: missing magentoProductsJson");
-                this.ticket = com.google.common.base.Preconditions.checkNotNull(ticket, "com.yogento.api.services.agent.putAgentMagentoProductsRequest: missing ticket");
-                this.username = com.google.common.base.Preconditions.checkNotNull(username, "com.yogento.api.services.agent.putAgentMagentoProductsRequest: missing username");
+                this.magentoProductsJson = com.google.common.base.Preconditions.checkNotNull(magentoProductsJson, "com.yogento.api.services.agent.PutAgentMagentoProductsRequest: missing magentoProductsJson");
+                this.ticket = com.google.common.base.Preconditions.checkNotNull(ticket, "com.yogento.api.services.agent.PutAgentMagentoProductsRequest: missing ticket");
+                this.username = com.google.common.base.Preconditions.checkNotNull(username, "com.yogento.api.services.agent.PutAgentMagentoProductsRequest: missing username");
             }
 
-            public putAgentMagentoProductsRequest(final String magentoProductsJson, final String ticket, final String username) {
-                this.magentoProductsJson = com.google.common.base.Preconditions.checkNotNull(magentoProductsJson, "com.yogento.api.services.agent.putAgentMagentoProductsRequest: missing magentoProductsJson");
-                this.ticket = com.google.common.base.Preconditions.checkNotNull(ticket, "com.yogento.api.services.agent.putAgentMagentoProductsRequest: missing ticket");
-                this.username = com.google.common.base.Preconditions.checkNotNull(username, "com.yogento.api.services.agent.putAgentMagentoProductsRequest: missing username");
+            public PutAgentMagentoProductsRequest(final String magentoProductsJson, final String ticket, final String username) {
+                this.magentoProductsJson = com.google.common.base.Preconditions.checkNotNull(magentoProductsJson, "com.yogento.api.services.agent.PutAgentMagentoProductsRequest: missing magentoProductsJson");
+                this.ticket = com.google.common.base.Preconditions.checkNotNull(ticket, "com.yogento.api.services.agent.PutAgentMagentoProductsRequest: missing ticket");
+                this.username = com.google.common.base.Preconditions.checkNotNull(username, "com.yogento.api.services.agent.PutAgentMagentoProductsRequest: missing username");
             }
 
             @Override
-            public int compareTo(final putAgentMagentoProductsRequest other) {
+            public int compareTo(final PutAgentMagentoProductsRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -678,11 +678,11 @@ public interface AgentService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof putAgentMagentoProductsRequest)) {
+                } else if (!(otherObject instanceof PutAgentMagentoProductsRequest)) {
                     return false;
                 }
 
-                final putAgentMagentoProductsRequest other = (putAgentMagentoProductsRequest)otherObject;
+                final PutAgentMagentoProductsRequest other = (PutAgentMagentoProductsRequest)otherObject;
                 return
                     getMagentoProductsJson().equals(other.getMagentoProductsJson()) &&
                     getTicket().equals(other.getTicket()) &&
@@ -752,7 +752,7 @@ public interface AgentService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("putAgentMagentoProductsRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("PutAgentMagentoProductsRequest"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("magento_products_json", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getMagentoProductsJson());
@@ -781,34 +781,34 @@ public interface AgentService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class putAgentMagentoProductsResponse implements org.thryft.TBase<putAgentMagentoProductsResponse> {
+        public final static class PutAgentMagentoProductsResponse implements org.thryft.TBase<PutAgentMagentoProductsResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final putAgentMagentoProductsResponse other) {
+                public Builder(final PutAgentMagentoProductsResponse other) {
                 }
 
-                protected putAgentMagentoProductsResponse _build() {
-                    return new putAgentMagentoProductsResponse();
+                protected PutAgentMagentoProductsResponse _build() {
+                    return new PutAgentMagentoProductsResponse();
                 }
 
-                public putAgentMagentoProductsResponse build() {
+                public PutAgentMagentoProductsResponse build() {
                     return _build();
                 }
             }
 
-            public putAgentMagentoProductsResponse() {
+            public PutAgentMagentoProductsResponse() {
             }
 
-            public putAgentMagentoProductsResponse(final putAgentMagentoProductsResponse other) {
+            public PutAgentMagentoProductsResponse(final PutAgentMagentoProductsResponse other) {
             }
 
-            public putAgentMagentoProductsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public PutAgentMagentoProductsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
             }
 
             @Override
-            public int compareTo(final putAgentMagentoProductsResponse other) {
+            public int compareTo(final PutAgentMagentoProductsResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -816,7 +816,7 @@ public interface AgentService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof putAgentMagentoProductsResponse)) {
+                } else if (!(otherObject instanceof PutAgentMagentoProductsResponse)) {
                     return false;
                 }
 
@@ -854,7 +854,7 @@ public interface AgentService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("putAgentMagentoProductsResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("PutAgentMagentoProductsResponse"));
 
                         oprot.writeFieldStop();
 

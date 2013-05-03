@@ -3,34 +3,34 @@ package com.yogento.api.services.user_settings;
 public interface UserSettingsService {
     public static class Messages {
         @SuppressWarnings({"serial"})
-        public final static class getCurrentUserSettingsRequest implements org.thryft.TBase<getCurrentUserSettingsRequest> {
+        public final static class GetCurrentUserSettingsRequest implements org.thryft.TBase<GetCurrentUserSettingsRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getCurrentUserSettingsRequest other) {
+                public Builder(final GetCurrentUserSettingsRequest other) {
                 }
 
-                protected getCurrentUserSettingsRequest _build() {
-                    return new getCurrentUserSettingsRequest();
+                protected GetCurrentUserSettingsRequest _build() {
+                    return new GetCurrentUserSettingsRequest();
                 }
 
-                public getCurrentUserSettingsRequest build() {
+                public GetCurrentUserSettingsRequest build() {
                     return _build();
                 }
             }
 
-            public getCurrentUserSettingsRequest() {
+            public GetCurrentUserSettingsRequest() {
             }
 
-            public getCurrentUserSettingsRequest(final getCurrentUserSettingsRequest other) {
+            public GetCurrentUserSettingsRequest(final GetCurrentUserSettingsRequest other) {
             }
 
-            public getCurrentUserSettingsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetCurrentUserSettingsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getCurrentUserSettingsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public GetCurrentUserSettingsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 switch (readAsTType) {
                     case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
@@ -53,7 +53,7 @@ public interface UserSettingsService {
             }
 
             @Override
-            public int compareTo(final getCurrentUserSettingsRequest other) {
+            public int compareTo(final GetCurrentUserSettingsRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -61,7 +61,7 @@ public interface UserSettingsService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getCurrentUserSettingsRequest)) {
+                } else if (!(otherObject instanceof GetCurrentUserSettingsRequest)) {
                     return false;
                 }
 
@@ -99,7 +99,7 @@ public interface UserSettingsService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getCurrentUserSettingsRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetCurrentUserSettingsRequest"));
 
                         oprot.writeFieldStop();
 
@@ -110,20 +110,20 @@ public interface UserSettingsService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getCurrentUserSettingsResponse implements org.thryft.TBase<getCurrentUserSettingsResponse> {
+        public final static class GetCurrentUserSettingsResponse implements org.thryft.TBase<GetCurrentUserSettingsResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getCurrentUserSettingsResponse other) {
+                public Builder(final GetCurrentUserSettingsResponse other) {
                     this.returnValue = other.getReturnValue();
                 }
 
-                protected getCurrentUserSettingsResponse _build(final com.yogento.api.models.user_settings.UserSettings returnValue) {
-                    return new getCurrentUserSettingsResponse(returnValue);
+                protected GetCurrentUserSettingsResponse _build(final com.yogento.api.models.user_settings.UserSettings returnValue) {
+                    return new GetCurrentUserSettingsResponse(returnValue);
                 }
 
-                public getCurrentUserSettingsResponse build() {
+                public GetCurrentUserSettingsResponse build() {
                     return _build(returnValue);
                 }
 
@@ -135,20 +135,20 @@ public interface UserSettingsService {
                 private com.yogento.api.models.user_settings.UserSettings returnValue;
             }
 
-            public getCurrentUserSettingsResponse(final getCurrentUserSettingsResponse other) {
+            public GetCurrentUserSettingsResponse(final GetCurrentUserSettingsResponse other) {
                 this(other.getReturnValue());
             }
 
-            public getCurrentUserSettingsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetCurrentUserSettingsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = new com.yogento.api.models.user_settings.UserSettings(iprot);
             }
 
-            public getCurrentUserSettingsResponse(final com.yogento.api.models.user_settings.UserSettings returnValue) {
+            public GetCurrentUserSettingsResponse(final com.yogento.api.models.user_settings.UserSettings returnValue) {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.user_settings.UserSettingsService.getCurrentUserSettings: missing returnValue");
             }
 
             @Override
-            public int compareTo(final getCurrentUserSettingsResponse other) {
+            public int compareTo(final GetCurrentUserSettingsResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -156,11 +156,11 @@ public interface UserSettingsService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getCurrentUserSettingsResponse)) {
+                } else if (!(otherObject instanceof GetCurrentUserSettingsResponse)) {
                     return false;
                 }
 
-                final getCurrentUserSettingsResponse other = (getCurrentUserSettingsResponse)otherObject;
+                final GetCurrentUserSettingsResponse other = (GetCurrentUserSettingsResponse)otherObject;
                 return
                     getReturnValue().equals(other.getReturnValue());
             }
@@ -212,7 +212,7 @@ public interface UserSettingsService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getCurrentUserSettingsResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetCurrentUserSettingsResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getReturnValue().write(oprot);
@@ -229,20 +229,20 @@ public interface UserSettingsService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class putCurrentUserSettingsRequest implements org.thryft.TBase<putCurrentUserSettingsRequest> {
+        public final static class PutCurrentUserSettingsRequest implements org.thryft.TBase<PutCurrentUserSettingsRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final putCurrentUserSettingsRequest other) {
+                public Builder(final PutCurrentUserSettingsRequest other) {
                     this.userSettings = other.getUserSettings();
                 }
 
-                protected putCurrentUserSettingsRequest _build(final com.yogento.api.models.user_settings.UserSettings userSettings) {
-                    return new putCurrentUserSettingsRequest(userSettings);
+                protected PutCurrentUserSettingsRequest _build(final com.yogento.api.models.user_settings.UserSettings userSettings) {
+                    return new PutCurrentUserSettingsRequest(userSettings);
                 }
 
-                public putCurrentUserSettingsRequest build() {
+                public PutCurrentUserSettingsRequest build() {
                     return _build(userSettings);
                 }
 
@@ -254,15 +254,15 @@ public interface UserSettingsService {
                 private com.yogento.api.models.user_settings.UserSettings userSettings;
             }
 
-            public putCurrentUserSettingsRequest(final putCurrentUserSettingsRequest other) {
+            public PutCurrentUserSettingsRequest(final PutCurrentUserSettingsRequest other) {
                 this(other.getUserSettings());
             }
 
-            public putCurrentUserSettingsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public PutCurrentUserSettingsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public putCurrentUserSettingsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public PutCurrentUserSettingsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 com.yogento.api.models.user_settings.UserSettings userSettings = null;
 
                 switch (readAsTType) {
@@ -288,15 +288,15 @@ public interface UserSettingsService {
                         break;
                 }
 
-                this.userSettings = com.google.common.base.Preconditions.checkNotNull(userSettings, "com.yogento.api.services.user_settings.putCurrentUserSettingsRequest: missing userSettings");
+                this.userSettings = com.google.common.base.Preconditions.checkNotNull(userSettings, "com.yogento.api.services.user_settings.PutCurrentUserSettingsRequest: missing userSettings");
             }
 
-            public putCurrentUserSettingsRequest(final com.yogento.api.models.user_settings.UserSettings userSettings) {
-                this.userSettings = com.google.common.base.Preconditions.checkNotNull(userSettings, "com.yogento.api.services.user_settings.putCurrentUserSettingsRequest: missing userSettings");
+            public PutCurrentUserSettingsRequest(final com.yogento.api.models.user_settings.UserSettings userSettings) {
+                this.userSettings = com.google.common.base.Preconditions.checkNotNull(userSettings, "com.yogento.api.services.user_settings.PutCurrentUserSettingsRequest: missing userSettings");
             }
 
             @Override
-            public int compareTo(final putCurrentUserSettingsRequest other) {
+            public int compareTo(final PutCurrentUserSettingsRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -304,11 +304,11 @@ public interface UserSettingsService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof putCurrentUserSettingsRequest)) {
+                } else if (!(otherObject instanceof PutCurrentUserSettingsRequest)) {
                     return false;
                 }
 
-                final putCurrentUserSettingsRequest other = (putCurrentUserSettingsRequest)otherObject;
+                final PutCurrentUserSettingsRequest other = (PutCurrentUserSettingsRequest)otherObject;
                 return
                     getUserSettings().equals(other.getUserSettings());
             }
@@ -360,7 +360,7 @@ public interface UserSettingsService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("putCurrentUserSettingsRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("PutCurrentUserSettingsRequest"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("user_settings", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getUserSettings().write(oprot);
@@ -377,34 +377,34 @@ public interface UserSettingsService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class putCurrentUserSettingsResponse implements org.thryft.TBase<putCurrentUserSettingsResponse> {
+        public final static class PutCurrentUserSettingsResponse implements org.thryft.TBase<PutCurrentUserSettingsResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final putCurrentUserSettingsResponse other) {
+                public Builder(final PutCurrentUserSettingsResponse other) {
                 }
 
-                protected putCurrentUserSettingsResponse _build() {
-                    return new putCurrentUserSettingsResponse();
+                protected PutCurrentUserSettingsResponse _build() {
+                    return new PutCurrentUserSettingsResponse();
                 }
 
-                public putCurrentUserSettingsResponse build() {
+                public PutCurrentUserSettingsResponse build() {
                     return _build();
                 }
             }
 
-            public putCurrentUserSettingsResponse() {
+            public PutCurrentUserSettingsResponse() {
             }
 
-            public putCurrentUserSettingsResponse(final putCurrentUserSettingsResponse other) {
+            public PutCurrentUserSettingsResponse(final PutCurrentUserSettingsResponse other) {
             }
 
-            public putCurrentUserSettingsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public PutCurrentUserSettingsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
             }
 
             @Override
-            public int compareTo(final putCurrentUserSettingsResponse other) {
+            public int compareTo(final PutCurrentUserSettingsResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -412,7 +412,7 @@ public interface UserSettingsService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof putCurrentUserSettingsResponse)) {
+                } else if (!(otherObject instanceof PutCurrentUserSettingsResponse)) {
                     return false;
                 }
 
@@ -450,7 +450,7 @@ public interface UserSettingsService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("putCurrentUserSettingsResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("PutCurrentUserSettingsResponse"));
 
                         oprot.writeFieldStop();
 

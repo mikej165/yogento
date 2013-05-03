@@ -3,20 +3,20 @@ package com.yogento.api.services.catalog;
 public interface CatalogService {
     public static class Messages {
         @SuppressWarnings({"serial"})
-        public final static class deleteProductBySkuRequest implements org.thryft.TBase<deleteProductBySkuRequest> {
+        public final static class DeleteProductBySkuRequest implements org.thryft.TBase<DeleteProductBySkuRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final deleteProductBySkuRequest other) {
+                public Builder(final DeleteProductBySkuRequest other) {
                     this.sku = other.getSku();
                 }
 
-                protected deleteProductBySkuRequest _build(final String sku) {
-                    return new deleteProductBySkuRequest(sku);
+                protected DeleteProductBySkuRequest _build(final String sku) {
+                    return new DeleteProductBySkuRequest(sku);
                 }
 
-                public deleteProductBySkuRequest build() {
+                public DeleteProductBySkuRequest build() {
                     return _build(sku);
                 }
 
@@ -28,15 +28,15 @@ public interface CatalogService {
                 private String sku;
             }
 
-            public deleteProductBySkuRequest(final deleteProductBySkuRequest other) {
+            public DeleteProductBySkuRequest(final DeleteProductBySkuRequest other) {
                 this(other.getSku());
             }
 
-            public deleteProductBySkuRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public DeleteProductBySkuRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public deleteProductBySkuRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public DeleteProductBySkuRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String sku = null;
 
                 switch (readAsTType) {
@@ -62,15 +62,15 @@ public interface CatalogService {
                         break;
                 }
 
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.deleteProductBySkuRequest: missing sku");
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.DeleteProductBySkuRequest: missing sku");
             }
 
-            public deleteProductBySkuRequest(final String sku) {
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.deleteProductBySkuRequest: missing sku");
+            public DeleteProductBySkuRequest(final String sku) {
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.DeleteProductBySkuRequest: missing sku");
             }
 
             @Override
-            public int compareTo(final deleteProductBySkuRequest other) {
+            public int compareTo(final DeleteProductBySkuRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -78,11 +78,11 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof deleteProductBySkuRequest)) {
+                } else if (!(otherObject instanceof DeleteProductBySkuRequest)) {
                     return false;
                 }
 
-                final deleteProductBySkuRequest other = (deleteProductBySkuRequest)otherObject;
+                final DeleteProductBySkuRequest other = (DeleteProductBySkuRequest)otherObject;
                 return
                     getSku().equals(other.getSku());
             }
@@ -130,7 +130,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("deleteProductBySkuRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("DeleteProductBySkuRequest"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("sku", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getSku());
@@ -147,20 +147,20 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class deleteProductBySkuResponse implements org.thryft.TBase<deleteProductBySkuResponse> {
+        public final static class DeleteProductBySkuResponse implements org.thryft.TBase<DeleteProductBySkuResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final deleteProductBySkuResponse other) {
+                public Builder(final DeleteProductBySkuResponse other) {
                     this.returnValue = other.isReturnValue();
                 }
 
-                protected deleteProductBySkuResponse _build(final boolean returnValue) {
-                    return new deleteProductBySkuResponse(returnValue);
+                protected DeleteProductBySkuResponse _build(final boolean returnValue) {
+                    return new DeleteProductBySkuResponse(returnValue);
                 }
 
-                public deleteProductBySkuResponse build() {
+                public DeleteProductBySkuResponse build() {
                     return _build(returnValue);
                 }
 
@@ -172,24 +172,24 @@ public interface CatalogService {
                 private Boolean returnValue;
             }
 
-            public deleteProductBySkuResponse(final deleteProductBySkuResponse other) {
+            public DeleteProductBySkuResponse(final DeleteProductBySkuResponse other) {
                 this(other.isReturnValue());
             }
 
-            public deleteProductBySkuResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public DeleteProductBySkuResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = iprot.readBool();
             }
 
-            public deleteProductBySkuResponse(final boolean returnValue) {
+            public DeleteProductBySkuResponse(final boolean returnValue) {
                 this.returnValue = returnValue;
             }
 
-            public deleteProductBySkuResponse(final Boolean returnValue) {
+            public DeleteProductBySkuResponse(final Boolean returnValue) {
                 this.returnValue = returnValue;
             }
 
             @Override
-            public int compareTo(final deleteProductBySkuResponse other) {
+            public int compareTo(final DeleteProductBySkuResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -197,11 +197,11 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof deleteProductBySkuResponse)) {
+                } else if (!(otherObject instanceof DeleteProductBySkuResponse)) {
                     return false;
                 }
 
-                final deleteProductBySkuResponse other = (deleteProductBySkuResponse)otherObject;
+                final DeleteProductBySkuResponse other = (DeleteProductBySkuResponse)otherObject;
                 return
                     isReturnValue() == other.isReturnValue();
             }
@@ -249,7 +249,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("deleteProductBySkuResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("DeleteProductBySkuResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.BOOL, (short)-1));
                         oprot.writeBool(isReturnValue());
@@ -266,34 +266,34 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class deleteProductsRequest implements org.thryft.TBase<deleteProductsRequest> {
+        public final static class DeleteProductsRequest implements org.thryft.TBase<DeleteProductsRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final deleteProductsRequest other) {
+                public Builder(final DeleteProductsRequest other) {
                 }
 
-                protected deleteProductsRequest _build() {
-                    return new deleteProductsRequest();
+                protected DeleteProductsRequest _build() {
+                    return new DeleteProductsRequest();
                 }
 
-                public deleteProductsRequest build() {
+                public DeleteProductsRequest build() {
                     return _build();
                 }
             }
 
-            public deleteProductsRequest() {
+            public DeleteProductsRequest() {
             }
 
-            public deleteProductsRequest(final deleteProductsRequest other) {
+            public DeleteProductsRequest(final DeleteProductsRequest other) {
             }
 
-            public deleteProductsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public DeleteProductsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public deleteProductsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public DeleteProductsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 switch (readAsTType) {
                     case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
@@ -316,7 +316,7 @@ public interface CatalogService {
             }
 
             @Override
-            public int compareTo(final deleteProductsRequest other) {
+            public int compareTo(final DeleteProductsRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -324,7 +324,7 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof deleteProductsRequest)) {
+                } else if (!(otherObject instanceof DeleteProductsRequest)) {
                     return false;
                 }
 
@@ -362,7 +362,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("deleteProductsRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("DeleteProductsRequest"));
 
                         oprot.writeFieldStop();
 
@@ -373,34 +373,34 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class deleteProductsResponse implements org.thryft.TBase<deleteProductsResponse> {
+        public final static class DeleteProductsResponse implements org.thryft.TBase<DeleteProductsResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final deleteProductsResponse other) {
+                public Builder(final DeleteProductsResponse other) {
                 }
 
-                protected deleteProductsResponse _build() {
-                    return new deleteProductsResponse();
+                protected DeleteProductsResponse _build() {
+                    return new DeleteProductsResponse();
                 }
 
-                public deleteProductsResponse build() {
+                public DeleteProductsResponse build() {
                     return _build();
                 }
             }
 
-            public deleteProductsResponse() {
+            public DeleteProductsResponse() {
             }
 
-            public deleteProductsResponse(final deleteProductsResponse other) {
+            public DeleteProductsResponse(final DeleteProductsResponse other) {
             }
 
-            public deleteProductsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public DeleteProductsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
             }
 
             @Override
-            public int compareTo(final deleteProductsResponse other) {
+            public int compareTo(final DeleteProductsResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -408,7 +408,7 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof deleteProductsResponse)) {
+                } else if (!(otherObject instanceof DeleteProductsResponse)) {
                     return false;
                 }
 
@@ -446,7 +446,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("deleteProductsResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("DeleteProductsResponse"));
 
                         oprot.writeFieldStop();
 
@@ -457,34 +457,34 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductCountRequest implements org.thryft.TBase<getProductCountRequest> {
+        public final static class GetProductCountRequest implements org.thryft.TBase<GetProductCountRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getProductCountRequest other) {
+                public Builder(final GetProductCountRequest other) {
                 }
 
-                protected getProductCountRequest _build() {
-                    return new getProductCountRequest();
+                protected GetProductCountRequest _build() {
+                    return new GetProductCountRequest();
                 }
 
-                public getProductCountRequest build() {
+                public GetProductCountRequest build() {
                     return _build();
                 }
             }
 
-            public getProductCountRequest() {
+            public GetProductCountRequest() {
             }
 
-            public getProductCountRequest(final getProductCountRequest other) {
+            public GetProductCountRequest(final GetProductCountRequest other) {
             }
 
-            public getProductCountRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetProductCountRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getProductCountRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public GetProductCountRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 switch (readAsTType) {
                     case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
@@ -507,7 +507,7 @@ public interface CatalogService {
             }
 
             @Override
-            public int compareTo(final getProductCountRequest other) {
+            public int compareTo(final GetProductCountRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -515,7 +515,7 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getProductCountRequest)) {
+                } else if (!(otherObject instanceof GetProductCountRequest)) {
                     return false;
                 }
 
@@ -553,7 +553,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductCountRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetProductCountRequest"));
 
                         oprot.writeFieldStop();
 
@@ -564,20 +564,20 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductCountResponse implements org.thryft.TBase<getProductCountResponse> {
+        public final static class GetProductCountResponse implements org.thryft.TBase<GetProductCountResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getProductCountResponse other) {
+                public Builder(final GetProductCountResponse other) {
                     this.returnValue = other.getReturnValue();
                 }
 
-                protected getProductCountResponse _build(final int returnValue) {
-                    return new getProductCountResponse(returnValue);
+                protected GetProductCountResponse _build(final int returnValue) {
+                    return new GetProductCountResponse(returnValue);
                 }
 
-                public getProductCountResponse build() {
+                public GetProductCountResponse build() {
                     return _build(returnValue);
                 }
 
@@ -589,24 +589,24 @@ public interface CatalogService {
                 private Integer returnValue;
             }
 
-            public getProductCountResponse(final getProductCountResponse other) {
+            public GetProductCountResponse(final GetProductCountResponse other) {
                 this(other.getReturnValue());
             }
 
-            public getProductCountResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetProductCountResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = iprot.readI32();
             }
 
-            public getProductCountResponse(final int returnValue) {
+            public GetProductCountResponse(final int returnValue) {
                 this.returnValue = returnValue;
             }
 
-            public getProductCountResponse(final Integer returnValue) {
+            public GetProductCountResponse(final Integer returnValue) {
                 this.returnValue = returnValue;
             }
 
             @Override
-            public int compareTo(final getProductCountResponse other) {
+            public int compareTo(final GetProductCountResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -614,11 +614,11 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getProductCountResponse)) {
+                } else if (!(otherObject instanceof GetProductCountResponse)) {
                     return false;
                 }
 
-                final getProductCountResponse other = (getProductCountResponse)otherObject;
+                final GetProductCountResponse other = (GetProductCountResponse)otherObject;
                 return
                     getReturnValue() == other.getReturnValue();
             }
@@ -666,7 +666,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductCountResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetProductCountResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.I32, (short)-1));
                         oprot.writeI32(getReturnValue());
@@ -683,20 +683,20 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductBySkuRequest implements org.thryft.TBase<getProductBySkuRequest> {
+        public final static class GetProductBySkuRequest implements org.thryft.TBase<GetProductBySkuRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getProductBySkuRequest other) {
+                public Builder(final GetProductBySkuRequest other) {
                     this.sku = other.getSku();
                 }
 
-                protected getProductBySkuRequest _build(final String sku) {
-                    return new getProductBySkuRequest(sku);
+                protected GetProductBySkuRequest _build(final String sku) {
+                    return new GetProductBySkuRequest(sku);
                 }
 
-                public getProductBySkuRequest build() {
+                public GetProductBySkuRequest build() {
                     return _build(sku);
                 }
 
@@ -708,15 +708,15 @@ public interface CatalogService {
                 private String sku;
             }
 
-            public getProductBySkuRequest(final getProductBySkuRequest other) {
+            public GetProductBySkuRequest(final GetProductBySkuRequest other) {
                 this(other.getSku());
             }
 
-            public getProductBySkuRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetProductBySkuRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getProductBySkuRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public GetProductBySkuRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String sku = null;
 
                 switch (readAsTType) {
@@ -742,15 +742,15 @@ public interface CatalogService {
                         break;
                 }
 
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.getProductBySkuRequest: missing sku");
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.GetProductBySkuRequest: missing sku");
             }
 
-            public getProductBySkuRequest(final String sku) {
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.getProductBySkuRequest: missing sku");
+            public GetProductBySkuRequest(final String sku) {
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.GetProductBySkuRequest: missing sku");
             }
 
             @Override
-            public int compareTo(final getProductBySkuRequest other) {
+            public int compareTo(final GetProductBySkuRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -758,11 +758,11 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getProductBySkuRequest)) {
+                } else if (!(otherObject instanceof GetProductBySkuRequest)) {
                     return false;
                 }
 
-                final getProductBySkuRequest other = (getProductBySkuRequest)otherObject;
+                final GetProductBySkuRequest other = (GetProductBySkuRequest)otherObject;
                 return
                     getSku().equals(other.getSku());
             }
@@ -810,7 +810,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductBySkuRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetProductBySkuRequest"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("sku", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getSku());
@@ -827,20 +827,20 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductBySkuResponse implements org.thryft.TBase<getProductBySkuResponse> {
+        public final static class GetProductBySkuResponse implements org.thryft.TBase<GetProductBySkuResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getProductBySkuResponse other) {
+                public Builder(final GetProductBySkuResponse other) {
                     this.returnValue = other.getReturnValue();
                 }
 
-                protected getProductBySkuResponse _build(final com.yogento.api.models.catalog.product.Product returnValue) {
-                    return new getProductBySkuResponse(returnValue);
+                protected GetProductBySkuResponse _build(final com.yogento.api.models.catalog.product.Product returnValue) {
+                    return new GetProductBySkuResponse(returnValue);
                 }
 
-                public getProductBySkuResponse build() {
+                public GetProductBySkuResponse build() {
                     return _build(returnValue);
                 }
 
@@ -852,20 +852,20 @@ public interface CatalogService {
                 private com.yogento.api.models.catalog.product.Product returnValue;
             }
 
-            public getProductBySkuResponse(final getProductBySkuResponse other) {
+            public GetProductBySkuResponse(final GetProductBySkuResponse other) {
                 this(other.getReturnValue());
             }
 
-            public getProductBySkuResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetProductBySkuResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = new com.yogento.api.models.catalog.product.Product(iprot);
             }
 
-            public getProductBySkuResponse(final com.yogento.api.models.catalog.product.Product returnValue) {
+            public GetProductBySkuResponse(final com.yogento.api.models.catalog.product.Product returnValue) {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getProductBySku: missing returnValue");
             }
 
             @Override
-            public int compareTo(final getProductBySkuResponse other) {
+            public int compareTo(final GetProductBySkuResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -873,11 +873,11 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getProductBySkuResponse)) {
+                } else if (!(otherObject instanceof GetProductBySkuResponse)) {
                     return false;
                 }
 
-                final getProductBySkuResponse other = (getProductBySkuResponse)otherObject;
+                final GetProductBySkuResponse other = (GetProductBySkuResponse)otherObject;
                 return
                     getReturnValue().equals(other.getReturnValue());
             }
@@ -929,7 +929,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductBySkuResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetProductBySkuResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getReturnValue().write(oprot);
@@ -946,21 +946,21 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductsRequest implements org.thryft.TBase<getProductsRequest> {
+        public final static class GetProductsRequest implements org.thryft.TBase<GetProductsRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getProductsRequest other) {
+                public Builder(final GetProductsRequest other) {
                     this.includeDisabled = other.getIncludeDisabled();
                     this.query = other.getQuery();
                 }
 
-                protected getProductsRequest _build(final com.google.common.base.Optional<Boolean> includeDisabled, final com.google.common.base.Optional<String> query) {
-                    return new getProductsRequest(includeDisabled, query);
+                protected GetProductsRequest _build(final com.google.common.base.Optional<Boolean> includeDisabled, final com.google.common.base.Optional<String> query) {
+                    return new GetProductsRequest(includeDisabled, query);
                 }
 
-                public getProductsRequest build() {
+                public GetProductsRequest build() {
                     return _build(includeDisabled, query);
                 }
 
@@ -988,20 +988,20 @@ public interface CatalogService {
                 private com.google.common.base.Optional<String> query = com.google.common.base.Optional.absent();
             }
 
-            public getProductsRequest() {
+            public GetProductsRequest() {
                 includeDisabled = com.google.common.base.Optional.absent();
                 query = com.google.common.base.Optional.absent();
             }
 
-            public getProductsRequest(final getProductsRequest other) {
+            public GetProductsRequest(final GetProductsRequest other) {
                 this(other.getIncludeDisabled(), other.getQuery());
             }
 
-            public getProductsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetProductsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getProductsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public GetProductsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 com.google.common.base.Optional<Boolean> includeDisabled = com.google.common.base.Optional.absent();
                 com.google.common.base.Optional<String> query = com.google.common.base.Optional.absent();
 
@@ -1039,13 +1039,13 @@ public interface CatalogService {
                 this.query = query;
             }
 
-            public getProductsRequest(final com.google.common.base.Optional<Boolean> includeDisabled, final com.google.common.base.Optional<String> query) {
+            public GetProductsRequest(final com.google.common.base.Optional<Boolean> includeDisabled, final com.google.common.base.Optional<String> query) {
                 this.includeDisabled = includeDisabled;
-                this.query = com.google.common.base.Preconditions.checkNotNull(query, "com.yogento.api.services.catalog.getProductsRequest: missing query");
+                this.query = com.google.common.base.Preconditions.checkNotNull(query, "com.yogento.api.services.catalog.GetProductsRequest: missing query");
             }
 
             @Override
-            public int compareTo(final getProductsRequest other) {
+            public int compareTo(final GetProductsRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -1053,11 +1053,11 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getProductsRequest)) {
+                } else if (!(otherObject instanceof GetProductsRequest)) {
                     return false;
                 }
 
-                final getProductsRequest other = (getProductsRequest)otherObject;
+                final GetProductsRequest other = (GetProductsRequest)otherObject;
                 return
                     getIncludeDisabled().equals(other.getIncludeDisabled()) &&
                     getQuery().equals(other.getQuery());
@@ -1132,7 +1132,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductsRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetProductsRequest"));
 
                         if (getIncludeDisabled().isPresent()) {
                             oprot.writeFieldBegin(new org.thryft.protocol.TField("include_disabled", org.thryft.protocol.TType.BOOL, (short)-1));
@@ -1159,20 +1159,20 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductsResponse implements org.thryft.TBase<getProductsResponse> {
+        public final static class GetProductsResponse implements org.thryft.TBase<GetProductsResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getProductsResponse other) {
+                public Builder(final GetProductsResponse other) {
                     this.returnValue = other.getReturnValue();
                 }
 
-                protected getProductsResponse _build(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue) {
-                    return new getProductsResponse(returnValue);
+                protected GetProductsResponse _build(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue) {
+                    return new GetProductsResponse(returnValue);
                 }
 
-                public getProductsResponse build() {
+                public GetProductsResponse build() {
                     return _build(returnValue);
                 }
 
@@ -1184,11 +1184,11 @@ public interface CatalogService {
                 private com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue;
             }
 
-            public getProductsResponse(final getProductsResponse other) {
+            public GetProductsResponse(final GetProductsResponse other) {
                 this(other.getReturnValue());
             }
 
-            public getProductsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetProductsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product>>() {
                     @Override
                     public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> apply(final org.thryft.protocol.TProtocol iprot) {
@@ -1207,12 +1207,12 @@ public interface CatalogService {
                 }).apply(iprot);
             }
 
-            public getProductsResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue) {
+            public GetProductsResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue) {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getProducts: missing returnValue");
             }
 
             @Override
-            public int compareTo(final getProductsResponse other) {
+            public int compareTo(final GetProductsResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -1220,11 +1220,11 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getProductsResponse)) {
+                } else if (!(otherObject instanceof GetProductsResponse)) {
                     return false;
                 }
 
-                final getProductsResponse other = (getProductsResponse)otherObject;
+                final GetProductsResponse other = (GetProductsResponse)otherObject;
                 return
                     getReturnValue().equals(other.getReturnValue());
             }
@@ -1284,7 +1284,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductsResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetProductsResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.SET, (short)-1));
                         oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
@@ -1305,34 +1305,34 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductSkusRequest implements org.thryft.TBase<getProductSkusRequest> {
+        public final static class GetProductSkusRequest implements org.thryft.TBase<GetProductSkusRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getProductSkusRequest other) {
+                public Builder(final GetProductSkusRequest other) {
                 }
 
-                protected getProductSkusRequest _build() {
-                    return new getProductSkusRequest();
+                protected GetProductSkusRequest _build() {
+                    return new GetProductSkusRequest();
                 }
 
-                public getProductSkusRequest build() {
+                public GetProductSkusRequest build() {
                     return _build();
                 }
             }
 
-            public getProductSkusRequest() {
+            public GetProductSkusRequest() {
             }
 
-            public getProductSkusRequest(final getProductSkusRequest other) {
+            public GetProductSkusRequest(final GetProductSkusRequest other) {
             }
 
-            public getProductSkusRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetProductSkusRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getProductSkusRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public GetProductSkusRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 switch (readAsTType) {
                     case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
@@ -1355,7 +1355,7 @@ public interface CatalogService {
             }
 
             @Override
-            public int compareTo(final getProductSkusRequest other) {
+            public int compareTo(final GetProductSkusRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -1363,7 +1363,7 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getProductSkusRequest)) {
+                } else if (!(otherObject instanceof GetProductSkusRequest)) {
                     return false;
                 }
 
@@ -1401,7 +1401,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductSkusRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetProductSkusRequest"));
 
                         oprot.writeFieldStop();
 
@@ -1412,20 +1412,20 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductSkusResponse implements org.thryft.TBase<getProductSkusResponse> {
+        public final static class GetProductSkusResponse implements org.thryft.TBase<GetProductSkusResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getProductSkusResponse other) {
+                public Builder(final GetProductSkusResponse other) {
                     this.returnValue = other.getReturnValue();
                 }
 
-                protected getProductSkusResponse _build(final com.google.common.collect.ImmutableSet<String> returnValue) {
-                    return new getProductSkusResponse(returnValue);
+                protected GetProductSkusResponse _build(final com.google.common.collect.ImmutableSet<String> returnValue) {
+                    return new GetProductSkusResponse(returnValue);
                 }
 
-                public getProductSkusResponse build() {
+                public GetProductSkusResponse build() {
                     return _build(returnValue);
                 }
 
@@ -1437,11 +1437,11 @@ public interface CatalogService {
                 private com.google.common.collect.ImmutableSet<String> returnValue;
             }
 
-            public getProductSkusResponse(final getProductSkusResponse other) {
+            public GetProductSkusResponse(final GetProductSkusResponse other) {
                 this(other.getReturnValue());
             }
 
-            public getProductSkusResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetProductSkusResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<String>>() {
                     @Override
                     public com.google.common.collect.ImmutableSet<String> apply(final org.thryft.protocol.TProtocol iprot) {
@@ -1460,12 +1460,12 @@ public interface CatalogService {
                 }).apply(iprot);
             }
 
-            public getProductSkusResponse(final com.google.common.collect.ImmutableSet<String> returnValue) {
+            public GetProductSkusResponse(final com.google.common.collect.ImmutableSet<String> returnValue) {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getProductSkus: missing returnValue");
             }
 
             @Override
-            public int compareTo(final getProductSkusResponse other) {
+            public int compareTo(final GetProductSkusResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -1473,11 +1473,11 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getProductSkusResponse)) {
+                } else if (!(otherObject instanceof GetProductSkusResponse)) {
                     return false;
                 }
 
-                final getProductSkusResponse other = (getProductSkusResponse)otherObject;
+                final GetProductSkusResponse other = (GetProductSkusResponse)otherObject;
                 return
                     getReturnValue().equals(other.getReturnValue());
             }
@@ -1537,7 +1537,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductSkusResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetProductSkusResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.SET, (short)-1));
                         oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRING, getReturnValue().size()));
@@ -1558,20 +1558,20 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductsBySkusRequest implements org.thryft.TBase<getProductsBySkusRequest> {
+        public final static class GetProductsBySkusRequest implements org.thryft.TBase<GetProductsBySkusRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getProductsBySkusRequest other) {
+                public Builder(final GetProductsBySkusRequest other) {
                     this.skus = other.getSkus();
                 }
 
-                protected getProductsBySkusRequest _build(final com.google.common.collect.ImmutableSet<String> skus) {
-                    return new getProductsBySkusRequest(skus);
+                protected GetProductsBySkusRequest _build(final com.google.common.collect.ImmutableSet<String> skus) {
+                    return new GetProductsBySkusRequest(skus);
                 }
 
-                public getProductsBySkusRequest build() {
+                public GetProductsBySkusRequest build() {
                     return _build(skus);
                 }
 
@@ -1583,15 +1583,15 @@ public interface CatalogService {
                 private com.google.common.collect.ImmutableSet<String> skus;
             }
 
-            public getProductsBySkusRequest(final getProductsBySkusRequest other) {
+            public GetProductsBySkusRequest(final GetProductsBySkusRequest other) {
                 this(other.getSkus());
             }
 
-            public getProductsBySkusRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetProductsBySkusRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getProductsBySkusRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public GetProductsBySkusRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 com.google.common.collect.ImmutableSet<String> skus = null;
 
                 switch (readAsTType) {
@@ -1647,15 +1647,15 @@ public interface CatalogService {
                         break;
                 }
 
-                this.skus = com.google.common.base.Preconditions.checkNotNull(skus, "com.yogento.api.services.catalog.getProductsBySkusRequest: missing skus");
+                this.skus = com.google.common.base.Preconditions.checkNotNull(skus, "com.yogento.api.services.catalog.GetProductsBySkusRequest: missing skus");
             }
 
-            public getProductsBySkusRequest(final com.google.common.collect.ImmutableSet<String> skus) {
-                this.skus = com.google.common.base.Preconditions.checkNotNull(skus, "com.yogento.api.services.catalog.getProductsBySkusRequest: missing skus");
+            public GetProductsBySkusRequest(final com.google.common.collect.ImmutableSet<String> skus) {
+                this.skus = com.google.common.base.Preconditions.checkNotNull(skus, "com.yogento.api.services.catalog.GetProductsBySkusRequest: missing skus");
             }
 
             @Override
-            public int compareTo(final getProductsBySkusRequest other) {
+            public int compareTo(final GetProductsBySkusRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -1663,11 +1663,11 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getProductsBySkusRequest)) {
+                } else if (!(otherObject instanceof GetProductsBySkusRequest)) {
                     return false;
                 }
 
-                final getProductsBySkusRequest other = (getProductsBySkusRequest)otherObject;
+                final GetProductsBySkusRequest other = (GetProductsBySkusRequest)otherObject;
                 return
                     getSkus().equals(other.getSkus());
             }
@@ -1727,7 +1727,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductsBySkusRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetProductsBySkusRequest"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("skus", org.thryft.protocol.TType.SET, (short)-1));
                         oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRING, getSkus().size()));
@@ -1748,20 +1748,20 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductsBySkusResponse implements org.thryft.TBase<getProductsBySkusResponse> {
+        public final static class GetProductsBySkusResponse implements org.thryft.TBase<GetProductsBySkusResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getProductsBySkusResponse other) {
+                public Builder(final GetProductsBySkusResponse other) {
                     this.returnValue = other.getReturnValue();
                 }
 
-                protected getProductsBySkusResponse _build(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue) {
-                    return new getProductsBySkusResponse(returnValue);
+                protected GetProductsBySkusResponse _build(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue) {
+                    return new GetProductsBySkusResponse(returnValue);
                 }
 
-                public getProductsBySkusResponse build() {
+                public GetProductsBySkusResponse build() {
                     return _build(returnValue);
                 }
 
@@ -1773,11 +1773,11 @@ public interface CatalogService {
                 private com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue;
             }
 
-            public getProductsBySkusResponse(final getProductsBySkusResponse other) {
+            public GetProductsBySkusResponse(final GetProductsBySkusResponse other) {
                 this(other.getReturnValue());
             }
 
-            public getProductsBySkusResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetProductsBySkusResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product>>() {
                     @Override
                     public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> apply(final org.thryft.protocol.TProtocol iprot) {
@@ -1796,12 +1796,12 @@ public interface CatalogService {
                 }).apply(iprot);
             }
 
-            public getProductsBySkusResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue) {
+            public GetProductsBySkusResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue) {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getProductsBySkus: missing returnValue");
             }
 
             @Override
-            public int compareTo(final getProductsBySkusResponse other) {
+            public int compareTo(final GetProductsBySkusResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -1809,11 +1809,11 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getProductsBySkusResponse)) {
+                } else if (!(otherObject instanceof GetProductsBySkusResponse)) {
                     return false;
                 }
 
-                final getProductsBySkusResponse other = (getProductsBySkusResponse)otherObject;
+                final GetProductsBySkusResponse other = (GetProductsBySkusResponse)otherObject;
                 return
                     getReturnValue().equals(other.getReturnValue());
             }
@@ -1873,7 +1873,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductsBySkusResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetProductsBySkusResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.SET, (short)-1));
                         oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
@@ -1894,21 +1894,21 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductThumbnailUrlRequest implements org.thryft.TBase<getProductThumbnailUrlRequest> {
+        public final static class GetProductThumbnailUrlRequest implements org.thryft.TBase<GetProductThumbnailUrlRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getProductThumbnailUrlRequest other) {
+                public Builder(final GetProductThumbnailUrlRequest other) {
                     this.sku = other.getSku();
                     this.thumbnailResolution = other.getThumbnailResolution();
                 }
 
-                protected getProductThumbnailUrlRequest _build(final String sku, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
-                    return new getProductThumbnailUrlRequest(sku, thumbnailResolution);
+                protected GetProductThumbnailUrlRequest _build(final String sku, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
+                    return new GetProductThumbnailUrlRequest(sku, thumbnailResolution);
                 }
 
-                public getProductThumbnailUrlRequest build() {
+                public GetProductThumbnailUrlRequest build() {
                     return _build(sku, thumbnailResolution);
                 }
 
@@ -1926,15 +1926,15 @@ public interface CatalogService {
                 private com.yogento.api.models.image.ImageResolution thumbnailResolution;
             }
 
-            public getProductThumbnailUrlRequest(final getProductThumbnailUrlRequest other) {
+            public GetProductThumbnailUrlRequest(final GetProductThumbnailUrlRequest other) {
                 this(other.getSku(), other.getThumbnailResolution());
             }
 
-            public getProductThumbnailUrlRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetProductThumbnailUrlRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getProductThumbnailUrlRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public GetProductThumbnailUrlRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String sku = null;
                 com.yogento.api.models.image.ImageResolution thumbnailResolution = null;
 
@@ -1964,17 +1964,17 @@ public interface CatalogService {
                         break;
                 }
 
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.getProductThumbnailUrlRequest: missing sku");
-                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.catalog.getProductThumbnailUrlRequest: missing thumbnailResolution");
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.GetProductThumbnailUrlRequest: missing sku");
+                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.catalog.GetProductThumbnailUrlRequest: missing thumbnailResolution");
             }
 
-            public getProductThumbnailUrlRequest(final String sku, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.getProductThumbnailUrlRequest: missing sku");
-                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.catalog.getProductThumbnailUrlRequest: missing thumbnailResolution");
+            public GetProductThumbnailUrlRequest(final String sku, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.GetProductThumbnailUrlRequest: missing sku");
+                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.catalog.GetProductThumbnailUrlRequest: missing thumbnailResolution");
             }
 
             @Override
-            public int compareTo(final getProductThumbnailUrlRequest other) {
+            public int compareTo(final GetProductThumbnailUrlRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -1982,11 +1982,11 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getProductThumbnailUrlRequest)) {
+                } else if (!(otherObject instanceof GetProductThumbnailUrlRequest)) {
                     return false;
                 }
 
-                final getProductThumbnailUrlRequest other = (getProductThumbnailUrlRequest)otherObject;
+                final GetProductThumbnailUrlRequest other = (GetProductThumbnailUrlRequest)otherObject;
                 return
                     getSku().equals(other.getSku()) &&
                     getThumbnailResolution().equals(other.getThumbnailResolution());
@@ -2045,7 +2045,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductThumbnailUrlRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetProductThumbnailUrlRequest"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("sku", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getSku());
@@ -2068,20 +2068,20 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getProductThumbnailUrlResponse implements org.thryft.TBase<getProductThumbnailUrlResponse> {
+        public final static class GetProductThumbnailUrlResponse implements org.thryft.TBase<GetProductThumbnailUrlResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getProductThumbnailUrlResponse other) {
+                public Builder(final GetProductThumbnailUrlResponse other) {
                     this.returnValue = other.getReturnValue();
                 }
 
-                protected getProductThumbnailUrlResponse _build(final String returnValue) {
-                    return new getProductThumbnailUrlResponse(returnValue);
+                protected GetProductThumbnailUrlResponse _build(final String returnValue) {
+                    return new GetProductThumbnailUrlResponse(returnValue);
                 }
 
-                public getProductThumbnailUrlResponse build() {
+                public GetProductThumbnailUrlResponse build() {
                     return _build(returnValue);
                 }
 
@@ -2093,20 +2093,20 @@ public interface CatalogService {
                 private String returnValue;
             }
 
-            public getProductThumbnailUrlResponse(final getProductThumbnailUrlResponse other) {
+            public GetProductThumbnailUrlResponse(final GetProductThumbnailUrlResponse other) {
                 this(other.getReturnValue());
             }
 
-            public getProductThumbnailUrlResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetProductThumbnailUrlResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = iprot.readString();
             }
 
-            public getProductThumbnailUrlResponse(final String returnValue) {
+            public GetProductThumbnailUrlResponse(final String returnValue) {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getProductThumbnailUrl: missing returnValue");
             }
 
             @Override
-            public int compareTo(final getProductThumbnailUrlResponse other) {
+            public int compareTo(final GetProductThumbnailUrlResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -2114,11 +2114,11 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getProductThumbnailUrlResponse)) {
+                } else if (!(otherObject instanceof GetProductThumbnailUrlResponse)) {
                     return false;
                 }
 
-                final getProductThumbnailUrlResponse other = (getProductThumbnailUrlResponse)otherObject;
+                final GetProductThumbnailUrlResponse other = (GetProductThumbnailUrlResponse)otherObject;
                 return
                     getReturnValue().equals(other.getReturnValue());
             }
@@ -2166,7 +2166,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getProductThumbnailUrlResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetProductThumbnailUrlResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getReturnValue());
@@ -2183,21 +2183,21 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getSampleProductThumbnailUrlRequest implements org.thryft.TBase<getSampleProductThumbnailUrlRequest> {
+        public final static class GetSampleProductThumbnailUrlRequest implements org.thryft.TBase<GetSampleProductThumbnailUrlRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getSampleProductThumbnailUrlRequest other) {
+                public Builder(final GetSampleProductThumbnailUrlRequest other) {
                     this.sku = other.getSku();
                     this.thumbnailResolution = other.getThumbnailResolution();
                 }
 
-                protected getSampleProductThumbnailUrlRequest _build(final String sku, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
-                    return new getSampleProductThumbnailUrlRequest(sku, thumbnailResolution);
+                protected GetSampleProductThumbnailUrlRequest _build(final String sku, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
+                    return new GetSampleProductThumbnailUrlRequest(sku, thumbnailResolution);
                 }
 
-                public getSampleProductThumbnailUrlRequest build() {
+                public GetSampleProductThumbnailUrlRequest build() {
                     return _build(sku, thumbnailResolution);
                 }
 
@@ -2215,15 +2215,15 @@ public interface CatalogService {
                 private com.yogento.api.models.image.ImageResolution thumbnailResolution;
             }
 
-            public getSampleProductThumbnailUrlRequest(final getSampleProductThumbnailUrlRequest other) {
+            public GetSampleProductThumbnailUrlRequest(final GetSampleProductThumbnailUrlRequest other) {
                 this(other.getSku(), other.getThumbnailResolution());
             }
 
-            public getSampleProductThumbnailUrlRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetSampleProductThumbnailUrlRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getSampleProductThumbnailUrlRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public GetSampleProductThumbnailUrlRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String sku = null;
                 com.yogento.api.models.image.ImageResolution thumbnailResolution = null;
 
@@ -2253,17 +2253,17 @@ public interface CatalogService {
                         break;
                 }
 
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.getSampleProductThumbnailUrlRequest: missing sku");
-                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.catalog.getSampleProductThumbnailUrlRequest: missing thumbnailResolution");
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.GetSampleProductThumbnailUrlRequest: missing sku");
+                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.catalog.GetSampleProductThumbnailUrlRequest: missing thumbnailResolution");
             }
 
-            public getSampleProductThumbnailUrlRequest(final String sku, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.getSampleProductThumbnailUrlRequest: missing sku");
-                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.catalog.getSampleProductThumbnailUrlRequest: missing thumbnailResolution");
+            public GetSampleProductThumbnailUrlRequest(final String sku, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.GetSampleProductThumbnailUrlRequest: missing sku");
+                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.catalog.GetSampleProductThumbnailUrlRequest: missing thumbnailResolution");
             }
 
             @Override
-            public int compareTo(final getSampleProductThumbnailUrlRequest other) {
+            public int compareTo(final GetSampleProductThumbnailUrlRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -2271,11 +2271,11 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getSampleProductThumbnailUrlRequest)) {
+                } else if (!(otherObject instanceof GetSampleProductThumbnailUrlRequest)) {
                     return false;
                 }
 
-                final getSampleProductThumbnailUrlRequest other = (getSampleProductThumbnailUrlRequest)otherObject;
+                final GetSampleProductThumbnailUrlRequest other = (GetSampleProductThumbnailUrlRequest)otherObject;
                 return
                     getSku().equals(other.getSku()) &&
                     getThumbnailResolution().equals(other.getThumbnailResolution());
@@ -2334,7 +2334,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getSampleProductThumbnailUrlRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetSampleProductThumbnailUrlRequest"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("sku", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getSku());
@@ -2357,20 +2357,20 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getSampleProductThumbnailUrlResponse implements org.thryft.TBase<getSampleProductThumbnailUrlResponse> {
+        public final static class GetSampleProductThumbnailUrlResponse implements org.thryft.TBase<GetSampleProductThumbnailUrlResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getSampleProductThumbnailUrlResponse other) {
+                public Builder(final GetSampleProductThumbnailUrlResponse other) {
                     this.returnValue = other.getReturnValue();
                 }
 
-                protected getSampleProductThumbnailUrlResponse _build(final String returnValue) {
-                    return new getSampleProductThumbnailUrlResponse(returnValue);
+                protected GetSampleProductThumbnailUrlResponse _build(final String returnValue) {
+                    return new GetSampleProductThumbnailUrlResponse(returnValue);
                 }
 
-                public getSampleProductThumbnailUrlResponse build() {
+                public GetSampleProductThumbnailUrlResponse build() {
                     return _build(returnValue);
                 }
 
@@ -2382,20 +2382,20 @@ public interface CatalogService {
                 private String returnValue;
             }
 
-            public getSampleProductThumbnailUrlResponse(final getSampleProductThumbnailUrlResponse other) {
+            public GetSampleProductThumbnailUrlResponse(final GetSampleProductThumbnailUrlResponse other) {
                 this(other.getReturnValue());
             }
 
-            public getSampleProductThumbnailUrlResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetSampleProductThumbnailUrlResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = iprot.readString();
             }
 
-            public getSampleProductThumbnailUrlResponse(final String returnValue) {
+            public GetSampleProductThumbnailUrlResponse(final String returnValue) {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getSampleProductThumbnailUrl: missing returnValue");
             }
 
             @Override
-            public int compareTo(final getSampleProductThumbnailUrlResponse other) {
+            public int compareTo(final GetSampleProductThumbnailUrlResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -2403,11 +2403,11 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getSampleProductThumbnailUrlResponse)) {
+                } else if (!(otherObject instanceof GetSampleProductThumbnailUrlResponse)) {
                     return false;
                 }
 
-                final getSampleProductThumbnailUrlResponse other = (getSampleProductThumbnailUrlResponse)otherObject;
+                final GetSampleProductThumbnailUrlResponse other = (GetSampleProductThumbnailUrlResponse)otherObject;
                 return
                     getReturnValue().equals(other.getReturnValue());
             }
@@ -2455,7 +2455,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getSampleProductThumbnailUrlResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetSampleProductThumbnailUrlResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getReturnValue());
@@ -2472,20 +2472,20 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getSampleProductBySkuRequest implements org.thryft.TBase<getSampleProductBySkuRequest> {
+        public final static class GetSampleProductBySkuRequest implements org.thryft.TBase<GetSampleProductBySkuRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getSampleProductBySkuRequest other) {
+                public Builder(final GetSampleProductBySkuRequest other) {
                     this.sku = other.getSku();
                 }
 
-                protected getSampleProductBySkuRequest _build(final String sku) {
-                    return new getSampleProductBySkuRequest(sku);
+                protected GetSampleProductBySkuRequest _build(final String sku) {
+                    return new GetSampleProductBySkuRequest(sku);
                 }
 
-                public getSampleProductBySkuRequest build() {
+                public GetSampleProductBySkuRequest build() {
                     return _build(sku);
                 }
 
@@ -2497,15 +2497,15 @@ public interface CatalogService {
                 private String sku;
             }
 
-            public getSampleProductBySkuRequest(final getSampleProductBySkuRequest other) {
+            public GetSampleProductBySkuRequest(final GetSampleProductBySkuRequest other) {
                 this(other.getSku());
             }
 
-            public getSampleProductBySkuRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetSampleProductBySkuRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getSampleProductBySkuRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public GetSampleProductBySkuRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String sku = null;
 
                 switch (readAsTType) {
@@ -2531,15 +2531,15 @@ public interface CatalogService {
                         break;
                 }
 
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.getSampleProductBySkuRequest: missing sku");
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.GetSampleProductBySkuRequest: missing sku");
             }
 
-            public getSampleProductBySkuRequest(final String sku) {
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.getSampleProductBySkuRequest: missing sku");
+            public GetSampleProductBySkuRequest(final String sku) {
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.GetSampleProductBySkuRequest: missing sku");
             }
 
             @Override
-            public int compareTo(final getSampleProductBySkuRequest other) {
+            public int compareTo(final GetSampleProductBySkuRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -2547,11 +2547,11 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getSampleProductBySkuRequest)) {
+                } else if (!(otherObject instanceof GetSampleProductBySkuRequest)) {
                     return false;
                 }
 
-                final getSampleProductBySkuRequest other = (getSampleProductBySkuRequest)otherObject;
+                final GetSampleProductBySkuRequest other = (GetSampleProductBySkuRequest)otherObject;
                 return
                     getSku().equals(other.getSku());
             }
@@ -2599,7 +2599,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getSampleProductBySkuRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetSampleProductBySkuRequest"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("sku", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getSku());
@@ -2616,20 +2616,20 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getSampleProductBySkuResponse implements org.thryft.TBase<getSampleProductBySkuResponse> {
+        public final static class GetSampleProductBySkuResponse implements org.thryft.TBase<GetSampleProductBySkuResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getSampleProductBySkuResponse other) {
+                public Builder(final GetSampleProductBySkuResponse other) {
                     this.returnValue = other.getReturnValue();
                 }
 
-                protected getSampleProductBySkuResponse _build(final com.yogento.api.models.catalog.product.Product returnValue) {
-                    return new getSampleProductBySkuResponse(returnValue);
+                protected GetSampleProductBySkuResponse _build(final com.yogento.api.models.catalog.product.Product returnValue) {
+                    return new GetSampleProductBySkuResponse(returnValue);
                 }
 
-                public getSampleProductBySkuResponse build() {
+                public GetSampleProductBySkuResponse build() {
                     return _build(returnValue);
                 }
 
@@ -2641,20 +2641,20 @@ public interface CatalogService {
                 private com.yogento.api.models.catalog.product.Product returnValue;
             }
 
-            public getSampleProductBySkuResponse(final getSampleProductBySkuResponse other) {
+            public GetSampleProductBySkuResponse(final GetSampleProductBySkuResponse other) {
                 this(other.getReturnValue());
             }
 
-            public getSampleProductBySkuResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetSampleProductBySkuResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = new com.yogento.api.models.catalog.product.Product(iprot);
             }
 
-            public getSampleProductBySkuResponse(final com.yogento.api.models.catalog.product.Product returnValue) {
+            public GetSampleProductBySkuResponse(final com.yogento.api.models.catalog.product.Product returnValue) {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getSampleProductBySku: missing returnValue");
             }
 
             @Override
-            public int compareTo(final getSampleProductBySkuResponse other) {
+            public int compareTo(final GetSampleProductBySkuResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -2662,11 +2662,11 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getSampleProductBySkuResponse)) {
+                } else if (!(otherObject instanceof GetSampleProductBySkuResponse)) {
                     return false;
                 }
 
-                final getSampleProductBySkuResponse other = (getSampleProductBySkuResponse)otherObject;
+                final GetSampleProductBySkuResponse other = (GetSampleProductBySkuResponse)otherObject;
                 return
                     getReturnValue().equals(other.getReturnValue());
             }
@@ -2718,7 +2718,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getSampleProductBySkuResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetSampleProductBySkuResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getReturnValue().write(oprot);
@@ -2735,34 +2735,34 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getSampleProductsRequest implements org.thryft.TBase<getSampleProductsRequest> {
+        public final static class GetSampleProductsRequest implements org.thryft.TBase<GetSampleProductsRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getSampleProductsRequest other) {
+                public Builder(final GetSampleProductsRequest other) {
                 }
 
-                protected getSampleProductsRequest _build() {
-                    return new getSampleProductsRequest();
+                protected GetSampleProductsRequest _build() {
+                    return new GetSampleProductsRequest();
                 }
 
-                public getSampleProductsRequest build() {
+                public GetSampleProductsRequest build() {
                     return _build();
                 }
             }
 
-            public getSampleProductsRequest() {
+            public GetSampleProductsRequest() {
             }
 
-            public getSampleProductsRequest(final getSampleProductsRequest other) {
+            public GetSampleProductsRequest(final GetSampleProductsRequest other) {
             }
 
-            public getSampleProductsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetSampleProductsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getSampleProductsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public GetSampleProductsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 switch (readAsTType) {
                     case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
@@ -2785,7 +2785,7 @@ public interface CatalogService {
             }
 
             @Override
-            public int compareTo(final getSampleProductsRequest other) {
+            public int compareTo(final GetSampleProductsRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -2793,7 +2793,7 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getSampleProductsRequest)) {
+                } else if (!(otherObject instanceof GetSampleProductsRequest)) {
                     return false;
                 }
 
@@ -2831,7 +2831,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getSampleProductsRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetSampleProductsRequest"));
 
                         oprot.writeFieldStop();
 
@@ -2842,20 +2842,20 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getSampleProductsResponse implements org.thryft.TBase<getSampleProductsResponse> {
+        public final static class GetSampleProductsResponse implements org.thryft.TBase<GetSampleProductsResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getSampleProductsResponse other) {
+                public Builder(final GetSampleProductsResponse other) {
                     this.returnValue = other.getReturnValue();
                 }
 
-                protected getSampleProductsResponse _build(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue) {
-                    return new getSampleProductsResponse(returnValue);
+                protected GetSampleProductsResponse _build(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue) {
+                    return new GetSampleProductsResponse(returnValue);
                 }
 
-                public getSampleProductsResponse build() {
+                public GetSampleProductsResponse build() {
                     return _build(returnValue);
                 }
 
@@ -2867,11 +2867,11 @@ public interface CatalogService {
                 private com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue;
             }
 
-            public getSampleProductsResponse(final getSampleProductsResponse other) {
+            public GetSampleProductsResponse(final GetSampleProductsResponse other) {
                 this(other.getReturnValue());
             }
 
-            public getSampleProductsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetSampleProductsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product>>() {
                     @Override
                     public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> apply(final org.thryft.protocol.TProtocol iprot) {
@@ -2890,12 +2890,12 @@ public interface CatalogService {
                 }).apply(iprot);
             }
 
-            public getSampleProductsResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue) {
+            public GetSampleProductsResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue) {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getSampleProducts: missing returnValue");
             }
 
             @Override
-            public int compareTo(final getSampleProductsResponse other) {
+            public int compareTo(final GetSampleProductsResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -2903,11 +2903,11 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getSampleProductsResponse)) {
+                } else if (!(otherObject instanceof GetSampleProductsResponse)) {
                     return false;
                 }
 
-                final getSampleProductsResponse other = (getSampleProductsResponse)otherObject;
+                final GetSampleProductsResponse other = (GetSampleProductsResponse)otherObject;
                 return
                     getReturnValue().equals(other.getReturnValue());
             }
@@ -2967,7 +2967,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getSampleProductsResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetSampleProductsResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.SET, (short)-1));
                         oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
@@ -2988,20 +2988,20 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class headProductBySkuRequest implements org.thryft.TBase<headProductBySkuRequest> {
+        public final static class HeadProductBySkuRequest implements org.thryft.TBase<HeadProductBySkuRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final headProductBySkuRequest other) {
+                public Builder(final HeadProductBySkuRequest other) {
                     this.sku = other.getSku();
                 }
 
-                protected headProductBySkuRequest _build(final String sku) {
-                    return new headProductBySkuRequest(sku);
+                protected HeadProductBySkuRequest _build(final String sku) {
+                    return new HeadProductBySkuRequest(sku);
                 }
 
-                public headProductBySkuRequest build() {
+                public HeadProductBySkuRequest build() {
                     return _build(sku);
                 }
 
@@ -3013,15 +3013,15 @@ public interface CatalogService {
                 private String sku;
             }
 
-            public headProductBySkuRequest(final headProductBySkuRequest other) {
+            public HeadProductBySkuRequest(final HeadProductBySkuRequest other) {
                 this(other.getSku());
             }
 
-            public headProductBySkuRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public HeadProductBySkuRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public headProductBySkuRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public HeadProductBySkuRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String sku = null;
 
                 switch (readAsTType) {
@@ -3047,15 +3047,15 @@ public interface CatalogService {
                         break;
                 }
 
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.headProductBySkuRequest: missing sku");
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.HeadProductBySkuRequest: missing sku");
             }
 
-            public headProductBySkuRequest(final String sku) {
-                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.headProductBySkuRequest: missing sku");
+            public HeadProductBySkuRequest(final String sku) {
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.HeadProductBySkuRequest: missing sku");
             }
 
             @Override
-            public int compareTo(final headProductBySkuRequest other) {
+            public int compareTo(final HeadProductBySkuRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -3063,11 +3063,11 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof headProductBySkuRequest)) {
+                } else if (!(otherObject instanceof HeadProductBySkuRequest)) {
                     return false;
                 }
 
-                final headProductBySkuRequest other = (headProductBySkuRequest)otherObject;
+                final HeadProductBySkuRequest other = (HeadProductBySkuRequest)otherObject;
                 return
                     getSku().equals(other.getSku());
             }
@@ -3115,7 +3115,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("headProductBySkuRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("HeadProductBySkuRequest"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("sku", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getSku());
@@ -3132,20 +3132,20 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class headProductBySkuResponse implements org.thryft.TBase<headProductBySkuResponse> {
+        public final static class HeadProductBySkuResponse implements org.thryft.TBase<HeadProductBySkuResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final headProductBySkuResponse other) {
+                public Builder(final HeadProductBySkuResponse other) {
                     this.returnValue = other.isReturnValue();
                 }
 
-                protected headProductBySkuResponse _build(final boolean returnValue) {
-                    return new headProductBySkuResponse(returnValue);
+                protected HeadProductBySkuResponse _build(final boolean returnValue) {
+                    return new HeadProductBySkuResponse(returnValue);
                 }
 
-                public headProductBySkuResponse build() {
+                public HeadProductBySkuResponse build() {
                     return _build(returnValue);
                 }
 
@@ -3157,24 +3157,24 @@ public interface CatalogService {
                 private Boolean returnValue;
             }
 
-            public headProductBySkuResponse(final headProductBySkuResponse other) {
+            public HeadProductBySkuResponse(final HeadProductBySkuResponse other) {
                 this(other.isReturnValue());
             }
 
-            public headProductBySkuResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public HeadProductBySkuResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = iprot.readBool();
             }
 
-            public headProductBySkuResponse(final boolean returnValue) {
+            public HeadProductBySkuResponse(final boolean returnValue) {
                 this.returnValue = returnValue;
             }
 
-            public headProductBySkuResponse(final Boolean returnValue) {
+            public HeadProductBySkuResponse(final Boolean returnValue) {
                 this.returnValue = returnValue;
             }
 
             @Override
-            public int compareTo(final headProductBySkuResponse other) {
+            public int compareTo(final HeadProductBySkuResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -3182,11 +3182,11 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof headProductBySkuResponse)) {
+                } else if (!(otherObject instanceof HeadProductBySkuResponse)) {
                     return false;
                 }
 
-                final headProductBySkuResponse other = (headProductBySkuResponse)otherObject;
+                final HeadProductBySkuResponse other = (HeadProductBySkuResponse)otherObject;
                 return
                     isReturnValue() == other.isReturnValue();
             }
@@ -3234,7 +3234,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("headProductBySkuResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("HeadProductBySkuResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.BOOL, (short)-1));
                         oprot.writeBool(isReturnValue());
@@ -3251,20 +3251,20 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class putProductRequest implements org.thryft.TBase<putProductRequest> {
+        public final static class PutProductRequest implements org.thryft.TBase<PutProductRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final putProductRequest other) {
+                public Builder(final PutProductRequest other) {
                     this.product = other.getProduct();
                 }
 
-                protected putProductRequest _build(final com.yogento.api.models.catalog.product.Product product) {
-                    return new putProductRequest(product);
+                protected PutProductRequest _build(final com.yogento.api.models.catalog.product.Product product) {
+                    return new PutProductRequest(product);
                 }
 
-                public putProductRequest build() {
+                public PutProductRequest build() {
                     return _build(product);
                 }
 
@@ -3276,15 +3276,15 @@ public interface CatalogService {
                 private com.yogento.api.models.catalog.product.Product product;
             }
 
-            public putProductRequest(final putProductRequest other) {
+            public PutProductRequest(final PutProductRequest other) {
                 this(other.getProduct());
             }
 
-            public putProductRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public PutProductRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public putProductRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public PutProductRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 com.yogento.api.models.catalog.product.Product product = null;
 
                 switch (readAsTType) {
@@ -3310,15 +3310,15 @@ public interface CatalogService {
                         break;
                 }
 
-                this.product = com.google.common.base.Preconditions.checkNotNull(product, "com.yogento.api.services.catalog.putProductRequest: missing product");
+                this.product = com.google.common.base.Preconditions.checkNotNull(product, "com.yogento.api.services.catalog.PutProductRequest: missing product");
             }
 
-            public putProductRequest(final com.yogento.api.models.catalog.product.Product product) {
-                this.product = com.google.common.base.Preconditions.checkNotNull(product, "com.yogento.api.services.catalog.putProductRequest: missing product");
+            public PutProductRequest(final com.yogento.api.models.catalog.product.Product product) {
+                this.product = com.google.common.base.Preconditions.checkNotNull(product, "com.yogento.api.services.catalog.PutProductRequest: missing product");
             }
 
             @Override
-            public int compareTo(final putProductRequest other) {
+            public int compareTo(final PutProductRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -3326,11 +3326,11 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof putProductRequest)) {
+                } else if (!(otherObject instanceof PutProductRequest)) {
                     return false;
                 }
 
-                final putProductRequest other = (putProductRequest)otherObject;
+                final PutProductRequest other = (PutProductRequest)otherObject;
                 return
                     getProduct().equals(other.getProduct());
             }
@@ -3382,7 +3382,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("putProductRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("PutProductRequest"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("product", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getProduct().write(oprot);
@@ -3399,34 +3399,34 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class putProductResponse implements org.thryft.TBase<putProductResponse> {
+        public final static class PutProductResponse implements org.thryft.TBase<PutProductResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final putProductResponse other) {
+                public Builder(final PutProductResponse other) {
                 }
 
-                protected putProductResponse _build() {
-                    return new putProductResponse();
+                protected PutProductResponse _build() {
+                    return new PutProductResponse();
                 }
 
-                public putProductResponse build() {
+                public PutProductResponse build() {
                     return _build();
                 }
             }
 
-            public putProductResponse() {
+            public PutProductResponse() {
             }
 
-            public putProductResponse(final putProductResponse other) {
+            public PutProductResponse(final PutProductResponse other) {
             }
 
-            public putProductResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public PutProductResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
             }
 
             @Override
-            public int compareTo(final putProductResponse other) {
+            public int compareTo(final PutProductResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -3434,7 +3434,7 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof putProductResponse)) {
+                } else if (!(otherObject instanceof PutProductResponse)) {
                     return false;
                 }
 
@@ -3472,7 +3472,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("putProductResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("PutProductResponse"));
 
                         oprot.writeFieldStop();
 
@@ -3483,20 +3483,20 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class putProductsRequest implements org.thryft.TBase<putProductsRequest> {
+        public final static class PutProductsRequest implements org.thryft.TBase<PutProductsRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final putProductsRequest other) {
+                public Builder(final PutProductsRequest other) {
                     this.products = other.getProducts();
                 }
 
-                protected putProductsRequest _build(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> products) {
-                    return new putProductsRequest(products);
+                protected PutProductsRequest _build(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> products) {
+                    return new PutProductsRequest(products);
                 }
 
-                public putProductsRequest build() {
+                public PutProductsRequest build() {
                     return _build(products);
                 }
 
@@ -3508,15 +3508,15 @@ public interface CatalogService {
                 private com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> products;
             }
 
-            public putProductsRequest(final putProductsRequest other) {
+            public PutProductsRequest(final PutProductsRequest other) {
                 this(other.getProducts());
             }
 
-            public putProductsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public PutProductsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public putProductsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public PutProductsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> products = null;
 
                 switch (readAsTType) {
@@ -3572,15 +3572,15 @@ public interface CatalogService {
                         break;
                 }
 
-                this.products = com.google.common.base.Preconditions.checkNotNull(products, "com.yogento.api.services.catalog.putProductsRequest: missing products");
+                this.products = com.google.common.base.Preconditions.checkNotNull(products, "com.yogento.api.services.catalog.PutProductsRequest: missing products");
             }
 
-            public putProductsRequest(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> products) {
-                this.products = com.google.common.base.Preconditions.checkNotNull(products, "com.yogento.api.services.catalog.putProductsRequest: missing products");
+            public PutProductsRequest(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> products) {
+                this.products = com.google.common.base.Preconditions.checkNotNull(products, "com.yogento.api.services.catalog.PutProductsRequest: missing products");
             }
 
             @Override
-            public int compareTo(final putProductsRequest other) {
+            public int compareTo(final PutProductsRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -3588,11 +3588,11 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof putProductsRequest)) {
+                } else if (!(otherObject instanceof PutProductsRequest)) {
                     return false;
                 }
 
-                final putProductsRequest other = (putProductsRequest)otherObject;
+                final PutProductsRequest other = (PutProductsRequest)otherObject;
                 return
                     getProducts().equals(other.getProducts());
             }
@@ -3652,7 +3652,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("putProductsRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("PutProductsRequest"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("products", org.thryft.protocol.TType.SET, (short)-1));
                         oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getProducts().size()));
@@ -3673,34 +3673,34 @@ public interface CatalogService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class putProductsResponse implements org.thryft.TBase<putProductsResponse> {
+        public final static class PutProductsResponse implements org.thryft.TBase<PutProductsResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final putProductsResponse other) {
+                public Builder(final PutProductsResponse other) {
                 }
 
-                protected putProductsResponse _build() {
-                    return new putProductsResponse();
+                protected PutProductsResponse _build() {
+                    return new PutProductsResponse();
                 }
 
-                public putProductsResponse build() {
+                public PutProductsResponse build() {
                     return _build();
                 }
             }
 
-            public putProductsResponse() {
+            public PutProductsResponse() {
             }
 
-            public putProductsResponse(final putProductsResponse other) {
+            public PutProductsResponse(final PutProductsResponse other) {
             }
 
-            public putProductsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public PutProductsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
             }
 
             @Override
-            public int compareTo(final putProductsResponse other) {
+            public int compareTo(final PutProductsResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -3708,7 +3708,7 @@ public interface CatalogService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof putProductsResponse)) {
+                } else if (!(otherObject instanceof PutProductsResponse)) {
                     return false;
                 }
 
@@ -3746,7 +3746,7 @@ public interface CatalogService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("putProductsResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("PutProductsResponse"));
 
                         oprot.writeFieldStop();
 

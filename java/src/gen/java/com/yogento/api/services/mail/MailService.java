@@ -3,21 +3,21 @@ package com.yogento.api.services.mail;
 public interface MailService {
     public static class Messages {
         @SuppressWarnings({"serial"})
-        public final static class deleteMailCampaignRequest implements org.thryft.TBase<deleteMailCampaignRequest> {
+        public final static class DeleteMailCampaignRequest implements org.thryft.TBase<DeleteMailCampaignRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final deleteMailCampaignRequest other) {
+                public Builder(final DeleteMailCampaignRequest other) {
                     this.cid = other.getCid();
                     this.writeThrough = other.getWriteThrough();
                 }
 
-                protected deleteMailCampaignRequest _build(final String cid, final com.google.common.base.Optional<Boolean> writeThrough) {
-                    return new deleteMailCampaignRequest(cid, writeThrough);
+                protected DeleteMailCampaignRequest _build(final String cid, final com.google.common.base.Optional<Boolean> writeThrough) {
+                    return new DeleteMailCampaignRequest(cid, writeThrough);
                 }
 
-                public deleteMailCampaignRequest build() {
+                public DeleteMailCampaignRequest build() {
                     return _build(cid, writeThrough);
                 }
 
@@ -40,15 +40,15 @@ public interface MailService {
                 private com.google.common.base.Optional<Boolean> writeThrough = com.google.common.base.Optional.absent();
             }
 
-            public deleteMailCampaignRequest(final deleteMailCampaignRequest other) {
+            public DeleteMailCampaignRequest(final DeleteMailCampaignRequest other) {
                 this(other.getCid(), other.getWriteThrough());
             }
 
-            public deleteMailCampaignRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public DeleteMailCampaignRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public deleteMailCampaignRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public DeleteMailCampaignRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String cid = null;
                 com.google.common.base.Optional<Boolean> writeThrough = com.google.common.base.Optional.absent();
 
@@ -80,22 +80,22 @@ public interface MailService {
                         break;
                 }
 
-                this.cid = com.google.common.base.Preconditions.checkNotNull(cid, "com.yogento.api.services.mail.deleteMailCampaignRequest: missing cid");
+                this.cid = com.google.common.base.Preconditions.checkNotNull(cid, "com.yogento.api.services.mail.DeleteMailCampaignRequest: missing cid");
                 this.writeThrough = writeThrough;
             }
 
-            public deleteMailCampaignRequest(final String cid) {
-                this.cid = com.google.common.base.Preconditions.checkNotNull(cid, "com.yogento.api.services.mail.deleteMailCampaignRequest: missing cid");
+            public DeleteMailCampaignRequest(final String cid) {
+                this.cid = com.google.common.base.Preconditions.checkNotNull(cid, "com.yogento.api.services.mail.DeleteMailCampaignRequest: missing cid");
                 this.writeThrough = com.google.common.base.Optional.absent();
             }
 
-            public deleteMailCampaignRequest(final String cid, final com.google.common.base.Optional<Boolean> writeThrough) {
-                this.cid = com.google.common.base.Preconditions.checkNotNull(cid, "com.yogento.api.services.mail.deleteMailCampaignRequest: missing cid");
+            public DeleteMailCampaignRequest(final String cid, final com.google.common.base.Optional<Boolean> writeThrough) {
+                this.cid = com.google.common.base.Preconditions.checkNotNull(cid, "com.yogento.api.services.mail.DeleteMailCampaignRequest: missing cid");
                 this.writeThrough = writeThrough;
             }
 
             @Override
-            public int compareTo(final deleteMailCampaignRequest other) {
+            public int compareTo(final DeleteMailCampaignRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -103,11 +103,11 @@ public interface MailService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof deleteMailCampaignRequest)) {
+                } else if (!(otherObject instanceof DeleteMailCampaignRequest)) {
                     return false;
                 }
 
-                final deleteMailCampaignRequest other = (deleteMailCampaignRequest)otherObject;
+                final DeleteMailCampaignRequest other = (DeleteMailCampaignRequest)otherObject;
                 return
                     getCid().equals(other.getCid()) &&
                     getWriteThrough().equals(other.getWriteThrough());
@@ -174,7 +174,7 @@ public interface MailService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("deleteMailCampaignRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("DeleteMailCampaignRequest"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("cid", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getCid());
@@ -199,20 +199,20 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class deleteMailCampaignResponse implements org.thryft.TBase<deleteMailCampaignResponse> {
+        public final static class DeleteMailCampaignResponse implements org.thryft.TBase<DeleteMailCampaignResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final deleteMailCampaignResponse other) {
+                public Builder(final DeleteMailCampaignResponse other) {
                     this.returnValue = other.isReturnValue();
                 }
 
-                protected deleteMailCampaignResponse _build(final boolean returnValue) {
-                    return new deleteMailCampaignResponse(returnValue);
+                protected DeleteMailCampaignResponse _build(final boolean returnValue) {
+                    return new DeleteMailCampaignResponse(returnValue);
                 }
 
-                public deleteMailCampaignResponse build() {
+                public DeleteMailCampaignResponse build() {
                     return _build(returnValue);
                 }
 
@@ -224,24 +224,24 @@ public interface MailService {
                 private Boolean returnValue;
             }
 
-            public deleteMailCampaignResponse(final deleteMailCampaignResponse other) {
+            public DeleteMailCampaignResponse(final DeleteMailCampaignResponse other) {
                 this(other.isReturnValue());
             }
 
-            public deleteMailCampaignResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public DeleteMailCampaignResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = iprot.readBool();
             }
 
-            public deleteMailCampaignResponse(final boolean returnValue) {
+            public DeleteMailCampaignResponse(final boolean returnValue) {
                 this.returnValue = returnValue;
             }
 
-            public deleteMailCampaignResponse(final Boolean returnValue) {
+            public DeleteMailCampaignResponse(final Boolean returnValue) {
                 this.returnValue = returnValue;
             }
 
             @Override
-            public int compareTo(final deleteMailCampaignResponse other) {
+            public int compareTo(final DeleteMailCampaignResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -249,11 +249,11 @@ public interface MailService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof deleteMailCampaignResponse)) {
+                } else if (!(otherObject instanceof DeleteMailCampaignResponse)) {
                     return false;
                 }
 
-                final deleteMailCampaignResponse other = (deleteMailCampaignResponse)otherObject;
+                final DeleteMailCampaignResponse other = (DeleteMailCampaignResponse)otherObject;
                 return
                     isReturnValue() == other.isReturnValue();
             }
@@ -301,7 +301,7 @@ public interface MailService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("deleteMailCampaignResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("DeleteMailCampaignResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.BOOL, (short)-1));
                         oprot.writeBool(isReturnValue());
@@ -318,21 +318,21 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailCampaignRequest implements org.thryft.TBase<getMailCampaignRequest> {
+        public final static class GetMailCampaignRequest implements org.thryft.TBase<GetMailCampaignRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getMailCampaignRequest other) {
+                public Builder(final GetMailCampaignRequest other) {
                     this.cid = other.getCid();
                     this.includeContent = other.getIncludeContent();
                 }
 
-                protected getMailCampaignRequest _build(final String cid, final com.google.common.base.Optional<Boolean> includeContent) {
-                    return new getMailCampaignRequest(cid, includeContent);
+                protected GetMailCampaignRequest _build(final String cid, final com.google.common.base.Optional<Boolean> includeContent) {
+                    return new GetMailCampaignRequest(cid, includeContent);
                 }
 
-                public getMailCampaignRequest build() {
+                public GetMailCampaignRequest build() {
                     return _build(cid, includeContent);
                 }
 
@@ -355,15 +355,15 @@ public interface MailService {
                 private com.google.common.base.Optional<Boolean> includeContent = com.google.common.base.Optional.absent();
             }
 
-            public getMailCampaignRequest(final getMailCampaignRequest other) {
+            public GetMailCampaignRequest(final GetMailCampaignRequest other) {
                 this(other.getCid(), other.getIncludeContent());
             }
 
-            public getMailCampaignRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetMailCampaignRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getMailCampaignRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public GetMailCampaignRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String cid = null;
                 com.google.common.base.Optional<Boolean> includeContent = com.google.common.base.Optional.absent();
 
@@ -395,22 +395,22 @@ public interface MailService {
                         break;
                 }
 
-                this.cid = com.google.common.base.Preconditions.checkNotNull(cid, "com.yogento.api.services.mail.getMailCampaignRequest: missing cid");
+                this.cid = com.google.common.base.Preconditions.checkNotNull(cid, "com.yogento.api.services.mail.GetMailCampaignRequest: missing cid");
                 this.includeContent = includeContent;
             }
 
-            public getMailCampaignRequest(final String cid) {
-                this.cid = com.google.common.base.Preconditions.checkNotNull(cid, "com.yogento.api.services.mail.getMailCampaignRequest: missing cid");
+            public GetMailCampaignRequest(final String cid) {
+                this.cid = com.google.common.base.Preconditions.checkNotNull(cid, "com.yogento.api.services.mail.GetMailCampaignRequest: missing cid");
                 this.includeContent = com.google.common.base.Optional.absent();
             }
 
-            public getMailCampaignRequest(final String cid, final com.google.common.base.Optional<Boolean> includeContent) {
-                this.cid = com.google.common.base.Preconditions.checkNotNull(cid, "com.yogento.api.services.mail.getMailCampaignRequest: missing cid");
+            public GetMailCampaignRequest(final String cid, final com.google.common.base.Optional<Boolean> includeContent) {
+                this.cid = com.google.common.base.Preconditions.checkNotNull(cid, "com.yogento.api.services.mail.GetMailCampaignRequest: missing cid");
                 this.includeContent = includeContent;
             }
 
             @Override
-            public int compareTo(final getMailCampaignRequest other) {
+            public int compareTo(final GetMailCampaignRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -418,11 +418,11 @@ public interface MailService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getMailCampaignRequest)) {
+                } else if (!(otherObject instanceof GetMailCampaignRequest)) {
                     return false;
                 }
 
-                final getMailCampaignRequest other = (getMailCampaignRequest)otherObject;
+                final GetMailCampaignRequest other = (GetMailCampaignRequest)otherObject;
                 return
                     getCid().equals(other.getCid()) &&
                     getIncludeContent().equals(other.getIncludeContent());
@@ -489,7 +489,7 @@ public interface MailService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailCampaignRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetMailCampaignRequest"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("cid", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getCid());
@@ -514,20 +514,20 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailCampaignResponse implements org.thryft.TBase<getMailCampaignResponse> {
+        public final static class GetMailCampaignResponse implements org.thryft.TBase<GetMailCampaignResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getMailCampaignResponse other) {
+                public Builder(final GetMailCampaignResponse other) {
                     this.returnValue = other.getReturnValue();
                 }
 
-                protected getMailCampaignResponse _build(final com.yogento.api.models.mail.campaign.MailCampaign returnValue) {
-                    return new getMailCampaignResponse(returnValue);
+                protected GetMailCampaignResponse _build(final com.yogento.api.models.mail.campaign.MailCampaign returnValue) {
+                    return new GetMailCampaignResponse(returnValue);
                 }
 
-                public getMailCampaignResponse build() {
+                public GetMailCampaignResponse build() {
                     return _build(returnValue);
                 }
 
@@ -539,20 +539,20 @@ public interface MailService {
                 private com.yogento.api.models.mail.campaign.MailCampaign returnValue;
             }
 
-            public getMailCampaignResponse(final getMailCampaignResponse other) {
+            public GetMailCampaignResponse(final GetMailCampaignResponse other) {
                 this(other.getReturnValue());
             }
 
-            public getMailCampaignResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetMailCampaignResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = new com.yogento.api.models.mail.campaign.MailCampaign(iprot);
             }
 
-            public getMailCampaignResponse(final com.yogento.api.models.mail.campaign.MailCampaign returnValue) {
+            public GetMailCampaignResponse(final com.yogento.api.models.mail.campaign.MailCampaign returnValue) {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.getMailCampaign: missing returnValue");
             }
 
             @Override
-            public int compareTo(final getMailCampaignResponse other) {
+            public int compareTo(final GetMailCampaignResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -560,11 +560,11 @@ public interface MailService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getMailCampaignResponse)) {
+                } else if (!(otherObject instanceof GetMailCampaignResponse)) {
                     return false;
                 }
 
-                final getMailCampaignResponse other = (getMailCampaignResponse)otherObject;
+                final GetMailCampaignResponse other = (GetMailCampaignResponse)otherObject;
                 return
                     getReturnValue().equals(other.getReturnValue());
             }
@@ -616,7 +616,7 @@ public interface MailService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailCampaignResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetMailCampaignResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getReturnValue().write(oprot);
@@ -633,20 +633,20 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailCampaignsRequest implements org.thryft.TBase<getMailCampaignsRequest> {
+        public final static class GetMailCampaignsRequest implements org.thryft.TBase<GetMailCampaignsRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getMailCampaignsRequest other) {
+                public Builder(final GetMailCampaignsRequest other) {
                     this.includeContent = other.getIncludeContent();
                 }
 
-                protected getMailCampaignsRequest _build(final com.google.common.base.Optional<Boolean> includeContent) {
-                    return new getMailCampaignsRequest(includeContent);
+                protected GetMailCampaignsRequest _build(final com.google.common.base.Optional<Boolean> includeContent) {
+                    return new GetMailCampaignsRequest(includeContent);
                 }
 
-                public getMailCampaignsRequest build() {
+                public GetMailCampaignsRequest build() {
                     return _build(includeContent);
                 }
 
@@ -663,19 +663,19 @@ public interface MailService {
                 private com.google.common.base.Optional<Boolean> includeContent = com.google.common.base.Optional.absent();
             }
 
-            public getMailCampaignsRequest() {
+            public GetMailCampaignsRequest() {
                 includeContent = com.google.common.base.Optional.absent();
             }
 
-            public getMailCampaignsRequest(final getMailCampaignsRequest other) {
+            public GetMailCampaignsRequest(final GetMailCampaignsRequest other) {
                 this(other.getIncludeContent());
             }
 
-            public getMailCampaignsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetMailCampaignsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getMailCampaignsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public GetMailCampaignsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 com.google.common.base.Optional<Boolean> includeContent = com.google.common.base.Optional.absent();
 
                 switch (readAsTType) {
@@ -706,12 +706,12 @@ public interface MailService {
                 this.includeContent = includeContent;
             }
 
-            public getMailCampaignsRequest(final com.google.common.base.Optional<Boolean> includeContent) {
+            public GetMailCampaignsRequest(final com.google.common.base.Optional<Boolean> includeContent) {
                 this.includeContent = includeContent;
             }
 
             @Override
-            public int compareTo(final getMailCampaignsRequest other) {
+            public int compareTo(final GetMailCampaignsRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -719,11 +719,11 @@ public interface MailService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getMailCampaignsRequest)) {
+                } else if (!(otherObject instanceof GetMailCampaignsRequest)) {
                     return false;
                 }
 
-                final getMailCampaignsRequest other = (getMailCampaignsRequest)otherObject;
+                final GetMailCampaignsRequest other = (GetMailCampaignsRequest)otherObject;
                 return
                     getIncludeContent().equals(other.getIncludeContent());
             }
@@ -779,7 +779,7 @@ public interface MailService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailCampaignsRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetMailCampaignsRequest"));
 
                         if (getIncludeContent().isPresent()) {
                             oprot.writeFieldBegin(new org.thryft.protocol.TField("include_content", org.thryft.protocol.TType.BOOL, (short)-1));
@@ -798,20 +798,20 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailCampaignsResponse implements org.thryft.TBase<getMailCampaignsResponse> {
+        public final static class GetMailCampaignsResponse implements org.thryft.TBase<GetMailCampaignsResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getMailCampaignsResponse other) {
+                public Builder(final GetMailCampaignsResponse other) {
                     this.returnValue = other.getReturnValue();
                 }
 
-                protected getMailCampaignsResponse _build(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.campaign.MailCampaign> returnValue) {
-                    return new getMailCampaignsResponse(returnValue);
+                protected GetMailCampaignsResponse _build(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.campaign.MailCampaign> returnValue) {
+                    return new GetMailCampaignsResponse(returnValue);
                 }
 
-                public getMailCampaignsResponse build() {
+                public GetMailCampaignsResponse build() {
                     return _build(returnValue);
                 }
 
@@ -823,11 +823,11 @@ public interface MailService {
                 private com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.campaign.MailCampaign> returnValue;
             }
 
-            public getMailCampaignsResponse(final getMailCampaignsResponse other) {
+            public GetMailCampaignsResponse(final GetMailCampaignsResponse other) {
                 this(other.getReturnValue());
             }
 
-            public getMailCampaignsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetMailCampaignsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.campaign.MailCampaign>>() {
                     @Override
                     public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.campaign.MailCampaign> apply(final org.thryft.protocol.TProtocol iprot) {
@@ -846,12 +846,12 @@ public interface MailService {
                 }).apply(iprot);
             }
 
-            public getMailCampaignsResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.campaign.MailCampaign> returnValue) {
+            public GetMailCampaignsResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.campaign.MailCampaign> returnValue) {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.getMailCampaigns: missing returnValue");
             }
 
             @Override
-            public int compareTo(final getMailCampaignsResponse other) {
+            public int compareTo(final GetMailCampaignsResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -859,11 +859,11 @@ public interface MailService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getMailCampaignsResponse)) {
+                } else if (!(otherObject instanceof GetMailCampaignsResponse)) {
                     return false;
                 }
 
-                final getMailCampaignsResponse other = (getMailCampaignsResponse)otherObject;
+                final GetMailCampaignsResponse other = (GetMailCampaignsResponse)otherObject;
                 return
                     getReturnValue().equals(other.getReturnValue());
             }
@@ -923,7 +923,7 @@ public interface MailService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailCampaignsResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetMailCampaignsResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.SET, (short)-1));
                         oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
@@ -944,20 +944,20 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailCampaignStatsRequest implements org.thryft.TBase<getMailCampaignStatsRequest> {
+        public final static class GetMailCampaignStatsRequest implements org.thryft.TBase<GetMailCampaignStatsRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getMailCampaignStatsRequest other) {
+                public Builder(final GetMailCampaignStatsRequest other) {
                     this.cid = other.getCid();
                 }
 
-                protected getMailCampaignStatsRequest _build(final String cid) {
-                    return new getMailCampaignStatsRequest(cid);
+                protected GetMailCampaignStatsRequest _build(final String cid) {
+                    return new GetMailCampaignStatsRequest(cid);
                 }
 
-                public getMailCampaignStatsRequest build() {
+                public GetMailCampaignStatsRequest build() {
                     return _build(cid);
                 }
 
@@ -969,15 +969,15 @@ public interface MailService {
                 private String cid;
             }
 
-            public getMailCampaignStatsRequest(final getMailCampaignStatsRequest other) {
+            public GetMailCampaignStatsRequest(final GetMailCampaignStatsRequest other) {
                 this(other.getCid());
             }
 
-            public getMailCampaignStatsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetMailCampaignStatsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getMailCampaignStatsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public GetMailCampaignStatsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String cid = null;
 
                 switch (readAsTType) {
@@ -1003,15 +1003,15 @@ public interface MailService {
                         break;
                 }
 
-                this.cid = com.google.common.base.Preconditions.checkNotNull(cid, "com.yogento.api.services.mail.getMailCampaignStatsRequest: missing cid");
+                this.cid = com.google.common.base.Preconditions.checkNotNull(cid, "com.yogento.api.services.mail.GetMailCampaignStatsRequest: missing cid");
             }
 
-            public getMailCampaignStatsRequest(final String cid) {
-                this.cid = com.google.common.base.Preconditions.checkNotNull(cid, "com.yogento.api.services.mail.getMailCampaignStatsRequest: missing cid");
+            public GetMailCampaignStatsRequest(final String cid) {
+                this.cid = com.google.common.base.Preconditions.checkNotNull(cid, "com.yogento.api.services.mail.GetMailCampaignStatsRequest: missing cid");
             }
 
             @Override
-            public int compareTo(final getMailCampaignStatsRequest other) {
+            public int compareTo(final GetMailCampaignStatsRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -1019,11 +1019,11 @@ public interface MailService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getMailCampaignStatsRequest)) {
+                } else if (!(otherObject instanceof GetMailCampaignStatsRequest)) {
                     return false;
                 }
 
-                final getMailCampaignStatsRequest other = (getMailCampaignStatsRequest)otherObject;
+                final GetMailCampaignStatsRequest other = (GetMailCampaignStatsRequest)otherObject;
                 return
                     getCid().equals(other.getCid());
             }
@@ -1071,7 +1071,7 @@ public interface MailService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailCampaignStatsRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetMailCampaignStatsRequest"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("cid", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getCid());
@@ -1088,20 +1088,20 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailCampaignStatsResponse implements org.thryft.TBase<getMailCampaignStatsResponse> {
+        public final static class GetMailCampaignStatsResponse implements org.thryft.TBase<GetMailCampaignStatsResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getMailCampaignStatsResponse other) {
+                public Builder(final GetMailCampaignStatsResponse other) {
                     this.returnValue = other.getReturnValue();
                 }
 
-                protected getMailCampaignStatsResponse _build(final com.yogento.api.models.mail.campaign.MailCampaignStats returnValue) {
-                    return new getMailCampaignStatsResponse(returnValue);
+                protected GetMailCampaignStatsResponse _build(final com.yogento.api.models.mail.campaign.MailCampaignStats returnValue) {
+                    return new GetMailCampaignStatsResponse(returnValue);
                 }
 
-                public getMailCampaignStatsResponse build() {
+                public GetMailCampaignStatsResponse build() {
                     return _build(returnValue);
                 }
 
@@ -1113,20 +1113,20 @@ public interface MailService {
                 private com.yogento.api.models.mail.campaign.MailCampaignStats returnValue;
             }
 
-            public getMailCampaignStatsResponse(final getMailCampaignStatsResponse other) {
+            public GetMailCampaignStatsResponse(final GetMailCampaignStatsResponse other) {
                 this(other.getReturnValue());
             }
 
-            public getMailCampaignStatsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetMailCampaignStatsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = new com.yogento.api.models.mail.campaign.MailCampaignStats(iprot);
             }
 
-            public getMailCampaignStatsResponse(final com.yogento.api.models.mail.campaign.MailCampaignStats returnValue) {
+            public GetMailCampaignStatsResponse(final com.yogento.api.models.mail.campaign.MailCampaignStats returnValue) {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.getMailCampaignStats: missing returnValue");
             }
 
             @Override
-            public int compareTo(final getMailCampaignStatsResponse other) {
+            public int compareTo(final GetMailCampaignStatsResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -1134,11 +1134,11 @@ public interface MailService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getMailCampaignStatsResponse)) {
+                } else if (!(otherObject instanceof GetMailCampaignStatsResponse)) {
                     return false;
                 }
 
-                final getMailCampaignStatsResponse other = (getMailCampaignStatsResponse)otherObject;
+                final GetMailCampaignStatsResponse other = (GetMailCampaignStatsResponse)otherObject;
                 return
                     getReturnValue().equals(other.getReturnValue());
             }
@@ -1190,7 +1190,7 @@ public interface MailService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailCampaignStatsResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetMailCampaignStatsResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getReturnValue().write(oprot);
@@ -1207,34 +1207,34 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailListsRequest implements org.thryft.TBase<getMailListsRequest> {
+        public final static class GetMailListsRequest implements org.thryft.TBase<GetMailListsRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getMailListsRequest other) {
+                public Builder(final GetMailListsRequest other) {
                 }
 
-                protected getMailListsRequest _build() {
-                    return new getMailListsRequest();
+                protected GetMailListsRequest _build() {
+                    return new GetMailListsRequest();
                 }
 
-                public getMailListsRequest build() {
+                public GetMailListsRequest build() {
                     return _build();
                 }
             }
 
-            public getMailListsRequest() {
+            public GetMailListsRequest() {
             }
 
-            public getMailListsRequest(final getMailListsRequest other) {
+            public GetMailListsRequest(final GetMailListsRequest other) {
             }
 
-            public getMailListsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetMailListsRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getMailListsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public GetMailListsRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 switch (readAsTType) {
                     case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
@@ -1257,7 +1257,7 @@ public interface MailService {
             }
 
             @Override
-            public int compareTo(final getMailListsRequest other) {
+            public int compareTo(final GetMailListsRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -1265,7 +1265,7 @@ public interface MailService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getMailListsRequest)) {
+                } else if (!(otherObject instanceof GetMailListsRequest)) {
                     return false;
                 }
 
@@ -1303,7 +1303,7 @@ public interface MailService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailListsRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetMailListsRequest"));
 
                         oprot.writeFieldStop();
 
@@ -1314,20 +1314,20 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailListsResponse implements org.thryft.TBase<getMailListsResponse> {
+        public final static class GetMailListsResponse implements org.thryft.TBase<GetMailListsResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getMailListsResponse other) {
+                public Builder(final GetMailListsResponse other) {
                     this.returnValue = other.getReturnValue();
                 }
 
-                protected getMailListsResponse _build(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.list.MailList> returnValue) {
-                    return new getMailListsResponse(returnValue);
+                protected GetMailListsResponse _build(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.list.MailList> returnValue) {
+                    return new GetMailListsResponse(returnValue);
                 }
 
-                public getMailListsResponse build() {
+                public GetMailListsResponse build() {
                     return _build(returnValue);
                 }
 
@@ -1339,11 +1339,11 @@ public interface MailService {
                 private com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.list.MailList> returnValue;
             }
 
-            public getMailListsResponse(final getMailListsResponse other) {
+            public GetMailListsResponse(final GetMailListsResponse other) {
                 this(other.getReturnValue());
             }
 
-            public getMailListsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetMailListsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.list.MailList>>() {
                     @Override
                     public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.list.MailList> apply(final org.thryft.protocol.TProtocol iprot) {
@@ -1362,12 +1362,12 @@ public interface MailService {
                 }).apply(iprot);
             }
 
-            public getMailListsResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.list.MailList> returnValue) {
+            public GetMailListsResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.list.MailList> returnValue) {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.getMailLists: missing returnValue");
             }
 
             @Override
-            public int compareTo(final getMailListsResponse other) {
+            public int compareTo(final GetMailListsResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -1375,11 +1375,11 @@ public interface MailService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getMailListsResponse)) {
+                } else if (!(otherObject instanceof GetMailListsResponse)) {
                     return false;
                 }
 
-                final getMailListsResponse other = (getMailListsResponse)otherObject;
+                final GetMailListsResponse other = (GetMailListsResponse)otherObject;
                 return
                     getReturnValue().equals(other.getReturnValue());
             }
@@ -1439,7 +1439,7 @@ public interface MailService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailListsResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetMailListsResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.SET, (short)-1));
                         oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
@@ -1460,20 +1460,20 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailTemplatesRequest implements org.thryft.TBase<getMailTemplatesRequest> {
+        public final static class GetMailTemplatesRequest implements org.thryft.TBase<GetMailTemplatesRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getMailTemplatesRequest other) {
+                public Builder(final GetMailTemplatesRequest other) {
                     this.types = other.getTypes();
                 }
 
-                protected getMailTemplatesRequest _build(final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType>> types) {
-                    return new getMailTemplatesRequest(types);
+                protected GetMailTemplatesRequest _build(final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType>> types) {
+                    return new GetMailTemplatesRequest(types);
                 }
 
-                public getMailTemplatesRequest build() {
+                public GetMailTemplatesRequest build() {
                     return _build(types);
                 }
 
@@ -1493,19 +1493,19 @@ public interface MailService {
                 private com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType>> types = com.google.common.base.Optional.absent();
             }
 
-            public getMailTemplatesRequest() {
+            public GetMailTemplatesRequest() {
                 types = com.google.common.base.Optional.absent();
             }
 
-            public getMailTemplatesRequest(final getMailTemplatesRequest other) {
+            public GetMailTemplatesRequest(final GetMailTemplatesRequest other) {
                 this(other.getTypes());
             }
 
-            public getMailTemplatesRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetMailTemplatesRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getMailTemplatesRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public GetMailTemplatesRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType>> types = com.google.common.base.Optional.absent();
 
                 switch (readAsTType) {
@@ -1566,12 +1566,12 @@ public interface MailService {
                 this.types = types;
             }
 
-            public getMailTemplatesRequest(final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType>> types) {
-                this.types = com.google.common.base.Preconditions.checkNotNull(types, "com.yogento.api.services.mail.getMailTemplatesRequest: missing types");
+            public GetMailTemplatesRequest(final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType>> types) {
+                this.types = com.google.common.base.Preconditions.checkNotNull(types, "com.yogento.api.services.mail.GetMailTemplatesRequest: missing types");
             }
 
             @Override
-            public int compareTo(final getMailTemplatesRequest other) {
+            public int compareTo(final GetMailTemplatesRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -1579,11 +1579,11 @@ public interface MailService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getMailTemplatesRequest)) {
+                } else if (!(otherObject instanceof GetMailTemplatesRequest)) {
                     return false;
                 }
 
-                final getMailTemplatesRequest other = (getMailTemplatesRequest)otherObject;
+                final GetMailTemplatesRequest other = (GetMailTemplatesRequest)otherObject;
                 return
                     getTypes().equals(other.getTypes());
             }
@@ -1654,7 +1654,7 @@ public interface MailService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailTemplatesRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetMailTemplatesRequest"));
 
                         if (getTypes().isPresent()) {
                             oprot.writeFieldBegin(new org.thryft.protocol.TField("types", org.thryft.protocol.TType.SET, (short)-1));
@@ -1680,20 +1680,20 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailTemplatesResponse implements org.thryft.TBase<getMailTemplatesResponse> {
+        public final static class GetMailTemplatesResponse implements org.thryft.TBase<GetMailTemplatesResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getMailTemplatesResponse other) {
+                public Builder(final GetMailTemplatesResponse other) {
                     this.returnValue = other.getReturnValue();
                 }
 
-                protected getMailTemplatesResponse _build(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplate> returnValue) {
-                    return new getMailTemplatesResponse(returnValue);
+                protected GetMailTemplatesResponse _build(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplate> returnValue) {
+                    return new GetMailTemplatesResponse(returnValue);
                 }
 
-                public getMailTemplatesResponse build() {
+                public GetMailTemplatesResponse build() {
                     return _build(returnValue);
                 }
 
@@ -1708,11 +1708,11 @@ public interface MailService {
                 private com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplate> returnValue;
             }
 
-            public getMailTemplatesResponse(final getMailTemplatesResponse other) {
+            public GetMailTemplatesResponse(final GetMailTemplatesResponse other) {
                 this(other.getReturnValue());
             }
 
-            public getMailTemplatesResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetMailTemplatesResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = (new com.google.common.base.Function<org.thryft.protocol.TProtocol, com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplate>>() {
                     @Override
                     public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplate> apply(final org.thryft.protocol.TProtocol iprot) {
@@ -1731,12 +1731,12 @@ public interface MailService {
                 }).apply(iprot);
             }
 
-            public getMailTemplatesResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplate> returnValue) {
+            public GetMailTemplatesResponse(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplate> returnValue) {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.getMailTemplates: missing returnValue");
             }
 
             @Override
-            public int compareTo(final getMailTemplatesResponse other) {
+            public int compareTo(final GetMailTemplatesResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -1744,11 +1744,11 @@ public interface MailService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getMailTemplatesResponse)) {
+                } else if (!(otherObject instanceof GetMailTemplatesResponse)) {
                     return false;
                 }
 
-                final getMailTemplatesResponse other = (getMailTemplatesResponse)otherObject;
+                final GetMailTemplatesResponse other = (GetMailTemplatesResponse)otherObject;
                 return
                     getReturnValue().equals(other.getReturnValue());
             }
@@ -1811,7 +1811,7 @@ public interface MailService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailTemplatesResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetMailTemplatesResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.SET, (short)-1));
                         oprot.writeSetBegin(new org.thryft.protocol.TSet(org.thryft.protocol.TType.STRUCT, getReturnValue().size()));
@@ -1835,21 +1835,21 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailTemplateInfoRequest implements org.thryft.TBase<getMailTemplateInfoRequest> {
+        public final static class GetMailTemplateInfoRequest implements org.thryft.TBase<GetMailTemplateInfoRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getMailTemplateInfoRequest other) {
+                public Builder(final GetMailTemplateInfoRequest other) {
                     this.tid = other.getTid();
                     this.type = other.getType();
                 }
 
-                protected getMailTemplateInfoRequest _build(final int tid, final com.google.common.base.Optional<com.yogento.api.models.mail.template.MailTemplateType> type) {
-                    return new getMailTemplateInfoRequest(tid, type);
+                protected GetMailTemplateInfoRequest _build(final int tid, final com.google.common.base.Optional<com.yogento.api.models.mail.template.MailTemplateType> type) {
+                    return new GetMailTemplateInfoRequest(tid, type);
                 }
 
-                public getMailTemplateInfoRequest build() {
+                public GetMailTemplateInfoRequest build() {
                     return _build(tid, type);
                 }
 
@@ -1872,15 +1872,15 @@ public interface MailService {
                 private com.google.common.base.Optional<com.yogento.api.models.mail.template.MailTemplateType> type = com.google.common.base.Optional.absent();
             }
 
-            public getMailTemplateInfoRequest(final getMailTemplateInfoRequest other) {
+            public GetMailTemplateInfoRequest(final GetMailTemplateInfoRequest other) {
                 this(other.getTid(), other.getType());
             }
 
-            public getMailTemplateInfoRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetMailTemplateInfoRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getMailTemplateInfoRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public GetMailTemplateInfoRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 int tid = 0;
                 com.google.common.base.Optional<com.yogento.api.models.mail.template.MailTemplateType> type = com.google.common.base.Optional.absent();
 
@@ -1916,23 +1916,23 @@ public interface MailService {
                 this.type = type;
             }
 
-            public getMailTemplateInfoRequest(final int tid) {
+            public GetMailTemplateInfoRequest(final int tid) {
                 this.tid = tid;
                 this.type = com.google.common.base.Optional.absent();
             }
 
-            public getMailTemplateInfoRequest(final int tid, final com.google.common.base.Optional<com.yogento.api.models.mail.template.MailTemplateType> type) {
+            public GetMailTemplateInfoRequest(final int tid, final com.google.common.base.Optional<com.yogento.api.models.mail.template.MailTemplateType> type) {
                 this.tid = tid;
-                this.type = com.google.common.base.Preconditions.checkNotNull(type, "com.yogento.api.services.mail.getMailTemplateInfoRequest: missing type");
+                this.type = com.google.common.base.Preconditions.checkNotNull(type, "com.yogento.api.services.mail.GetMailTemplateInfoRequest: missing type");
             }
 
-            public getMailTemplateInfoRequest(final Integer tid, final com.google.common.base.Optional<com.yogento.api.models.mail.template.MailTemplateType> type) {
+            public GetMailTemplateInfoRequest(final Integer tid, final com.google.common.base.Optional<com.yogento.api.models.mail.template.MailTemplateType> type) {
                 this.tid = tid;
-                this.type = com.google.common.base.Preconditions.checkNotNull(type, "com.yogento.api.services.mail.getMailTemplateInfoRequest: missing type");
+                this.type = com.google.common.base.Preconditions.checkNotNull(type, "com.yogento.api.services.mail.GetMailTemplateInfoRequest: missing type");
             }
 
             @Override
-            public int compareTo(final getMailTemplateInfoRequest other) {
+            public int compareTo(final GetMailTemplateInfoRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -1940,11 +1940,11 @@ public interface MailService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getMailTemplateInfoRequest)) {
+                } else if (!(otherObject instanceof GetMailTemplateInfoRequest)) {
                     return false;
                 }
 
-                final getMailTemplateInfoRequest other = (getMailTemplateInfoRequest)otherObject;
+                final GetMailTemplateInfoRequest other = (GetMailTemplateInfoRequest)otherObject;
                 return
                     getTid() == other.getTid() &&
                     getType().equals(other.getType());
@@ -2011,7 +2011,7 @@ public interface MailService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailTemplateInfoRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetMailTemplateInfoRequest"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("tid", org.thryft.protocol.TType.I32, (short)-1));
                         oprot.writeI32(getTid());
@@ -2036,20 +2036,20 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getMailTemplateInfoResponse implements org.thryft.TBase<getMailTemplateInfoResponse> {
+        public final static class GetMailTemplateInfoResponse implements org.thryft.TBase<GetMailTemplateInfoResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getMailTemplateInfoResponse other) {
+                public Builder(final GetMailTemplateInfoResponse other) {
                     this.returnValue = other.getReturnValue();
                 }
 
-                protected getMailTemplateInfoResponse _build(final com.yogento.api.models.mail.template.MailTemplateInfo returnValue) {
-                    return new getMailTemplateInfoResponse(returnValue);
+                protected GetMailTemplateInfoResponse _build(final com.yogento.api.models.mail.template.MailTemplateInfo returnValue) {
+                    return new GetMailTemplateInfoResponse(returnValue);
                 }
 
-                public getMailTemplateInfoResponse build() {
+                public GetMailTemplateInfoResponse build() {
                     return _build(returnValue);
                 }
 
@@ -2061,20 +2061,20 @@ public interface MailService {
                 private com.yogento.api.models.mail.template.MailTemplateInfo returnValue;
             }
 
-            public getMailTemplateInfoResponse(final getMailTemplateInfoResponse other) {
+            public GetMailTemplateInfoResponse(final GetMailTemplateInfoResponse other) {
                 this(other.getReturnValue());
             }
 
-            public getMailTemplateInfoResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetMailTemplateInfoResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = new com.yogento.api.models.mail.template.MailTemplateInfo(iprot);
             }
 
-            public getMailTemplateInfoResponse(final com.yogento.api.models.mail.template.MailTemplateInfo returnValue) {
+            public GetMailTemplateInfoResponse(final com.yogento.api.models.mail.template.MailTemplateInfo returnValue) {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.getMailTemplateInfo: missing returnValue");
             }
 
             @Override
-            public int compareTo(final getMailTemplateInfoResponse other) {
+            public int compareTo(final GetMailTemplateInfoResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -2082,11 +2082,11 @@ public interface MailService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getMailTemplateInfoResponse)) {
+                } else if (!(otherObject instanceof GetMailTemplateInfoResponse)) {
                     return false;
                 }
 
-                final getMailTemplateInfoResponse other = (getMailTemplateInfoResponse)otherObject;
+                final GetMailTemplateInfoResponse other = (GetMailTemplateInfoResponse)otherObject;
                 return
                     getReturnValue().equals(other.getReturnValue());
             }
@@ -2138,7 +2138,7 @@ public interface MailService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getMailTemplateInfoResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetMailTemplateInfoResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getReturnValue().write(oprot);
@@ -2155,23 +2155,23 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class postMailCampaignRequest implements org.thryft.TBase<postMailCampaignRequest> {
+        public final static class PostMailCampaignRequest implements org.thryft.TBase<PostMailCampaignRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final postMailCampaignRequest other) {
+                public Builder(final PostMailCampaignRequest other) {
                     this.campaign = other.getCampaign();
                     this.scheduleTime = other.getScheduleTime();
                     this.scheduleTimeB = other.getScheduleTimeB();
                     this.testEmails = other.getTestEmails();
                 }
 
-                protected postMailCampaignRequest _build(final com.yogento.api.models.mail.campaign.MailCampaign campaign, final com.google.common.base.Optional<org.joda.time.DateTime> scheduleTime, final com.google.common.base.Optional<org.joda.time.DateTime> scheduleTimeB, final com.google.common.base.Optional<com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>> testEmails) {
-                    return new postMailCampaignRequest(campaign, scheduleTime, scheduleTimeB, testEmails);
+                protected PostMailCampaignRequest _build(final com.yogento.api.models.mail.campaign.MailCampaign campaign, final com.google.common.base.Optional<org.joda.time.DateTime> scheduleTime, final com.google.common.base.Optional<org.joda.time.DateTime> scheduleTimeB, final com.google.common.base.Optional<com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>> testEmails) {
+                    return new PostMailCampaignRequest(campaign, scheduleTime, scheduleTimeB, testEmails);
                 }
 
-                public postMailCampaignRequest build() {
+                public PostMailCampaignRequest build() {
                     return _build(campaign, scheduleTime, scheduleTimeB, testEmails);
                 }
 
@@ -2216,15 +2216,15 @@ public interface MailService {
                 private com.google.common.base.Optional<com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>> testEmails = com.google.common.base.Optional.absent();
             }
 
-            public postMailCampaignRequest(final postMailCampaignRequest other) {
+            public PostMailCampaignRequest(final PostMailCampaignRequest other) {
                 this(other.getCampaign(), other.getScheduleTime(), other.getScheduleTimeB(), other.getTestEmails());
             }
 
-            public postMailCampaignRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public PostMailCampaignRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public postMailCampaignRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public PostMailCampaignRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 com.yogento.api.models.mail.campaign.MailCampaign campaign = null;
                 com.google.common.base.Optional<org.joda.time.DateTime> scheduleTime = com.google.common.base.Optional.absent();
                 com.google.common.base.Optional<org.joda.time.DateTime> scheduleTimeB = com.google.common.base.Optional.absent();
@@ -2310,28 +2310,28 @@ public interface MailService {
                         break;
                 }
 
-                this.campaign = com.google.common.base.Preconditions.checkNotNull(campaign, "com.yogento.api.services.mail.postMailCampaignRequest: missing campaign");
+                this.campaign = com.google.common.base.Preconditions.checkNotNull(campaign, "com.yogento.api.services.mail.PostMailCampaignRequest: missing campaign");
                 this.scheduleTime = scheduleTime;
                 this.scheduleTimeB = scheduleTimeB;
                 this.testEmails = testEmails;
             }
 
-            public postMailCampaignRequest(final com.yogento.api.models.mail.campaign.MailCampaign campaign) {
-                this.campaign = com.google.common.base.Preconditions.checkNotNull(campaign, "com.yogento.api.services.mail.postMailCampaignRequest: missing campaign");
+            public PostMailCampaignRequest(final com.yogento.api.models.mail.campaign.MailCampaign campaign) {
+                this.campaign = com.google.common.base.Preconditions.checkNotNull(campaign, "com.yogento.api.services.mail.PostMailCampaignRequest: missing campaign");
                 this.scheduleTime = com.google.common.base.Optional.absent();
                 this.scheduleTimeB = com.google.common.base.Optional.absent();
                 this.testEmails = com.google.common.base.Optional.absent();
             }
 
-            public postMailCampaignRequest(final com.yogento.api.models.mail.campaign.MailCampaign campaign, final com.google.common.base.Optional<org.joda.time.DateTime> scheduleTime, final com.google.common.base.Optional<org.joda.time.DateTime> scheduleTimeB, final com.google.common.base.Optional<com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>> testEmails) {
-                this.campaign = com.google.common.base.Preconditions.checkNotNull(campaign, "com.yogento.api.services.mail.postMailCampaignRequest: missing campaign");
-                this.scheduleTime = com.google.common.base.Preconditions.checkNotNull(scheduleTime, "com.yogento.api.services.mail.postMailCampaignRequest: missing scheduleTime");
-                this.scheduleTimeB = com.google.common.base.Preconditions.checkNotNull(scheduleTimeB, "com.yogento.api.services.mail.postMailCampaignRequest: missing scheduleTimeB");
-                this.testEmails = com.google.common.base.Preconditions.checkNotNull(testEmails, "com.yogento.api.services.mail.postMailCampaignRequest: missing testEmails");
+            public PostMailCampaignRequest(final com.yogento.api.models.mail.campaign.MailCampaign campaign, final com.google.common.base.Optional<org.joda.time.DateTime> scheduleTime, final com.google.common.base.Optional<org.joda.time.DateTime> scheduleTimeB, final com.google.common.base.Optional<com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>> testEmails) {
+                this.campaign = com.google.common.base.Preconditions.checkNotNull(campaign, "com.yogento.api.services.mail.PostMailCampaignRequest: missing campaign");
+                this.scheduleTime = com.google.common.base.Preconditions.checkNotNull(scheduleTime, "com.yogento.api.services.mail.PostMailCampaignRequest: missing scheduleTime");
+                this.scheduleTimeB = com.google.common.base.Preconditions.checkNotNull(scheduleTimeB, "com.yogento.api.services.mail.PostMailCampaignRequest: missing scheduleTimeB");
+                this.testEmails = com.google.common.base.Preconditions.checkNotNull(testEmails, "com.yogento.api.services.mail.PostMailCampaignRequest: missing testEmails");
             }
 
             @Override
-            public int compareTo(final postMailCampaignRequest other) {
+            public int compareTo(final PostMailCampaignRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -2339,11 +2339,11 @@ public interface MailService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof postMailCampaignRequest)) {
+                } else if (!(otherObject instanceof PostMailCampaignRequest)) {
                     return false;
                 }
 
-                final postMailCampaignRequest other = (postMailCampaignRequest)otherObject;
+                final PostMailCampaignRequest other = (PostMailCampaignRequest)otherObject;
                 return
                     getCampaign().equals(other.getCampaign()) &&
                     getScheduleTime().equals(other.getScheduleTime()) &&
@@ -2452,7 +2452,7 @@ public interface MailService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("postMailCampaignRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("PostMailCampaignRequest"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("campaign", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getCampaign().write(oprot);
@@ -2497,20 +2497,20 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class postMailCampaignResponse implements org.thryft.TBase<postMailCampaignResponse> {
+        public final static class PostMailCampaignResponse implements org.thryft.TBase<PostMailCampaignResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final postMailCampaignResponse other) {
+                public Builder(final PostMailCampaignResponse other) {
                     this.returnValue = other.getReturnValue();
                 }
 
-                protected postMailCampaignResponse _build(final com.yogento.api.models.mail.campaign.MailCampaign returnValue) {
-                    return new postMailCampaignResponse(returnValue);
+                protected PostMailCampaignResponse _build(final com.yogento.api.models.mail.campaign.MailCampaign returnValue) {
+                    return new PostMailCampaignResponse(returnValue);
                 }
 
-                public postMailCampaignResponse build() {
+                public PostMailCampaignResponse build() {
                     return _build(returnValue);
                 }
 
@@ -2522,20 +2522,20 @@ public interface MailService {
                 private com.yogento.api.models.mail.campaign.MailCampaign returnValue;
             }
 
-            public postMailCampaignResponse(final postMailCampaignResponse other) {
+            public PostMailCampaignResponse(final PostMailCampaignResponse other) {
                 this(other.getReturnValue());
             }
 
-            public postMailCampaignResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public PostMailCampaignResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = new com.yogento.api.models.mail.campaign.MailCampaign(iprot);
             }
 
-            public postMailCampaignResponse(final com.yogento.api.models.mail.campaign.MailCampaign returnValue) {
+            public PostMailCampaignResponse(final com.yogento.api.models.mail.campaign.MailCampaign returnValue) {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.postMailCampaign: missing returnValue");
             }
 
             @Override
-            public int compareTo(final postMailCampaignResponse other) {
+            public int compareTo(final PostMailCampaignResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -2543,11 +2543,11 @@ public interface MailService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof postMailCampaignResponse)) {
+                } else if (!(otherObject instanceof PostMailCampaignResponse)) {
                     return false;
                 }
 
-                final postMailCampaignResponse other = (postMailCampaignResponse)otherObject;
+                final PostMailCampaignResponse other = (PostMailCampaignResponse)otherObject;
                 return
                     getReturnValue().equals(other.getReturnValue());
             }
@@ -2599,7 +2599,7 @@ public interface MailService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("postMailCampaignResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("PostMailCampaignResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getReturnValue().write(oprot);
@@ -2616,21 +2616,21 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class putMailCampaignRequest implements org.thryft.TBase<putMailCampaignRequest> {
+        public final static class PutMailCampaignRequest implements org.thryft.TBase<PutMailCampaignRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final putMailCampaignRequest other) {
+                public Builder(final PutMailCampaignRequest other) {
                     this.campaign = other.getCampaign();
                     this.writeThrough = other.getWriteThrough();
                 }
 
-                protected putMailCampaignRequest _build(final com.yogento.api.models.mail.campaign.MailCampaign campaign, final com.google.common.base.Optional<Boolean> writeThrough) {
-                    return new putMailCampaignRequest(campaign, writeThrough);
+                protected PutMailCampaignRequest _build(final com.yogento.api.models.mail.campaign.MailCampaign campaign, final com.google.common.base.Optional<Boolean> writeThrough) {
+                    return new PutMailCampaignRequest(campaign, writeThrough);
                 }
 
-                public putMailCampaignRequest build() {
+                public PutMailCampaignRequest build() {
                     return _build(campaign, writeThrough);
                 }
 
@@ -2653,15 +2653,15 @@ public interface MailService {
                 private com.google.common.base.Optional<Boolean> writeThrough = com.google.common.base.Optional.absent();
             }
 
-            public putMailCampaignRequest(final putMailCampaignRequest other) {
+            public PutMailCampaignRequest(final PutMailCampaignRequest other) {
                 this(other.getCampaign(), other.getWriteThrough());
             }
 
-            public putMailCampaignRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public PutMailCampaignRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public putMailCampaignRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public PutMailCampaignRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 com.yogento.api.models.mail.campaign.MailCampaign campaign = null;
                 com.google.common.base.Optional<Boolean> writeThrough = com.google.common.base.Optional.absent();
 
@@ -2693,22 +2693,22 @@ public interface MailService {
                         break;
                 }
 
-                this.campaign = com.google.common.base.Preconditions.checkNotNull(campaign, "com.yogento.api.services.mail.putMailCampaignRequest: missing campaign");
+                this.campaign = com.google.common.base.Preconditions.checkNotNull(campaign, "com.yogento.api.services.mail.PutMailCampaignRequest: missing campaign");
                 this.writeThrough = writeThrough;
             }
 
-            public putMailCampaignRequest(final com.yogento.api.models.mail.campaign.MailCampaign campaign) {
-                this.campaign = com.google.common.base.Preconditions.checkNotNull(campaign, "com.yogento.api.services.mail.putMailCampaignRequest: missing campaign");
+            public PutMailCampaignRequest(final com.yogento.api.models.mail.campaign.MailCampaign campaign) {
+                this.campaign = com.google.common.base.Preconditions.checkNotNull(campaign, "com.yogento.api.services.mail.PutMailCampaignRequest: missing campaign");
                 this.writeThrough = com.google.common.base.Optional.absent();
             }
 
-            public putMailCampaignRequest(final com.yogento.api.models.mail.campaign.MailCampaign campaign, final com.google.common.base.Optional<Boolean> writeThrough) {
-                this.campaign = com.google.common.base.Preconditions.checkNotNull(campaign, "com.yogento.api.services.mail.putMailCampaignRequest: missing campaign");
+            public PutMailCampaignRequest(final com.yogento.api.models.mail.campaign.MailCampaign campaign, final com.google.common.base.Optional<Boolean> writeThrough) {
+                this.campaign = com.google.common.base.Preconditions.checkNotNull(campaign, "com.yogento.api.services.mail.PutMailCampaignRequest: missing campaign");
                 this.writeThrough = writeThrough;
             }
 
             @Override
-            public int compareTo(final putMailCampaignRequest other) {
+            public int compareTo(final PutMailCampaignRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -2716,11 +2716,11 @@ public interface MailService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof putMailCampaignRequest)) {
+                } else if (!(otherObject instanceof PutMailCampaignRequest)) {
                     return false;
                 }
 
-                final putMailCampaignRequest other = (putMailCampaignRequest)otherObject;
+                final PutMailCampaignRequest other = (PutMailCampaignRequest)otherObject;
                 return
                     getCampaign().equals(other.getCampaign()) &&
                     getWriteThrough().equals(other.getWriteThrough());
@@ -2787,7 +2787,7 @@ public interface MailService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("putMailCampaignRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("PutMailCampaignRequest"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("campaign", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getCampaign().write(oprot);
@@ -2812,20 +2812,20 @@ public interface MailService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class putMailCampaignResponse implements org.thryft.TBase<putMailCampaignResponse> {
+        public final static class PutMailCampaignResponse implements org.thryft.TBase<PutMailCampaignResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final putMailCampaignResponse other) {
+                public Builder(final PutMailCampaignResponse other) {
                     this.returnValue = other.getReturnValue();
                 }
 
-                protected putMailCampaignResponse _build(final com.yogento.api.models.mail.campaign.MailCampaign returnValue) {
-                    return new putMailCampaignResponse(returnValue);
+                protected PutMailCampaignResponse _build(final com.yogento.api.models.mail.campaign.MailCampaign returnValue) {
+                    return new PutMailCampaignResponse(returnValue);
                 }
 
-                public putMailCampaignResponse build() {
+                public PutMailCampaignResponse build() {
                     return _build(returnValue);
                 }
 
@@ -2837,20 +2837,20 @@ public interface MailService {
                 private com.yogento.api.models.mail.campaign.MailCampaign returnValue;
             }
 
-            public putMailCampaignResponse(final putMailCampaignResponse other) {
+            public PutMailCampaignResponse(final PutMailCampaignResponse other) {
                 this(other.getReturnValue());
             }
 
-            public putMailCampaignResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public PutMailCampaignResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = new com.yogento.api.models.mail.campaign.MailCampaign(iprot);
             }
 
-            public putMailCampaignResponse(final com.yogento.api.models.mail.campaign.MailCampaign returnValue) {
+            public PutMailCampaignResponse(final com.yogento.api.models.mail.campaign.MailCampaign returnValue) {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.putMailCampaign: missing returnValue");
             }
 
             @Override
-            public int compareTo(final putMailCampaignResponse other) {
+            public int compareTo(final PutMailCampaignResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -2858,11 +2858,11 @@ public interface MailService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof putMailCampaignResponse)) {
+                } else if (!(otherObject instanceof PutMailCampaignResponse)) {
                     return false;
                 }
 
-                final putMailCampaignResponse other = (putMailCampaignResponse)otherObject;
+                final PutMailCampaignResponse other = (PutMailCampaignResponse)otherObject;
                 return
                     getReturnValue().equals(other.getReturnValue());
             }
@@ -2914,7 +2914,7 @@ public interface MailService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("putMailCampaignResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("PutMailCampaignResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRUCT, (short)-1));
                         getReturnValue().write(oprot);

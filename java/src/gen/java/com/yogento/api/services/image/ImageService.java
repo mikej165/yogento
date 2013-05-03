@@ -3,21 +3,21 @@ package com.yogento.api.services.image;
 public interface ImageService {
     public static class Messages {
         @SuppressWarnings({"serial"})
-        public final static class deleteImageThumbnailRequest implements org.thryft.TBase<deleteImageThumbnailRequest> {
+        public final static class DeleteImageThumbnailRequest implements org.thryft.TBase<DeleteImageThumbnailRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final deleteImageThumbnailRequest other) {
+                public Builder(final DeleteImageThumbnailRequest other) {
                     this.imageUrl = other.getImageUrl();
                     this.thumbnailResolution = other.getThumbnailResolution();
                 }
 
-                protected deleteImageThumbnailRequest _build(final String imageUrl, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
-                    return new deleteImageThumbnailRequest(imageUrl, thumbnailResolution);
+                protected DeleteImageThumbnailRequest _build(final String imageUrl, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
+                    return new DeleteImageThumbnailRequest(imageUrl, thumbnailResolution);
                 }
 
-                public deleteImageThumbnailRequest build() {
+                public DeleteImageThumbnailRequest build() {
                     return _build(imageUrl, thumbnailResolution);
                 }
 
@@ -35,15 +35,15 @@ public interface ImageService {
                 private com.yogento.api.models.image.ImageResolution thumbnailResolution;
             }
 
-            public deleteImageThumbnailRequest(final deleteImageThumbnailRequest other) {
+            public DeleteImageThumbnailRequest(final DeleteImageThumbnailRequest other) {
                 this(other.getImageUrl(), other.getThumbnailResolution());
             }
 
-            public deleteImageThumbnailRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public DeleteImageThumbnailRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public deleteImageThumbnailRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public DeleteImageThumbnailRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String imageUrl = null;
                 com.yogento.api.models.image.ImageResolution thumbnailResolution = null;
 
@@ -73,17 +73,17 @@ public interface ImageService {
                         break;
                 }
 
-                this.imageUrl = com.google.common.base.Preconditions.checkNotNull(imageUrl, "com.yogento.api.services.image.deleteImageThumbnailRequest: missing imageUrl");
-                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.image.deleteImageThumbnailRequest: missing thumbnailResolution");
+                this.imageUrl = com.google.common.base.Preconditions.checkNotNull(imageUrl, "com.yogento.api.services.image.DeleteImageThumbnailRequest: missing imageUrl");
+                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.image.DeleteImageThumbnailRequest: missing thumbnailResolution");
             }
 
-            public deleteImageThumbnailRequest(final String imageUrl, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
-                this.imageUrl = com.google.common.base.Preconditions.checkNotNull(imageUrl, "com.yogento.api.services.image.deleteImageThumbnailRequest: missing imageUrl");
-                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.image.deleteImageThumbnailRequest: missing thumbnailResolution");
+            public DeleteImageThumbnailRequest(final String imageUrl, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
+                this.imageUrl = com.google.common.base.Preconditions.checkNotNull(imageUrl, "com.yogento.api.services.image.DeleteImageThumbnailRequest: missing imageUrl");
+                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.image.DeleteImageThumbnailRequest: missing thumbnailResolution");
             }
 
             @Override
-            public int compareTo(final deleteImageThumbnailRequest other) {
+            public int compareTo(final DeleteImageThumbnailRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -91,11 +91,11 @@ public interface ImageService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof deleteImageThumbnailRequest)) {
+                } else if (!(otherObject instanceof DeleteImageThumbnailRequest)) {
                     return false;
                 }
 
-                final deleteImageThumbnailRequest other = (deleteImageThumbnailRequest)otherObject;
+                final DeleteImageThumbnailRequest other = (DeleteImageThumbnailRequest)otherObject;
                 return
                     getImageUrl().equals(other.getImageUrl()) &&
                     getThumbnailResolution().equals(other.getThumbnailResolution());
@@ -154,7 +154,7 @@ public interface ImageService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("deleteImageThumbnailRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("DeleteImageThumbnailRequest"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("image_url", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getImageUrl());
@@ -177,20 +177,20 @@ public interface ImageService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class deleteImageThumbnailResponse implements org.thryft.TBase<deleteImageThumbnailResponse> {
+        public final static class DeleteImageThumbnailResponse implements org.thryft.TBase<DeleteImageThumbnailResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final deleteImageThumbnailResponse other) {
+                public Builder(final DeleteImageThumbnailResponse other) {
                     this.returnValue = other.isReturnValue();
                 }
 
-                protected deleteImageThumbnailResponse _build(final boolean returnValue) {
-                    return new deleteImageThumbnailResponse(returnValue);
+                protected DeleteImageThumbnailResponse _build(final boolean returnValue) {
+                    return new DeleteImageThumbnailResponse(returnValue);
                 }
 
-                public deleteImageThumbnailResponse build() {
+                public DeleteImageThumbnailResponse build() {
                     return _build(returnValue);
                 }
 
@@ -202,24 +202,24 @@ public interface ImageService {
                 private Boolean returnValue;
             }
 
-            public deleteImageThumbnailResponse(final deleteImageThumbnailResponse other) {
+            public DeleteImageThumbnailResponse(final DeleteImageThumbnailResponse other) {
                 this(other.isReturnValue());
             }
 
-            public deleteImageThumbnailResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public DeleteImageThumbnailResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = iprot.readBool();
             }
 
-            public deleteImageThumbnailResponse(final boolean returnValue) {
+            public DeleteImageThumbnailResponse(final boolean returnValue) {
                 this.returnValue = returnValue;
             }
 
-            public deleteImageThumbnailResponse(final Boolean returnValue) {
+            public DeleteImageThumbnailResponse(final Boolean returnValue) {
                 this.returnValue = returnValue;
             }
 
             @Override
-            public int compareTo(final deleteImageThumbnailResponse other) {
+            public int compareTo(final DeleteImageThumbnailResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -227,11 +227,11 @@ public interface ImageService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof deleteImageThumbnailResponse)) {
+                } else if (!(otherObject instanceof DeleteImageThumbnailResponse)) {
                     return false;
                 }
 
-                final deleteImageThumbnailResponse other = (deleteImageThumbnailResponse)otherObject;
+                final DeleteImageThumbnailResponse other = (DeleteImageThumbnailResponse)otherObject;
                 return
                     isReturnValue() == other.isReturnValue();
             }
@@ -279,7 +279,7 @@ public interface ImageService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("deleteImageThumbnailResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("DeleteImageThumbnailResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.BOOL, (short)-1));
                         oprot.writeBool(isReturnValue());
@@ -296,21 +296,21 @@ public interface ImageService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getImageThumbnailUrlRequest implements org.thryft.TBase<getImageThumbnailUrlRequest> {
+        public final static class GetImageThumbnailUrlRequest implements org.thryft.TBase<GetImageThumbnailUrlRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getImageThumbnailUrlRequest other) {
+                public Builder(final GetImageThumbnailUrlRequest other) {
                     this.imageUrl = other.getImageUrl();
                     this.thumbnailResolution = other.getThumbnailResolution();
                 }
 
-                protected getImageThumbnailUrlRequest _build(final String imageUrl, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
-                    return new getImageThumbnailUrlRequest(imageUrl, thumbnailResolution);
+                protected GetImageThumbnailUrlRequest _build(final String imageUrl, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
+                    return new GetImageThumbnailUrlRequest(imageUrl, thumbnailResolution);
                 }
 
-                public getImageThumbnailUrlRequest build() {
+                public GetImageThumbnailUrlRequest build() {
                     return _build(imageUrl, thumbnailResolution);
                 }
 
@@ -328,15 +328,15 @@ public interface ImageService {
                 private com.yogento.api.models.image.ImageResolution thumbnailResolution;
             }
 
-            public getImageThumbnailUrlRequest(final getImageThumbnailUrlRequest other) {
+            public GetImageThumbnailUrlRequest(final GetImageThumbnailUrlRequest other) {
                 this(other.getImageUrl(), other.getThumbnailResolution());
             }
 
-            public getImageThumbnailUrlRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetImageThumbnailUrlRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public getImageThumbnailUrlRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public GetImageThumbnailUrlRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String imageUrl = null;
                 com.yogento.api.models.image.ImageResolution thumbnailResolution = null;
 
@@ -366,17 +366,17 @@ public interface ImageService {
                         break;
                 }
 
-                this.imageUrl = com.google.common.base.Preconditions.checkNotNull(imageUrl, "com.yogento.api.services.image.getImageThumbnailUrlRequest: missing imageUrl");
-                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.image.getImageThumbnailUrlRequest: missing thumbnailResolution");
+                this.imageUrl = com.google.common.base.Preconditions.checkNotNull(imageUrl, "com.yogento.api.services.image.GetImageThumbnailUrlRequest: missing imageUrl");
+                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.image.GetImageThumbnailUrlRequest: missing thumbnailResolution");
             }
 
-            public getImageThumbnailUrlRequest(final String imageUrl, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
-                this.imageUrl = com.google.common.base.Preconditions.checkNotNull(imageUrl, "com.yogento.api.services.image.getImageThumbnailUrlRequest: missing imageUrl");
-                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.image.getImageThumbnailUrlRequest: missing thumbnailResolution");
+            public GetImageThumbnailUrlRequest(final String imageUrl, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
+                this.imageUrl = com.google.common.base.Preconditions.checkNotNull(imageUrl, "com.yogento.api.services.image.GetImageThumbnailUrlRequest: missing imageUrl");
+                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.image.GetImageThumbnailUrlRequest: missing thumbnailResolution");
             }
 
             @Override
-            public int compareTo(final getImageThumbnailUrlRequest other) {
+            public int compareTo(final GetImageThumbnailUrlRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -384,11 +384,11 @@ public interface ImageService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getImageThumbnailUrlRequest)) {
+                } else if (!(otherObject instanceof GetImageThumbnailUrlRequest)) {
                     return false;
                 }
 
-                final getImageThumbnailUrlRequest other = (getImageThumbnailUrlRequest)otherObject;
+                final GetImageThumbnailUrlRequest other = (GetImageThumbnailUrlRequest)otherObject;
                 return
                     getImageUrl().equals(other.getImageUrl()) &&
                     getThumbnailResolution().equals(other.getThumbnailResolution());
@@ -447,7 +447,7 @@ public interface ImageService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getImageThumbnailUrlRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetImageThumbnailUrlRequest"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("image_url", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getImageUrl());
@@ -470,20 +470,20 @@ public interface ImageService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class getImageThumbnailUrlResponse implements org.thryft.TBase<getImageThumbnailUrlResponse> {
+        public final static class GetImageThumbnailUrlResponse implements org.thryft.TBase<GetImageThumbnailUrlResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final getImageThumbnailUrlResponse other) {
+                public Builder(final GetImageThumbnailUrlResponse other) {
                     this.returnValue = other.getReturnValue();
                 }
 
-                protected getImageThumbnailUrlResponse _build(final String returnValue) {
-                    return new getImageThumbnailUrlResponse(returnValue);
+                protected GetImageThumbnailUrlResponse _build(final String returnValue) {
+                    return new GetImageThumbnailUrlResponse(returnValue);
                 }
 
-                public getImageThumbnailUrlResponse build() {
+                public GetImageThumbnailUrlResponse build() {
                     return _build(returnValue);
                 }
 
@@ -495,20 +495,20 @@ public interface ImageService {
                 private String returnValue;
             }
 
-            public getImageThumbnailUrlResponse(final getImageThumbnailUrlResponse other) {
+            public GetImageThumbnailUrlResponse(final GetImageThumbnailUrlResponse other) {
                 this(other.getReturnValue());
             }
 
-            public getImageThumbnailUrlResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public GetImageThumbnailUrlResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = iprot.readString();
             }
 
-            public getImageThumbnailUrlResponse(final String returnValue) {
+            public GetImageThumbnailUrlResponse(final String returnValue) {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.image.ImageService.getImageThumbnailUrl: missing returnValue");
             }
 
             @Override
-            public int compareTo(final getImageThumbnailUrlResponse other) {
+            public int compareTo(final GetImageThumbnailUrlResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -516,11 +516,11 @@ public interface ImageService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof getImageThumbnailUrlResponse)) {
+                } else if (!(otherObject instanceof GetImageThumbnailUrlResponse)) {
                     return false;
                 }
 
-                final getImageThumbnailUrlResponse other = (getImageThumbnailUrlResponse)otherObject;
+                final GetImageThumbnailUrlResponse other = (GetImageThumbnailUrlResponse)otherObject;
                 return
                     getReturnValue().equals(other.getReturnValue());
             }
@@ -568,7 +568,7 @@ public interface ImageService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("getImageThumbnailUrlResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetImageThumbnailUrlResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getReturnValue());
@@ -585,21 +585,21 @@ public interface ImageService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class putImageRequest implements org.thryft.TBase<putImageRequest> {
+        public final static class PutImageRequest implements org.thryft.TBase<PutImageRequest> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final putImageRequest other) {
+                public Builder(final PutImageRequest other) {
                     this.image = other.getImage();
                     this.imageMimeSubtype = other.getImageMimeSubtype();
                 }
 
-                protected putImageRequest _build(final byte[] image, final String imageMimeSubtype) {
-                    return new putImageRequest(image, imageMimeSubtype);
+                protected PutImageRequest _build(final byte[] image, final String imageMimeSubtype) {
+                    return new PutImageRequest(image, imageMimeSubtype);
                 }
 
-                public putImageRequest build() {
+                public PutImageRequest build() {
                     return _build(image, imageMimeSubtype);
                 }
 
@@ -617,15 +617,15 @@ public interface ImageService {
                 private String imageMimeSubtype;
             }
 
-            public putImageRequest(final putImageRequest other) {
+            public PutImageRequest(final PutImageRequest other) {
                 this(other.getImage(), other.getImageMimeSubtype());
             }
 
-            public putImageRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public PutImageRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 this(iprot, org.thryft.protocol.TType.STRUCT);
             }
 
-            public putImageRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
+            public PutImageRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 byte[] image = null;
                 String imageMimeSubtype = null;
 
@@ -655,17 +655,17 @@ public interface ImageService {
                         break;
                 }
 
-                this.image = com.google.common.base.Preconditions.checkNotNull(image, "com.yogento.api.services.image.putImageRequest: missing image");
-                this.imageMimeSubtype = com.google.common.base.Preconditions.checkNotNull(imageMimeSubtype, "com.yogento.api.services.image.putImageRequest: missing imageMimeSubtype");
+                this.image = com.google.common.base.Preconditions.checkNotNull(image, "com.yogento.api.services.image.PutImageRequest: missing image");
+                this.imageMimeSubtype = com.google.common.base.Preconditions.checkNotNull(imageMimeSubtype, "com.yogento.api.services.image.PutImageRequest: missing imageMimeSubtype");
             }
 
-            public putImageRequest(final byte[] image, final String imageMimeSubtype) {
-                this.image = com.google.common.base.Preconditions.checkNotNull(image, "com.yogento.api.services.image.putImageRequest: missing image");
-                this.imageMimeSubtype = com.google.common.base.Preconditions.checkNotNull(imageMimeSubtype, "com.yogento.api.services.image.putImageRequest: missing imageMimeSubtype");
+            public PutImageRequest(final byte[] image, final String imageMimeSubtype) {
+                this.image = com.google.common.base.Preconditions.checkNotNull(image, "com.yogento.api.services.image.PutImageRequest: missing image");
+                this.imageMimeSubtype = com.google.common.base.Preconditions.checkNotNull(imageMimeSubtype, "com.yogento.api.services.image.PutImageRequest: missing imageMimeSubtype");
             }
 
             @Override
-            public int compareTo(final putImageRequest other) {
+            public int compareTo(final PutImageRequest other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -673,11 +673,11 @@ public interface ImageService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof putImageRequest)) {
+                } else if (!(otherObject instanceof PutImageRequest)) {
                     return false;
                 }
 
-                final putImageRequest other = (putImageRequest)otherObject;
+                final PutImageRequest other = (PutImageRequest)otherObject;
                 return
                     java.util.Arrays.equals(getImage(), other.getImage()) &&
                     getImageMimeSubtype().equals(other.getImageMimeSubtype());
@@ -736,7 +736,7 @@ public interface ImageService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("putImageRequest"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("PutImageRequest"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("image", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeBinary(getImage());
@@ -759,20 +759,20 @@ public interface ImageService {
         }
 
         @SuppressWarnings({"serial"})
-        public final static class putImageResponse implements org.thryft.TBase<putImageResponse> {
+        public final static class PutImageResponse implements org.thryft.TBase<PutImageResponse> {
             public static class Builder {
                 public Builder() {
                 }
 
-                public Builder(final putImageResponse other) {
+                public Builder(final PutImageResponse other) {
                     this.returnValue = other.getReturnValue();
                 }
 
-                protected putImageResponse _build(final String returnValue) {
-                    return new putImageResponse(returnValue);
+                protected PutImageResponse _build(final String returnValue) {
+                    return new PutImageResponse(returnValue);
                 }
 
-                public putImageResponse build() {
+                public PutImageResponse build() {
                     return _build(returnValue);
                 }
 
@@ -784,20 +784,20 @@ public interface ImageService {
                 private String returnValue;
             }
 
-            public putImageResponse(final putImageResponse other) {
+            public PutImageResponse(final PutImageResponse other) {
                 this(other.getReturnValue());
             }
 
-            public putImageResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
+            public PutImageResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
                 returnValue = iprot.readString();
             }
 
-            public putImageResponse(final String returnValue) {
+            public PutImageResponse(final String returnValue) {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.image.ImageService.putImage: missing returnValue");
             }
 
             @Override
-            public int compareTo(final putImageResponse other) {
+            public int compareTo(final PutImageResponse other) {
                 throw new UnsupportedOperationException();
             }
 
@@ -805,11 +805,11 @@ public interface ImageService {
             public boolean equals(final Object otherObject) {
                 if (otherObject == this) {
                     return true;
-                } else if (!(otherObject instanceof putImageResponse)) {
+                } else if (!(otherObject instanceof PutImageResponse)) {
                     return false;
                 }
 
-                final putImageResponse other = (putImageResponse)otherObject;
+                final PutImageResponse other = (PutImageResponse)otherObject;
                 return
                     getReturnValue().equals(other.getReturnValue());
             }
@@ -857,7 +857,7 @@ public interface ImageService {
 
                     case org.thryft.protocol.TType.STRUCT:
                     default:
-                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("putImageResponse"));
+                        oprot.writeStructBegin(new org.thryft.protocol.TStruct("PutImageResponse"));
 
                         oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRING, (short)-1));
                         oprot.writeString(getReturnValue());
