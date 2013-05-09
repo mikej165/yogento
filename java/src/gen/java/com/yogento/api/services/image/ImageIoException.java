@@ -94,7 +94,30 @@ public class ImageIoException extends java.lang.Exception implements org.thryft.
 
     @Override
     public int compareTo(final ImageIoException other) {
-        throw new UnsupportedOperationException();
+        if (other == null) {
+            throw new NullPointerException();
+        }
+
+        int result;
+        result = this.causeMessage.compareTo(other.causeMessage);
+        if (result != 0) {
+            return result;
+        }
+
+        if (this.imageUrl.isPresent()) {
+            if (other.imageUrl.isPresent()) {
+                result = this.imageUrl.get().compareTo(other.imageUrl.get());
+                if (result != 0) {
+                    return result;
+                }
+            } else {
+                return 1;
+            }
+        } else if (other.imageUrl.isPresent()) {
+            return -1;
+        }
+
+        return 0;
     }
 
     @Override

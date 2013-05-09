@@ -82,7 +82,22 @@ public class ProductIoException extends java.lang.Exception implements org.thryf
 
     @Override
     public int compareTo(final ProductIoException other) {
-        throw new UnsupportedOperationException();
+        if (other == null) {
+            throw new NullPointerException();
+        }
+
+        int result;
+        result = this.causeMessage.compareTo(other.causeMessage);
+        if (result != 0) {
+            return result;
+        }
+
+        result = this.sku.compareTo(other.sku);
+        if (result != 0) {
+            return result;
+        }
+
+        return 0;
     }
 
     @Override

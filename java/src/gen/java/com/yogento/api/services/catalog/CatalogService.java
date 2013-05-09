@@ -71,7 +71,17 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final DeleteProductBySkuRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.sku.compareTo(other.sku);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -190,7 +200,17 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final DeleteProductBySkuResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = ((Boolean)this.returnValue).compareTo(other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -317,7 +337,10 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final DeleteProductsRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+                return 0;
             }
 
             @Override
@@ -401,7 +424,10 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final DeleteProductsResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+                return 0;
             }
 
             @Override
@@ -508,7 +534,10 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final GetProductCountRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+                return 0;
             }
 
             @Override
@@ -607,7 +636,17 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final GetProductCountResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = ((Integer)this.returnValue).compareTo(other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -751,7 +790,17 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final GetProductBySkuRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.sku.compareTo(other.sku);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -866,7 +915,17 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final GetProductBySkuResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.returnValue.compareTo(other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -1046,7 +1105,38 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final GetProductsRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                if (this.includeDisabled.isPresent()) {
+                    if (other.includeDisabled.isPresent()) {
+                        result = ((Boolean)this.includeDisabled.get()).compareTo(other.includeDisabled.get());
+                        if (result != 0) {
+                            return result;
+                        }
+                    } else {
+                        return 1;
+                    }
+                } else if (other.includeDisabled.isPresent()) {
+                    return -1;
+                }
+
+                if (this.query.isPresent()) {
+                    if (other.query.isPresent()) {
+                        result = this.query.get().compareTo(other.query.get());
+                        if (result != 0) {
+                            return result;
+                        }
+                    } else {
+                        return 1;
+                    }
+                } else if (other.query.isPresent()) {
+                    return -1;
+                }
+
+                return 0;
             }
 
             @Override
@@ -1194,12 +1284,12 @@ public interface CatalogService {
                     public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> apply(final org.thryft.protocol.TProtocol iprot) {
                         try {
                             final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                            final java.util.Set<com.yogento.api.models.catalog.product.Product> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.Product>();
+                            final com.google.common.collect.ImmutableSet.Builder<com.yogento.api.models.catalog.product.Product> sequence = com.google.common.collect.ImmutableSet.builder();
                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                 sequence.add(new com.yogento.api.models.catalog.product.Product(iprot));
                             }
                             iprot.readSetEnd();
-                            return com.google.common.collect.ImmutableSet.copyOf(sequence);
+                            return sequence.build();
                         } catch (final java.io.IOException e) {
                             return com.google.common.collect.ImmutableSet.of();
                         }
@@ -1213,7 +1303,17 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final GetProductsResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = org.thryft.Comparators.compare(this.returnValue, other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -1356,7 +1456,10 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final GetProductSkusRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+                return 0;
             }
 
             @Override
@@ -1447,12 +1550,12 @@ public interface CatalogService {
                     public com.google.common.collect.ImmutableSet<String> apply(final org.thryft.protocol.TProtocol iprot) {
                         try {
                             final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                            final java.util.Set<String> sequence = new java.util.LinkedHashSet<String>();
+                            final com.google.common.collect.ImmutableSet.Builder<String> sequence = com.google.common.collect.ImmutableSet.builder();
                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                 sequence.add(iprot.readString());
                             }
                             iprot.readSetEnd();
-                            return com.google.common.collect.ImmutableSet.copyOf(sequence);
+                            return sequence.build();
                         } catch (final java.io.IOException e) {
                             return com.google.common.collect.ImmutableSet.of();
                         }
@@ -1466,7 +1569,17 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final GetProductSkusResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = org.thryft.Comparators.compare(this.returnValue, other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -1602,12 +1715,12 @@ public interface CatalogService {
                             public com.google.common.collect.ImmutableSet<String> apply(final org.thryft.protocol.TProtocol iprot) {
                                 try {
                                     final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                                    final java.util.Set<String> sequence = new java.util.LinkedHashSet<String>();
+                                    final com.google.common.collect.ImmutableSet.Builder<String> sequence = com.google.common.collect.ImmutableSet.builder();
                                     for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                         sequence.add(iprot.readString());
                                     }
                                     iprot.readSetEnd();
-                                    return com.google.common.collect.ImmutableSet.copyOf(sequence);
+                                    return sequence.build();
                                 } catch (final java.io.IOException e) {
                                     return com.google.common.collect.ImmutableSet.of();
                                 }
@@ -1629,12 +1742,12 @@ public interface CatalogService {
                                     public com.google.common.collect.ImmutableSet<String> apply(final org.thryft.protocol.TProtocol iprot) {
                                         try {
                                             final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                                            final java.util.Set<String> sequence = new java.util.LinkedHashSet<String>();
+                                            final com.google.common.collect.ImmutableSet.Builder<String> sequence = com.google.common.collect.ImmutableSet.builder();
                                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                                 sequence.add(iprot.readString());
                                             }
                                             iprot.readSetEnd();
-                                            return com.google.common.collect.ImmutableSet.copyOf(sequence);
+                                            return sequence.build();
                                         } catch (final java.io.IOException e) {
                                             return com.google.common.collect.ImmutableSet.of();
                                         }
@@ -1656,7 +1769,17 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final GetProductsBySkusRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = org.thryft.Comparators.compare(this.skus, other.skus);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -1783,12 +1906,12 @@ public interface CatalogService {
                     public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> apply(final org.thryft.protocol.TProtocol iprot) {
                         try {
                             final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                            final java.util.Set<com.yogento.api.models.catalog.product.Product> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.Product>();
+                            final com.google.common.collect.ImmutableSet.Builder<com.yogento.api.models.catalog.product.Product> sequence = com.google.common.collect.ImmutableSet.builder();
                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                 sequence.add(new com.yogento.api.models.catalog.product.Product(iprot));
                             }
                             iprot.readSetEnd();
-                            return com.google.common.collect.ImmutableSet.copyOf(sequence);
+                            return sequence.build();
                         } catch (final java.io.IOException e) {
                             return com.google.common.collect.ImmutableSet.of();
                         }
@@ -1802,7 +1925,17 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final GetProductsBySkusResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = org.thryft.Comparators.compare(this.returnValue, other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -1975,7 +2108,22 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final GetProductThumbnailUrlRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.sku.compareTo(other.sku);
+                if (result != 0) {
+                    return result;
+                }
+
+                result = this.thumbnailResolution.compareTo(other.thumbnailResolution);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -2107,7 +2255,17 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final GetProductThumbnailUrlResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.returnValue.compareTo(other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -2264,7 +2422,22 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final GetSampleProductThumbnailUrlRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.sku.compareTo(other.sku);
+                if (result != 0) {
+                    return result;
+                }
+
+                result = this.thumbnailResolution.compareTo(other.thumbnailResolution);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -2396,7 +2569,17 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final GetSampleProductThumbnailUrlResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.returnValue.compareTo(other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -2540,7 +2723,17 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final GetSampleProductBySkuRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.sku.compareTo(other.sku);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -2655,7 +2848,17 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final GetSampleProductBySkuResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.returnValue.compareTo(other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -2786,7 +2989,10 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final GetSampleProductsRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+                return 0;
             }
 
             @Override
@@ -2877,12 +3083,12 @@ public interface CatalogService {
                     public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> apply(final org.thryft.protocol.TProtocol iprot) {
                         try {
                             final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                            final java.util.Set<com.yogento.api.models.catalog.product.Product> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.Product>();
+                            final com.google.common.collect.ImmutableSet.Builder<com.yogento.api.models.catalog.product.Product> sequence = com.google.common.collect.ImmutableSet.builder();
                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                 sequence.add(new com.yogento.api.models.catalog.product.Product(iprot));
                             }
                             iprot.readSetEnd();
-                            return com.google.common.collect.ImmutableSet.copyOf(sequence);
+                            return sequence.build();
                         } catch (final java.io.IOException e) {
                             return com.google.common.collect.ImmutableSet.of();
                         }
@@ -2896,7 +3102,17 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final GetSampleProductsResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = org.thryft.Comparators.compare(this.returnValue, other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -3056,7 +3272,17 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final HeadProductBySkuRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.sku.compareTo(other.sku);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -3175,7 +3401,17 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final HeadProductBySkuResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = ((Boolean)this.returnValue).compareTo(other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -3319,7 +3555,17 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final PutProductRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.product.compareTo(other.product);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -3427,7 +3673,10 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final PutProductResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+                return 0;
             }
 
             @Override
@@ -3527,12 +3776,12 @@ public interface CatalogService {
                             public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> apply(final org.thryft.protocol.TProtocol iprot) {
                                 try {
                                     final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                                    final java.util.Set<com.yogento.api.models.catalog.product.Product> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.Product>();
+                                    final com.google.common.collect.ImmutableSet.Builder<com.yogento.api.models.catalog.product.Product> sequence = com.google.common.collect.ImmutableSet.builder();
                                     for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                         sequence.add(new com.yogento.api.models.catalog.product.Product(iprot));
                                     }
                                     iprot.readSetEnd();
-                                    return com.google.common.collect.ImmutableSet.copyOf(sequence);
+                                    return sequence.build();
                                 } catch (final java.io.IOException e) {
                                     return com.google.common.collect.ImmutableSet.of();
                                 }
@@ -3554,12 +3803,12 @@ public interface CatalogService {
                                     public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> apply(final org.thryft.protocol.TProtocol iprot) {
                                         try {
                                             final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                                            final java.util.Set<com.yogento.api.models.catalog.product.Product> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.Product>();
+                                            final com.google.common.collect.ImmutableSet.Builder<com.yogento.api.models.catalog.product.Product> sequence = com.google.common.collect.ImmutableSet.builder();
                                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                                 sequence.add(new com.yogento.api.models.catalog.product.Product(iprot));
                                             }
                                             iprot.readSetEnd();
-                                            return com.google.common.collect.ImmutableSet.copyOf(sequence);
+                                            return sequence.build();
                                         } catch (final java.io.IOException e) {
                                             return com.google.common.collect.ImmutableSet.of();
                                         }
@@ -3581,7 +3830,17 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final PutProductsRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = org.thryft.Comparators.compare(this.products, other.products);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -3701,7 +3960,10 @@ public interface CatalogService {
 
             @Override
             public int compareTo(final PutProductsResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+                return 0;
             }
 
             @Override

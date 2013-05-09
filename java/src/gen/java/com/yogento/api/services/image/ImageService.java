@@ -84,7 +84,22 @@ public interface ImageService {
 
             @Override
             public int compareTo(final DeleteImageThumbnailRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.imageUrl.compareTo(other.imageUrl);
+                if (result != 0) {
+                    return result;
+                }
+
+                result = this.thumbnailResolution.compareTo(other.thumbnailResolution);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -220,7 +235,17 @@ public interface ImageService {
 
             @Override
             public int compareTo(final DeleteImageThumbnailResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = ((Boolean)this.returnValue).compareTo(other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -377,7 +402,22 @@ public interface ImageService {
 
             @Override
             public int compareTo(final GetImageThumbnailUrlRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.imageUrl.compareTo(other.imageUrl);
+                if (result != 0) {
+                    return result;
+                }
+
+                result = this.thumbnailResolution.compareTo(other.thumbnailResolution);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -509,7 +549,17 @@ public interface ImageService {
 
             @Override
             public int compareTo(final GetImageThumbnailUrlResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.returnValue.compareTo(other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -666,7 +716,22 @@ public interface ImageService {
 
             @Override
             public int compareTo(final PutImageRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = org.thryft.Comparators.compare(this.image, other.image);
+                if (result != 0) {
+                    return result;
+                }
+
+                result = this.imageMimeSubtype.compareTo(other.imageMimeSubtype);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -798,7 +863,17 @@ public interface ImageService {
 
             @Override
             public int compareTo(final PutImageResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.returnValue.compareTo(other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override

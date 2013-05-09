@@ -69,7 +69,17 @@ public class MailTemplateInfo implements org.thryft.TBase<MailTemplateInfo> {
 
     @Override
     public int compareTo(final MailTemplateInfo other) {
-        throw new UnsupportedOperationException();
+        if (other == null) {
+            throw new NullPointerException();
+        }
+
+        int result;
+        result = this.mailChimpTemplateInfo.compareTo(other.mailChimpTemplateInfo);
+        if (result != 0) {
+            return result;
+        }
+
+        return 0;
     }
 
     @Override

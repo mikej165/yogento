@@ -175,12 +175,12 @@ public class UserSettings implements org.thryft.TBase<UserSettings> {
                         public com.google.common.collect.ImmutableList<String> apply(final org.thryft.protocol.TProtocol iprot) {
                             try {
                                 final org.thryft.protocol.TList sequenceBegin = iprot.readListBegin();
-                                final java.util.List<String> sequence = new java.util.ArrayList<String>();
+                                final com.google.common.collect.ImmutableList.Builder<String> sequence = com.google.common.collect.ImmutableList.builder();
                                 for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                     sequence.add(iprot.readString());
                                 }
                                 iprot.readListEnd();
-                                return com.google.common.collect.ImmutableList.copyOf(sequence);
+                                return sequence.build();
                             } catch (final java.io.IOException e) {
                                 return com.google.common.collect.ImmutableList.of();
                             }
@@ -225,12 +225,12 @@ public class UserSettings implements org.thryft.TBase<UserSettings> {
                             public com.google.common.collect.ImmutableList<String> apply(final org.thryft.protocol.TProtocol iprot) {
                                 try {
                                     final org.thryft.protocol.TList sequenceBegin = iprot.readListBegin();
-                                    final java.util.List<String> sequence = new java.util.ArrayList<String>();
+                                    final com.google.common.collect.ImmutableList.Builder<String> sequence = com.google.common.collect.ImmutableList.builder();
                                     for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                         sequence.add(iprot.readString());
                                     }
                                     iprot.readListEnd();
-                                    return com.google.common.collect.ImmutableList.copyOf(sequence);
+                                    return sequence.build();
                                 } catch (final java.io.IOException e) {
                                     return com.google.common.collect.ImmutableList.of();
                                 }
@@ -245,7 +245,7 @@ public class UserSettings implements org.thryft.TBase<UserSettings> {
                 break;
         }
 
-        this.displayName = org.thryft.Preconditions.checkNotEmpty(displayName, "com.yogento.api.models.user_settings.UserSettings: displayName is empty");
+        this.displayName = org.thryft.Preconditions.checkNotEmpty(displayName, String.class, "com.yogento.api.models.user_settings.UserSettings: displayName is empty");
         this.email = email;
         this.logoImageUrl = logoImageUrl;
         this.magentoStoreUrl = magentoStoreUrl;
@@ -255,7 +255,7 @@ public class UserSettings implements org.thryft.TBase<UserSettings> {
     }
 
     public UserSettings(final com.google.common.base.Optional<String> displayName, final com.google.common.base.Optional<org.thryft.native_.EmailAddress> email, final com.google.common.base.Optional<org.thryft.native_.Url> logoImageUrl, final com.google.common.base.Optional<org.thryft.native_.Url> magentoStoreUrl, final com.google.common.base.Optional<org.joda.time.DateTime> productsMtime, final com.google.common.base.Optional<com.google.common.collect.ImmutableList<String>> productSearchQueries, final com.google.common.base.Optional<Boolean> useSampleData) {
-        this.displayName = org.thryft.Preconditions.checkNotEmpty(com.google.common.base.Preconditions.checkNotNull(displayName, "com.yogento.api.models.user_settings.UserSettings: missing displayName"), "com.yogento.api.models.user_settings.UserSettings: displayName is empty");
+        this.displayName = org.thryft.Preconditions.checkNotEmpty(com.google.common.base.Preconditions.checkNotNull(displayName, "com.yogento.api.models.user_settings.UserSettings: missing displayName"), String.class, "com.yogento.api.models.user_settings.UserSettings: displayName is empty");
         this.email = com.google.common.base.Preconditions.checkNotNull(email, "com.yogento.api.models.user_settings.UserSettings: missing email");
         this.logoImageUrl = com.google.common.base.Preconditions.checkNotNull(logoImageUrl, "com.yogento.api.models.user_settings.UserSettings: missing logoImageUrl");
         this.magentoStoreUrl = com.google.common.base.Preconditions.checkNotNull(magentoStoreUrl, "com.yogento.api.models.user_settings.UserSettings: missing magentoStoreUrl");
@@ -266,7 +266,103 @@ public class UserSettings implements org.thryft.TBase<UserSettings> {
 
     @Override
     public int compareTo(final UserSettings other) {
-        throw new UnsupportedOperationException();
+        if (other == null) {
+            throw new NullPointerException();
+        }
+
+        int result;
+        if (this.displayName.isPresent()) {
+            if (other.displayName.isPresent()) {
+                result = this.displayName.get().compareTo(other.displayName.get());
+                if (result != 0) {
+                    return result;
+                }
+            } else {
+                return 1;
+            }
+        } else if (other.displayName.isPresent()) {
+            return -1;
+        }
+
+        if (this.email.isPresent()) {
+            if (other.email.isPresent()) {
+                result = this.email.get().compareTo(other.email.get());
+                if (result != 0) {
+                    return result;
+                }
+            } else {
+                return 1;
+            }
+        } else if (other.email.isPresent()) {
+            return -1;
+        }
+
+        if (this.logoImageUrl.isPresent()) {
+            if (other.logoImageUrl.isPresent()) {
+                result = this.logoImageUrl.get().compareTo(other.logoImageUrl.get());
+                if (result != 0) {
+                    return result;
+                }
+            } else {
+                return 1;
+            }
+        } else if (other.logoImageUrl.isPresent()) {
+            return -1;
+        }
+
+        if (this.magentoStoreUrl.isPresent()) {
+            if (other.magentoStoreUrl.isPresent()) {
+                result = this.magentoStoreUrl.get().compareTo(other.magentoStoreUrl.get());
+                if (result != 0) {
+                    return result;
+                }
+            } else {
+                return 1;
+            }
+        } else if (other.magentoStoreUrl.isPresent()) {
+            return -1;
+        }
+
+        if (this.productsMtime.isPresent()) {
+            if (other.productsMtime.isPresent()) {
+                result = this.productsMtime.get().compareTo(other.productsMtime.get());
+                if (result != 0) {
+                    return result;
+                }
+            } else {
+                return 1;
+            }
+        } else if (other.productsMtime.isPresent()) {
+            return -1;
+        }
+
+        if (this.productSearchQueries.isPresent()) {
+            if (other.productSearchQueries.isPresent()) {
+                result = org.thryft.Comparators.compare(this.productSearchQueries.get(), other.productSearchQueries.get());
+                if (result != 0) {
+                    return result;
+                }
+            } else {
+                return 1;
+            }
+        } else if (other.productSearchQueries.isPresent()) {
+            return -1;
+        }
+
+        if (this.useSampleData.isPresent()) {
+            if (other.useSampleData.isPresent()) {
+                result = ((Boolean)this.useSampleData.get()).compareTo(other.useSampleData.get());
+                if (result != 0) {
+                    return result;
+                }
+            } else {
+                return 1;
+            }
+        } else if (other.useSampleData.isPresent()) {
+            return -1;
+        }
+
+        return 0;
     }
 
     @Override

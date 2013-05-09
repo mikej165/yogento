@@ -69,7 +69,17 @@ public class NoSuchProductException extends java.lang.Exception implements org.t
 
     @Override
     public int compareTo(final NoSuchProductException other) {
-        throw new UnsupportedOperationException();
+        if (other == null) {
+            throw new NullPointerException();
+        }
+
+        int result;
+        result = this.sku.compareTo(other.sku);
+        if (result != 0) {
+            return result;
+        }
+
+        return 0;
     }
 
     @Override

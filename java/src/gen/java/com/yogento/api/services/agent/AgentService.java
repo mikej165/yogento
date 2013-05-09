@@ -82,7 +82,25 @@ public interface AgentService {
 
             @Override
             public int compareTo(final GetAgentMagentoProductsRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                if (this.sync.isPresent()) {
+                    if (other.sync.isPresent()) {
+                        result = ((Boolean)this.sync.get()).compareTo(other.sync.get());
+                        if (result != 0) {
+                            return result;
+                        }
+                    } else {
+                        return 1;
+                    }
+                } else if (other.sync.isPresent()) {
+                    return -1;
+                }
+
+                return 0;
             }
 
             @Override
@@ -203,12 +221,12 @@ public interface AgentService {
                     public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> apply(final org.thryft.protocol.TProtocol iprot) {
                         try {
                             final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                            final java.util.Set<com.yogento.api.models.catalog.product.magento.MagentoProduct> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.magento.MagentoProduct>();
+                            final com.google.common.collect.ImmutableSet.Builder<com.yogento.api.models.catalog.product.magento.MagentoProduct> sequence = com.google.common.collect.ImmutableSet.builder();
                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                 sequence.add(new com.yogento.api.models.catalog.product.magento.MagentoProduct(iprot));
                             }
                             iprot.readSetEnd();
-                            return com.google.common.collect.ImmutableSet.copyOf(sequence);
+                            return sequence.build();
                         } catch (final java.io.IOException e) {
                             return com.google.common.collect.ImmutableSet.of();
                         }
@@ -222,7 +240,17 @@ public interface AgentService {
 
             @Override
             public int compareTo(final GetAgentMagentoProductsResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = org.thryft.Comparators.compare(this.returnValue, other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -382,7 +410,17 @@ public interface AgentService {
 
             @Override
             public int compareTo(final HeadMagentoStoreRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.magentoStoreUrl.compareTo(other.magentoStoreUrl);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -501,7 +539,17 @@ public interface AgentService {
 
             @Override
             public int compareTo(final HeadMagentoStoreResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = ((Boolean)this.returnValue).compareTo(other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -671,7 +719,27 @@ public interface AgentService {
 
             @Override
             public int compareTo(final PutAgentMagentoProductsRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.magentoProductsJson.compareTo(other.magentoProductsJson);
+                if (result != 0) {
+                    return result;
+                }
+
+                result = this.ticket.compareTo(other.ticket);
+                if (result != 0) {
+                    return result;
+                }
+
+                result = this.username.compareTo(other.username);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -809,7 +877,10 @@ public interface AgentService {
 
             @Override
             public int compareTo(final PutAgentMagentoProductsResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+                return 0;
             }
 
             @Override

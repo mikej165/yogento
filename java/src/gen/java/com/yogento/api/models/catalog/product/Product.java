@@ -69,7 +69,17 @@ public class Product implements org.thryft.TBase<Product> {
 
     @Override
     public int compareTo(final Product other) {
-        throw new UnsupportedOperationException();
+        if (other == null) {
+            throw new NullPointerException();
+        }
+
+        int result;
+        result = this.magentoProduct.compareTo(other.magentoProduct);
+        if (result != 0) {
+            return result;
+        }
+
+        return 0;
     }
 
     @Override

@@ -87,7 +87,22 @@ public class ImageResolution implements org.thryft.TBase<ImageResolution> {
 
     @Override
     public int compareTo(final ImageResolution other) {
-        throw new UnsupportedOperationException();
+        if (other == null) {
+            throw new NullPointerException();
+        }
+
+        int result;
+        result = ((Integer)this.heightPx).compareTo(other.heightPx);
+        if (result != 0) {
+            return result;
+        }
+
+        result = ((Integer)this.widthPx).compareTo(other.widthPx);
+        if (result != 0) {
+            return result;
+        }
+
+        return 0;
     }
 
     @Override

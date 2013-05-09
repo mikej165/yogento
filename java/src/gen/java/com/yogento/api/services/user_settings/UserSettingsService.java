@@ -54,7 +54,10 @@ public interface UserSettingsService {
 
             @Override
             public int compareTo(final GetCurrentUserSettingsRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+                return 0;
             }
 
             @Override
@@ -149,7 +152,17 @@ public interface UserSettingsService {
 
             @Override
             public int compareTo(final GetCurrentUserSettingsResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.returnValue.compareTo(other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -297,7 +310,17 @@ public interface UserSettingsService {
 
             @Override
             public int compareTo(final PutCurrentUserSettingsRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.userSettings.compareTo(other.userSettings);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -405,7 +428,10 @@ public interface UserSettingsService {
 
             @Override
             public int compareTo(final PutCurrentUserSettingsResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+                return 0;
             }
 
             @Override

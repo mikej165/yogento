@@ -94,7 +94,30 @@ public class AgentException extends java.lang.Exception implements org.thryft.TB
 
     @Override
     public int compareTo(final AgentException other) {
-        throw new UnsupportedOperationException();
+        if (other == null) {
+            throw new NullPointerException();
+        }
+
+        int result;
+        result = this.causeMessage.compareTo(other.causeMessage);
+        if (result != 0) {
+            return result;
+        }
+
+        if (this.url.isPresent()) {
+            if (other.url.isPresent()) {
+                result = this.url.get().compareTo(other.url.get());
+                if (result != 0) {
+                    return result;
+                }
+            } else {
+                return 1;
+            }
+        } else if (other.url.isPresent()) {
+            return -1;
+        }
+
+        return 0;
     }
 
     @Override

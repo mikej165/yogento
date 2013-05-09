@@ -122,12 +122,12 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
                         public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> apply(final org.thryft.protocol.TProtocol iprot) {
                             try {
                                 final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                                final java.util.Set<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>();
+                                final com.google.common.collect.ImmutableSet.Builder<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> sequence = com.google.common.collect.ImmutableSet.builder();
                                 for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                     sequence.add(iprot.readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductImageType.class));
                                 }
                                 iprot.readSetEnd();
-                                return com.google.common.collect.ImmutableSet.copyOf(sequence);
+                                return sequence.build();
                             } catch (final java.io.IOException e) {
                                 return com.google.common.collect.ImmutableSet.of();
                             }
@@ -164,12 +164,12 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
                             public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> apply(final org.thryft.protocol.TProtocol iprot) {
                                 try {
                                     final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                                    final java.util.Set<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> sequence = new java.util.LinkedHashSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>();
+                                    final com.google.common.collect.ImmutableSet.Builder<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> sequence = com.google.common.collect.ImmutableSet.builder();
                                     for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                         sequence.add(iprot.readEnum(com.yogento.api.models.catalog.product.magento.MagentoProductImageType.class));
                                     }
                                     iprot.readSetEnd();
-                                    return com.google.common.collect.ImmutableSet.copyOf(sequence);
+                                    return sequence.build();
                                 } catch (final java.io.IOException e) {
                                     return com.google.common.collect.ImmutableSet.of();
                                 }
@@ -212,7 +212,82 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
 
     @Override
     public int compareTo(final MagentoProductImage other) {
-        throw new UnsupportedOperationException();
+        if (other == null) {
+            throw new NullPointerException();
+        }
+
+        int result;
+        if (this.exclude.isPresent()) {
+            if (other.exclude.isPresent()) {
+                result = ((Boolean)this.exclude.get()).compareTo(other.exclude.get());
+                if (result != 0) {
+                    return result;
+                }
+            } else {
+                return 1;
+            }
+        } else if (other.exclude.isPresent()) {
+            return -1;
+        }
+
+        result = this.file.compareTo(other.file);
+        if (result != 0) {
+            return result;
+        }
+
+        if (this.label.isPresent()) {
+            if (other.label.isPresent()) {
+                result = this.label.get().compareTo(other.label.get());
+                if (result != 0) {
+                    return result;
+                }
+            } else {
+                return 1;
+            }
+        } else if (other.label.isPresent()) {
+            return -1;
+        }
+
+        if (this.position.isPresent()) {
+            if (other.position.isPresent()) {
+                result = ((Integer)this.position.get()).compareTo(other.position.get());
+                if (result != 0) {
+                    return result;
+                }
+            } else {
+                return 1;
+            }
+        } else if (other.position.isPresent()) {
+            return -1;
+        }
+
+        if (this.types.isPresent()) {
+            if (other.types.isPresent()) {
+                result = org.thryft.Comparators.compare(this.types.get(), other.types.get());
+                if (result != 0) {
+                    return result;
+                }
+            } else {
+                return 1;
+            }
+        } else if (other.types.isPresent()) {
+            return -1;
+        }
+
+        if (this.url.isPresent()) {
+            if (other.url.isPresent()) {
+                result = this.url.get().compareTo(other.url.get());
+                if (result != 0) {
+                    return result;
+                }
+            } else {
+                return 1;
+            }
+        } else if (other.url.isPresent()) {
+            return -1;
+        }
+
+        return 0;
     }
 
     @Override

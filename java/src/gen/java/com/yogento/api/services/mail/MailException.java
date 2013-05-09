@@ -87,7 +87,22 @@ public class MailException extends java.lang.Exception implements org.thryft.TBa
 
     @Override
     public int compareTo(final MailException other) {
-        throw new UnsupportedOperationException();
+        if (other == null) {
+            throw new NullPointerException();
+        }
+
+        int result;
+        result = ((Integer)this.code).compareTo(other.code);
+        if (result != 0) {
+            return result;
+        }
+
+        result = this.error.compareTo(other.error);
+        if (result != 0) {
+            return result;
+        }
+
+        return 0;
     }
 
     @Override

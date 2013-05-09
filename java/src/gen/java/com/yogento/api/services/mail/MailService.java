@@ -96,7 +96,30 @@ public interface MailService {
 
             @Override
             public int compareTo(final DeleteMailCampaignRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.cid.compareTo(other.cid);
+                if (result != 0) {
+                    return result;
+                }
+
+                if (this.writeThrough.isPresent()) {
+                    if (other.writeThrough.isPresent()) {
+                        result = ((Boolean)this.writeThrough.get()).compareTo(other.writeThrough.get());
+                        if (result != 0) {
+                            return result;
+                        }
+                    } else {
+                        return 1;
+                    }
+                } else if (other.writeThrough.isPresent()) {
+                    return -1;
+                }
+
+                return 0;
             }
 
             @Override
@@ -242,7 +265,17 @@ public interface MailService {
 
             @Override
             public int compareTo(final DeleteMailCampaignResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = ((Boolean)this.returnValue).compareTo(other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -411,7 +444,30 @@ public interface MailService {
 
             @Override
             public int compareTo(final GetMailCampaignRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.cid.compareTo(other.cid);
+                if (result != 0) {
+                    return result;
+                }
+
+                if (this.includeContent.isPresent()) {
+                    if (other.includeContent.isPresent()) {
+                        result = ((Boolean)this.includeContent.get()).compareTo(other.includeContent.get());
+                        if (result != 0) {
+                            return result;
+                        }
+                    } else {
+                        return 1;
+                    }
+                } else if (other.includeContent.isPresent()) {
+                    return -1;
+                }
+
+                return 0;
             }
 
             @Override
@@ -553,7 +609,17 @@ public interface MailService {
 
             @Override
             public int compareTo(final GetMailCampaignResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.returnValue.compareTo(other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -712,7 +778,25 @@ public interface MailService {
 
             @Override
             public int compareTo(final GetMailCampaignsRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                if (this.includeContent.isPresent()) {
+                    if (other.includeContent.isPresent()) {
+                        result = ((Boolean)this.includeContent.get()).compareTo(other.includeContent.get());
+                        if (result != 0) {
+                            return result;
+                        }
+                    } else {
+                        return 1;
+                    }
+                } else if (other.includeContent.isPresent()) {
+                    return -1;
+                }
+
+                return 0;
             }
 
             @Override
@@ -833,12 +917,12 @@ public interface MailService {
                     public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.campaign.MailCampaign> apply(final org.thryft.protocol.TProtocol iprot) {
                         try {
                             final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                            final java.util.Set<com.yogento.api.models.mail.campaign.MailCampaign> sequence = new java.util.LinkedHashSet<com.yogento.api.models.mail.campaign.MailCampaign>();
+                            final com.google.common.collect.ImmutableSet.Builder<com.yogento.api.models.mail.campaign.MailCampaign> sequence = com.google.common.collect.ImmutableSet.builder();
                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                 sequence.add(new com.yogento.api.models.mail.campaign.MailCampaign(iprot));
                             }
                             iprot.readSetEnd();
-                            return com.google.common.collect.ImmutableSet.copyOf(sequence);
+                            return sequence.build();
                         } catch (final java.io.IOException e) {
                             return com.google.common.collect.ImmutableSet.of();
                         }
@@ -852,7 +936,17 @@ public interface MailService {
 
             @Override
             public int compareTo(final GetMailCampaignsResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = org.thryft.Comparators.compare(this.returnValue, other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -1012,7 +1106,17 @@ public interface MailService {
 
             @Override
             public int compareTo(final GetMailCampaignStatsRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.cid.compareTo(other.cid);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -1127,7 +1231,17 @@ public interface MailService {
 
             @Override
             public int compareTo(final GetMailCampaignStatsResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.returnValue.compareTo(other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -1258,7 +1372,10 @@ public interface MailService {
 
             @Override
             public int compareTo(final GetMailListsRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+                return 0;
             }
 
             @Override
@@ -1349,12 +1466,12 @@ public interface MailService {
                     public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.list.MailList> apply(final org.thryft.protocol.TProtocol iprot) {
                         try {
                             final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                            final java.util.Set<com.yogento.api.models.mail.list.MailList> sequence = new java.util.LinkedHashSet<com.yogento.api.models.mail.list.MailList>();
+                            final com.google.common.collect.ImmutableSet.Builder<com.yogento.api.models.mail.list.MailList> sequence = com.google.common.collect.ImmutableSet.builder();
                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                 sequence.add(new com.yogento.api.models.mail.list.MailList(iprot));
                             }
                             iprot.readSetEnd();
-                            return com.google.common.collect.ImmutableSet.copyOf(sequence);
+                            return sequence.build();
                         } catch (final java.io.IOException e) {
                             return com.google.common.collect.ImmutableSet.of();
                         }
@@ -1368,7 +1485,17 @@ public interface MailService {
 
             @Override
             public int compareTo(final GetMailListsResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = org.thryft.Comparators.compare(this.returnValue, other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -1517,12 +1644,12 @@ public interface MailService {
                                 public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> apply(final org.thryft.protocol.TProtocol iprot) {
                                     try {
                                         final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                                        final java.util.Set<com.yogento.api.models.mail.template.MailTemplateType> sequence = new java.util.LinkedHashSet<com.yogento.api.models.mail.template.MailTemplateType>();
+                                        final com.google.common.collect.ImmutableSet.Builder<com.yogento.api.models.mail.template.MailTemplateType> sequence = com.google.common.collect.ImmutableSet.builder();
                                         for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                             sequence.add(new com.yogento.api.models.mail.template.MailTemplateType(iprot));
                                         }
                                         iprot.readSetEnd();
-                                        return com.google.common.collect.ImmutableSet.copyOf(sequence);
+                                        return sequence.build();
                                     } catch (final java.io.IOException e) {
                                         return com.google.common.collect.ImmutableSet.of();
                                     }
@@ -1545,12 +1672,12 @@ public interface MailService {
                                     public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> apply(final org.thryft.protocol.TProtocol iprot) {
                                         try {
                                             final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                                            final java.util.Set<com.yogento.api.models.mail.template.MailTemplateType> sequence = new java.util.LinkedHashSet<com.yogento.api.models.mail.template.MailTemplateType>();
+                                            final com.google.common.collect.ImmutableSet.Builder<com.yogento.api.models.mail.template.MailTemplateType> sequence = com.google.common.collect.ImmutableSet.builder();
                                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                                 sequence.add(new com.yogento.api.models.mail.template.MailTemplateType(iprot));
                                             }
                                             iprot.readSetEnd();
-                                            return com.google.common.collect.ImmutableSet.copyOf(sequence);
+                                            return sequence.build();
                                         } catch (final java.io.IOException e) {
                                             return com.google.common.collect.ImmutableSet.of();
                                         }
@@ -1572,7 +1699,25 @@ public interface MailService {
 
             @Override
             public int compareTo(final GetMailTemplatesRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                if (this.types.isPresent()) {
+                    if (other.types.isPresent()) {
+                        result = org.thryft.Comparators.compare(this.types.get(), other.types.get());
+                        if (result != 0) {
+                            return result;
+                        }
+                    } else {
+                        return 1;
+                    }
+                } else if (other.types.isPresent()) {
+                    return -1;
+                }
+
+                return 0;
             }
 
             @Override
@@ -1718,12 +1863,12 @@ public interface MailService {
                     public com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplate> apply(final org.thryft.protocol.TProtocol iprot) {
                         try {
                             final org.thryft.protocol.TSet sequenceBegin = iprot.readSetBegin();
-                            final java.util.Set<com.yogento.api.models.mail.template.MailTemplate> sequence = new java.util.LinkedHashSet<com.yogento.api.models.mail.template.MailTemplate>();
+                            final com.google.common.collect.ImmutableSet.Builder<com.yogento.api.models.mail.template.MailTemplate> sequence = com.google.common.collect.ImmutableSet.builder();
                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                 sequence.add(new com.yogento.api.models.mail.template.MailTemplate(iprot));
                             }
                             iprot.readSetEnd();
-                            return com.google.common.collect.ImmutableSet.copyOf(sequence);
+                            return sequence.build();
                         } catch (final java.io.IOException e) {
                             return com.google.common.collect.ImmutableSet.of();
                         }
@@ -1737,7 +1882,17 @@ public interface MailService {
 
             @Override
             public int compareTo(final GetMailTemplatesResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = org.thryft.Comparators.compare(this.returnValue, other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -1933,7 +2088,30 @@ public interface MailService {
 
             @Override
             public int compareTo(final GetMailTemplateInfoRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = ((Integer)this.tid).compareTo(other.tid);
+                if (result != 0) {
+                    return result;
+                }
+
+                if (this.type.isPresent()) {
+                    if (other.type.isPresent()) {
+                        result = this.type.get().compareTo(other.type.get());
+                        if (result != 0) {
+                            return result;
+                        }
+                    } else {
+                        return 1;
+                    }
+                } else if (other.type.isPresent()) {
+                    return -1;
+                }
+
+                return 0;
             }
 
             @Override
@@ -2075,7 +2253,17 @@ public interface MailService {
 
             @Override
             public int compareTo(final GetMailTemplateInfoResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.returnValue.compareTo(other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -2252,12 +2440,12 @@ public interface MailService {
                                 public com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> apply(final org.thryft.protocol.TProtocol iprot) {
                                     try {
                                         final org.thryft.protocol.TList sequenceBegin = iprot.readListBegin();
-                                        final java.util.List<org.thryft.native_.EmailAddress> sequence = new java.util.ArrayList<org.thryft.native_.EmailAddress>();
+                                        final com.google.common.collect.ImmutableList.Builder<org.thryft.native_.EmailAddress> sequence = com.google.common.collect.ImmutableList.builder();
                                         for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                             sequence.add(iprot.readEmailAddress());
                                         }
                                         iprot.readListEnd();
-                                        return com.google.common.collect.ImmutableList.copyOf(sequence);
+                                        return sequence.build();
                                     } catch (final java.io.IOException e) {
                                         return com.google.common.collect.ImmutableList.of();
                                     }
@@ -2292,12 +2480,12 @@ public interface MailService {
                                     public com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> apply(final org.thryft.protocol.TProtocol iprot) {
                                         try {
                                             final org.thryft.protocol.TList sequenceBegin = iprot.readListBegin();
-                                            final java.util.List<org.thryft.native_.EmailAddress> sequence = new java.util.ArrayList<org.thryft.native_.EmailAddress>();
+                                            final com.google.common.collect.ImmutableList.Builder<org.thryft.native_.EmailAddress> sequence = com.google.common.collect.ImmutableList.builder();
                                             for (int elementI = 0; elementI < sequenceBegin.size; elementI++) {
                                                 sequence.add(iprot.readEmailAddress());
                                             }
                                             iprot.readListEnd();
-                                            return com.google.common.collect.ImmutableList.copyOf(sequence);
+                                            return sequence.build();
                                         } catch (final java.io.IOException e) {
                                             return com.google.common.collect.ImmutableList.of();
                                         }
@@ -2332,7 +2520,56 @@ public interface MailService {
 
             @Override
             public int compareTo(final PostMailCampaignRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.campaign.compareTo(other.campaign);
+                if (result != 0) {
+                    return result;
+                }
+
+                if (this.scheduleTime.isPresent()) {
+                    if (other.scheduleTime.isPresent()) {
+                        result = this.scheduleTime.get().compareTo(other.scheduleTime.get());
+                        if (result != 0) {
+                            return result;
+                        }
+                    } else {
+                        return 1;
+                    }
+                } else if (other.scheduleTime.isPresent()) {
+                    return -1;
+                }
+
+                if (this.scheduleTimeB.isPresent()) {
+                    if (other.scheduleTimeB.isPresent()) {
+                        result = this.scheduleTimeB.get().compareTo(other.scheduleTimeB.get());
+                        if (result != 0) {
+                            return result;
+                        }
+                    } else {
+                        return 1;
+                    }
+                } else if (other.scheduleTimeB.isPresent()) {
+                    return -1;
+                }
+
+                if (this.testEmails.isPresent()) {
+                    if (other.testEmails.isPresent()) {
+                        result = org.thryft.Comparators.compare(this.testEmails.get(), other.testEmails.get());
+                        if (result != 0) {
+                            return result;
+                        }
+                    } else {
+                        return 1;
+                    }
+                } else if (other.testEmails.isPresent()) {
+                    return -1;
+                }
+
+                return 0;
             }
 
             @Override
@@ -2536,7 +2773,17 @@ public interface MailService {
 
             @Override
             public int compareTo(final PostMailCampaignResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.returnValue.compareTo(other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override
@@ -2709,7 +2956,30 @@ public interface MailService {
 
             @Override
             public int compareTo(final PutMailCampaignRequest other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.campaign.compareTo(other.campaign);
+                if (result != 0) {
+                    return result;
+                }
+
+                if (this.writeThrough.isPresent()) {
+                    if (other.writeThrough.isPresent()) {
+                        result = ((Boolean)this.writeThrough.get()).compareTo(other.writeThrough.get());
+                        if (result != 0) {
+                            return result;
+                        }
+                    } else {
+                        return 1;
+                    }
+                } else if (other.writeThrough.isPresent()) {
+                    return -1;
+                }
+
+                return 0;
             }
 
             @Override
@@ -2851,7 +3121,17 @@ public interface MailService {
 
             @Override
             public int compareTo(final PutMailCampaignResponse other) {
-                throw new UnsupportedOperationException();
+                if (other == null) {
+                    throw new NullPointerException();
+                }
+
+                int result;
+                result = this.returnValue.compareTo(other.returnValue);
+                if (result != 0) {
+                    return result;
+                }
+
+                return 0;
             }
 
             @Override

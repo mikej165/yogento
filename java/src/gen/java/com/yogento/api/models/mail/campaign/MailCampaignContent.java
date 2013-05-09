@@ -69,7 +69,17 @@ public class MailCampaignContent implements org.thryft.TBase<MailCampaignContent
 
     @Override
     public int compareTo(final MailCampaignContent other) {
-        throw new UnsupportedOperationException();
+        if (other == null) {
+            throw new NullPointerException();
+        }
+
+        int result;
+        result = this.mailChimpCampaignContent.compareTo(other.mailChimpCampaignContent);
+        if (result != 0) {
+            return result;
+        }
+
+        return 0;
     }
 
     @Override

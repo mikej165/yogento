@@ -69,7 +69,17 @@ public class MailCampaignStats implements org.thryft.TBase<MailCampaignStats> {
 
     @Override
     public int compareTo(final MailCampaignStats other) {
-        throw new UnsupportedOperationException();
+        if (other == null) {
+            throw new NullPointerException();
+        }
+
+        int result;
+        result = this.mailChimpCampaignStats.compareTo(other.mailChimpCampaignStats);
+        if (result != 0) {
+            return result;
+        }
+
+        return 0;
     }
 
     @Override

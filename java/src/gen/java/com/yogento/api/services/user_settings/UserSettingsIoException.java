@@ -69,7 +69,17 @@ public class UserSettingsIoException extends java.lang.Exception implements org.
 
     @Override
     public int compareTo(final UserSettingsIoException other) {
-        throw new UnsupportedOperationException();
+        if (other == null) {
+            throw new NullPointerException();
+        }
+
+        int result;
+        result = this.causeMessage.compareTo(other.causeMessage);
+        if (result != 0) {
+            return result;
+        }
+
+        return 0;
     }
 
     @Override

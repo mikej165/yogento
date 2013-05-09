@@ -69,7 +69,17 @@ public class MailList implements org.thryft.TBase<MailList> {
 
     @Override
     public int compareTo(final MailList other) {
-        throw new UnsupportedOperationException();
+        if (other == null) {
+            throw new NullPointerException();
+        }
+
+        int result;
+        result = this.mailChimpList.compareTo(other.mailChimpList);
+        if (result != 0) {
+            return result;
+        }
+
+        return 0;
     }
 
     @Override

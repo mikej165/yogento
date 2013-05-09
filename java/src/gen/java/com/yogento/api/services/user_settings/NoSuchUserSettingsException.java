@@ -52,7 +52,10 @@ public class NoSuchUserSettingsException extends java.lang.Exception implements 
 
     @Override
     public int compareTo(final NoSuchUserSettingsException other) {
-        throw new UnsupportedOperationException();
+        if (other == null) {
+            throw new NullPointerException();
+        }
+        return 0;
     }
 
     @Override

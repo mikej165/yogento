@@ -170,7 +170,77 @@ public class MailCampaign implements org.thryft.TBase<MailCampaign> {
 
     @Override
     public int compareTo(final MailCampaign other) {
-        throw new UnsupportedOperationException();
+        if (other == null) {
+            throw new NullPointerException();
+        }
+
+        int result;
+        if (this.content.isPresent()) {
+            if (other.content.isPresent()) {
+                result = this.content.get().compareTo(other.content.get());
+                if (result != 0) {
+                    return result;
+                }
+            } else {
+                return 1;
+            }
+        } else if (other.content.isPresent()) {
+            return -1;
+        }
+
+        if (this.id.isPresent()) {
+            if (other.id.isPresent()) {
+                result = this.id.get().compareTo(other.id.get());
+                if (result != 0) {
+                    return result;
+                }
+            } else {
+                return 1;
+            }
+        } else if (other.id.isPresent()) {
+            return -1;
+        }
+
+        if (this.mailChimpCampaign.isPresent()) {
+            if (other.mailChimpCampaign.isPresent()) {
+                result = this.mailChimpCampaign.get().compareTo(other.mailChimpCampaign.get());
+                if (result != 0) {
+                    return result;
+                }
+            } else {
+                return 1;
+            }
+        } else if (other.mailChimpCampaign.isPresent()) {
+            return -1;
+        }
+
+        if (this.mailChimpTemplateId.isPresent()) {
+            if (other.mailChimpTemplateId.isPresent()) {
+                result = this.mailChimpTemplateId.get().compareTo(other.mailChimpTemplateId.get());
+                if (result != 0) {
+                    return result;
+                }
+            } else {
+                return 1;
+            }
+        } else if (other.mailChimpTemplateId.isPresent()) {
+            return -1;
+        }
+
+        if (this.status.isPresent()) {
+            if (other.status.isPresent()) {
+                result = this.status.get().compareTo(other.status.get());
+                if (result != 0) {
+                    return result;
+                }
+            } else {
+                return 1;
+            }
+        } else if (other.status.isPresent()) {
+            return -1;
+        }
+
+        return 0;
     }
 
     @Override
