@@ -9,7 +9,6 @@ import thryft.protocol.builtins_protocol
 import thryft.protocol.json_protocol
 import urllib2
 import yogento.api.models.catalog.product.product
-import yogento.api.models.image.image_resolution
 import yogento.api.services.catalog.catalog_service
 
 
@@ -168,7 +167,9 @@ class JsonrpcClientCatalogService(yogento.api.services.catalog.catalog_service.C
         return frozenset([iprot.readString() for _ in xrange(iprot.readSetBegin()[1])] + (iprot.readSetEnd() is None and []))
 
     def _get_product_thumbnail_url(self, **kwds):
-        return self.__request('get_product_thumbnail_url', **kwds)
+        return_value = self.__request('get_product_thumbnail_url', **kwds)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
+        return iprot.readString()
 
     def _get_products(self, **kwds):
         return_value = self.__request('get_products', **kwds)
@@ -186,7 +187,9 @@ class JsonrpcClientCatalogService(yogento.api.services.catalog.catalog_service.C
         return yogento.api.models.catalog.product.product.Product.read(iprot)
 
     def _get_sample_product_thumbnail_url(self, **kwds):
-        return self.__request('get_sample_product_thumbnail_url', **kwds)
+        return_value = self.__request('get_sample_product_thumbnail_url', **kwds)
+        iprot = thryft.protocol.json_protocol.JsonProtocol(return_value)
+        return iprot.readString()
 
     def _get_sample_products(self, **kwds):
         return_value = self.__request('get_sample_products', **kwds)
