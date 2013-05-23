@@ -210,6 +210,10 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
         this.url = com.google.common.base.Preconditions.checkNotNull(url, "com.yogento.api.models.catalog.product.magento.MagentoProductImage: missing url");
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     @Override
     public int compareTo(final MagentoProductImage other) {
         if (other == null) {
@@ -308,6 +312,21 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
             getUrl().equals(other.getUrl());
     }
 
+    public static MagentoProductImage fake() {
+        return fakeBuilder().build();
+    }
+
+    public static Builder fakeBuilder() {
+        Builder builder = new Builder();
+        builder.setExclude(org.thryft.Faker.randomBool());
+        builder.setFile(org.thryft.Faker.Lorem.word());
+        builder.setLabel(org.thryft.Faker.Lorem.word());
+        builder.setPosition(org.thryft.Faker.randomI32());
+        builder.setTypes(com.google.common.collect.ImmutableSet.of(org.thryft.Faker.randomEnum(com.google.common.collect.ImmutableList.of(com.yogento.api.models.catalog.product.magento.MagentoProductImageType.IMAGE, com.yogento.api.models.catalog.product.magento.MagentoProductImageType.SMALL_IMAGE, com.yogento.api.models.catalog.product.magento.MagentoProductImageType.THUMBNAIL))));
+        builder.setUrl(org.thryft.Faker.Lorem.word());
+        return builder;
+    }
+
     public Object get(final String fieldName) {
         if (fieldName.equals("exclude")) {
             return getExclude();
@@ -369,6 +388,50 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
             hashCode = 31 * hashCode + getUrl().get().hashCode();
         }
         return hashCode;
+    }
+
+    public MagentoProductImage replaceExclude(final com.google.common.base.Optional<Boolean> exclude) {
+        return new MagentoProductImage(exclude, this.file, this.label, this.position, this.types, this.url);
+    }
+
+    public MagentoProductImage replaceExclude(final boolean exclude) {
+        return replaceExclude(com.google.common.base.Optional.fromNullable(exclude));
+    }
+
+    public MagentoProductImage replaceFile(final String file) {
+        return new MagentoProductImage(this.exclude, file, this.label, this.position, this.types, this.url);
+    }
+
+    public MagentoProductImage replaceLabel(final com.google.common.base.Optional<String> label) {
+        return new MagentoProductImage(this.exclude, this.file, label, this.position, this.types, this.url);
+    }
+
+    public MagentoProductImage replaceLabel(final String label) {
+        return replaceLabel(com.google.common.base.Optional.fromNullable(label));
+    }
+
+    public MagentoProductImage replacePosition(final com.google.common.base.Optional<Integer> position) {
+        return new MagentoProductImage(this.exclude, this.file, this.label, position, this.types, this.url);
+    }
+
+    public MagentoProductImage replacePosition(final int position) {
+        return replacePosition(com.google.common.base.Optional.fromNullable(position));
+    }
+
+    public MagentoProductImage replaceTypes(final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType>> types) {
+        return new MagentoProductImage(this.exclude, this.file, this.label, this.position, types, this.url);
+    }
+
+    public MagentoProductImage replaceTypes(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> types) {
+        return replaceTypes(com.google.common.base.Optional.fromNullable(types));
+    }
+
+    public MagentoProductImage replaceUrl(final com.google.common.base.Optional<String> url) {
+        return new MagentoProductImage(this.exclude, this.file, this.label, this.position, this.types, url);
+    }
+
+    public MagentoProductImage replaceUrl(final String url) {
+        return replaceUrl(com.google.common.base.Optional.fromNullable(url));
     }
 
     @Override

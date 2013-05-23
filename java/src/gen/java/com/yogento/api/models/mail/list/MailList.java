@@ -67,6 +67,10 @@ public class MailList implements org.thryft.TBase<MailList> {
         this.mailChimpList = com.google.common.base.Preconditions.checkNotNull(mailChimpList, "com.yogento.api.models.mail.list.MailList: missing mailChimpList");
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     @Override
     public int compareTo(final MailList other) {
         if (other == null) {
@@ -95,6 +99,16 @@ public class MailList implements org.thryft.TBase<MailList> {
             getMailChimpList().equals(other.getMailChimpList());
     }
 
+    public static MailList fake() {
+        return fakeBuilder().build();
+    }
+
+    public static Builder fakeBuilder() {
+        Builder builder = new Builder();
+        builder.setMailChimpList(com.yochimp.models.list.List.fake());
+        return builder;
+    }
+
     public Object get(final String fieldName) {
         if (fieldName.equals("mail_chimp_list")) {
             return getMailChimpList();
@@ -111,6 +125,10 @@ public class MailList implements org.thryft.TBase<MailList> {
         int hashCode = 17;
         hashCode = 31 * hashCode + getMailChimpList().hashCode();
         return hashCode;
+    }
+
+    public MailList replaceMailChimpList(final com.yochimp.models.list.List mailChimpList) {
+        return new MailList(mailChimpList);
     }
 
     @Override

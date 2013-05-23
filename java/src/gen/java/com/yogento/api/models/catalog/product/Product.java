@@ -67,6 +67,10 @@ public class Product implements org.thryft.TBase<Product> {
         this.magentoProduct = com.google.common.base.Preconditions.checkNotNull(magentoProduct, "com.yogento.api.models.catalog.product.Product: missing magentoProduct");
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     @Override
     public int compareTo(final Product other) {
         if (other == null) {
@@ -95,6 +99,16 @@ public class Product implements org.thryft.TBase<Product> {
             getMagentoProduct().equals(other.getMagentoProduct());
     }
 
+    public static Product fake() {
+        return fakeBuilder().build();
+    }
+
+    public static Builder fakeBuilder() {
+        Builder builder = new Builder();
+        builder.setMagentoProduct(com.yogento.api.models.catalog.product.magento.MagentoProduct.fake());
+        return builder;
+    }
+
     public Object get(final String fieldName) {
         if (fieldName.equals("magento_product")) {
             return getMagentoProduct();
@@ -111,6 +125,10 @@ public class Product implements org.thryft.TBase<Product> {
         int hashCode = 17;
         hashCode = 31 * hashCode + getMagentoProduct().hashCode();
         return hashCode;
+    }
+
+    public Product replaceMagentoProduct(final com.yogento.api.models.catalog.product.magento.MagentoProduct magentoProduct) {
+        return new Product(magentoProduct);
     }
 
     @Override

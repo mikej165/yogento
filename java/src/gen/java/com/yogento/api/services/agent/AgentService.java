@@ -80,6 +80,10 @@ public interface AgentService {
                 this.sync = sync;
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetAgentMagentoProductsRequest other) {
                 if (other == null) {
@@ -116,6 +120,16 @@ public interface AgentService {
                     getSync().equals(other.getSync());
             }
 
+            public static GetAgentMagentoProductsRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setSync(org.thryft.Faker.randomBool());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("sync")) {
                     return getSync();
@@ -134,6 +148,14 @@ public interface AgentService {
                     hashCode = 31 * hashCode + (getSync().get() ? 1 : 0);
                 }
                 return hashCode;
+            }
+
+            public GetAgentMagentoProductsRequest replaceSync(final com.google.common.base.Optional<Boolean> sync) {
+                return new GetAgentMagentoProductsRequest(sync);
+            }
+
+            public GetAgentMagentoProductsRequest replaceSync(final boolean sync) {
+                return replaceSync(com.google.common.base.Optional.fromNullable(sync));
             }
 
             @Override
@@ -238,6 +260,10 @@ public interface AgentService {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.agent.AgentService.getAgentMagentoProducts: missing returnValue");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetAgentMagentoProductsResponse other) {
                 if (other == null) {
@@ -266,6 +292,16 @@ public interface AgentService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
+            public static GetAgentMagentoProductsResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setReturnValue(com.google.common.collect.ImmutableSet.of(com.yogento.api.models.catalog.product.magento.MagentoProduct.fake()));
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
@@ -282,6 +318,10 @@ public interface AgentService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getReturnValue().hashCode();
                 return hashCode;
+            }
+
+            public GetAgentMagentoProductsResponse replaceReturnValue(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> returnValue) {
+                return new GetAgentMagentoProductsResponse(returnValue);
             }
 
             @Override
@@ -408,6 +448,10 @@ public interface AgentService {
                 this.magentoStoreUrl = com.google.common.base.Preconditions.checkNotNull(magentoStoreUrl, "com.yogento.api.services.agent.HeadMagentoStoreRequest: missing magentoStoreUrl");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final HeadMagentoStoreRequest other) {
                 if (other == null) {
@@ -436,6 +480,16 @@ public interface AgentService {
                     getMagentoStoreUrl().equals(other.getMagentoStoreUrl());
             }
 
+            public static HeadMagentoStoreRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setMagentoStoreUrl(org.thryft.Faker.Lorem.word());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("magento_store_url")) {
                     return getMagentoStoreUrl();
@@ -452,6 +506,10 @@ public interface AgentService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getMagentoStoreUrl().hashCode();
                 return hashCode;
+            }
+
+            public HeadMagentoStoreRequest replaceMagentoStoreUrl(final String magentoStoreUrl) {
+                return new HeadMagentoStoreRequest(magentoStoreUrl);
             }
 
             @Override
@@ -537,6 +595,10 @@ public interface AgentService {
                 this.returnValue = returnValue;
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final HeadMagentoStoreResponse other) {
                 if (other == null) {
@@ -565,6 +627,16 @@ public interface AgentService {
                     isReturnValue() == other.isReturnValue();
             }
 
+            public static HeadMagentoStoreResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setReturnValue(org.thryft.Faker.randomBool());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return isReturnValue();
@@ -581,6 +653,10 @@ public interface AgentService {
 
             public final boolean isReturnValue() {
                 return returnValue;
+            }
+
+            public HeadMagentoStoreResponse replaceReturnValue(final boolean returnValue) {
+                return new HeadMagentoStoreResponse(returnValue);
             }
 
             @Override
@@ -717,6 +793,10 @@ public interface AgentService {
                 this.username = com.google.common.base.Preconditions.checkNotNull(username, "com.yogento.api.services.agent.PutAgentMagentoProductsRequest: missing username");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final PutAgentMagentoProductsRequest other) {
                 if (other == null) {
@@ -757,6 +837,18 @@ public interface AgentService {
                     getUsername().equals(other.getUsername());
             }
 
+            public static PutAgentMagentoProductsRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setMagentoProductsJson(org.thryft.Faker.Lorem.word());
+                builder.setTicket(org.thryft.Faker.Lorem.word());
+                builder.setUsername(org.thryft.Faker.Lorem.word());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("magento_products_json")) {
                     return getMagentoProductsJson();
@@ -787,6 +879,18 @@ public interface AgentService {
                 hashCode = 31 * hashCode + getTicket().hashCode();
                 hashCode = 31 * hashCode + getUsername().hashCode();
                 return hashCode;
+            }
+
+            public PutAgentMagentoProductsRequest replaceMagentoProductsJson(final String magentoProductsJson) {
+                return new PutAgentMagentoProductsRequest(magentoProductsJson, this.ticket, this.username);
+            }
+
+            public PutAgentMagentoProductsRequest replaceTicket(final String ticket) {
+                return new PutAgentMagentoProductsRequest(this.magentoProductsJson, ticket, this.username);
+            }
+
+            public PutAgentMagentoProductsRequest replaceUsername(final String username) {
+                return new PutAgentMagentoProductsRequest(this.magentoProductsJson, this.ticket, username);
             }
 
             @Override
@@ -875,6 +979,10 @@ public interface AgentService {
             public PutAgentMagentoProductsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final PutAgentMagentoProductsResponse other) {
                 if (other == null) {
@@ -892,6 +1000,15 @@ public interface AgentService {
                 }
 
                 return true;
+            }
+
+            public static PutAgentMagentoProductsResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                return builder;
             }
 
             public Object get(final String fieldName) {

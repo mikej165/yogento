@@ -80,6 +80,10 @@ public class ProductIoException extends java.lang.Exception implements org.thryf
         this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.ProductIoException: missing sku");
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     @Override
     public int compareTo(final ProductIoException other) {
         if (other == null) {
@@ -114,6 +118,17 @@ public class ProductIoException extends java.lang.Exception implements org.thryf
             getSku().equals(other.getSku());
     }
 
+    public static ProductIoException fake() {
+        return fakeBuilder().build();
+    }
+
+    public static Builder fakeBuilder() {
+        Builder builder = new Builder();
+        builder.setCauseMessage(org.thryft.Faker.Lorem.word());
+        builder.setSku(org.thryft.Faker.Lorem.word());
+        return builder;
+    }
+
     public Object get(final String fieldName) {
         if (fieldName.equals("cause_message")) {
             return getCauseMessage();
@@ -142,6 +157,14 @@ public class ProductIoException extends java.lang.Exception implements org.thryf
         hashCode = 31 * hashCode + getCauseMessage().hashCode();
         hashCode = 31 * hashCode + getSku().hashCode();
         return hashCode;
+    }
+
+    public ProductIoException replaceCauseMessage(final String causeMessage) {
+        return new ProductIoException(causeMessage, this.sku);
+    }
+
+    public ProductIoException replaceSku(final String sku) {
+        return new ProductIoException(this.causeMessage, sku);
     }
 
     @Override

@@ -168,6 +168,10 @@ public class MailCampaign implements org.thryft.TBase<MailCampaign> {
         this.status = com.google.common.base.Preconditions.checkNotNull(status, "com.yogento.api.models.mail.campaign.MailCampaign: missing status");
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     @Override
     public int compareTo(final MailCampaign other) {
         if (other == null) {
@@ -260,6 +264,20 @@ public class MailCampaign implements org.thryft.TBase<MailCampaign> {
             getStatus().equals(other.getStatus());
     }
 
+    public static MailCampaign fake() {
+        return fakeBuilder().build();
+    }
+
+    public static Builder fakeBuilder() {
+        Builder builder = new Builder();
+        builder.setContent(com.yogento.api.models.mail.campaign.MailCampaignContent.fake());
+        builder.setId(org.thryft.Faker.Lorem.word());
+        builder.setMailChimpCampaign(com.yochimp.models.campaign.Campaign.fake());
+        builder.setMailChimpTemplateId(org.thryft.Faker.Lorem.word());
+        builder.setStatus(org.thryft.Faker.randomEnum(com.google.common.collect.ImmutableList.of(com.yogento.api.models.mail.campaign.MailCampaignStatus.DRAFT, com.yogento.api.models.mail.campaign.MailCampaignStatus.SAVED_MSP, com.yogento.api.models.mail.campaign.MailCampaignStatus.SENT_MSP)));
+        return builder;
+    }
+
     public Object get(final String fieldName) {
         if (fieldName.equals("content")) {
             return getContent();
@@ -314,6 +332,46 @@ public class MailCampaign implements org.thryft.TBase<MailCampaign> {
             hashCode = 31 * hashCode + getStatus().get().ordinal();
         }
         return hashCode;
+    }
+
+    public MailCampaign replaceContent(final com.google.common.base.Optional<com.yogento.api.models.mail.campaign.MailCampaignContent> content) {
+        return new MailCampaign(content, this.id, this.mailChimpCampaign, this.mailChimpTemplateId, this.status);
+    }
+
+    public MailCampaign replaceContent(final com.yogento.api.models.mail.campaign.MailCampaignContent content) {
+        return replaceContent(com.google.common.base.Optional.fromNullable(content));
+    }
+
+    public MailCampaign replaceId(final com.google.common.base.Optional<String> id) {
+        return new MailCampaign(this.content, id, this.mailChimpCampaign, this.mailChimpTemplateId, this.status);
+    }
+
+    public MailCampaign replaceId(final String id) {
+        return replaceId(com.google.common.base.Optional.fromNullable(id));
+    }
+
+    public MailCampaign replaceMailChimpCampaign(final com.google.common.base.Optional<com.yochimp.models.campaign.Campaign> mailChimpCampaign) {
+        return new MailCampaign(this.content, this.id, mailChimpCampaign, this.mailChimpTemplateId, this.status);
+    }
+
+    public MailCampaign replaceMailChimpCampaign(final com.yochimp.models.campaign.Campaign mailChimpCampaign) {
+        return replaceMailChimpCampaign(com.google.common.base.Optional.fromNullable(mailChimpCampaign));
+    }
+
+    public MailCampaign replaceMailChimpTemplateId(final com.google.common.base.Optional<String> mailChimpTemplateId) {
+        return new MailCampaign(this.content, this.id, this.mailChimpCampaign, mailChimpTemplateId, this.status);
+    }
+
+    public MailCampaign replaceMailChimpTemplateId(final String mailChimpTemplateId) {
+        return replaceMailChimpTemplateId(com.google.common.base.Optional.fromNullable(mailChimpTemplateId));
+    }
+
+    public MailCampaign replaceStatus(final com.google.common.base.Optional<com.yogento.api.models.mail.campaign.MailCampaignStatus> status) {
+        return new MailCampaign(this.content, this.id, this.mailChimpCampaign, this.mailChimpTemplateId, status);
+    }
+
+    public MailCampaign replaceStatus(final com.yogento.api.models.mail.campaign.MailCampaignStatus status) {
+        return replaceStatus(com.google.common.base.Optional.fromNullable(status));
     }
 
     @Override

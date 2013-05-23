@@ -94,6 +94,10 @@ public interface MailService {
                 this.writeThrough = writeThrough;
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final DeleteMailCampaignRequest other) {
                 if (other == null) {
@@ -136,6 +140,17 @@ public interface MailService {
                     getWriteThrough().equals(other.getWriteThrough());
             }
 
+            public static DeleteMailCampaignRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setCid(org.thryft.Faker.Lorem.word());
+                builder.setWriteThrough(org.thryft.Faker.randomBool());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("cid")) {
                     return getCid();
@@ -161,6 +176,18 @@ public interface MailService {
                     hashCode = 31 * hashCode + (getWriteThrough().get() ? 1 : 0);
                 }
                 return hashCode;
+            }
+
+            public DeleteMailCampaignRequest replaceCid(final String cid) {
+                return new DeleteMailCampaignRequest(cid, this.writeThrough);
+            }
+
+            public DeleteMailCampaignRequest replaceWriteThrough(final com.google.common.base.Optional<Boolean> writeThrough) {
+                return new DeleteMailCampaignRequest(this.cid, writeThrough);
+            }
+
+            public DeleteMailCampaignRequest replaceWriteThrough(final boolean writeThrough) {
+                return replaceWriteThrough(com.google.common.base.Optional.fromNullable(writeThrough));
             }
 
             @Override
@@ -263,6 +290,10 @@ public interface MailService {
                 this.returnValue = returnValue;
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final DeleteMailCampaignResponse other) {
                 if (other == null) {
@@ -291,6 +322,16 @@ public interface MailService {
                     isReturnValue() == other.isReturnValue();
             }
 
+            public static DeleteMailCampaignResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setReturnValue(org.thryft.Faker.randomBool());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return isReturnValue();
@@ -307,6 +348,10 @@ public interface MailService {
 
             public final boolean isReturnValue() {
                 return returnValue;
+            }
+
+            public DeleteMailCampaignResponse replaceReturnValue(final boolean returnValue) {
+                return new DeleteMailCampaignResponse(returnValue);
             }
 
             @Override
@@ -442,6 +487,10 @@ public interface MailService {
                 this.includeContent = includeContent;
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetMailCampaignRequest other) {
                 if (other == null) {
@@ -484,6 +533,17 @@ public interface MailService {
                     getIncludeContent().equals(other.getIncludeContent());
             }
 
+            public static GetMailCampaignRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setCid(org.thryft.Faker.Lorem.word());
+                builder.setIncludeContent(org.thryft.Faker.randomBool());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("cid")) {
                     return getCid();
@@ -509,6 +569,18 @@ public interface MailService {
                     hashCode = 31 * hashCode + (getIncludeContent().get() ? 1 : 0);
                 }
                 return hashCode;
+            }
+
+            public GetMailCampaignRequest replaceCid(final String cid) {
+                return new GetMailCampaignRequest(cid, this.includeContent);
+            }
+
+            public GetMailCampaignRequest replaceIncludeContent(final com.google.common.base.Optional<Boolean> includeContent) {
+                return new GetMailCampaignRequest(this.cid, includeContent);
+            }
+
+            public GetMailCampaignRequest replaceIncludeContent(final boolean includeContent) {
+                return replaceIncludeContent(com.google.common.base.Optional.fromNullable(includeContent));
             }
 
             @Override
@@ -607,6 +679,10 @@ public interface MailService {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.getMailCampaign: missing returnValue");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetMailCampaignResponse other) {
                 if (other == null) {
@@ -635,6 +711,16 @@ public interface MailService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
+            public static GetMailCampaignResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setReturnValue(com.yogento.api.models.mail.campaign.MailCampaign.fake());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
@@ -651,6 +737,10 @@ public interface MailService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getReturnValue().hashCode();
                 return hashCode;
+            }
+
+            public GetMailCampaignResponse replaceReturnValue(final com.yogento.api.models.mail.campaign.MailCampaign returnValue) {
+                return new GetMailCampaignResponse(returnValue);
             }
 
             @Override
@@ -776,6 +866,10 @@ public interface MailService {
                 this.includeContent = includeContent;
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetMailCampaignsRequest other) {
                 if (other == null) {
@@ -812,6 +906,16 @@ public interface MailService {
                     getIncludeContent().equals(other.getIncludeContent());
             }
 
+            public static GetMailCampaignsRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setIncludeContent(org.thryft.Faker.randomBool());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("include_content")) {
                     return getIncludeContent();
@@ -830,6 +934,14 @@ public interface MailService {
                     hashCode = 31 * hashCode + (getIncludeContent().get() ? 1 : 0);
                 }
                 return hashCode;
+            }
+
+            public GetMailCampaignsRequest replaceIncludeContent(final com.google.common.base.Optional<Boolean> includeContent) {
+                return new GetMailCampaignsRequest(includeContent);
+            }
+
+            public GetMailCampaignsRequest replaceIncludeContent(final boolean includeContent) {
+                return replaceIncludeContent(com.google.common.base.Optional.fromNullable(includeContent));
             }
 
             @Override
@@ -934,6 +1046,10 @@ public interface MailService {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.getMailCampaigns: missing returnValue");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetMailCampaignsResponse other) {
                 if (other == null) {
@@ -962,6 +1078,16 @@ public interface MailService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
+            public static GetMailCampaignsResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setReturnValue(com.google.common.collect.ImmutableSet.of(com.yogento.api.models.mail.campaign.MailCampaign.fake()));
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
@@ -978,6 +1104,10 @@ public interface MailService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getReturnValue().hashCode();
                 return hashCode;
+            }
+
+            public GetMailCampaignsResponse replaceReturnValue(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.campaign.MailCampaign> returnValue) {
+                return new GetMailCampaignsResponse(returnValue);
             }
 
             @Override
@@ -1104,6 +1234,10 @@ public interface MailService {
                 this.cid = com.google.common.base.Preconditions.checkNotNull(cid, "com.yogento.api.services.mail.GetMailCampaignStatsRequest: missing cid");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetMailCampaignStatsRequest other) {
                 if (other == null) {
@@ -1132,6 +1266,16 @@ public interface MailService {
                     getCid().equals(other.getCid());
             }
 
+            public static GetMailCampaignStatsRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setCid(org.thryft.Faker.Lorem.word());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("cid")) {
                     return getCid();
@@ -1148,6 +1292,10 @@ public interface MailService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getCid().hashCode();
                 return hashCode;
+            }
+
+            public GetMailCampaignStatsRequest replaceCid(final String cid) {
+                return new GetMailCampaignStatsRequest(cid);
             }
 
             @Override
@@ -1229,6 +1377,10 @@ public interface MailService {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.getMailCampaignStats: missing returnValue");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetMailCampaignStatsResponse other) {
                 if (other == null) {
@@ -1257,6 +1409,16 @@ public interface MailService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
+            public static GetMailCampaignStatsResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setReturnValue(com.yogento.api.models.mail.campaign.MailCampaignStats.fake());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
@@ -1273,6 +1435,10 @@ public interface MailService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getReturnValue().hashCode();
                 return hashCode;
+            }
+
+            public GetMailCampaignStatsResponse replaceReturnValue(final com.yogento.api.models.mail.campaign.MailCampaignStats returnValue) {
+                return new GetMailCampaignStatsResponse(returnValue);
             }
 
             @Override
@@ -1370,6 +1536,10 @@ public interface MailService {
                 }
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetMailListsRequest other) {
                 if (other == null) {
@@ -1387,6 +1557,15 @@ public interface MailService {
                 }
 
                 return true;
+            }
+
+            public static GetMailListsRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                return builder;
             }
 
             public Object get(final String fieldName) {
@@ -1483,6 +1662,10 @@ public interface MailService {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.getMailLists: missing returnValue");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetMailListsResponse other) {
                 if (other == null) {
@@ -1511,6 +1694,16 @@ public interface MailService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
+            public static GetMailListsResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setReturnValue(com.google.common.collect.ImmutableSet.of(com.yogento.api.models.mail.list.MailList.fake()));
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
@@ -1527,6 +1720,10 @@ public interface MailService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getReturnValue().hashCode();
                 return hashCode;
+            }
+
+            public GetMailListsResponse replaceReturnValue(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.list.MailList> returnValue) {
+                return new GetMailListsResponse(returnValue);
             }
 
             @Override
@@ -1697,6 +1894,10 @@ public interface MailService {
                 this.types = com.google.common.base.Preconditions.checkNotNull(types, "com.yogento.api.services.mail.GetMailTemplatesRequest: missing types");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetMailTemplatesRequest other) {
                 if (other == null) {
@@ -1733,6 +1934,16 @@ public interface MailService {
                     getTypes().equals(other.getTypes());
             }
 
+            public static GetMailTemplatesRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setTypes(com.google.common.collect.ImmutableSet.of(com.yogento.api.models.mail.template.MailTemplateType.fake()));
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("types")) {
                     return getTypes();
@@ -1754,6 +1965,14 @@ public interface MailService {
                     hashCode = 31 * hashCode + getTypes().get().hashCode();
                 }
                 return hashCode;
+            }
+
+            public GetMailTemplatesRequest replaceTypes(final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType>> types) {
+                return new GetMailTemplatesRequest(types);
+            }
+
+            public GetMailTemplatesRequest replaceTypes(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> types) {
+                return replaceTypes(com.google.common.base.Optional.fromNullable(types));
             }
 
             @Override
@@ -1880,6 +2099,10 @@ public interface MailService {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.getMailTemplates: missing returnValue");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetMailTemplatesResponse other) {
                 if (other == null) {
@@ -1908,6 +2131,16 @@ public interface MailService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
+            public static GetMailTemplatesResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setReturnValue(com.google.common.collect.ImmutableSet.of(com.yogento.api.models.mail.template.MailTemplate.fake()));
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
@@ -1927,6 +2160,10 @@ public interface MailService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getReturnValue().hashCode();
                 return hashCode;
+            }
+
+            public GetMailTemplatesResponse replaceReturnValue(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplate> returnValue) {
+                return new GetMailTemplatesResponse(returnValue);
             }
 
             @Override
@@ -2086,6 +2323,10 @@ public interface MailService {
                 this.type = com.google.common.base.Preconditions.checkNotNull(type, "com.yogento.api.services.mail.GetMailTemplateInfoRequest: missing type");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetMailTemplateInfoRequest other) {
                 if (other == null) {
@@ -2128,6 +2369,17 @@ public interface MailService {
                     getType().equals(other.getType());
             }
 
+            public static GetMailTemplateInfoRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setTid(org.thryft.Faker.randomI32());
+                builder.setType(com.yogento.api.models.mail.template.MailTemplateType.fake());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("tid")) {
                     return getTid();
@@ -2153,6 +2405,18 @@ public interface MailService {
                     hashCode = 31 * hashCode + getType().get().hashCode();
                 }
                 return hashCode;
+            }
+
+            public GetMailTemplateInfoRequest replaceTid(final int tid) {
+                return new GetMailTemplateInfoRequest(tid, this.type);
+            }
+
+            public GetMailTemplateInfoRequest replaceType(final com.google.common.base.Optional<com.yogento.api.models.mail.template.MailTemplateType> type) {
+                return new GetMailTemplateInfoRequest(this.tid, type);
+            }
+
+            public GetMailTemplateInfoRequest replaceType(final com.yogento.api.models.mail.template.MailTemplateType type) {
+                return replaceType(com.google.common.base.Optional.fromNullable(type));
             }
 
             @Override
@@ -2251,6 +2515,10 @@ public interface MailService {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.getMailTemplateInfo: missing returnValue");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetMailTemplateInfoResponse other) {
                 if (other == null) {
@@ -2279,6 +2547,16 @@ public interface MailService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
+            public static GetMailTemplateInfoResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setReturnValue(com.yogento.api.models.mail.template.MailTemplateInfo.fake());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
@@ -2295,6 +2573,10 @@ public interface MailService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getReturnValue().hashCode();
                 return hashCode;
+            }
+
+            public GetMailTemplateInfoResponse replaceReturnValue(final com.yogento.api.models.mail.template.MailTemplateInfo returnValue) {
+                return new GetMailTemplateInfoResponse(returnValue);
             }
 
             @Override
@@ -2518,6 +2800,10 @@ public interface MailService {
                 this.testEmails = com.google.common.base.Preconditions.checkNotNull(testEmails, "com.yogento.api.services.mail.PostMailCampaignRequest: missing testEmails");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final PostMailCampaignRequest other) {
                 if (other == null) {
@@ -2588,6 +2874,19 @@ public interface MailService {
                     getTestEmails().equals(other.getTestEmails());
             }
 
+            public static PostMailCampaignRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setCampaign(com.yogento.api.models.mail.campaign.MailCampaign.fake());
+                builder.setScheduleTime(org.joda.time.DateTime.now());
+                builder.setScheduleTimeB(org.joda.time.DateTime.now());
+                builder.setTestEmails(com.google.common.collect.ImmutableList.of(org.thryft.Faker.Internet.email()));
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("campaign")) {
                     return getCampaign();
@@ -2631,6 +2930,34 @@ public interface MailService {
                     hashCode = 31 * hashCode + getTestEmails().get().hashCode();
                 }
                 return hashCode;
+            }
+
+            public PostMailCampaignRequest replaceCampaign(final com.yogento.api.models.mail.campaign.MailCampaign campaign) {
+                return new PostMailCampaignRequest(campaign, this.scheduleTime, this.scheduleTimeB, this.testEmails);
+            }
+
+            public PostMailCampaignRequest replaceScheduleTime(final com.google.common.base.Optional<org.joda.time.DateTime> scheduleTime) {
+                return new PostMailCampaignRequest(this.campaign, scheduleTime, this.scheduleTimeB, this.testEmails);
+            }
+
+            public PostMailCampaignRequest replaceScheduleTimeB(final com.google.common.base.Optional<org.joda.time.DateTime> scheduleTimeB) {
+                return new PostMailCampaignRequest(this.campaign, this.scheduleTime, scheduleTimeB, this.testEmails);
+            }
+
+            public PostMailCampaignRequest replaceScheduleTimeB(final org.joda.time.DateTime scheduleTimeB) {
+                return replaceScheduleTimeB(com.google.common.base.Optional.fromNullable(scheduleTimeB));
+            }
+
+            public PostMailCampaignRequest replaceScheduleTime(final org.joda.time.DateTime scheduleTime) {
+                return replaceScheduleTime(com.google.common.base.Optional.fromNullable(scheduleTime));
+            }
+
+            public PostMailCampaignRequest replaceTestEmails(final com.google.common.base.Optional<com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress>> testEmails) {
+                return new PostMailCampaignRequest(this.campaign, this.scheduleTime, this.scheduleTimeB, testEmails);
+            }
+
+            public PostMailCampaignRequest replaceTestEmails(final com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> testEmails) {
+                return replaceTestEmails(com.google.common.base.Optional.fromNullable(testEmails));
             }
 
             @Override
@@ -2771,6 +3098,10 @@ public interface MailService {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.postMailCampaign: missing returnValue");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final PostMailCampaignResponse other) {
                 if (other == null) {
@@ -2799,6 +3130,16 @@ public interface MailService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
+            public static PostMailCampaignResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setReturnValue(com.yogento.api.models.mail.campaign.MailCampaign.fake());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
@@ -2815,6 +3156,10 @@ public interface MailService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getReturnValue().hashCode();
                 return hashCode;
+            }
+
+            public PostMailCampaignResponse replaceReturnValue(final com.yogento.api.models.mail.campaign.MailCampaign returnValue) {
+                return new PostMailCampaignResponse(returnValue);
             }
 
             @Override
@@ -2954,6 +3299,10 @@ public interface MailService {
                 this.writeThrough = writeThrough;
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final PutMailCampaignRequest other) {
                 if (other == null) {
@@ -2996,6 +3345,17 @@ public interface MailService {
                     getWriteThrough().equals(other.getWriteThrough());
             }
 
+            public static PutMailCampaignRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setCampaign(com.yogento.api.models.mail.campaign.MailCampaign.fake());
+                builder.setWriteThrough(org.thryft.Faker.randomBool());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("campaign")) {
                     return getCampaign();
@@ -3021,6 +3381,18 @@ public interface MailService {
                     hashCode = 31 * hashCode + (getWriteThrough().get() ? 1 : 0);
                 }
                 return hashCode;
+            }
+
+            public PutMailCampaignRequest replaceCampaign(final com.yogento.api.models.mail.campaign.MailCampaign campaign) {
+                return new PutMailCampaignRequest(campaign, this.writeThrough);
+            }
+
+            public PutMailCampaignRequest replaceWriteThrough(final com.google.common.base.Optional<Boolean> writeThrough) {
+                return new PutMailCampaignRequest(this.campaign, writeThrough);
+            }
+
+            public PutMailCampaignRequest replaceWriteThrough(final boolean writeThrough) {
+                return replaceWriteThrough(com.google.common.base.Optional.fromNullable(writeThrough));
             }
 
             @Override
@@ -3119,6 +3491,10 @@ public interface MailService {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.mail.MailService.putMailCampaign: missing returnValue");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final PutMailCampaignResponse other) {
                 if (other == null) {
@@ -3147,6 +3523,16 @@ public interface MailService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
+            public static PutMailCampaignResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setReturnValue(com.yogento.api.models.mail.campaign.MailCampaign.fake());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
@@ -3163,6 +3549,10 @@ public interface MailService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getReturnValue().hashCode();
                 return hashCode;
+            }
+
+            public PutMailCampaignResponse replaceReturnValue(final com.yogento.api.models.mail.campaign.MailCampaign returnValue) {
+                return new PutMailCampaignResponse(returnValue);
             }
 
             @Override

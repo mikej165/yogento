@@ -50,6 +50,10 @@ public class NoSuchUserSettingsException extends java.lang.Exception implements 
         }
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     @Override
     public int compareTo(final NoSuchUserSettingsException other) {
         if (other == null) {
@@ -67,6 +71,15 @@ public class NoSuchUserSettingsException extends java.lang.Exception implements 
         }
 
         return true;
+    }
+
+    public static NoSuchUserSettingsException fake() {
+        return fakeBuilder().build();
+    }
+
+    public static Builder fakeBuilder() {
+        Builder builder = new Builder();
+        return builder;
     }
 
     public Object get(final String fieldName) {

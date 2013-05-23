@@ -67,6 +67,10 @@ public class UserSettingsIoException extends java.lang.Exception implements org.
         this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage, "com.yogento.api.services.user_settings.UserSettingsIoException: missing causeMessage");
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     @Override
     public int compareTo(final UserSettingsIoException other) {
         if (other == null) {
@@ -95,6 +99,16 @@ public class UserSettingsIoException extends java.lang.Exception implements org.
             getCauseMessage().equals(other.getCauseMessage());
     }
 
+    public static UserSettingsIoException fake() {
+        return fakeBuilder().build();
+    }
+
+    public static Builder fakeBuilder() {
+        Builder builder = new Builder();
+        builder.setCauseMessage(org.thryft.Faker.Lorem.word());
+        return builder;
+    }
+
     public Object get(final String fieldName) {
         if (fieldName.equals("cause_message")) {
             return getCauseMessage();
@@ -116,6 +130,10 @@ public class UserSettingsIoException extends java.lang.Exception implements org.
         int hashCode = 17;
         hashCode = 31 * hashCode + getCauseMessage().hashCode();
         return hashCode;
+    }
+
+    public UserSettingsIoException replaceCauseMessage(final String causeMessage) {
+        return new UserSettingsIoException(causeMessage);
     }
 
     @Override

@@ -94,21 +94,9 @@ public class UserSettings implements org.thryft.TBase<UserSettings> {
             return this;
         }
 
-        /**
-
-         */
         private com.google.common.base.Optional<String> displayName = com.google.common.base.Optional.absent();
-        /**
-
-         */
         private com.google.common.base.Optional<org.thryft.native_.EmailAddress> email = com.google.common.base.Optional.absent();
-        /**
-
-         */
         private com.google.common.base.Optional<org.thryft.native_.Url> logoImageUrl = com.google.common.base.Optional.absent();
-        /**
-
-         */
         private com.google.common.base.Optional<org.thryft.native_.Url> magentoStoreUrl = com.google.common.base.Optional.absent();
         private com.google.common.base.Optional<org.joda.time.DateTime> productsMtime = com.google.common.base.Optional.absent();
         private com.google.common.base.Optional<com.google.common.collect.ImmutableList<String>> productSearchQueries = com.google.common.base.Optional.absent();
@@ -264,6 +252,10 @@ public class UserSettings implements org.thryft.TBase<UserSettings> {
         this.useSampleData = useSampleData;
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     @Override
     public int compareTo(final UserSettings other) {
         if (other == null) {
@@ -384,6 +376,22 @@ public class UserSettings implements org.thryft.TBase<UserSettings> {
             getUseSampleData().equals(other.getUseSampleData());
     }
 
+    public static UserSettings fake() {
+        return fakeBuilder().build();
+    }
+
+    public static Builder fakeBuilder() {
+        Builder builder = new Builder();
+        builder.setDisplayName(org.thryft.Faker.Lorem.word());
+        builder.setEmail(org.thryft.Faker.Internet.email());
+        builder.setLogoImageUrl(org.thryft.Faker.Internet.url());
+        builder.setMagentoStoreUrl(org.thryft.Faker.Internet.url());
+        builder.setProductsMtime(org.joda.time.DateTime.now());
+        builder.setProductSearchQueries(com.google.common.collect.ImmutableList.of(org.thryft.Faker.Lorem.word()));
+        builder.setUseSampleData(org.thryft.Faker.randomBool());
+        return builder;
+    }
+
     public Object get(final String fieldName) {
         if (fieldName.equals("display_name")) {
             return getDisplayName();
@@ -403,30 +411,18 @@ public class UserSettings implements org.thryft.TBase<UserSettings> {
         throw new IllegalArgumentException(fieldName);
     }
 
-    /**
-
-     */
     public final com.google.common.base.Optional<String> getDisplayName() {
         return displayName;
     }
 
-    /**
-
-     */
     public final com.google.common.base.Optional<org.thryft.native_.EmailAddress> getEmail() {
         return email;
     }
 
-    /**
-
-     */
     public final com.google.common.base.Optional<org.thryft.native_.Url> getLogoImageUrl() {
         return logoImageUrl;
     }
 
-    /**
-
-     */
     public final com.google.common.base.Optional<org.thryft.native_.Url> getMagentoStoreUrl() {
         return magentoStoreUrl;
     }
@@ -468,6 +464,62 @@ public class UserSettings implements org.thryft.TBase<UserSettings> {
             hashCode = 31 * hashCode + (getUseSampleData().get() ? 1 : 0);
         }
         return hashCode;
+    }
+
+    public UserSettings replaceDisplayName(final com.google.common.base.Optional<String> displayName) {
+        return new UserSettings(displayName, this.email, this.logoImageUrl, this.magentoStoreUrl, this.productsMtime, this.productSearchQueries, this.useSampleData);
+    }
+
+    public UserSettings replaceDisplayName(final String displayName) {
+        return replaceDisplayName(com.google.common.base.Optional.fromNullable(displayName));
+    }
+
+    public UserSettings replaceEmail(final com.google.common.base.Optional<org.thryft.native_.EmailAddress> email) {
+        return new UserSettings(this.displayName, email, this.logoImageUrl, this.magentoStoreUrl, this.productsMtime, this.productSearchQueries, this.useSampleData);
+    }
+
+    public UserSettings replaceEmail(final org.thryft.native_.EmailAddress email) {
+        return replaceEmail(com.google.common.base.Optional.fromNullable(email));
+    }
+
+    public UserSettings replaceLogoImageUrl(final com.google.common.base.Optional<org.thryft.native_.Url> logoImageUrl) {
+        return new UserSettings(this.displayName, this.email, logoImageUrl, this.magentoStoreUrl, this.productsMtime, this.productSearchQueries, this.useSampleData);
+    }
+
+    public UserSettings replaceLogoImageUrl(final org.thryft.native_.Url logoImageUrl) {
+        return replaceLogoImageUrl(com.google.common.base.Optional.fromNullable(logoImageUrl));
+    }
+
+    public UserSettings replaceMagentoStoreUrl(final com.google.common.base.Optional<org.thryft.native_.Url> magentoStoreUrl) {
+        return new UserSettings(this.displayName, this.email, this.logoImageUrl, magentoStoreUrl, this.productsMtime, this.productSearchQueries, this.useSampleData);
+    }
+
+    public UserSettings replaceMagentoStoreUrl(final org.thryft.native_.Url magentoStoreUrl) {
+        return replaceMagentoStoreUrl(com.google.common.base.Optional.fromNullable(magentoStoreUrl));
+    }
+
+    public UserSettings replaceProductSearchQueries(final com.google.common.base.Optional<com.google.common.collect.ImmutableList<String>> productSearchQueries) {
+        return new UserSettings(this.displayName, this.email, this.logoImageUrl, this.magentoStoreUrl, this.productsMtime, productSearchQueries, this.useSampleData);
+    }
+
+    public UserSettings replaceProductSearchQueries(final com.google.common.collect.ImmutableList<String> productSearchQueries) {
+        return replaceProductSearchQueries(com.google.common.base.Optional.fromNullable(productSearchQueries));
+    }
+
+    public UserSettings replaceProductsMtime(final com.google.common.base.Optional<org.joda.time.DateTime> productsMtime) {
+        return new UserSettings(this.displayName, this.email, this.logoImageUrl, this.magentoStoreUrl, productsMtime, this.productSearchQueries, this.useSampleData);
+    }
+
+    public UserSettings replaceProductsMtime(final org.joda.time.DateTime productsMtime) {
+        return replaceProductsMtime(com.google.common.base.Optional.fromNullable(productsMtime));
+    }
+
+    public UserSettings replaceUseSampleData(final com.google.common.base.Optional<Boolean> useSampleData) {
+        return new UserSettings(this.displayName, this.email, this.logoImageUrl, this.magentoStoreUrl, this.productsMtime, this.productSearchQueries, useSampleData);
+    }
+
+    public UserSettings replaceUseSampleData(final boolean useSampleData) {
+        return replaceUseSampleData(com.google.common.base.Optional.fromNullable(useSampleData));
     }
 
     @Override
@@ -614,24 +666,12 @@ public class UserSettings implements org.thryft.TBase<UserSettings> {
         }
     }
 
-    /**
-
-     */
     private final com.google.common.base.Optional<String> displayName;
 
-    /**
-
-     */
     private final com.google.common.base.Optional<org.thryft.native_.EmailAddress> email;
 
-    /**
-
-     */
     private final com.google.common.base.Optional<org.thryft.native_.Url> logoImageUrl;
 
-    /**
-
-     */
     private final com.google.common.base.Optional<org.thryft.native_.Url> magentoStoreUrl;
 
     private final com.google.common.base.Optional<org.joda.time.DateTime> productsMtime;

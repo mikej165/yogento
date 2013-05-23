@@ -69,6 +69,10 @@ public interface CatalogService {
                 this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.DeleteProductBySkuRequest: missing sku");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final DeleteProductBySkuRequest other) {
                 if (other == null) {
@@ -97,6 +101,16 @@ public interface CatalogService {
                     getSku().equals(other.getSku());
             }
 
+            public static DeleteProductBySkuRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setSku(org.thryft.Faker.Lorem.word());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("sku")) {
                     return getSku();
@@ -113,6 +127,10 @@ public interface CatalogService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getSku().hashCode();
                 return hashCode;
+            }
+
+            public DeleteProductBySkuRequest replaceSku(final String sku) {
+                return new DeleteProductBySkuRequest(sku);
             }
 
             @Override
@@ -198,6 +216,10 @@ public interface CatalogService {
                 this.returnValue = returnValue;
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final DeleteProductBySkuResponse other) {
                 if (other == null) {
@@ -226,6 +248,16 @@ public interface CatalogService {
                     isReturnValue() == other.isReturnValue();
             }
 
+            public static DeleteProductBySkuResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setReturnValue(org.thryft.Faker.randomBool());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return isReturnValue();
@@ -242,6 +274,10 @@ public interface CatalogService {
 
             public final boolean isReturnValue() {
                 return returnValue;
+            }
+
+            public DeleteProductBySkuResponse replaceReturnValue(final boolean returnValue) {
+                return new DeleteProductBySkuResponse(returnValue);
             }
 
             @Override
@@ -335,6 +371,10 @@ public interface CatalogService {
                 }
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final DeleteProductsRequest other) {
                 if (other == null) {
@@ -352,6 +392,15 @@ public interface CatalogService {
                 }
 
                 return true;
+            }
+
+            public static DeleteProductsRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                return builder;
             }
 
             public Object get(final String fieldName) {
@@ -422,6 +471,10 @@ public interface CatalogService {
             public DeleteProductsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final DeleteProductsResponse other) {
                 if (other == null) {
@@ -439,6 +492,15 @@ public interface CatalogService {
                 }
 
                 return true;
+            }
+
+            public static DeleteProductsResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                return builder;
             }
 
             public Object get(final String fieldName) {
@@ -532,6 +594,10 @@ public interface CatalogService {
                 }
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetProductCountRequest other) {
                 if (other == null) {
@@ -549,6 +615,15 @@ public interface CatalogService {
                 }
 
                 return true;
+            }
+
+            public static GetProductCountRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                return builder;
             }
 
             public Object get(final String fieldName) {
@@ -634,6 +709,10 @@ public interface CatalogService {
                 this.returnValue = returnValue;
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetProductCountResponse other) {
                 if (other == null) {
@@ -662,6 +741,16 @@ public interface CatalogService {
                     getReturnValue() == other.getReturnValue();
             }
 
+            public static GetProductCountResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setReturnValue(org.thryft.Faker.randomI32());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
@@ -678,6 +767,10 @@ public interface CatalogService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + ((int)getReturnValue());
                 return hashCode;
+            }
+
+            public GetProductCountResponse replaceReturnValue(final int returnValue) {
+                return new GetProductCountResponse(returnValue);
             }
 
             @Override
@@ -788,6 +881,10 @@ public interface CatalogService {
                 this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.GetProductBySkuRequest: missing sku");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetProductBySkuRequest other) {
                 if (other == null) {
@@ -816,6 +913,16 @@ public interface CatalogService {
                     getSku().equals(other.getSku());
             }
 
+            public static GetProductBySkuRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setSku(org.thryft.Faker.Lorem.word());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("sku")) {
                     return getSku();
@@ -832,6 +939,10 @@ public interface CatalogService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getSku().hashCode();
                 return hashCode;
+            }
+
+            public GetProductBySkuRequest replaceSku(final String sku) {
+                return new GetProductBySkuRequest(sku);
             }
 
             @Override
@@ -913,6 +1024,10 @@ public interface CatalogService {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getProductBySku: missing returnValue");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetProductBySkuResponse other) {
                 if (other == null) {
@@ -941,6 +1056,16 @@ public interface CatalogService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
+            public static GetProductBySkuResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setReturnValue(com.yogento.api.models.catalog.product.Product.fake());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
@@ -957,6 +1082,10 @@ public interface CatalogService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getReturnValue().hashCode();
                 return hashCode;
+            }
+
+            public GetProductBySkuResponse replaceReturnValue(final com.yogento.api.models.catalog.product.Product returnValue) {
+                return new GetProductBySkuResponse(returnValue);
             }
 
             @Override
@@ -1103,6 +1232,10 @@ public interface CatalogService {
                 this.query = com.google.common.base.Preconditions.checkNotNull(query, "com.yogento.api.services.catalog.GetProductsRequest: missing query");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetProductsRequest other) {
                 if (other == null) {
@@ -1153,6 +1286,17 @@ public interface CatalogService {
                     getQuery().equals(other.getQuery());
             }
 
+            public static GetProductsRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setIncludeDisabled(org.thryft.Faker.randomBool());
+                builder.setQuery(org.thryft.Faker.Lorem.word());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("include_disabled")) {
                     return getIncludeDisabled();
@@ -1180,6 +1324,22 @@ public interface CatalogService {
                     hashCode = 31 * hashCode + getQuery().get().hashCode();
                 }
                 return hashCode;
+            }
+
+            public GetProductsRequest replaceIncludeDisabled(final com.google.common.base.Optional<Boolean> includeDisabled) {
+                return new GetProductsRequest(includeDisabled, this.query);
+            }
+
+            public GetProductsRequest replaceIncludeDisabled(final boolean includeDisabled) {
+                return replaceIncludeDisabled(com.google.common.base.Optional.fromNullable(includeDisabled));
+            }
+
+            public GetProductsRequest replaceQuery(final com.google.common.base.Optional<String> query) {
+                return new GetProductsRequest(this.includeDisabled, query);
+            }
+
+            public GetProductsRequest replaceQuery(final String query) {
+                return replaceQuery(com.google.common.base.Optional.fromNullable(query));
             }
 
             @Override
@@ -1301,6 +1461,10 @@ public interface CatalogService {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getProducts: missing returnValue");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetProductsResponse other) {
                 if (other == null) {
@@ -1329,6 +1493,16 @@ public interface CatalogService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
+            public static GetProductsResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setReturnValue(com.google.common.collect.ImmutableSet.of(com.yogento.api.models.catalog.product.Product.fake()));
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
@@ -1345,6 +1519,10 @@ public interface CatalogService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getReturnValue().hashCode();
                 return hashCode;
+            }
+
+            public GetProductsResponse replaceReturnValue(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue) {
+                return new GetProductsResponse(returnValue);
             }
 
             @Override
@@ -1454,6 +1632,10 @@ public interface CatalogService {
                 }
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetProductSkusRequest other) {
                 if (other == null) {
@@ -1471,6 +1653,15 @@ public interface CatalogService {
                 }
 
                 return true;
+            }
+
+            public static GetProductSkusRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                return builder;
             }
 
             public Object get(final String fieldName) {
@@ -1567,6 +1758,10 @@ public interface CatalogService {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getProductSkus: missing returnValue");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetProductSkusResponse other) {
                 if (other == null) {
@@ -1595,6 +1790,16 @@ public interface CatalogService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
+            public static GetProductSkusResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setReturnValue(com.google.common.collect.ImmutableSet.of(org.thryft.Faker.Lorem.word()));
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
@@ -1611,6 +1816,10 @@ public interface CatalogService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getReturnValue().hashCode();
                 return hashCode;
+            }
+
+            public GetProductSkusResponse replaceReturnValue(final com.google.common.collect.ImmutableSet<String> returnValue) {
+                return new GetProductSkusResponse(returnValue);
             }
 
             @Override
@@ -1767,6 +1976,10 @@ public interface CatalogService {
                 this.skus = com.google.common.base.Preconditions.checkNotNull(skus, "com.yogento.api.services.catalog.GetProductsBySkusRequest: missing skus");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetProductsBySkusRequest other) {
                 if (other == null) {
@@ -1795,6 +2008,16 @@ public interface CatalogService {
                     getSkus().equals(other.getSkus());
             }
 
+            public static GetProductsBySkusRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setSkus(com.google.common.collect.ImmutableSet.of(org.thryft.Faker.Lorem.word()));
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("skus")) {
                     return getSkus();
@@ -1811,6 +2034,10 @@ public interface CatalogService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getSkus().hashCode();
                 return hashCode;
+            }
+
+            public GetProductsBySkusRequest replaceSkus(final com.google.common.collect.ImmutableSet<String> skus) {
+                return new GetProductsBySkusRequest(skus);
             }
 
             @Override
@@ -1923,6 +2150,10 @@ public interface CatalogService {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getProductsBySkus: missing returnValue");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetProductsBySkusResponse other) {
                 if (other == null) {
@@ -1951,6 +2182,16 @@ public interface CatalogService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
+            public static GetProductsBySkusResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setReturnValue(com.google.common.collect.ImmutableSet.of(com.yogento.api.models.catalog.product.Product.fake()));
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
@@ -1967,6 +2208,10 @@ public interface CatalogService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getReturnValue().hashCode();
                 return hashCode;
+            }
+
+            public GetProductsBySkusResponse replaceReturnValue(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue) {
+                return new GetProductsBySkusResponse(returnValue);
             }
 
             @Override
@@ -2034,15 +2279,16 @@ public interface CatalogService {
 
                 public Builder(final GetProductThumbnailUrlRequest other) {
                     this.sku = other.getSku();
-                    this.thumbnailResolution = other.getThumbnailResolution();
+                    this.thumbnailHeightPx = other.getThumbnailHeightPx();
+                    this.thumbnailWidthPx = other.getThumbnailWidthPx();
                 }
 
-                protected GetProductThumbnailUrlRequest _build(final String sku, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
-                    return new GetProductThumbnailUrlRequest(sku, thumbnailResolution);
+                protected GetProductThumbnailUrlRequest _build(final String sku, final int thumbnailHeightPx, final int thumbnailWidthPx) {
+                    return new GetProductThumbnailUrlRequest(sku, thumbnailHeightPx, thumbnailWidthPx);
                 }
 
                 public GetProductThumbnailUrlRequest build() {
-                    return _build(sku, thumbnailResolution);
+                    return _build(sku, thumbnailHeightPx, thumbnailWidthPx);
                 }
 
                 public Builder setSku(final String sku) {
@@ -2050,17 +2296,23 @@ public interface CatalogService {
                     return this;
                 }
 
-                public Builder setThumbnailResolution(final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
-                    this.thumbnailResolution = thumbnailResolution;
+                public Builder setThumbnailHeightPx(final int thumbnailHeightPx) {
+                    this.thumbnailHeightPx = thumbnailHeightPx;
+                    return this;
+                }
+
+                public Builder setThumbnailWidthPx(final int thumbnailWidthPx) {
+                    this.thumbnailWidthPx = thumbnailWidthPx;
                     return this;
                 }
 
                 private String sku;
-                private com.yogento.api.models.image.ImageResolution thumbnailResolution;
+                private Integer thumbnailHeightPx;
+                private Integer thumbnailWidthPx;
             }
 
             public GetProductThumbnailUrlRequest(final GetProductThumbnailUrlRequest other) {
-                this(other.getSku(), other.getThumbnailResolution());
+                this(other.getSku(), other.getThumbnailHeightPx(), other.getThumbnailWidthPx());
             }
 
             public GetProductThumbnailUrlRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
@@ -2069,13 +2321,15 @@ public interface CatalogService {
 
             public GetProductThumbnailUrlRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String sku = null;
-                com.yogento.api.models.image.ImageResolution thumbnailResolution = null;
+                int thumbnailHeightPx = 0;
+                int thumbnailWidthPx = 0;
 
                 switch (readAsTType) {
                     case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
                         sku = iprot.readString();
-                        thumbnailResolution = new com.yogento.api.models.image.ImageResolution(iprot);
+                        thumbnailHeightPx = iprot.readI32();
+                        thumbnailWidthPx = iprot.readI32();
                         iprot.readListEnd();
                         break;
 
@@ -2088,8 +2342,10 @@ public interface CatalogService {
                                 break;
                             } else if (ifield.name.equals("sku")) {
                                 sku = iprot.readString();
-                            } else if (ifield.name.equals("thumbnail_resolution")) {
-                                thumbnailResolution = new com.yogento.api.models.image.ImageResolution(iprot);
+                            } else if (ifield.name.equals("thumbnail_height_px")) {
+                                thumbnailHeightPx = iprot.readI32();
+                            } else if (ifield.name.equals("thumbnail_width_px")) {
+                                thumbnailWidthPx = iprot.readI32();
                             }
                             iprot.readFieldEnd();
                         }
@@ -2098,12 +2354,24 @@ public interface CatalogService {
                 }
 
                 this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.GetProductThumbnailUrlRequest: missing sku");
-                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.catalog.GetProductThumbnailUrlRequest: missing thumbnailResolution");
+                this.thumbnailHeightPx = thumbnailHeightPx;
+                this.thumbnailWidthPx = thumbnailWidthPx;
             }
 
-            public GetProductThumbnailUrlRequest(final String sku, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
+            public GetProductThumbnailUrlRequest(final String sku, final int thumbnailHeightPx, final int thumbnailWidthPx) {
                 this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.GetProductThumbnailUrlRequest: missing sku");
-                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.catalog.GetProductThumbnailUrlRequest: missing thumbnailResolution");
+                this.thumbnailHeightPx = thumbnailHeightPx;
+                this.thumbnailWidthPx = thumbnailWidthPx;
+            }
+
+            public GetProductThumbnailUrlRequest(final String sku, final Integer thumbnailHeightPx, final Integer thumbnailWidthPx) {
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.GetProductThumbnailUrlRequest: missing sku");
+                this.thumbnailHeightPx = thumbnailHeightPx;
+                this.thumbnailWidthPx = thumbnailWidthPx;
+            }
+
+            public static Builder builder() {
+                return new Builder();
             }
 
             @Override
@@ -2118,7 +2386,12 @@ public interface CatalogService {
                     return result;
                 }
 
-                result = this.thumbnailResolution.compareTo(other.thumbnailResolution);
+                result = ((Integer)this.thumbnailHeightPx).compareTo(other.thumbnailHeightPx);
+                if (result != 0) {
+                    return result;
+                }
+
+                result = ((Integer)this.thumbnailWidthPx).compareTo(other.thumbnailWidthPx);
                 if (result != 0) {
                     return result;
                 }
@@ -2137,14 +2410,29 @@ public interface CatalogService {
                 final GetProductThumbnailUrlRequest other = (GetProductThumbnailUrlRequest)otherObject;
                 return
                     getSku().equals(other.getSku()) &&
-                    getThumbnailResolution().equals(other.getThumbnailResolution());
+                    getThumbnailHeightPx() == other.getThumbnailHeightPx() &&
+                    getThumbnailWidthPx() == other.getThumbnailWidthPx();
+            }
+
+            public static GetProductThumbnailUrlRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setSku(org.thryft.Faker.Lorem.word());
+                builder.setThumbnailHeightPx(org.thryft.Faker.randomI32());
+                builder.setThumbnailWidthPx(org.thryft.Faker.randomI32());
+                return builder;
             }
 
             public Object get(final String fieldName) {
                 if (fieldName.equals("sku")) {
                     return getSku();
-                } else if (fieldName.equals("thumbnail_resolution")) {
-                    return getThumbnailResolution();
+                } else if (fieldName.equals("thumbnail_height_px")) {
+                    return getThumbnailHeightPx();
+                } else if (fieldName.equals("thumbnail_width_px")) {
+                    return getThumbnailWidthPx();
                 }
                 throw new IllegalArgumentException(fieldName);
             }
@@ -2153,23 +2441,41 @@ public interface CatalogService {
                 return sku;
             }
 
-            public final com.yogento.api.models.image.ImageResolution getThumbnailResolution() {
-                return thumbnailResolution;
+            public final int getThumbnailHeightPx() {
+                return thumbnailHeightPx;
+            }
+
+            public final int getThumbnailWidthPx() {
+                return thumbnailWidthPx;
             }
 
             @Override
             public int hashCode() {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getSku().hashCode();
-                hashCode = 31 * hashCode + getThumbnailResolution().hashCode();
+                hashCode = 31 * hashCode + ((int)getThumbnailHeightPx());
+                hashCode = 31 * hashCode + ((int)getThumbnailWidthPx());
                 return hashCode;
+            }
+
+            public GetProductThumbnailUrlRequest replaceSku(final String sku) {
+                return new GetProductThumbnailUrlRequest(sku, this.thumbnailHeightPx, this.thumbnailWidthPx);
+            }
+
+            public GetProductThumbnailUrlRequest replaceThumbnailHeightPx(final int thumbnailHeightPx) {
+                return new GetProductThumbnailUrlRequest(this.sku, thumbnailHeightPx, this.thumbnailWidthPx);
+            }
+
+            public GetProductThumbnailUrlRequest replaceThumbnailWidthPx(final int thumbnailWidthPx) {
+                return new GetProductThumbnailUrlRequest(this.sku, this.thumbnailHeightPx, thumbnailWidthPx);
             }
 
             @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("sku", getSku());
-                helper.add("thumbnail_resolution", getThumbnailResolution());
+                helper.add("thumbnail_height_px", getThumbnailHeightPx());
+                helper.add("thumbnail_width_px", getThumbnailWidthPx());
                 return helper.toString();
             }
 
@@ -2182,11 +2488,13 @@ public interface CatalogService {
                 switch (writeAsTType) {
                     case org.thryft.protocol.TType.VOID:
                     case org.thryft.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 2));
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 3));
 
                         oprot.writeString(getSku());
 
-                        getThumbnailResolution().write(oprot);
+                        oprot.writeI32(getThumbnailHeightPx());
+
+                        oprot.writeI32(getThumbnailWidthPx());
 
                         oprot.writeListEnd();
                         break;
@@ -2199,8 +2507,12 @@ public interface CatalogService {
                         oprot.writeString(getSku());
                         oprot.writeFieldEnd();
 
-                        oprot.writeFieldBegin(new org.thryft.protocol.TField("thumbnail_resolution", org.thryft.protocol.TType.STRUCT, (short)-1));
-                        getThumbnailResolution().write(oprot);
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("thumbnail_height_px", org.thryft.protocol.TType.I32, (short)-1));
+                        oprot.writeI32(getThumbnailHeightPx());
+                        oprot.writeFieldEnd();
+
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("thumbnail_width_px", org.thryft.protocol.TType.I32, (short)-1));
+                        oprot.writeI32(getThumbnailWidthPx());
                         oprot.writeFieldEnd();
 
                         oprot.writeFieldStop();
@@ -2212,7 +2524,9 @@ public interface CatalogService {
 
             private final String sku;
 
-            private final com.yogento.api.models.image.ImageResolution thumbnailResolution;
+            private final int thumbnailHeightPx;
+
+            private final int thumbnailWidthPx;
         }
 
         @SuppressWarnings({"serial"})
@@ -2225,7 +2539,7 @@ public interface CatalogService {
                     this.returnValue = other.getReturnValue();
                 }
 
-                protected GetProductThumbnailUrlResponse _build(final String returnValue) {
+                protected GetProductThumbnailUrlResponse _build(final org.thryft.native_.Url returnValue) {
                     return new GetProductThumbnailUrlResponse(returnValue);
                 }
 
@@ -2233,12 +2547,12 @@ public interface CatalogService {
                     return _build(returnValue);
                 }
 
-                public Builder setReturnValue(final String returnValue) {
+                public Builder setReturnValue(final org.thryft.native_.Url returnValue) {
                     this.returnValue = returnValue;
                     return this;
                 }
 
-                private String returnValue;
+                private org.thryft.native_.Url returnValue;
             }
 
             public GetProductThumbnailUrlResponse(final GetProductThumbnailUrlResponse other) {
@@ -2246,11 +2560,19 @@ public interface CatalogService {
             }
 
             public GetProductThumbnailUrlResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
-                returnValue = iprot.readString();
+                try {
+                    returnValue = iprot.readUrl();
+                } catch (java.net.MalformedURLException e) {
+                     throw new IllegalArgumentException(e);
+                }
             }
 
-            public GetProductThumbnailUrlResponse(final String returnValue) {
+            public GetProductThumbnailUrlResponse(final org.thryft.native_.Url returnValue) {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getProductThumbnailUrl: missing returnValue");
+            }
+
+            public static Builder builder() {
+                return new Builder();
             }
 
             @Override
@@ -2281,6 +2603,16 @@ public interface CatalogService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
+            public static GetProductThumbnailUrlResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setReturnValue(org.thryft.Faker.Internet.url());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
@@ -2288,7 +2620,7 @@ public interface CatalogService {
                 throw new IllegalArgumentException(fieldName);
             }
 
-            public final String getReturnValue() {
+            public final org.thryft.native_.Url getReturnValue() {
                 return returnValue;
             }
 
@@ -2297,6 +2629,10 @@ public interface CatalogService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getReturnValue().hashCode();
                 return hashCode;
+            }
+
+            public GetProductThumbnailUrlResponse replaceReturnValue(final org.thryft.native_.Url returnValue) {
+                return new GetProductThumbnailUrlResponse(returnValue);
             }
 
             @Override
@@ -2313,11 +2649,15 @@ public interface CatalogService {
 
             public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.VOID: {
+                        oprot.writeUrl(getReturnValue());
+                        break;
+                    }
+
                     case org.thryft.protocol.TType.LIST:
                         oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
-                        oprot.writeString(getReturnValue());
+                        oprot.writeUrl(getReturnValue());
 
                         oprot.writeListEnd();
                         break;
@@ -2326,8 +2666,8 @@ public interface CatalogService {
                     default:
                         oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetProductThumbnailUrlResponse"));
 
-                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRING, (short)-1));
-                        oprot.writeString(getReturnValue());
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRUCT, (short)-1));
+                        oprot.writeUrl(getReturnValue());
                         oprot.writeFieldEnd();
 
                         oprot.writeFieldStop();
@@ -2337,7 +2677,7 @@ public interface CatalogService {
                 }
             }
 
-            private final String returnValue;
+            private final org.thryft.native_.Url returnValue;
         }
 
         @SuppressWarnings({"serial"})
@@ -2348,15 +2688,16 @@ public interface CatalogService {
 
                 public Builder(final GetSampleProductThumbnailUrlRequest other) {
                     this.sku = other.getSku();
-                    this.thumbnailResolution = other.getThumbnailResolution();
+                    this.thumbnailHeightPx = other.getThumbnailHeightPx();
+                    this.thumbnailWidthPx = other.getThumbnailWidthPx();
                 }
 
-                protected GetSampleProductThumbnailUrlRequest _build(final String sku, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
-                    return new GetSampleProductThumbnailUrlRequest(sku, thumbnailResolution);
+                protected GetSampleProductThumbnailUrlRequest _build(final String sku, final int thumbnailHeightPx, final int thumbnailWidthPx) {
+                    return new GetSampleProductThumbnailUrlRequest(sku, thumbnailHeightPx, thumbnailWidthPx);
                 }
 
                 public GetSampleProductThumbnailUrlRequest build() {
-                    return _build(sku, thumbnailResolution);
+                    return _build(sku, thumbnailHeightPx, thumbnailWidthPx);
                 }
 
                 public Builder setSku(final String sku) {
@@ -2364,17 +2705,23 @@ public interface CatalogService {
                     return this;
                 }
 
-                public Builder setThumbnailResolution(final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
-                    this.thumbnailResolution = thumbnailResolution;
+                public Builder setThumbnailHeightPx(final int thumbnailHeightPx) {
+                    this.thumbnailHeightPx = thumbnailHeightPx;
+                    return this;
+                }
+
+                public Builder setThumbnailWidthPx(final int thumbnailWidthPx) {
+                    this.thumbnailWidthPx = thumbnailWidthPx;
                     return this;
                 }
 
                 private String sku;
-                private com.yogento.api.models.image.ImageResolution thumbnailResolution;
+                private Integer thumbnailHeightPx;
+                private Integer thumbnailWidthPx;
             }
 
             public GetSampleProductThumbnailUrlRequest(final GetSampleProductThumbnailUrlRequest other) {
-                this(other.getSku(), other.getThumbnailResolution());
+                this(other.getSku(), other.getThumbnailHeightPx(), other.getThumbnailWidthPx());
             }
 
             public GetSampleProductThumbnailUrlRequest(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
@@ -2383,13 +2730,15 @@ public interface CatalogService {
 
             public GetSampleProductThumbnailUrlRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
                 String sku = null;
-                com.yogento.api.models.image.ImageResolution thumbnailResolution = null;
+                int thumbnailHeightPx = 0;
+                int thumbnailWidthPx = 0;
 
                 switch (readAsTType) {
                     case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
                         sku = iprot.readString();
-                        thumbnailResolution = new com.yogento.api.models.image.ImageResolution(iprot);
+                        thumbnailHeightPx = iprot.readI32();
+                        thumbnailWidthPx = iprot.readI32();
                         iprot.readListEnd();
                         break;
 
@@ -2402,8 +2751,10 @@ public interface CatalogService {
                                 break;
                             } else if (ifield.name.equals("sku")) {
                                 sku = iprot.readString();
-                            } else if (ifield.name.equals("thumbnail_resolution")) {
-                                thumbnailResolution = new com.yogento.api.models.image.ImageResolution(iprot);
+                            } else if (ifield.name.equals("thumbnail_height_px")) {
+                                thumbnailHeightPx = iprot.readI32();
+                            } else if (ifield.name.equals("thumbnail_width_px")) {
+                                thumbnailWidthPx = iprot.readI32();
                             }
                             iprot.readFieldEnd();
                         }
@@ -2412,12 +2763,24 @@ public interface CatalogService {
                 }
 
                 this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.GetSampleProductThumbnailUrlRequest: missing sku");
-                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.catalog.GetSampleProductThumbnailUrlRequest: missing thumbnailResolution");
+                this.thumbnailHeightPx = thumbnailHeightPx;
+                this.thumbnailWidthPx = thumbnailWidthPx;
             }
 
-            public GetSampleProductThumbnailUrlRequest(final String sku, final com.yogento.api.models.image.ImageResolution thumbnailResolution) {
+            public GetSampleProductThumbnailUrlRequest(final String sku, final int thumbnailHeightPx, final int thumbnailWidthPx) {
                 this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.GetSampleProductThumbnailUrlRequest: missing sku");
-                this.thumbnailResolution = com.google.common.base.Preconditions.checkNotNull(thumbnailResolution, "com.yogento.api.services.catalog.GetSampleProductThumbnailUrlRequest: missing thumbnailResolution");
+                this.thumbnailHeightPx = thumbnailHeightPx;
+                this.thumbnailWidthPx = thumbnailWidthPx;
+            }
+
+            public GetSampleProductThumbnailUrlRequest(final String sku, final Integer thumbnailHeightPx, final Integer thumbnailWidthPx) {
+                this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.GetSampleProductThumbnailUrlRequest: missing sku");
+                this.thumbnailHeightPx = thumbnailHeightPx;
+                this.thumbnailWidthPx = thumbnailWidthPx;
+            }
+
+            public static Builder builder() {
+                return new Builder();
             }
 
             @Override
@@ -2432,7 +2795,12 @@ public interface CatalogService {
                     return result;
                 }
 
-                result = this.thumbnailResolution.compareTo(other.thumbnailResolution);
+                result = ((Integer)this.thumbnailHeightPx).compareTo(other.thumbnailHeightPx);
+                if (result != 0) {
+                    return result;
+                }
+
+                result = ((Integer)this.thumbnailWidthPx).compareTo(other.thumbnailWidthPx);
                 if (result != 0) {
                     return result;
                 }
@@ -2451,14 +2819,29 @@ public interface CatalogService {
                 final GetSampleProductThumbnailUrlRequest other = (GetSampleProductThumbnailUrlRequest)otherObject;
                 return
                     getSku().equals(other.getSku()) &&
-                    getThumbnailResolution().equals(other.getThumbnailResolution());
+                    getThumbnailHeightPx() == other.getThumbnailHeightPx() &&
+                    getThumbnailWidthPx() == other.getThumbnailWidthPx();
+            }
+
+            public static GetSampleProductThumbnailUrlRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setSku(org.thryft.Faker.Lorem.word());
+                builder.setThumbnailHeightPx(org.thryft.Faker.randomI32());
+                builder.setThumbnailWidthPx(org.thryft.Faker.randomI32());
+                return builder;
             }
 
             public Object get(final String fieldName) {
                 if (fieldName.equals("sku")) {
                     return getSku();
-                } else if (fieldName.equals("thumbnail_resolution")) {
-                    return getThumbnailResolution();
+                } else if (fieldName.equals("thumbnail_height_px")) {
+                    return getThumbnailHeightPx();
+                } else if (fieldName.equals("thumbnail_width_px")) {
+                    return getThumbnailWidthPx();
                 }
                 throw new IllegalArgumentException(fieldName);
             }
@@ -2467,23 +2850,41 @@ public interface CatalogService {
                 return sku;
             }
 
-            public final com.yogento.api.models.image.ImageResolution getThumbnailResolution() {
-                return thumbnailResolution;
+            public final int getThumbnailHeightPx() {
+                return thumbnailHeightPx;
+            }
+
+            public final int getThumbnailWidthPx() {
+                return thumbnailWidthPx;
             }
 
             @Override
             public int hashCode() {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getSku().hashCode();
-                hashCode = 31 * hashCode + getThumbnailResolution().hashCode();
+                hashCode = 31 * hashCode + ((int)getThumbnailHeightPx());
+                hashCode = 31 * hashCode + ((int)getThumbnailWidthPx());
                 return hashCode;
+            }
+
+            public GetSampleProductThumbnailUrlRequest replaceSku(final String sku) {
+                return new GetSampleProductThumbnailUrlRequest(sku, this.thumbnailHeightPx, this.thumbnailWidthPx);
+            }
+
+            public GetSampleProductThumbnailUrlRequest replaceThumbnailHeightPx(final int thumbnailHeightPx) {
+                return new GetSampleProductThumbnailUrlRequest(this.sku, thumbnailHeightPx, this.thumbnailWidthPx);
+            }
+
+            public GetSampleProductThumbnailUrlRequest replaceThumbnailWidthPx(final int thumbnailWidthPx) {
+                return new GetSampleProductThumbnailUrlRequest(this.sku, this.thumbnailHeightPx, thumbnailWidthPx);
             }
 
             @Override
             public String toString() {
                 final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
                 helper.add("sku", getSku());
-                helper.add("thumbnail_resolution", getThumbnailResolution());
+                helper.add("thumbnail_height_px", getThumbnailHeightPx());
+                helper.add("thumbnail_width_px", getThumbnailWidthPx());
                 return helper.toString();
             }
 
@@ -2496,11 +2897,13 @@ public interface CatalogService {
                 switch (writeAsTType) {
                     case org.thryft.protocol.TType.VOID:
                     case org.thryft.protocol.TType.LIST:
-                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 2));
+                        oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 3));
 
                         oprot.writeString(getSku());
 
-                        getThumbnailResolution().write(oprot);
+                        oprot.writeI32(getThumbnailHeightPx());
+
+                        oprot.writeI32(getThumbnailWidthPx());
 
                         oprot.writeListEnd();
                         break;
@@ -2513,8 +2916,12 @@ public interface CatalogService {
                         oprot.writeString(getSku());
                         oprot.writeFieldEnd();
 
-                        oprot.writeFieldBegin(new org.thryft.protocol.TField("thumbnail_resolution", org.thryft.protocol.TType.STRUCT, (short)-1));
-                        getThumbnailResolution().write(oprot);
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("thumbnail_height_px", org.thryft.protocol.TType.I32, (short)-1));
+                        oprot.writeI32(getThumbnailHeightPx());
+                        oprot.writeFieldEnd();
+
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("thumbnail_width_px", org.thryft.protocol.TType.I32, (short)-1));
+                        oprot.writeI32(getThumbnailWidthPx());
                         oprot.writeFieldEnd();
 
                         oprot.writeFieldStop();
@@ -2526,7 +2933,9 @@ public interface CatalogService {
 
             private final String sku;
 
-            private final com.yogento.api.models.image.ImageResolution thumbnailResolution;
+            private final int thumbnailHeightPx;
+
+            private final int thumbnailWidthPx;
         }
 
         @SuppressWarnings({"serial"})
@@ -2539,7 +2948,7 @@ public interface CatalogService {
                     this.returnValue = other.getReturnValue();
                 }
 
-                protected GetSampleProductThumbnailUrlResponse _build(final String returnValue) {
+                protected GetSampleProductThumbnailUrlResponse _build(final org.thryft.native_.Url returnValue) {
                     return new GetSampleProductThumbnailUrlResponse(returnValue);
                 }
 
@@ -2547,12 +2956,12 @@ public interface CatalogService {
                     return _build(returnValue);
                 }
 
-                public Builder setReturnValue(final String returnValue) {
+                public Builder setReturnValue(final org.thryft.native_.Url returnValue) {
                     this.returnValue = returnValue;
                     return this;
                 }
 
-                private String returnValue;
+                private org.thryft.native_.Url returnValue;
             }
 
             public GetSampleProductThumbnailUrlResponse(final GetSampleProductThumbnailUrlResponse other) {
@@ -2560,11 +2969,19 @@ public interface CatalogService {
             }
 
             public GetSampleProductThumbnailUrlResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
-                returnValue = iprot.readString();
+                try {
+                    returnValue = iprot.readUrl();
+                } catch (java.net.MalformedURLException e) {
+                     throw new IllegalArgumentException(e);
+                }
             }
 
-            public GetSampleProductThumbnailUrlResponse(final String returnValue) {
+            public GetSampleProductThumbnailUrlResponse(final org.thryft.native_.Url returnValue) {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getSampleProductThumbnailUrl: missing returnValue");
+            }
+
+            public static Builder builder() {
+                return new Builder();
             }
 
             @Override
@@ -2595,6 +3012,16 @@ public interface CatalogService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
+            public static GetSampleProductThumbnailUrlResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setReturnValue(org.thryft.Faker.Internet.url());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
@@ -2602,7 +3029,7 @@ public interface CatalogService {
                 throw new IllegalArgumentException(fieldName);
             }
 
-            public final String getReturnValue() {
+            public final org.thryft.native_.Url getReturnValue() {
                 return returnValue;
             }
 
@@ -2611,6 +3038,10 @@ public interface CatalogService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getReturnValue().hashCode();
                 return hashCode;
+            }
+
+            public GetSampleProductThumbnailUrlResponse replaceReturnValue(final org.thryft.native_.Url returnValue) {
+                return new GetSampleProductThumbnailUrlResponse(returnValue);
             }
 
             @Override
@@ -2627,11 +3058,15 @@ public interface CatalogService {
 
             public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.VOID: {
+                        oprot.writeUrl(getReturnValue());
+                        break;
+                    }
+
                     case org.thryft.protocol.TType.LIST:
                         oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
-                        oprot.writeString(getReturnValue());
+                        oprot.writeUrl(getReturnValue());
 
                         oprot.writeListEnd();
                         break;
@@ -2640,8 +3075,8 @@ public interface CatalogService {
                     default:
                         oprot.writeStructBegin(new org.thryft.protocol.TStruct("GetSampleProductThumbnailUrlResponse"));
 
-                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRING, (short)-1));
-                        oprot.writeString(getReturnValue());
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("return_value", org.thryft.protocol.TType.STRUCT, (short)-1));
+                        oprot.writeUrl(getReturnValue());
                         oprot.writeFieldEnd();
 
                         oprot.writeFieldStop();
@@ -2651,7 +3086,7 @@ public interface CatalogService {
                 }
             }
 
-            private final String returnValue;
+            private final org.thryft.native_.Url returnValue;
         }
 
         @SuppressWarnings({"serial"})
@@ -2721,6 +3156,10 @@ public interface CatalogService {
                 this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.GetSampleProductBySkuRequest: missing sku");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetSampleProductBySkuRequest other) {
                 if (other == null) {
@@ -2749,6 +3188,16 @@ public interface CatalogService {
                     getSku().equals(other.getSku());
             }
 
+            public static GetSampleProductBySkuRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setSku(org.thryft.Faker.Lorem.word());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("sku")) {
                     return getSku();
@@ -2765,6 +3214,10 @@ public interface CatalogService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getSku().hashCode();
                 return hashCode;
+            }
+
+            public GetSampleProductBySkuRequest replaceSku(final String sku) {
+                return new GetSampleProductBySkuRequest(sku);
             }
 
             @Override
@@ -2846,6 +3299,10 @@ public interface CatalogService {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getSampleProductBySku: missing returnValue");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetSampleProductBySkuResponse other) {
                 if (other == null) {
@@ -2874,6 +3331,16 @@ public interface CatalogService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
+            public static GetSampleProductBySkuResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setReturnValue(com.yogento.api.models.catalog.product.Product.fake());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
@@ -2890,6 +3357,10 @@ public interface CatalogService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getReturnValue().hashCode();
                 return hashCode;
+            }
+
+            public GetSampleProductBySkuResponse replaceReturnValue(final com.yogento.api.models.catalog.product.Product returnValue) {
+                return new GetSampleProductBySkuResponse(returnValue);
             }
 
             @Override
@@ -2987,6 +3458,10 @@ public interface CatalogService {
                 }
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetSampleProductsRequest other) {
                 if (other == null) {
@@ -3004,6 +3479,15 @@ public interface CatalogService {
                 }
 
                 return true;
+            }
+
+            public static GetSampleProductsRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                return builder;
             }
 
             public Object get(final String fieldName) {
@@ -3100,6 +3584,10 @@ public interface CatalogService {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.catalog.CatalogService.getSampleProducts: missing returnValue");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetSampleProductsResponse other) {
                 if (other == null) {
@@ -3128,6 +3616,16 @@ public interface CatalogService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
+            public static GetSampleProductsResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setReturnValue(com.google.common.collect.ImmutableSet.of(com.yogento.api.models.catalog.product.Product.fake()));
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
@@ -3144,6 +3642,10 @@ public interface CatalogService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getReturnValue().hashCode();
                 return hashCode;
+            }
+
+            public GetSampleProductsResponse replaceReturnValue(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> returnValue) {
+                return new GetSampleProductsResponse(returnValue);
             }
 
             @Override
@@ -3270,6 +3772,10 @@ public interface CatalogService {
                 this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.HeadProductBySkuRequest: missing sku");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final HeadProductBySkuRequest other) {
                 if (other == null) {
@@ -3298,6 +3804,16 @@ public interface CatalogService {
                     getSku().equals(other.getSku());
             }
 
+            public static HeadProductBySkuRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setSku(org.thryft.Faker.Lorem.word());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("sku")) {
                     return getSku();
@@ -3314,6 +3830,10 @@ public interface CatalogService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getSku().hashCode();
                 return hashCode;
+            }
+
+            public HeadProductBySkuRequest replaceSku(final String sku) {
+                return new HeadProductBySkuRequest(sku);
             }
 
             @Override
@@ -3399,6 +3919,10 @@ public interface CatalogService {
                 this.returnValue = returnValue;
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final HeadProductBySkuResponse other) {
                 if (other == null) {
@@ -3427,6 +3951,16 @@ public interface CatalogService {
                     isReturnValue() == other.isReturnValue();
             }
 
+            public static HeadProductBySkuResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setReturnValue(org.thryft.Faker.randomBool());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return isReturnValue();
@@ -3443,6 +3977,10 @@ public interface CatalogService {
 
             public final boolean isReturnValue() {
                 return returnValue;
+            }
+
+            public HeadProductBySkuResponse replaceReturnValue(final boolean returnValue) {
+                return new HeadProductBySkuResponse(returnValue);
             }
 
             @Override
@@ -3553,6 +4091,10 @@ public interface CatalogService {
                 this.product = com.google.common.base.Preconditions.checkNotNull(product, "com.yogento.api.services.catalog.PutProductRequest: missing product");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final PutProductRequest other) {
                 if (other == null) {
@@ -3581,6 +4123,16 @@ public interface CatalogService {
                     getProduct().equals(other.getProduct());
             }
 
+            public static PutProductRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setProduct(com.yogento.api.models.catalog.product.Product.fake());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("product")) {
                     return getProduct();
@@ -3597,6 +4149,10 @@ public interface CatalogService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getProduct().hashCode();
                 return hashCode;
+            }
+
+            public PutProductRequest replaceProduct(final com.yogento.api.models.catalog.product.Product product) {
+                return new PutProductRequest(product);
             }
 
             @Override
@@ -3671,6 +4227,10 @@ public interface CatalogService {
             public PutProductResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final PutProductResponse other) {
                 if (other == null) {
@@ -3688,6 +4248,15 @@ public interface CatalogService {
                 }
 
                 return true;
+            }
+
+            public static PutProductResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                return builder;
             }
 
             public Object get(final String fieldName) {
@@ -3828,6 +4397,10 @@ public interface CatalogService {
                 this.products = com.google.common.base.Preconditions.checkNotNull(products, "com.yogento.api.services.catalog.PutProductsRequest: missing products");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final PutProductsRequest other) {
                 if (other == null) {
@@ -3856,6 +4429,16 @@ public interface CatalogService {
                     getProducts().equals(other.getProducts());
             }
 
+            public static PutProductsRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setProducts(com.google.common.collect.ImmutableSet.of(com.yogento.api.models.catalog.product.Product.fake()));
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("products")) {
                     return getProducts();
@@ -3872,6 +4455,10 @@ public interface CatalogService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getProducts().hashCode();
                 return hashCode;
+            }
+
+            public PutProductsRequest replaceProducts(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> products) {
+                return new PutProductsRequest(products);
             }
 
             @Override
@@ -3958,6 +4545,10 @@ public interface CatalogService {
             public PutProductsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final PutProductsResponse other) {
                 if (other == null) {
@@ -3975,6 +4566,15 @@ public interface CatalogService {
                 }
 
                 return true;
+            }
+
+            public static PutProductsResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                return builder;
             }
 
             public Object get(final String fieldName) {
@@ -4033,9 +4633,9 @@ public interface CatalogService {
 
     public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> getProductsBySkus(final com.google.common.collect.ImmutableSet<String> skus) throws com.yogento.api.services.catalog.NoSuchProductException;
 
-    public String getProductThumbnailUrl(final String sku, final com.yogento.api.models.image.ImageResolution thumbnailResolution) throws com.yogento.api.services.catalog.NoSuchProductException, com.yogento.api.services.catalog.NoSuchProductImageException;
+    public org.thryft.native_.Url getProductThumbnailUrl(final String sku, final int thumbnailHeightPx, final int thumbnailWidthPx) throws com.yogento.api.services.catalog.NoSuchProductException, com.yogento.api.services.catalog.NoSuchProductImageException;
 
-    public String getSampleProductThumbnailUrl(final String sku, final com.yogento.api.models.image.ImageResolution thumbnailResolution) throws com.yogento.api.services.catalog.NoSuchProductException, com.yogento.api.services.catalog.NoSuchProductImageException;
+    public org.thryft.native_.Url getSampleProductThumbnailUrl(final String sku, final int thumbnailHeightPx, final int thumbnailWidthPx) throws com.yogento.api.services.catalog.NoSuchProductException, com.yogento.api.services.catalog.NoSuchProductImageException;
 
     public com.yogento.api.models.catalog.product.Product getSampleProductBySku(final String sku) throws com.yogento.api.services.catalog.NoSuchProductException;
 

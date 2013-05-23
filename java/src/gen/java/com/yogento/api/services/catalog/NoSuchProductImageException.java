@@ -80,6 +80,10 @@ public class NoSuchProductImageException extends java.lang.Exception implements 
         this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.NoSuchProductImageException: missing sku");
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     @Override
     public int compareTo(final NoSuchProductImageException other) {
         if (other == null) {
@@ -114,6 +118,17 @@ public class NoSuchProductImageException extends java.lang.Exception implements 
             getSku().equals(other.getSku());
     }
 
+    public static NoSuchProductImageException fake() {
+        return fakeBuilder().build();
+    }
+
+    public static Builder fakeBuilder() {
+        Builder builder = new Builder();
+        builder.setCauseMessage(org.thryft.Faker.Lorem.word());
+        builder.setSku(org.thryft.Faker.Lorem.word());
+        return builder;
+    }
+
     public Object get(final String fieldName) {
         if (fieldName.equals("cause_message")) {
             return getCauseMessage();
@@ -142,6 +157,14 @@ public class NoSuchProductImageException extends java.lang.Exception implements 
         hashCode = 31 * hashCode + getCauseMessage().hashCode();
         hashCode = 31 * hashCode + getSku().hashCode();
         return hashCode;
+    }
+
+    public NoSuchProductImageException replaceCauseMessage(final String causeMessage) {
+        return new NoSuchProductImageException(causeMessage, this.sku);
+    }
+
+    public NoSuchProductImageException replaceSku(final String sku) {
+        return new NoSuchProductImageException(this.causeMessage, sku);
     }
 
     @Override

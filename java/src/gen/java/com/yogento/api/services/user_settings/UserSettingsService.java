@@ -52,6 +52,10 @@ public interface UserSettingsService {
                 }
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetCurrentUserSettingsRequest other) {
                 if (other == null) {
@@ -69,6 +73,15 @@ public interface UserSettingsService {
                 }
 
                 return true;
+            }
+
+            public static GetCurrentUserSettingsRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                return builder;
             }
 
             public Object get(final String fieldName) {
@@ -150,6 +163,10 @@ public interface UserSettingsService {
                 this.returnValue = com.google.common.base.Preconditions.checkNotNull(returnValue, "com.yogento.api.services.user_settings.UserSettingsService.getCurrentUserSettings: missing returnValue");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final GetCurrentUserSettingsResponse other) {
                 if (other == null) {
@@ -178,6 +195,16 @@ public interface UserSettingsService {
                     getReturnValue().equals(other.getReturnValue());
             }
 
+            public static GetCurrentUserSettingsResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setReturnValue(com.yogento.api.models.user_settings.UserSettings.fake());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("return_value")) {
                     return getReturnValue();
@@ -194,6 +221,10 @@ public interface UserSettingsService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getReturnValue().hashCode();
                 return hashCode;
+            }
+
+            public GetCurrentUserSettingsResponse replaceReturnValue(final com.yogento.api.models.user_settings.UserSettings returnValue) {
+                return new GetCurrentUserSettingsResponse(returnValue);
             }
 
             @Override
@@ -308,6 +339,10 @@ public interface UserSettingsService {
                 this.userSettings = com.google.common.base.Preconditions.checkNotNull(userSettings, "com.yogento.api.services.user_settings.PutCurrentUserSettingsRequest: missing userSettings");
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final PutCurrentUserSettingsRequest other) {
                 if (other == null) {
@@ -336,6 +371,16 @@ public interface UserSettingsService {
                     getUserSettings().equals(other.getUserSettings());
             }
 
+            public static PutCurrentUserSettingsRequest fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                builder.setUserSettings(com.yogento.api.models.user_settings.UserSettings.fake());
+                return builder;
+            }
+
             public Object get(final String fieldName) {
                 if (fieldName.equals("user_settings")) {
                     return getUserSettings();
@@ -352,6 +397,10 @@ public interface UserSettingsService {
                 int hashCode = 17;
                 hashCode = 31 * hashCode + getUserSettings().hashCode();
                 return hashCode;
+            }
+
+            public PutCurrentUserSettingsRequest replaceUserSettings(final com.yogento.api.models.user_settings.UserSettings userSettings) {
+                return new PutCurrentUserSettingsRequest(userSettings);
             }
 
             @Override
@@ -426,6 +475,10 @@ public interface UserSettingsService {
             public PutCurrentUserSettingsResponse(final org.thryft.protocol.TProtocol iprot) throws java.io.IOException {
             }
 
+            public static Builder builder() {
+                return new Builder();
+            }
+
             @Override
             public int compareTo(final PutCurrentUserSettingsResponse other) {
                 if (other == null) {
@@ -443,6 +496,15 @@ public interface UserSettingsService {
                 }
 
                 return true;
+            }
+
+            public static PutCurrentUserSettingsResponse fake() {
+                return fakeBuilder().build();
+            }
+
+            public static Builder fakeBuilder() {
+                Builder builder = new Builder();
+                return builder;
             }
 
             public Object get(final String fieldName) {

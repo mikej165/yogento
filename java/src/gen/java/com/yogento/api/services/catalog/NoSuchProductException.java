@@ -67,6 +67,10 @@ public class NoSuchProductException extends java.lang.Exception implements org.t
         this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.NoSuchProductException: missing sku");
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     @Override
     public int compareTo(final NoSuchProductException other) {
         if (other == null) {
@@ -95,6 +99,16 @@ public class NoSuchProductException extends java.lang.Exception implements org.t
             getSku().equals(other.getSku());
     }
 
+    public static NoSuchProductException fake() {
+        return fakeBuilder().build();
+    }
+
+    public static Builder fakeBuilder() {
+        Builder builder = new Builder();
+        builder.setSku(org.thryft.Faker.Lorem.word());
+        return builder;
+    }
+
     public Object get(final String fieldName) {
         if (fieldName.equals("sku")) {
             return getSku();
@@ -116,6 +130,10 @@ public class NoSuchProductException extends java.lang.Exception implements org.t
         int hashCode = 17;
         hashCode = 31 * hashCode + getSku().hashCode();
         return hashCode;
+    }
+
+    public NoSuchProductException replaceSku(final String sku) {
+        return new NoSuchProductException(sku);
     }
 
     @Override

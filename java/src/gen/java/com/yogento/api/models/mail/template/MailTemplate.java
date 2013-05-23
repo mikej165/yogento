@@ -80,6 +80,10 @@ public class MailTemplate implements org.thryft.TBase<MailTemplate> {
         this.type = com.google.common.base.Preconditions.checkNotNull(type, "com.yogento.api.models.mail.template.MailTemplate: missing type");
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     @Override
     public int compareTo(final MailTemplate other) {
         if (other == null) {
@@ -114,6 +118,17 @@ public class MailTemplate implements org.thryft.TBase<MailTemplate> {
             getType().equals(other.getType());
     }
 
+    public static MailTemplate fake() {
+        return fakeBuilder().build();
+    }
+
+    public static Builder fakeBuilder() {
+        Builder builder = new Builder();
+        builder.setMailChimpTemplate(com.yochimp.models.template.Template.fake());
+        builder.setType(com.yogento.api.models.mail.template.MailTemplateType.fake());
+        return builder;
+    }
+
     public Object get(final String fieldName) {
         if (fieldName.equals("mail_chimp_template")) {
             return getMailChimpTemplate();
@@ -137,6 +152,14 @@ public class MailTemplate implements org.thryft.TBase<MailTemplate> {
         hashCode = 31 * hashCode + getMailChimpTemplate().hashCode();
         hashCode = 31 * hashCode + getType().hashCode();
         return hashCode;
+    }
+
+    public MailTemplate replaceMailChimpTemplate(final com.yochimp.models.template.Template mailChimpTemplate) {
+        return new MailTemplate(mailChimpTemplate, this.type);
+    }
+
+    public MailTemplate replaceType(final com.yogento.api.models.mail.template.MailTemplateType type) {
+        return new MailTemplate(this.mailChimpTemplate, type);
     }
 
     @Override

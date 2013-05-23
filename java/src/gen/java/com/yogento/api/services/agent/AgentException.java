@@ -92,6 +92,10 @@ public class AgentException extends java.lang.Exception implements org.thryft.TB
         this.url = com.google.common.base.Preconditions.checkNotNull(url, "com.yogento.api.services.agent.AgentException: missing url");
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     @Override
     public int compareTo(final AgentException other) {
         if (other == null) {
@@ -134,6 +138,17 @@ public class AgentException extends java.lang.Exception implements org.thryft.TB
             getUrl().equals(other.getUrl());
     }
 
+    public static AgentException fake() {
+        return fakeBuilder().build();
+    }
+
+    public static Builder fakeBuilder() {
+        Builder builder = new Builder();
+        builder.setCauseMessage(org.thryft.Faker.Lorem.word());
+        builder.setUrl(org.thryft.Faker.Lorem.word());
+        return builder;
+    }
+
     public Object get(final String fieldName) {
         if (fieldName.equals("cause_message")) {
             return getCauseMessage();
@@ -164,6 +179,18 @@ public class AgentException extends java.lang.Exception implements org.thryft.TB
             hashCode = 31 * hashCode + getUrl().get().hashCode();
         }
         return hashCode;
+    }
+
+    public AgentException replaceCauseMessage(final String causeMessage) {
+        return new AgentException(causeMessage, this.url);
+    }
+
+    public AgentException replaceUrl(final com.google.common.base.Optional<String> url) {
+        return new AgentException(this.causeMessage, url);
+    }
+
+    public AgentException replaceUrl(final String url) {
+        return replaceUrl(com.google.common.base.Optional.fromNullable(url));
     }
 
     @Override

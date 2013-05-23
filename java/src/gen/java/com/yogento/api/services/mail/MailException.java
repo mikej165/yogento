@@ -85,6 +85,10 @@ public class MailException extends java.lang.Exception implements org.thryft.TBa
         this.error = com.google.common.base.Preconditions.checkNotNull(error, "com.yogento.api.services.mail.MailException: missing error");
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     @Override
     public int compareTo(final MailException other) {
         if (other == null) {
@@ -119,6 +123,17 @@ public class MailException extends java.lang.Exception implements org.thryft.TBa
             getError().equals(other.getError());
     }
 
+    public static MailException fake() {
+        return fakeBuilder().build();
+    }
+
+    public static Builder fakeBuilder() {
+        Builder builder = new Builder();
+        builder.setCode(org.thryft.Faker.randomI32());
+        builder.setError(org.thryft.Faker.Lorem.word());
+        return builder;
+    }
+
     public Object get(final String fieldName) {
         if (fieldName.equals("code")) {
             return getCode();
@@ -147,6 +162,14 @@ public class MailException extends java.lang.Exception implements org.thryft.TBa
         hashCode = 31 * hashCode + ((int)getCode());
         hashCode = 31 * hashCode + getError().hashCode();
         return hashCode;
+    }
+
+    public MailException replaceCode(final int code) {
+        return new MailException(code, this.error);
+    }
+
+    public MailException replaceError(final String error) {
+        return new MailException(this.code, error);
     }
 
     @Override

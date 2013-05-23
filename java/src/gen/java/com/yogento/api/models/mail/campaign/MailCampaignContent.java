@@ -67,6 +67,10 @@ public class MailCampaignContent implements org.thryft.TBase<MailCampaignContent
         this.mailChimpCampaignContent = com.google.common.base.Preconditions.checkNotNull(mailChimpCampaignContent, "com.yogento.api.models.mail.campaign.MailCampaignContent: missing mailChimpCampaignContent");
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     @Override
     public int compareTo(final MailCampaignContent other) {
         if (other == null) {
@@ -95,6 +99,16 @@ public class MailCampaignContent implements org.thryft.TBase<MailCampaignContent
             getMailChimpCampaignContent().equals(other.getMailChimpCampaignContent());
     }
 
+    public static MailCampaignContent fake() {
+        return fakeBuilder().build();
+    }
+
+    public static Builder fakeBuilder() {
+        Builder builder = new Builder();
+        builder.setMailChimpCampaignContent(com.yochimp.models.campaign.CampaignContent.fake());
+        return builder;
+    }
+
     public Object get(final String fieldName) {
         if (fieldName.equals("mail_chimp_campaign_content")) {
             return getMailChimpCampaignContent();
@@ -111,6 +125,10 @@ public class MailCampaignContent implements org.thryft.TBase<MailCampaignContent
         int hashCode = 17;
         hashCode = 31 * hashCode + getMailChimpCampaignContent().hashCode();
         return hashCode;
+    }
+
+    public MailCampaignContent replaceMailChimpCampaignContent(final com.yochimp.models.campaign.CampaignContent mailChimpCampaignContent) {
+        return new MailCampaignContent(mailChimpCampaignContent);
     }
 
     @Override

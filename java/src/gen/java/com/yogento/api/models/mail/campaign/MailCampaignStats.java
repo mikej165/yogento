@@ -67,6 +67,10 @@ public class MailCampaignStats implements org.thryft.TBase<MailCampaignStats> {
         this.mailChimpCampaignStats = com.google.common.base.Preconditions.checkNotNull(mailChimpCampaignStats, "com.yogento.api.models.mail.campaign.MailCampaignStats: missing mailChimpCampaignStats");
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     @Override
     public int compareTo(final MailCampaignStats other) {
         if (other == null) {
@@ -95,6 +99,16 @@ public class MailCampaignStats implements org.thryft.TBase<MailCampaignStats> {
             getMailChimpCampaignStats().equals(other.getMailChimpCampaignStats());
     }
 
+    public static MailCampaignStats fake() {
+        return fakeBuilder().build();
+    }
+
+    public static Builder fakeBuilder() {
+        Builder builder = new Builder();
+        builder.setMailChimpCampaignStats(com.yochimp.models.campaign.CampaignStats.fake());
+        return builder;
+    }
+
     public Object get(final String fieldName) {
         if (fieldName.equals("mail_chimp_campaign_stats")) {
             return getMailChimpCampaignStats();
@@ -111,6 +125,10 @@ public class MailCampaignStats implements org.thryft.TBase<MailCampaignStats> {
         int hashCode = 17;
         hashCode = 31 * hashCode + getMailChimpCampaignStats().hashCode();
         return hashCode;
+    }
+
+    public MailCampaignStats replaceMailChimpCampaignStats(final com.yochimp.models.campaign.CampaignStats mailChimpCampaignStats) {
+        return new MailCampaignStats(mailChimpCampaignStats);
     }
 
     @Override

@@ -1038,6 +1038,10 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         this.weight = com.google.common.base.Preconditions.checkNotNull(weight, "com.yogento.api.models.catalog.product.magento.MagentoProduct: missing weight");
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     @Override
     public int compareTo(final MagentoProduct other) {
         if (other == null) {
@@ -1572,6 +1576,54 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
             getWeight().equals(other.getWeight());
     }
 
+    public static MagentoProduct fake() {
+        return fakeBuilder().build();
+    }
+
+    public static Builder fakeBuilder() {
+        Builder builder = new Builder();
+        builder.setActivationInformation(org.thryft.Faker.Lorem.word());
+        builder.setBackorders(org.thryft.Faker.randomI32());
+        builder.setCost(org.thryft.Faker.randomDecimal());
+        builder.setCreatedAt(org.joda.time.DateTime.now());
+        builder.setDescription(org.thryft.Faker.Lorem.word());
+        builder.setImages(com.google.common.collect.ImmutableSet.of(com.yogento.api.models.catalog.product.magento.MagentoProductImage.fake()));
+        builder.setIsInStock(org.thryft.Faker.randomBool());
+        builder.setIsQtyDecimal(org.thryft.Faker.randomBool());
+        builder.setIsRecurring(org.thryft.Faker.randomBool());
+        builder.setLowStockDate(org.joda.time.DateTime.now());
+        builder.setMaxSaleQty(org.thryft.Faker.randomDecimal());
+        builder.setMetaDescription(org.thryft.Faker.Lorem.word());
+        builder.setMetaKeyword(org.thryft.Faker.Lorem.word());
+        builder.setMetaTitle(org.thryft.Faker.Lorem.word());
+        builder.setMinimalPrice(org.thryft.Faker.randomDecimal());
+        builder.setMinQty(org.thryft.Faker.randomDecimal());
+        builder.setMinSaleQty(org.thryft.Faker.randomDecimal());
+        builder.setModel(org.thryft.Faker.Lorem.word());
+        builder.setName(org.thryft.Faker.Lorem.word());
+        builder.setNewsFromDate(org.joda.time.DateTime.now());
+        builder.setNewsToDate(org.joda.time.DateTime.now());
+        builder.setNotifyStockQty(org.thryft.Faker.randomDecimal());
+        builder.setPrice(org.thryft.Faker.randomDecimal());
+        builder.setQty(org.thryft.Faker.randomDecimal());
+        builder.setShippingPolicy(org.thryft.Faker.Lorem.word());
+        builder.setShortDescription(org.thryft.Faker.Lorem.word());
+        builder.setSku(org.thryft.Faker.Lorem.word());
+        builder.setSpecialFromDate(org.joda.time.DateTime.now());
+        builder.setSpecialPrice(org.thryft.Faker.randomDecimal());
+        builder.setSpecialToDate(org.joda.time.DateTime.now());
+        builder.setStore(org.thryft.Faker.Lorem.word());
+        builder.setStatus(org.thryft.Faker.randomEnum(com.google.common.collect.ImmutableList.of(com.yogento.api.models.catalog.product.magento.MagentoProductStatus.DISABLED, com.yogento.api.models.catalog.product.magento.MagentoProductStatus.ENABLED)));
+        builder.setTags(com.google.common.collect.ImmutableSet.of(org.thryft.Faker.Lorem.word()));
+        builder.setType(org.thryft.Faker.Lorem.word());
+        builder.setUpdatedAt(org.joda.time.DateTime.now());
+        builder.setUrlKey(org.thryft.Faker.Lorem.word());
+        builder.setUrlPath(org.thryft.Faker.Lorem.word());
+        builder.setVisibility(com.google.common.collect.ImmutableSet.of(org.thryft.Faker.Lorem.word()));
+        builder.setWeight(org.thryft.Faker.randomDecimal());
+        return builder;
+    }
+
     public Object get(final String fieldName) {
         if (fieldName.equals("activation_information")) {
             return getActivationInformation();
@@ -1944,6 +1996,302 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
             hashCode = 31 * hashCode + getWeight().get().hashCode();
         }
         return hashCode;
+    }
+
+    public MagentoProduct replaceActivationInformation(final com.google.common.base.Optional<String> activationInformation) {
+        return new MagentoProduct(activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceActivationInformation(final String activationInformation) {
+        return replaceActivationInformation(com.google.common.base.Optional.fromNullable(activationInformation));
+    }
+
+    public MagentoProduct replaceBackorders(final com.google.common.base.Optional<Integer> backorders) {
+        return new MagentoProduct(this.activationInformation, backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceBackorders(final int backorders) {
+        return replaceBackorders(com.google.common.base.Optional.fromNullable(backorders));
+    }
+
+    public MagentoProduct replaceChildren(final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct>> children) {
+        return new MagentoProduct(this.activationInformation, this.backorders, children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceChildren(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> children) {
+        return replaceChildren(com.google.common.base.Optional.fromNullable(children));
+    }
+
+    public MagentoProduct replaceCost(final com.google.common.base.Optional<java.math.BigDecimal> cost) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceCost(final java.math.BigDecimal cost) {
+        return replaceCost(com.google.common.base.Optional.fromNullable(cost));
+    }
+
+    public MagentoProduct replaceCreatedAt(final com.google.common.base.Optional<org.joda.time.DateTime> createdAt) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceCreatedAt(final org.joda.time.DateTime createdAt) {
+        return replaceCreatedAt(com.google.common.base.Optional.fromNullable(createdAt));
+    }
+
+    public MagentoProduct replaceDescription(final com.google.common.base.Optional<String> description) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceDescription(final String description) {
+        return replaceDescription(com.google.common.base.Optional.fromNullable(description));
+    }
+
+    public MagentoProduct replaceImages(final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage>> images) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceImages(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> images) {
+        return replaceImages(com.google.common.base.Optional.fromNullable(images));
+    }
+
+    public MagentoProduct replaceIsInStock(final com.google.common.base.Optional<Boolean> isInStock) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceIsInStock(final boolean isInStock) {
+        return replaceIsInStock(com.google.common.base.Optional.fromNullable(isInStock));
+    }
+
+    public MagentoProduct replaceIsQtyDecimal(final com.google.common.base.Optional<Boolean> isQtyDecimal) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceIsQtyDecimal(final boolean isQtyDecimal) {
+        return replaceIsQtyDecimal(com.google.common.base.Optional.fromNullable(isQtyDecimal));
+    }
+
+    public MagentoProduct replaceIsRecurring(final com.google.common.base.Optional<Boolean> isRecurring) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceIsRecurring(final boolean isRecurring) {
+        return replaceIsRecurring(com.google.common.base.Optional.fromNullable(isRecurring));
+    }
+
+    public MagentoProduct replaceLowStockDate(final com.google.common.base.Optional<org.joda.time.DateTime> lowStockDate) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceLowStockDate(final org.joda.time.DateTime lowStockDate) {
+        return replaceLowStockDate(com.google.common.base.Optional.fromNullable(lowStockDate));
+    }
+
+    public MagentoProduct replaceMaxSaleQty(final com.google.common.base.Optional<java.math.BigDecimal> maxSaleQty) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceMaxSaleQty(final java.math.BigDecimal maxSaleQty) {
+        return replaceMaxSaleQty(com.google.common.base.Optional.fromNullable(maxSaleQty));
+    }
+
+    public MagentoProduct replaceMetaDescription(final com.google.common.base.Optional<String> metaDescription) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceMetaDescription(final String metaDescription) {
+        return replaceMetaDescription(com.google.common.base.Optional.fromNullable(metaDescription));
+    }
+
+    public MagentoProduct replaceMetaKeyword(final com.google.common.base.Optional<String> metaKeyword) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceMetaKeyword(final String metaKeyword) {
+        return replaceMetaKeyword(com.google.common.base.Optional.fromNullable(metaKeyword));
+    }
+
+    public MagentoProduct replaceMetaTitle(final com.google.common.base.Optional<String> metaTitle) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceMetaTitle(final String metaTitle) {
+        return replaceMetaTitle(com.google.common.base.Optional.fromNullable(metaTitle));
+    }
+
+    public MagentoProduct replaceMinQty(final com.google.common.base.Optional<java.math.BigDecimal> minQty) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceMinQty(final java.math.BigDecimal minQty) {
+        return replaceMinQty(com.google.common.base.Optional.fromNullable(minQty));
+    }
+
+    public MagentoProduct replaceMinSaleQty(final com.google.common.base.Optional<java.math.BigDecimal> minSaleQty) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceMinSaleQty(final java.math.BigDecimal minSaleQty) {
+        return replaceMinSaleQty(com.google.common.base.Optional.fromNullable(minSaleQty));
+    }
+
+    public MagentoProduct replaceMinimalPrice(final com.google.common.base.Optional<java.math.BigDecimal> minimalPrice) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceMinimalPrice(final java.math.BigDecimal minimalPrice) {
+        return replaceMinimalPrice(com.google.common.base.Optional.fromNullable(minimalPrice));
+    }
+
+    public MagentoProduct replaceModel(final com.google.common.base.Optional<String> model) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceModel(final String model) {
+        return replaceModel(com.google.common.base.Optional.fromNullable(model));
+    }
+
+    public MagentoProduct replaceName(final String name) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceNewsFromDate(final com.google.common.base.Optional<org.joda.time.DateTime> newsFromDate) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceNewsFromDate(final org.joda.time.DateTime newsFromDate) {
+        return replaceNewsFromDate(com.google.common.base.Optional.fromNullable(newsFromDate));
+    }
+
+    public MagentoProduct replaceNewsToDate(final com.google.common.base.Optional<org.joda.time.DateTime> newsToDate) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceNewsToDate(final org.joda.time.DateTime newsToDate) {
+        return replaceNewsToDate(com.google.common.base.Optional.fromNullable(newsToDate));
+    }
+
+    public MagentoProduct replaceNotifyStockQty(final com.google.common.base.Optional<java.math.BigDecimal> notifyStockQty) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceNotifyStockQty(final java.math.BigDecimal notifyStockQty) {
+        return replaceNotifyStockQty(com.google.common.base.Optional.fromNullable(notifyStockQty));
+    }
+
+    public MagentoProduct replacePrice(final com.google.common.base.Optional<java.math.BigDecimal> price) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replacePrice(final java.math.BigDecimal price) {
+        return replacePrice(com.google.common.base.Optional.fromNullable(price));
+    }
+
+    public MagentoProduct replaceQty(final com.google.common.base.Optional<java.math.BigDecimal> qty) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceQty(final java.math.BigDecimal qty) {
+        return replaceQty(com.google.common.base.Optional.fromNullable(qty));
+    }
+
+    public MagentoProduct replaceShippingPolicy(final com.google.common.base.Optional<String> shippingPolicy) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceShippingPolicy(final String shippingPolicy) {
+        return replaceShippingPolicy(com.google.common.base.Optional.fromNullable(shippingPolicy));
+    }
+
+    public MagentoProduct replaceShortDescription(final String shortDescription) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceSku(final String sku) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceSpecialFromDate(final com.google.common.base.Optional<org.joda.time.DateTime> specialFromDate) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceSpecialFromDate(final org.joda.time.DateTime specialFromDate) {
+        return replaceSpecialFromDate(com.google.common.base.Optional.fromNullable(specialFromDate));
+    }
+
+    public MagentoProduct replaceSpecialPrice(final com.google.common.base.Optional<java.math.BigDecimal> specialPrice) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceSpecialPrice(final java.math.BigDecimal specialPrice) {
+        return replaceSpecialPrice(com.google.common.base.Optional.fromNullable(specialPrice));
+    }
+
+    public MagentoProduct replaceSpecialToDate(final com.google.common.base.Optional<org.joda.time.DateTime> specialToDate) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceSpecialToDate(final org.joda.time.DateTime specialToDate) {
+        return replaceSpecialToDate(com.google.common.base.Optional.fromNullable(specialToDate));
+    }
+
+    public MagentoProduct replaceStatus(final com.google.common.base.Optional<com.yogento.api.models.catalog.product.magento.MagentoProductStatus> status) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceStatus(final com.yogento.api.models.catalog.product.magento.MagentoProductStatus status) {
+        return replaceStatus(com.google.common.base.Optional.fromNullable(status));
+    }
+
+    public MagentoProduct replaceStore(final String store) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceTags(final com.google.common.base.Optional<com.google.common.collect.ImmutableSet<String>> tags) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceTags(final com.google.common.collect.ImmutableSet<String> tags) {
+        return replaceTags(com.google.common.base.Optional.fromNullable(tags));
+    }
+
+    public MagentoProduct replaceType(final com.google.common.base.Optional<String> type) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceType(final String type) {
+        return replaceType(com.google.common.base.Optional.fromNullable(type));
+    }
+
+    public MagentoProduct replaceUpdatedAt(final com.google.common.base.Optional<org.joda.time.DateTime> updatedAt) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, updatedAt, this.urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceUpdatedAt(final org.joda.time.DateTime updatedAt) {
+        return replaceUpdatedAt(com.google.common.base.Optional.fromNullable(updatedAt));
+    }
+
+    public MagentoProduct replaceUrlKey(final String urlKey) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, urlKey, this.urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceUrlPath(final com.google.common.base.Optional<String> urlPath) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, urlPath, this.visibility, this.weight);
+    }
+
+    public MagentoProduct replaceUrlPath(final String urlPath) {
+        return replaceUrlPath(com.google.common.base.Optional.fromNullable(urlPath));
+    }
+
+    public MagentoProduct replaceVisibility(final com.google.common.collect.ImmutableSet<String> visibility) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, visibility, this.weight);
+    }
+
+    public MagentoProduct replaceWeight(final com.google.common.base.Optional<java.math.BigDecimal> weight) {
+        return new MagentoProduct(this.activationInformation, this.backorders, this.children, this.cost, this.createdAt, this.description, this.images, this.isInStock, this.isQtyDecimal, this.isRecurring, this.lowStockDate, this.maxSaleQty, this.metaDescription, this.metaKeyword, this.metaTitle, this.minimalPrice, this.minQty, this.minSaleQty, this.model, this.name, this.newsFromDate, this.newsToDate, this.notifyStockQty, this.price, this.qty, this.shippingPolicy, this.shortDescription, this.sku, this.specialFromDate, this.specialPrice, this.specialToDate, this.store, this.status, this.tags, this.type, this.updatedAt, this.urlKey, this.urlPath, this.visibility, weight);
+    }
+
+    public MagentoProduct replaceWeight(final java.math.BigDecimal weight) {
+        return replaceWeight(com.google.common.base.Optional.fromNullable(weight));
     }
 
     @Override
