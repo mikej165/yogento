@@ -6,7 +6,7 @@ class ProductIoException(Exception):
         def __init__(
             self,
             cause_message,
-            sku
+            sku=None
         ):
             self.__cause_message = cause_message
             self.__sku = sku
@@ -36,7 +36,7 @@ class ProductIoException(Exception):
     def __init__(
         self,
         cause_message,
-        sku
+        sku=None
     ):
         if cause_message is None:
             raise ValueError('cause_message is required')
@@ -44,10 +44,9 @@ class ProductIoException(Exception):
             raise TypeError(getattr(__builtin__, 'type')(cause_message))
         self.__cause_message = cause_message
 
-        if sku is None:
-            raise ValueError('sku is required')
-        if not isinstance(sku, basestring):
-            raise TypeError(getattr(__builtin__, 'type')(sku))
+        if sku is not None:
+            if not isinstance(sku, basestring):
+                raise TypeError(getattr(__builtin__, 'type')(sku))
         self.__sku = sku
 
     def __eq__(self, other):
@@ -66,13 +65,15 @@ class ProductIoException(Exception):
     def __repr__(self):
         field_reprs = []
         field_reprs.append('cause_message=' + "'" + self.cause_message.encode('ascii', 'replace') + "'")
-        field_reprs.append('sku=' + "'" + self.sku.encode('ascii', 'replace') + "'")
+        if self.sku is not None:
+            field_reprs.append('sku=' + "'" + self.sku.encode('ascii', 'replace') + "'")
         return 'ProductIoException(' + ', '.join(field_reprs) + ')'
 
     def __str__(self):
         field_reprs = []
         field_reprs.append('cause_message=' + "'" + self.cause_message.encode('ascii', 'replace') + "'")
-        field_reprs.append('sku=' + "'" + self.sku.encode('ascii', 'replace') + "'")
+        if self.sku is not None:
+            field_reprs.append('sku=' + "'" + self.sku.encode('ascii', 'replace') + "'")
         return 'ProductIoException(' + ', '.join(field_reprs) + ')'
 
     def as_dict(self):
@@ -94,7 +95,10 @@ class ProductIoException(Exception):
             elif ifield_name == 'cause_message':
                 init_kwds['cause_message'] = iprot.readString()
             elif ifield_name == 'sku':
-                init_kwds['sku'] = iprot.readString()
+                try:
+                    init_kwds['sku'] = iprot.readString()
+                except (TypeError, ValueError,):
+                    pass
             iprot.readFieldEnd()
         iprot.readStructEnd()
 
@@ -118,9 +122,10 @@ class ProductIoException(Exception):
         oprot.writeString(self.cause_message)
         oprot.writeFieldEnd()
 
-        oprot.writeFieldBegin('sku', 11, -1)
-        oprot.writeString(self.sku)
-        oprot.writeFieldEnd()
+        if self.sku is not None:
+            oprot.writeFieldBegin('sku', 11, -1)
+            oprot.writeString(self.sku)
+            oprot.writeFieldEnd()
 
         oprot.writeFieldStop()
 

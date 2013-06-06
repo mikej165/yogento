@@ -10,21 +10,70 @@ include "yogento/api/services/catalog/no_such_product_image_exception.thrift"
 include "yogento/api/services/catalog/product_io_exception.thrift"
 
 service CatalogService {
-    bool delete_product_by_sku(string sku);
-    void delete_products();
+    bool delete_product_by_sku(string sku) throws (product_io_exception.ProductIoException e);
+    void delete_products() throws (product_io_exception.ProductIoException e);
 
-    i32 get_product_count();
-    product.Product get_product_by_sku(string sku) throws (no_such_product_exception.NoSuchProductException e);
-    set<product.Product> get_products(optional bool include_disabled, optional string query);
-    set<string> get_product_skus();
-    set<product.Product> get_products_by_skus(set<string> skus) throws (no_such_product_exception.NoSuchProductException e);
-    url.Url get_product_thumbnail_url(string sku, i32 thumbnail_height_px, i32 thumbnail_width_px) throws (no_such_product_exception.NoSuchProductException e1, no_such_product_image_exception.NoSuchProductImageException e1);
+    i32 get_product_count() throws (product_io_exception.ProductIoException e);
 
-    url.Url get_sample_product_thumbnail_url(string sku, i32 thumbnail_height_px, i32 thumbnail_width_px) throws (no_such_product_exception.NoSuchProductException e1, no_such_product_image_exception.NoSuchProductImageException e1);
-    product.Product get_sample_product_by_sku(string sku) throws (no_such_product_exception.NoSuchProductException e);
-    set<product.Product> get_sample_products();
+    product.Product
+    get_product_by_sku(
+        string sku
+    ) throws (
+        no_such_product_exception.NoSuchProductException e1,
+        product_io_exception.ProductIoException e2
+    );
 
-    bool head_product_by_sku(string sku);
+    set<product.Product>
+    get_products(
+        optional bool include_disabled,
+        optional string query
+    ) throws (
+        product_io_exception.ProductIoException e
+    );
+
+    set<string> get_product_skus() throws (product_io_exception.ProductIoException e);
+
+    set<product.Product>
+    get_products_by_skus(
+        set<string> skus
+    ) throws (
+        no_such_product_exception.NoSuchProductException e1,
+        product_io_exception.ProductIoException e2
+    );
+
+    url.Url
+    get_product_thumbnail_url(
+        string sku,
+        i32 thumbnail_height_px,
+        i32 thumbnail_width_px
+    ) throws (
+        no_such_product_exception.NoSuchProductException e1,
+        no_such_product_image_exception.NoSuchProductImageException e2,
+        product_io_exception.ProductIoException e3
+    );
+
+    url.Url
+    get_sample_product_thumbnail_url(
+        string sku,
+        i32 thumbnail_height_px,
+        i32 thumbnail_width_px
+    ) throws (
+        no_such_product_exception.NoSuchProductException e1,
+        no_such_product_image_exception.NoSuchProductImageException e2,
+        product_io_exception.ProductIoException e3
+    );
+
+    product.Product
+    get_sample_product_by_sku(
+        string sku
+    ) throws (
+        no_such_product_exception.NoSuchProductException e1,
+        product_io_exception.ProductIoException e2
+    );
+
+    set<product.Product> get_sample_products() throws (product_io_exception.ProductIoException e);
+
+    bool head_product_by_sku(string sku) throws (product_io_exception.ProductIoException e);
 
     void put_product(product.Product product) throws (product_io_exception.ProductIoException e);
     void put_products(set<product.Product> products) throws (product_io_exception.ProductIoException e);

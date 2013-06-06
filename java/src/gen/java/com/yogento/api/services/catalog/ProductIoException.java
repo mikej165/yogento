@@ -11,7 +11,7 @@ public class ProductIoException extends java.lang.Exception implements org.thryf
             this.sku = other.getSku();
         }
 
-        protected ProductIoException _build(final String causeMessage, final String sku) {
+        protected ProductIoException _build(final String causeMessage, final com.google.common.base.Optional<String> sku) {
             return new ProductIoException(causeMessage, sku);
         }
 
@@ -24,13 +24,18 @@ public class ProductIoException extends java.lang.Exception implements org.thryf
             return this;
         }
 
-        public Builder setSku(final String sku) {
+        public Builder setSku(final com.google.common.base.Optional<String> sku) {
             this.sku = sku;
             return this;
         }
 
+        public Builder setSku(final String sku) {
+            this.sku = com.google.common.base.Optional.of(sku);
+            return this;
+        }
+
         private String causeMessage;
-        private String sku;
+        private com.google.common.base.Optional<String> sku = com.google.common.base.Optional.absent();
     }
 
     public ProductIoException(final ProductIoException other) {
@@ -43,13 +48,15 @@ public class ProductIoException extends java.lang.Exception implements org.thryf
 
     public ProductIoException(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
         String causeMessage = null;
-        String sku = null;
+        com.google.common.base.Optional<String> sku = com.google.common.base.Optional.absent();
 
         switch (readAsTType) {
             case org.thryft.protocol.TType.LIST:
-                iprot.readListBegin();
+                final org.thryft.protocol.TList __list = iprot.readListBegin();
                 causeMessage = iprot.readString();
-                sku = iprot.readString();
+                if (__list.size > 1) {
+                    sku = com.google.common.base.Optional.of(iprot.readString());
+                }
                 iprot.readListEnd();
                 break;
 
@@ -63,7 +70,7 @@ public class ProductIoException extends java.lang.Exception implements org.thryf
                     } else if (ifield.name.equals("cause_message")) {
                         causeMessage = iprot.readString();
                     } else if (ifield.name.equals("sku")) {
-                        sku = iprot.readString();
+                        sku = com.google.common.base.Optional.of(iprot.readString());
                     }
                     iprot.readFieldEnd();
                 }
@@ -72,10 +79,15 @@ public class ProductIoException extends java.lang.Exception implements org.thryf
         }
 
         this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage, "com.yogento.api.services.catalog.ProductIoException: missing causeMessage");
-        this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.ProductIoException: missing sku");
+        this.sku = sku;
     }
 
-    public ProductIoException(final String causeMessage, final String sku) {
+    public ProductIoException(final String causeMessage) {
+        this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage, "com.yogento.api.services.catalog.ProductIoException: missing causeMessage");
+        this.sku = com.google.common.base.Optional.absent();
+    }
+
+    public ProductIoException(final String causeMessage, final com.google.common.base.Optional<String> sku) {
         this.causeMessage = com.google.common.base.Preconditions.checkNotNull(causeMessage, "com.yogento.api.services.catalog.ProductIoException: missing causeMessage");
         this.sku = com.google.common.base.Preconditions.checkNotNull(sku, "com.yogento.api.services.catalog.ProductIoException: missing sku");
     }
@@ -96,9 +108,17 @@ public class ProductIoException extends java.lang.Exception implements org.thryf
             return result;
         }
 
-        result = this.sku.compareTo(other.sku);
-        if (result != 0) {
-            return result;
+        if (this.sku.isPresent()) {
+            if (other.sku.isPresent()) {
+                result = this.sku.get().compareTo(other.sku.get());
+                if (result != 0) {
+                    return result;
+                }
+            } else {
+                return 1;
+            }
+        } else if (other.sku.isPresent()) {
+            return -1;
         }
 
         return 0;
@@ -147,7 +167,7 @@ public class ProductIoException extends java.lang.Exception implements org.thryf
         return toString();
     }
 
-    public final String getSku() {
+    public final com.google.common.base.Optional<String> getSku() {
         return sku;
     }
 
@@ -155,7 +175,9 @@ public class ProductIoException extends java.lang.Exception implements org.thryf
     public int hashCode() {
         int hashCode = 17;
         hashCode = 31 * hashCode + getCauseMessage().hashCode();
-        hashCode = 31 * hashCode + getSku().hashCode();
+        if (getSku().isPresent()) {
+            hashCode = 31 * hashCode + getSku().get().hashCode();
+        }
         return hashCode;
     }
 
@@ -163,15 +185,21 @@ public class ProductIoException extends java.lang.Exception implements org.thryf
         return new ProductIoException(causeMessage, this.sku);
     }
 
-    public ProductIoException replaceSku(final String sku) {
+    public ProductIoException replaceSku(final com.google.common.base.Optional<String> sku) {
         return new ProductIoException(this.causeMessage, sku);
+    }
+
+    public ProductIoException replaceSku(final String sku) {
+        return replaceSku(com.google.common.base.Optional.fromNullable(sku));
     }
 
     @Override
     public String toString() {
         final com.google.common.base.Objects.ToStringHelper helper = com.google.common.base.Objects.toStringHelper(this);
         helper.add("cause_message", getCauseMessage());
-        helper.add("sku", getSku());
+        if (getSku().isPresent()) {
+            helper.add("sku", getSku());
+        }
         return helper.toString();
     }
 
@@ -188,7 +216,11 @@ public class ProductIoException extends java.lang.Exception implements org.thryf
 
                 oprot.writeString(getCauseMessage());
 
-                oprot.writeString(getSku());
+                if (getSku().isPresent()) {
+                    oprot.writeString(getSku().get());
+                } else {
+                    oprot.writeNull();
+                }
 
                 oprot.writeListEnd();
                 break;
@@ -201,9 +233,11 @@ public class ProductIoException extends java.lang.Exception implements org.thryf
                 oprot.writeString(getCauseMessage());
                 oprot.writeFieldEnd();
 
-                oprot.writeFieldBegin(new org.thryft.protocol.TField("sku", org.thryft.protocol.TType.STRING, (short)-1));
-                oprot.writeString(getSku());
-                oprot.writeFieldEnd();
+                if (getSku().isPresent()) {
+                    oprot.writeFieldBegin(new org.thryft.protocol.TField("sku", org.thryft.protocol.TType.STRING, (short)-1));
+                    oprot.writeString(getSku().get());
+                    oprot.writeFieldEnd();
+                }
 
                 oprot.writeFieldStop();
 
@@ -214,5 +248,5 @@ public class ProductIoException extends java.lang.Exception implements org.thryf
 
     private final String causeMessage;
 
-    private final String sku;
+    private final com.google.common.base.Optional<String> sku;
 }

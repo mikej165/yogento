@@ -4619,29 +4619,29 @@ public interface CatalogService {
         }
     }
 
-    public boolean deleteProductBySku(final String sku);
+    public boolean deleteProductBySku(final String sku) throws com.yogento.api.services.catalog.ProductIoException;
 
-    public void deleteProducts();
+    public void deleteProducts() throws com.yogento.api.services.catalog.ProductIoException;
 
-    public int getProductCount();
+    public int getProductCount() throws com.yogento.api.services.catalog.ProductIoException;
 
-    public com.yogento.api.models.catalog.product.Product getProductBySku(final String sku) throws com.yogento.api.services.catalog.NoSuchProductException;
+    public com.yogento.api.models.catalog.product.Product getProductBySku(final String sku) throws com.yogento.api.services.catalog.NoSuchProductException, com.yogento.api.services.catalog.ProductIoException;
 
-    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> getProducts(final com.google.common.base.Optional<Boolean> includeDisabled, final com.google.common.base.Optional<String> query);
+    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> getProducts(final com.google.common.base.Optional<Boolean> includeDisabled, final com.google.common.base.Optional<String> query) throws com.yogento.api.services.catalog.ProductIoException;
 
-    public com.google.common.collect.ImmutableSet<String> getProductSkus();
+    public com.google.common.collect.ImmutableSet<String> getProductSkus() throws com.yogento.api.services.catalog.ProductIoException;
 
-    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> getProductsBySkus(final com.google.common.collect.ImmutableSet<String> skus) throws com.yogento.api.services.catalog.NoSuchProductException;
+    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> getProductsBySkus(final com.google.common.collect.ImmutableSet<String> skus) throws com.yogento.api.services.catalog.NoSuchProductException, com.yogento.api.services.catalog.ProductIoException;
 
-    public org.thryft.native_.Url getProductThumbnailUrl(final String sku, final int thumbnailHeightPx, final int thumbnailWidthPx) throws com.yogento.api.services.catalog.NoSuchProductException, com.yogento.api.services.catalog.NoSuchProductImageException;
+    public org.thryft.native_.Url getProductThumbnailUrl(final String sku, final int thumbnailHeightPx, final int thumbnailWidthPx) throws com.yogento.api.services.catalog.NoSuchProductException, com.yogento.api.services.catalog.NoSuchProductImageException, com.yogento.api.services.catalog.ProductIoException;
 
-    public org.thryft.native_.Url getSampleProductThumbnailUrl(final String sku, final int thumbnailHeightPx, final int thumbnailWidthPx) throws com.yogento.api.services.catalog.NoSuchProductException, com.yogento.api.services.catalog.NoSuchProductImageException;
+    public org.thryft.native_.Url getSampleProductThumbnailUrl(final String sku, final int thumbnailHeightPx, final int thumbnailWidthPx) throws com.yogento.api.services.catalog.NoSuchProductException, com.yogento.api.services.catalog.NoSuchProductImageException, com.yogento.api.services.catalog.ProductIoException;
 
-    public com.yogento.api.models.catalog.product.Product getSampleProductBySku(final String sku) throws com.yogento.api.services.catalog.NoSuchProductException;
+    public com.yogento.api.models.catalog.product.Product getSampleProductBySku(final String sku) throws com.yogento.api.services.catalog.NoSuchProductException, com.yogento.api.services.catalog.ProductIoException;
 
-    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> getSampleProducts();
+    public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.Product> getSampleProducts() throws com.yogento.api.services.catalog.ProductIoException;
 
-    public boolean headProductBySku(final String sku);
+    public boolean headProductBySku(final String sku) throws com.yogento.api.services.catalog.ProductIoException;
 
     public void putProduct(final com.yogento.api.models.catalog.product.Product product) throws com.yogento.api.services.catalog.ProductIoException;
 

@@ -5,5 +5,5 @@ namespace * yogento.api.services.catalog
 
 exception ProductIoException {
     required string cause_message;
-    required string sku;
+    optional string sku;
 }
