@@ -22,7 +22,7 @@ class AgentService(object):
     def head_magento_store(self, magento_store_url):
         if magento_store_url is None:
             raise ValueError('magento_store_url is required')
-        if not isinstance(magento_store_url, basestring):
+        if not isinstance(magento_store_url, str):
             raise TypeError(getattr(__builtin__, 'type')(magento_store_url))
 
         head_magento_store_return_value = self._head_magento_store(magento_store_url=magento_store_url)

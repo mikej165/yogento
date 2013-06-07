@@ -26,7 +26,7 @@ public interface AgentService {
                 }
 
                 public Builder setSync(final boolean sync) {
-                    this.sync = com.google.common.base.Optional.of(sync);
+                    this.sync = com.google.common.base.Optional.fromNullable(sync);
                     return this;
                 }
 
@@ -391,7 +391,7 @@ public interface AgentService {
                     this.magentoStoreUrl = other.getMagentoStoreUrl();
                 }
 
-                protected HeadMagentoStoreRequest _build(final String magentoStoreUrl) {
+                protected HeadMagentoStoreRequest _build(final org.thryft.native_.Url magentoStoreUrl) {
                     return new HeadMagentoStoreRequest(magentoStoreUrl);
                 }
 
@@ -399,12 +399,12 @@ public interface AgentService {
                     return _build(magentoStoreUrl);
                 }
 
-                public Builder setMagentoStoreUrl(final String magentoStoreUrl) {
+                public Builder setMagentoStoreUrl(final org.thryft.native_.Url magentoStoreUrl) {
                     this.magentoStoreUrl = magentoStoreUrl;
                     return this;
                 }
 
-                private String magentoStoreUrl;
+                private org.thryft.native_.Url magentoStoreUrl;
             }
 
             public HeadMagentoStoreRequest(final HeadMagentoStoreRequest other) {
@@ -416,12 +416,16 @@ public interface AgentService {
             }
 
             public HeadMagentoStoreRequest(final org.thryft.protocol.TProtocol iprot, final byte readAsTType) throws java.io.IOException {
-                String magentoStoreUrl = null;
+                org.thryft.native_.Url magentoStoreUrl = null;
 
                 switch (readAsTType) {
                     case org.thryft.protocol.TType.LIST:
                         iprot.readListBegin();
-                        magentoStoreUrl = iprot.readString();
+                        try {
+                            magentoStoreUrl = iprot.readUrl();
+                        } catch (java.net.MalformedURLException e) {
+                             throw new IllegalArgumentException(e);
+                        }
                         iprot.readListEnd();
                         break;
 
@@ -433,7 +437,11 @@ public interface AgentService {
                             if (ifield.type == org.thryft.protocol.TType.STOP) {
                                 break;
                             } else if (ifield.name.equals("magento_store_url")) {
-                                magentoStoreUrl = iprot.readString();
+                                try {
+                                    magentoStoreUrl = iprot.readUrl();
+                                } catch (java.net.MalformedURLException e) {
+                                     throw new IllegalArgumentException(e);
+                                }
                             }
                             iprot.readFieldEnd();
                         }
@@ -444,7 +452,7 @@ public interface AgentService {
                 this.magentoStoreUrl = com.google.common.base.Preconditions.checkNotNull(magentoStoreUrl, "com.yogento.api.services.agent.HeadMagentoStoreRequest: missing magentoStoreUrl");
             }
 
-            public HeadMagentoStoreRequest(final String magentoStoreUrl) {
+            public HeadMagentoStoreRequest(final org.thryft.native_.Url magentoStoreUrl) {
                 this.magentoStoreUrl = com.google.common.base.Preconditions.checkNotNull(magentoStoreUrl, "com.yogento.api.services.agent.HeadMagentoStoreRequest: missing magentoStoreUrl");
             }
 
@@ -486,7 +494,7 @@ public interface AgentService {
 
             public static Builder fakeBuilder() {
                 Builder builder = new Builder();
-                builder.setMagentoStoreUrl(org.thryft.Faker.Lorem.word());
+                builder.setMagentoStoreUrl(org.thryft.Faker.Internet.url());
                 return builder;
             }
 
@@ -497,7 +505,7 @@ public interface AgentService {
                 throw new IllegalArgumentException(fieldName);
             }
 
-            public final String getMagentoStoreUrl() {
+            public final org.thryft.native_.Url getMagentoStoreUrl() {
                 return magentoStoreUrl;
             }
 
@@ -508,7 +516,7 @@ public interface AgentService {
                 return hashCode;
             }
 
-            public HeadMagentoStoreRequest replaceMagentoStoreUrl(final String magentoStoreUrl) {
+            public HeadMagentoStoreRequest replaceMagentoStoreUrl(final org.thryft.native_.Url magentoStoreUrl) {
                 return new HeadMagentoStoreRequest(magentoStoreUrl);
             }
 
@@ -526,11 +534,15 @@ public interface AgentService {
 
             public void write(final org.thryft.protocol.TProtocol oprot, final byte writeAsTType) throws java.io.IOException {
                 switch (writeAsTType) {
-                    case org.thryft.protocol.TType.VOID:
+                    case org.thryft.protocol.TType.VOID: {
+                        oprot.writeUrl(getMagentoStoreUrl());
+                        break;
+                    }
+
                     case org.thryft.protocol.TType.LIST:
                         oprot.writeListBegin(new org.thryft.protocol.TList(org.thryft.protocol.TType.VOID, 1));
 
-                        oprot.writeString(getMagentoStoreUrl());
+                        oprot.writeUrl(getMagentoStoreUrl());
 
                         oprot.writeListEnd();
                         break;
@@ -539,8 +551,8 @@ public interface AgentService {
                     default:
                         oprot.writeStructBegin(new org.thryft.protocol.TStruct("HeadMagentoStoreRequest"));
 
-                        oprot.writeFieldBegin(new org.thryft.protocol.TField("magento_store_url", org.thryft.protocol.TType.STRING, (short)-1));
-                        oprot.writeString(getMagentoStoreUrl());
+                        oprot.writeFieldBegin(new org.thryft.protocol.TField("magento_store_url", org.thryft.protocol.TType.STRUCT, (short)-1));
+                        oprot.writeUrl(getMagentoStoreUrl());
                         oprot.writeFieldEnd();
 
                         oprot.writeFieldStop();
@@ -550,7 +562,7 @@ public interface AgentService {
                 }
             }
 
-            private final String magentoStoreUrl;
+            private final org.thryft.native_.Url magentoStoreUrl;
         }
 
         @SuppressWarnings({"serial"})
@@ -1055,7 +1067,7 @@ public interface AgentService {
 
     public com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> getAgentMagentoProducts(final com.google.common.base.Optional<Boolean> sync) throws com.yogento.api.services.agent.AgentException;
 
-    public boolean headMagentoStore(final String magentoStoreUrl);
+    public boolean headMagentoStore(final org.thryft.native_.Url magentoStoreUrl);
 
     public void putAgentMagentoProducts(final String magentoProductsJson, final String ticket, final String username);
 }
