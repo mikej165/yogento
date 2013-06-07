@@ -30,7 +30,7 @@ public class ProductIoException extends java.lang.Exception implements org.thryf
         }
 
         public Builder setSku(final String sku) {
-            this.sku = com.google.common.base.Optional.of(sku);
+            this.sku = com.google.common.base.Optional.fromNullable(sku);
             return this;
         }
 

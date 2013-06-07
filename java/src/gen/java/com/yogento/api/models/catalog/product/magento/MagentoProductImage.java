@@ -29,7 +29,7 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
         }
 
         public Builder setExclude(final boolean exclude) {
-            this.exclude = com.google.common.base.Optional.of(exclude);
+            this.exclude = com.google.common.base.Optional.fromNullable(exclude);
             return this;
         }
 
@@ -44,7 +44,7 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
         }
 
         public Builder setLabel(final String label) {
-            this.label = com.google.common.base.Optional.of(label);
+            this.label = com.google.common.base.Optional.fromNullable(label);
             return this;
         }
 
@@ -54,7 +54,7 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
         }
 
         public Builder setPosition(final int position) {
-            this.position = com.google.common.base.Optional.of(position);
+            this.position = com.google.common.base.Optional.fromNullable(position);
             return this;
         }
 
@@ -64,7 +64,7 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
         }
 
         public Builder setTypes(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImageType> types) {
-            this.types = com.google.common.base.Optional.of(types);
+            this.types = com.google.common.base.Optional.fromNullable(types);
             return this;
         }
 
@@ -74,7 +74,7 @@ public class MagentoProductImage implements org.thryft.TBase<MagentoProductImage
         }
 
         public Builder setUrl(final String url) {
-            this.url = com.google.common.base.Optional.of(url);
+            this.url = com.google.common.base.Optional.fromNullable(url);
             return this;
         }
 

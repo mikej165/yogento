@@ -30,7 +30,7 @@ public class UserSettings implements org.thryft.TBase<UserSettings> {
         }
 
         public Builder setDisplayName(final String displayName) {
-            this.displayName = com.google.common.base.Optional.of(displayName);
+            this.displayName = com.google.common.base.Optional.fromNullable(displayName);
             return this;
         }
 
@@ -40,7 +40,7 @@ public class UserSettings implements org.thryft.TBase<UserSettings> {
         }
 
         public Builder setEmail(final org.thryft.native_.EmailAddress email) {
-            this.email = com.google.common.base.Optional.of(email);
+            this.email = com.google.common.base.Optional.fromNullable(email);
             return this;
         }
 
@@ -50,7 +50,7 @@ public class UserSettings implements org.thryft.TBase<UserSettings> {
         }
 
         public Builder setLogoImageUrl(final org.thryft.native_.Url logoImageUrl) {
-            this.logoImageUrl = com.google.common.base.Optional.of(logoImageUrl);
+            this.logoImageUrl = com.google.common.base.Optional.fromNullable(logoImageUrl);
             return this;
         }
 
@@ -60,7 +60,7 @@ public class UserSettings implements org.thryft.TBase<UserSettings> {
         }
 
         public Builder setMagentoStoreUrl(final org.thryft.native_.Url magentoStoreUrl) {
-            this.magentoStoreUrl = com.google.common.base.Optional.of(magentoStoreUrl);
+            this.magentoStoreUrl = com.google.common.base.Optional.fromNullable(magentoStoreUrl);
             return this;
         }
 
@@ -70,7 +70,7 @@ public class UserSettings implements org.thryft.TBase<UserSettings> {
         }
 
         public Builder setProductSearchQueries(final com.google.common.collect.ImmutableList<String> productSearchQueries) {
-            this.productSearchQueries = com.google.common.base.Optional.of(productSearchQueries);
+            this.productSearchQueries = com.google.common.base.Optional.fromNullable(productSearchQueries);
             return this;
         }
 
@@ -80,7 +80,7 @@ public class UserSettings implements org.thryft.TBase<UserSettings> {
         }
 
         public Builder setProductsMtime(final org.joda.time.DateTime productsMtime) {
-            this.productsMtime = com.google.common.base.Optional.of(productsMtime);
+            this.productsMtime = com.google.common.base.Optional.fromNullable(productsMtime);
             return this;
         }
 
@@ -90,7 +90,7 @@ public class UserSettings implements org.thryft.TBase<UserSettings> {
         }
 
         public Builder setUseSampleData(final boolean useSampleData) {
-            this.useSampleData = com.google.common.base.Optional.of(useSampleData);
+            this.useSampleData = com.google.common.base.Optional.fromNullable(useSampleData);
             return this;
         }
 

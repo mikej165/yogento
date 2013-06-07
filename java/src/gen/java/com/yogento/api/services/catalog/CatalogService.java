@@ -1158,7 +1158,7 @@ public interface CatalogService {
                 }
 
                 public Builder setIncludeDisabled(final boolean includeDisabled) {
-                    this.includeDisabled = com.google.common.base.Optional.of(includeDisabled);
+                    this.includeDisabled = com.google.common.base.Optional.fromNullable(includeDisabled);
                     return this;
                 }
 
@@ -1168,7 +1168,7 @@ public interface CatalogService {
                 }
 
                 public Builder setQuery(final String query) {
-                    this.query = com.google.common.base.Optional.of(query);
+                    this.query = com.google.common.base.Optional.fromNullable(query);
                     return this;
                 }
 

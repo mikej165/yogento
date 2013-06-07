@@ -32,7 +32,7 @@ public interface MailService {
                 }
 
                 public Builder setWriteThrough(final boolean writeThrough) {
-                    this.writeThrough = com.google.common.base.Optional.of(writeThrough);
+                    this.writeThrough = com.google.common.base.Optional.fromNullable(writeThrough);
                     return this;
                 }
 
@@ -425,7 +425,7 @@ public interface MailService {
                 }
 
                 public Builder setIncludeContent(final boolean includeContent) {
-                    this.includeContent = com.google.common.base.Optional.of(includeContent);
+                    this.includeContent = com.google.common.base.Optional.fromNullable(includeContent);
                     return this;
                 }
 
@@ -812,7 +812,7 @@ public interface MailService {
                 }
 
                 public Builder setIncludeContent(final boolean includeContent) {
-                    this.includeContent = com.google.common.base.Optional.of(includeContent);
+                    this.includeContent = com.google.common.base.Optional.fromNullable(includeContent);
                     return this;
                 }
 
@@ -1807,7 +1807,7 @@ public interface MailService {
                 }
 
                 public Builder setTypes(final com.google.common.collect.ImmutableSet<com.yogento.api.models.mail.template.MailTemplateType> types) {
-                    this.types = com.google.common.base.Optional.of(types);
+                    this.types = com.google.common.base.Optional.fromNullable(types);
                     return this;
                 }
 
@@ -2256,7 +2256,7 @@ public interface MailService {
                 }
 
                 public Builder setType(final com.yogento.api.models.mail.template.MailTemplateType type) {
-                    this.type = com.google.common.base.Optional.of(type);
+                    this.type = com.google.common.base.Optional.fromNullable(type);
                     return this;
                 }
 
@@ -2656,7 +2656,7 @@ public interface MailService {
                 }
 
                 public Builder setScheduleTime(final org.joda.time.DateTime scheduleTime) {
-                    this.scheduleTime = com.google.common.base.Optional.of(scheduleTime);
+                    this.scheduleTime = com.google.common.base.Optional.fromNullable(scheduleTime);
                     return this;
                 }
 
@@ -2666,7 +2666,7 @@ public interface MailService {
                 }
 
                 public Builder setScheduleTimeB(final org.joda.time.DateTime scheduleTimeB) {
-                    this.scheduleTimeB = com.google.common.base.Optional.of(scheduleTimeB);
+                    this.scheduleTimeB = com.google.common.base.Optional.fromNullable(scheduleTimeB);
                     return this;
                 }
 
@@ -2676,7 +2676,7 @@ public interface MailService {
                 }
 
                 public Builder setTestEmails(final com.google.common.collect.ImmutableList<org.thryft.native_.EmailAddress> testEmails) {
-                    this.testEmails = com.google.common.base.Optional.of(testEmails);
+                    this.testEmails = com.google.common.base.Optional.fromNullable(testEmails);
                     return this;
                 }
 
@@ -3237,7 +3237,7 @@ public interface MailService {
                 }
 
                 public Builder setWriteThrough(final boolean writeThrough) {
-                    this.writeThrough = com.google.common.base.Optional.of(writeThrough);
+                    this.writeThrough = com.google.common.base.Optional.fromNullable(writeThrough);
                     return this;
                 }
 

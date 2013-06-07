@@ -30,7 +30,7 @@ public class AgentException extends java.lang.Exception implements org.thryft.TB
         }
 
         public Builder setUrl(final String url) {
-            this.url = com.google.common.base.Optional.of(url);
+            this.url = com.google.common.base.Optional.fromNullable(url);
             return this;
         }
 

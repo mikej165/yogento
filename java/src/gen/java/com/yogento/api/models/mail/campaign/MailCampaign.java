@@ -28,7 +28,7 @@ public class MailCampaign implements org.thryft.TBase<MailCampaign> {
         }
 
         public Builder setContent(final com.yogento.api.models.mail.campaign.MailCampaignContent content) {
-            this.content = com.google.common.base.Optional.of(content);
+            this.content = com.google.common.base.Optional.fromNullable(content);
             return this;
         }
 
@@ -38,7 +38,7 @@ public class MailCampaign implements org.thryft.TBase<MailCampaign> {
         }
 
         public Builder setId(final String id) {
-            this.id = com.google.common.base.Optional.of(id);
+            this.id = com.google.common.base.Optional.fromNullable(id);
             return this;
         }
 
@@ -48,7 +48,7 @@ public class MailCampaign implements org.thryft.TBase<MailCampaign> {
         }
 
         public Builder setMailChimpCampaign(final com.yochimp.models.campaign.Campaign mailChimpCampaign) {
-            this.mailChimpCampaign = com.google.common.base.Optional.of(mailChimpCampaign);
+            this.mailChimpCampaign = com.google.common.base.Optional.fromNullable(mailChimpCampaign);
             return this;
         }
 
@@ -58,7 +58,7 @@ public class MailCampaign implements org.thryft.TBase<MailCampaign> {
         }
 
         public Builder setMailChimpTemplateId(final String mailChimpTemplateId) {
-            this.mailChimpTemplateId = com.google.common.base.Optional.of(mailChimpTemplateId);
+            this.mailChimpTemplateId = com.google.common.base.Optional.fromNullable(mailChimpTemplateId);
             return this;
         }
 
@@ -68,7 +68,7 @@ public class MailCampaign implements org.thryft.TBase<MailCampaign> {
         }
 
         public Builder setStatus(final com.yogento.api.models.mail.campaign.MailCampaignStatus status) {
-            this.status = com.google.common.base.Optional.of(status);
+            this.status = com.google.common.base.Optional.fromNullable(status);
             return this;
         }
 

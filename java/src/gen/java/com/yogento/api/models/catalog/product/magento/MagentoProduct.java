@@ -63,7 +63,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setActivationInformation(final String activationInformation) {
-            this.activationInformation = com.google.common.base.Optional.of(activationInformation);
+            this.activationInformation = com.google.common.base.Optional.fromNullable(activationInformation);
             return this;
         }
 
@@ -73,7 +73,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setBackorders(final int backorders) {
-            this.backorders = com.google.common.base.Optional.of(backorders);
+            this.backorders = com.google.common.base.Optional.fromNullable(backorders);
             return this;
         }
 
@@ -83,7 +83,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setChildren(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProduct> children) {
-            this.children = com.google.common.base.Optional.of(children);
+            this.children = com.google.common.base.Optional.fromNullable(children);
             return this;
         }
 
@@ -93,7 +93,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setCost(final java.math.BigDecimal cost) {
-            this.cost = com.google.common.base.Optional.of(cost);
+            this.cost = com.google.common.base.Optional.fromNullable(cost);
             return this;
         }
 
@@ -103,7 +103,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setCreatedAt(final org.joda.time.DateTime createdAt) {
-            this.createdAt = com.google.common.base.Optional.of(createdAt);
+            this.createdAt = com.google.common.base.Optional.fromNullable(createdAt);
             return this;
         }
 
@@ -113,7 +113,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setDescription(final String description) {
-            this.description = com.google.common.base.Optional.of(description);
+            this.description = com.google.common.base.Optional.fromNullable(description);
             return this;
         }
 
@@ -123,7 +123,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setImages(final com.google.common.collect.ImmutableSet<com.yogento.api.models.catalog.product.magento.MagentoProductImage> images) {
-            this.images = com.google.common.base.Optional.of(images);
+            this.images = com.google.common.base.Optional.fromNullable(images);
             return this;
         }
 
@@ -133,7 +133,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setIsInStock(final boolean isInStock) {
-            this.isInStock = com.google.common.base.Optional.of(isInStock);
+            this.isInStock = com.google.common.base.Optional.fromNullable(isInStock);
             return this;
         }
 
@@ -143,7 +143,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setIsQtyDecimal(final boolean isQtyDecimal) {
-            this.isQtyDecimal = com.google.common.base.Optional.of(isQtyDecimal);
+            this.isQtyDecimal = com.google.common.base.Optional.fromNullable(isQtyDecimal);
             return this;
         }
 
@@ -153,7 +153,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setIsRecurring(final boolean isRecurring) {
-            this.isRecurring = com.google.common.base.Optional.of(isRecurring);
+            this.isRecurring = com.google.common.base.Optional.fromNullable(isRecurring);
             return this;
         }
 
@@ -163,7 +163,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setLowStockDate(final org.joda.time.DateTime lowStockDate) {
-            this.lowStockDate = com.google.common.base.Optional.of(lowStockDate);
+            this.lowStockDate = com.google.common.base.Optional.fromNullable(lowStockDate);
             return this;
         }
 
@@ -173,7 +173,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setMaxSaleQty(final java.math.BigDecimal maxSaleQty) {
-            this.maxSaleQty = com.google.common.base.Optional.of(maxSaleQty);
+            this.maxSaleQty = com.google.common.base.Optional.fromNullable(maxSaleQty);
             return this;
         }
 
@@ -183,7 +183,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setMetaDescription(final String metaDescription) {
-            this.metaDescription = com.google.common.base.Optional.of(metaDescription);
+            this.metaDescription = com.google.common.base.Optional.fromNullable(metaDescription);
             return this;
         }
 
@@ -193,7 +193,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setMetaKeyword(final String metaKeyword) {
-            this.metaKeyword = com.google.common.base.Optional.of(metaKeyword);
+            this.metaKeyword = com.google.common.base.Optional.fromNullable(metaKeyword);
             return this;
         }
 
@@ -203,7 +203,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setMetaTitle(final String metaTitle) {
-            this.metaTitle = com.google.common.base.Optional.of(metaTitle);
+            this.metaTitle = com.google.common.base.Optional.fromNullable(metaTitle);
             return this;
         }
 
@@ -213,7 +213,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setMinQty(final java.math.BigDecimal minQty) {
-            this.minQty = com.google.common.base.Optional.of(minQty);
+            this.minQty = com.google.common.base.Optional.fromNullable(minQty);
             return this;
         }
 
@@ -223,7 +223,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setMinSaleQty(final java.math.BigDecimal minSaleQty) {
-            this.minSaleQty = com.google.common.base.Optional.of(minSaleQty);
+            this.minSaleQty = com.google.common.base.Optional.fromNullable(minSaleQty);
             return this;
         }
 
@@ -233,7 +233,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setMinimalPrice(final java.math.BigDecimal minimalPrice) {
-            this.minimalPrice = com.google.common.base.Optional.of(minimalPrice);
+            this.minimalPrice = com.google.common.base.Optional.fromNullable(minimalPrice);
             return this;
         }
 
@@ -243,7 +243,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setModel(final String model) {
-            this.model = com.google.common.base.Optional.of(model);
+            this.model = com.google.common.base.Optional.fromNullable(model);
             return this;
         }
 
@@ -258,7 +258,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setNewsFromDate(final org.joda.time.DateTime newsFromDate) {
-            this.newsFromDate = com.google.common.base.Optional.of(newsFromDate);
+            this.newsFromDate = com.google.common.base.Optional.fromNullable(newsFromDate);
             return this;
         }
 
@@ -268,7 +268,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setNewsToDate(final org.joda.time.DateTime newsToDate) {
-            this.newsToDate = com.google.common.base.Optional.of(newsToDate);
+            this.newsToDate = com.google.common.base.Optional.fromNullable(newsToDate);
             return this;
         }
 
@@ -278,7 +278,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setNotifyStockQty(final java.math.BigDecimal notifyStockQty) {
-            this.notifyStockQty = com.google.common.base.Optional.of(notifyStockQty);
+            this.notifyStockQty = com.google.common.base.Optional.fromNullable(notifyStockQty);
             return this;
         }
 
@@ -288,7 +288,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setPrice(final java.math.BigDecimal price) {
-            this.price = com.google.common.base.Optional.of(price);
+            this.price = com.google.common.base.Optional.fromNullable(price);
             return this;
         }
 
@@ -298,7 +298,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setQty(final java.math.BigDecimal qty) {
-            this.qty = com.google.common.base.Optional.of(qty);
+            this.qty = com.google.common.base.Optional.fromNullable(qty);
             return this;
         }
 
@@ -308,7 +308,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setShippingPolicy(final String shippingPolicy) {
-            this.shippingPolicy = com.google.common.base.Optional.of(shippingPolicy);
+            this.shippingPolicy = com.google.common.base.Optional.fromNullable(shippingPolicy);
             return this;
         }
 
@@ -328,7 +328,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setSpecialFromDate(final org.joda.time.DateTime specialFromDate) {
-            this.specialFromDate = com.google.common.base.Optional.of(specialFromDate);
+            this.specialFromDate = com.google.common.base.Optional.fromNullable(specialFromDate);
             return this;
         }
 
@@ -338,7 +338,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setSpecialPrice(final java.math.BigDecimal specialPrice) {
-            this.specialPrice = com.google.common.base.Optional.of(specialPrice);
+            this.specialPrice = com.google.common.base.Optional.fromNullable(specialPrice);
             return this;
         }
 
@@ -348,7 +348,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setSpecialToDate(final org.joda.time.DateTime specialToDate) {
-            this.specialToDate = com.google.common.base.Optional.of(specialToDate);
+            this.specialToDate = com.google.common.base.Optional.fromNullable(specialToDate);
             return this;
         }
 
@@ -358,7 +358,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setStatus(final com.yogento.api.models.catalog.product.magento.MagentoProductStatus status) {
-            this.status = com.google.common.base.Optional.of(status);
+            this.status = com.google.common.base.Optional.fromNullable(status);
             return this;
         }
 
@@ -373,7 +373,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setTags(final com.google.common.collect.ImmutableSet<String> tags) {
-            this.tags = com.google.common.base.Optional.of(tags);
+            this.tags = com.google.common.base.Optional.fromNullable(tags);
             return this;
         }
 
@@ -383,7 +383,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setType(final String type) {
-            this.type = com.google.common.base.Optional.of(type);
+            this.type = com.google.common.base.Optional.fromNullable(type);
             return this;
         }
 
@@ -393,7 +393,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setUpdatedAt(final org.joda.time.DateTime updatedAt) {
-            this.updatedAt = com.google.common.base.Optional.of(updatedAt);
+            this.updatedAt = com.google.common.base.Optional.fromNullable(updatedAt);
             return this;
         }
 
@@ -408,7 +408,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setUrlPath(final String urlPath) {
-            this.urlPath = com.google.common.base.Optional.of(urlPath);
+            this.urlPath = com.google.common.base.Optional.fromNullable(urlPath);
             return this;
         }
 
@@ -423,7 +423,7 @@ public class MagentoProduct implements org.thryft.TBase<MagentoProduct> {
         }
 
         public Builder setWeight(final java.math.BigDecimal weight) {
-            this.weight = com.google.common.base.Optional.of(weight);
+            this.weight = com.google.common.base.Optional.fromNullable(weight);
             return this;
         }
 
